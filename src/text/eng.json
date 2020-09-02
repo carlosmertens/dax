@@ -1,0 +1,170 @@
+{
+    "navbar": {
+      "enlace1": "Who are we?",
+      "enlace2": "How do we do it?",
+      "enlace3": "What do we offer?",
+      "enlace4": "Contacts",
+      "botonTexto1": "Login",
+      "botonTexto2": "Sign up"
+    },
+  
+    "home": {
+      "leyendaBuscar": "Spare part number",
+      "campoBuscar": "Enter number",
+      "botonBuscar": "Search",
+      "enlaceClick": "Click here if you don't know the code",
+      "leyendaTutorial": "Tutorials",
+  
+      "modal": {
+        "titulo": "Don't know spare part number?",
+        "enlaceTutorial": "Online tutorials",
+        "enlaceBuscamos": "We find it for you",
+        "tienesCuenta": "Do you have an account?",
+        "click": "Click here"
+      }
+    },
+  
+    "buscamos": {
+      "titulo1": "Equipment details:",
+      "marca": "Equipment's brand",
+      "modelo": "Equipment's model",
+      "serie": "Equipment's series",
+  
+      "titulo2": "Motor details",
+      "marcaMotor": "Brand of the motor",
+      "modeloMotor": "Model of the motor",
+      "serieMotor": "Serie of the motor",
+  
+      "titulo3": "Orden details",
+      "cantidad": "Quantity",
+      "descripcion": "Describe the order...",
+  
+      "titulo4": "Personal details:",
+      "nombre": "Name",
+      "pais": "Country",
+      "telefono": "Phone/WhatsApp",
+  
+      "botonContinuar": "Next",
+  
+      "botonCotizar": "Find it",
+      "cambiarModal": "Already have an account?",
+      "cambiarEnlace": "Click here!"
+    },
+  
+    "somos": {
+      "titulo": "Who are we?",
+      "contenido": "Since 2018, DAX has specialized in providing spare parts for all types of machinery to its clients in Latin America. Initially attending to the construction sector in Bolivia, Peru, and Paraguay; Today the DAX service extends to various countries and areas. His passion for technology; It has allowed it to develop its own technology that allows its customers to purchase spare parts efficiently, economically and in one place. Allowing your customers to benefit from savings on spare parts, freight, and time.",
+      "titulo2": "What do we do?",
+      "contenido2": "We offer you an easy and simple service to search, quote and buy spare parts for heavy, agricultural and construction equipment. Our system will offer you the best brands, prices and delivery times in Bolivia and the world. You decide which one to buy and we will send it to you. You don't need to call different stores to find your part, we will find it for you. All in one place."
+    },
+  
+    "hacemos": {
+      "titulo": "How do we do it?",
+      "contenido": "Our sales system allows us to offer more than 250,000 spare parts, from 50 different manufacturers and a network of local and international partners. You enter your part number (if you do not know it, we will help you find it) and our search engine will offer you the best options. We offer you spare parts of all brands, from the best stores in Bolivia and the world. Caterpillar, John Deere, Komatsu, Case, New Holland, Kubota, Volvo, Cummins, Iveco and many more."
+    },
+  
+    "ofrecemos": {
+      "titulo": "What do we offer?",
+      "subtitulo": "Spare parts for:",
+      "span": {
+        "a1": "Earth moving equipment:",
+        "a2": "Excavators, tractors, bull-dozer shovel loaders, motor graders etc.",
+        "b1": "Cranes and lifting equipment:",
+        "b2": "Manlift cranes forklift telehandler etc.",
+        "c1": "Agricultural Equipment:",
+        "c2": "Combine harvesters, sprayers, etc.",
+        "d1": "Stationary Equipment:",
+        "d2": "Generators, compressors, welders, pumps, etc.",
+        "e1": "Cane Equipment:",
+        "e2": "harvesters Seeders etc",
+        "f1": "Trucks",
+        "f2": "Dump trucks special equipment etc"
+      }
+    },
+  
+    "contacto": {
+      "titulo": "How can you reach us?",
+      "usa": {
+        "nombre": "Dax Parts Usa",
+        "email": "dax@daxparts.com",
+        "telefono": "+591-678-98045"
+      },
+      "bolivia": {
+        "nombre": "Dax Parts Bolivia",
+        "email": "fabiola@daxparts.com",
+        "telefono": "+591-678-98045"
+      },
+      "peru": {
+        "nombre": "Dax Parts Peru",
+        "email": "em@daxparts.com",
+        "telefono": "+591-678-98045"
+      },
+      "paraguay": {
+        "nombre": "Dax Parts Paraguay",
+        "email": "ventaspy@daxparts.com",
+        "telefono": "+591-678-98045"
+      },
+      "contenido": "We love to meet and chat with our new clients. You can begin by sending us a message and we will contact you shortly."
+    },
+  
+    "cotizacion": {
+      "titulo": "Search result for spare part number:",
+      "tabla": {
+        "col1": "Descripcion",
+        "col2": "Aplicacion",
+        "col3": "Type",
+        "col4": "Price",
+        "col5": "Delivery time"
+      },
+      "nota": "Disclosure:",
+      "notaTexto": "OEM names, logos and part numbers are used for reference. We do not imply that our products or services are affiliated with, sponsored or endorsed by the original equipment manufacturers.",
+      "tituloComprar": "Benefits for registered users:",
+      "beneficio1": "✓ Create multiple estimates",
+      "beneficio2": "✓ Follow your orders",
+      "beneficio3": "✓ Access to thousands of used and refurbished spare parts",
+      "beneficio4": "✓ and much more...",
+      "beneficio5": "✓ and much more...",
+      "beneficio6": "✓ and much more...",
+      "botonComprar": "Buy it"
+    },
+  
+    "tutorial": {
+      "titulo": "Tutorials",
+      "descripcion": "We share the following links where you can have access to user's guide for free:",
+      "columna1Titulo": "Use tutorials online",
+      "columna1Texto": "You can access to user's manual for free.",
+      "columna2Titulo": "How to use our services",
+      "columna2Texto": "We can show you easily and quickly.",
+      "enlaceTutorial": "Click here to go to our tutorials."
+    },
+  
+    "ingresar": {
+      "nombre": "User Name",
+      "password": "Password",
+      "olvide": "Forgot your password?",
+      "botonIngresar": "Login",
+      "cambiarModal": "Don't have an account?",
+      "cambiarEnlace": "Click here!"
+    },
+  
+    "crear": {
+      "titulo1": "Customer details:",
+      "empresa": "Company",
+      "nombre": "Name",
+      "numero": "Number of ID",
+      "pais": "Country",
+      "ciudad": "City",
+      "telefono1": "Phone 1",
+      "telefono2": "Phone 2",
+      "titulo2": "Login details:",
+      "nomUsuario": "User name",
+      "usuario": "Login Name",
+      "password1": "Password",
+      "password2": "Confirm Password",
+      "botonCrear": "Sign Up",
+      "cambiarModal": "Already have an account?",
+      "cambiarEnlace": "Click here!"
+    },
+  
+    "spinner": "SEARCHING AROUND THE WORLD..."
+  }

@@ -1,0 +1,170 @@
+{
+    "navbar": {
+      "enlace1": "Quienes somos?",
+      "enlace2": "Como lo hacemos?",
+      "enlace3": "Que ofrecemos",
+      "enlace4": "Contáctanos",
+      "botonTexto1": "Ingresar",
+      "botonTexto2": "Crear cuenta"
+    },
+  
+    "home": {
+      "leyendaBuscar": "Nro. de parte",
+      "campoBuscar": "Introduce el numero de parte",
+      "botonBuscar": "Buscar",
+      "enlaceClick": "Click aqui si no sabes el numero de parte",
+      "leyendaTutorial": "Tutoriales",
+  
+      "modal": {
+        "titulo": "No tienes numero de parte?",
+        "enlaceTutorial": "Manuales gratuitos",
+        "enlaceBuscamos": "Te lo buscamos",
+        "tienesCuenta": "Ya tienes una cuenta?",
+        "click": "Click aqui"
+      }
+    },
+  
+    "buscamos": {
+      "titulo1": "Datos del equipo:",
+      "marca": "Marca de tu equipo",
+      "modelo": "Modelo de tu equipo",
+      "serie": "Serie de tu equipo",
+  
+      "titulo2": "Datos del motor",
+      "marcaMotor": "Marca de tu motor",
+      "modeloMotor": "Modelo de tu motor",
+      "serieMotor": "Serie de tu motor",
+  
+      "titulo3": "Datos de la orden",
+      "cantidad": "Cantidad",
+      "descripcion": "Describe la parte...",
+  
+      "titulo4": "Tus datos:",
+      "nombre": "Nombre",
+      "pais": "Pais",
+      "telefono": "Teléfono/WhatsApp",
+  
+      "botonContinuar": "Siguiente",
+  
+      "botonCotizar": "Cotizar",
+      "cambiarModal": "Ya tienes una cuenta?",
+      "cambiarEnlace": "Click aqui!"
+    },
+  
+    "somos": {
+      "titulo": "Quienes somos?",
+      "contenido": "Desde el 2018, DAX se ha especializado en facilitar repuestos para todo tipo de maquinaria a sus clientes en Latino América. Inicialmente atendiendo el rubro de la construcción en Bolivia, Perú, y Paraguay; hoy el servicio de DAX se extiende a diversos países y rubros.\nSu pasión por la tecnología; le ha permitido desarrollar tecnología propia que permite a sus clientes adquirir repuestos de manera eficiente, económica y en un solo lugar. Permitiendo a sus clientes beneficiarse de ahorros en repuestos, fletes, y tiempo.",
+      "titulo2": "Que hacemos?",
+      "contenido2": "Te ofrecemos un servicio fácil y sencillo de búsqueda, cotización y compra de repuestos para equipo pesado, agrícola y de construcción. Nuestro sistema te ofertará las mejores marcas, precios y tiempos de entrega de Bolivia y el mundo. Tú decides cual comprar y te lo enviamos. No necesitas llamar a diferentes tiendas para encontrar tu parte, nosotros la encontramos por ti. Todo en un solo lugar."
+    },
+  
+    "hacemos": {
+      "titulo": "Como lo hacemos?",
+      "contenido": "Nuestro sistema de ventas nos permite ofrecer más de 250,000 repuestos, de 50 distintos fabricantes y una red de socios locales e internacionales. Colocas tu número de parte (sino lo conoces te ayudamos a encontrarlo) y nuestro motor de búsqueda te ofertará las mejores opciones. Te ofrecemos repuestos de las todas marcas, de las mejores tiendas en Bolivia y el mundo. Caterpillar, John Deere, Komatsu, Case, New Holland, Kubota, Volvo, Cummins, Iveco y muchas más."
+    },
+  
+    "ofrecemos": {
+      "titulo": "Que ofrecemos?",
+      "subtitulo": "Repuesto para:",
+      "span": {
+        "a1": "Equipo de movimiento de tierra:",
+        "a2": "Excavadoras, tractores, bull-dozer pala cargadoras motoniveladoras etc.",
+        "b1": "Grúas y equipos de izaje:",
+        "b2": "Grúas Manlift montacargas telehandler etc.",
+        "c1": "Equipo Agrícola:",
+        "c2": "Cosechadoras tractores fumigadoras etc.",
+        "d1": "Equipos Estacionarios:",
+        "d2": "Generadores, compresores, soldadoras, bombas, etc.",
+        "e1": "Equipos de Caña:",
+        "e2": "osechadoras Sembradoras etc",
+        "f1": "Camiones",
+        "f2": "Camiones volquetas equipos especiales etc"
+      }
+    },
+  
+    "contacto": {
+      "titulo": "Contáctanos!",
+      "usa": {
+        "nombre": "Dax Parts Usa",
+        "email": "dax@daxparts.com",
+        "telefono": "+591-678-98045"
+      },
+      "bolivia": {
+        "nombre": "Dax Parts Bolivia",
+        "email": "fabiola@daxparts.com",
+        "telefono": "+591-678-98045"
+      },
+      "peru": {
+        "nombre": "Dax Parts Peru",
+        "email": "em@daxparts.com",
+        "telefono": "+591-678-98045"
+      },
+      "paraguay": {
+        "nombre": "Dax Parts Paraguay",
+        "email": "ventaspy@daxparts.com",
+        "telefono": "+591-678-98045"
+      },
+      "contenido": "Nos gusta conocer y conversar con nuestros nuevos clientes. Comienza enviándonos un mensaje y nos pondremos en contacto en breve."
+    },
+  
+    "cotizacion": {
+      "titulo": "Resultado para parte:",
+      "tabla": {
+        "col1": "Descripcion",
+        "col2": "Aplicacion",
+        "col3": "Tipo",
+        "col4": "Precio",
+        "col5": "Tiempo de Entrega"
+      },
+      "nota": "Nota",
+      "notaTexto": "Nombres OEM, logos y numeros de partes son usados para referencia. No implicamos que nuestros productos o servicios estén afiliados, patrocinados o aprobados por los fabricantes de equipos originales",
+      "tituloComprar": "Si eres usuario podras:",
+      "beneficio1": "✓ Crear varias cotizaciones",
+      "beneficio2": "✓ Hacer seguimiento a tus ordenes",
+      "beneficio3": "✓ Acceder a piezas usadas y reconstruidas",
+      "beneficio4": "✓ y mucho mas...",
+      "beneficio5": "✓ y mucho mas...",
+      "beneficio6": "✓ y mucho mas...",
+      "botonComprar": "Comprar"
+    },
+  
+    "tutorial": {
+      "titulo": "Tutoriales",
+      "descripcion": "Te compartimos los siguientes links donde puedes tener acceso a manuales de parte de manera gratuita:",
+      "columna1Titulo": "Usar Manuales de partes en linea",
+      "columna1Texto": "puedes tener acceso a manuales de manera gratuita.",
+      "columna2Titulo": "Como usar nuestra pagina",
+      "columna2Texto": "te enseñamos como de manera sencilla y breve.",
+      "enlaceTutorial": "Has click para ir al tutorial."
+    },
+  
+    "ingresar": {
+      "nombre": "Nombre de usuario",
+      "password": "Contraseña",
+      "olvide": "Me olvide",
+      "botonIngresar": "Ingresar",
+      "cambiarModal": "No tienes una cuenta?",
+      "cambiarEnlace": "Click aqui!"
+    },
+  
+    "crear": {
+      "titulo1": "Datos del cliente:",
+      "empresa": "Empresa",
+      "nombre": "Nombre",
+      "numero": "Numero de identidad",
+      "pais": "Pais",
+      "ciudad": "Ciudad",
+      "telefono1": "Teléfono 1",
+      "telefono2": "Teléfono 2",
+      "titulo2": "Datos de ingreso:",
+      "nomUsuario": "Nombre del Ususario",
+      "usuario": "Usuario",
+      "password1": "Contraseña",
+      "password2": "Confirmar contraseña",
+      "botonCrear": "Crear cuenta",
+      "cambiarModal": "Ya tienes una cuenta?",
+      "cambiarEnlace": "Click aqui!"
+    },
+  
+    "spinner": "BUSCANDO TU NUMERO DE PARTE..."
+  }
