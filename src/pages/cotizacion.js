@@ -100,12 +100,12 @@ const Cotizacion = (props) => {
             <h4 className='titulo-jumbo'>{idioma.cotizacion.tituloComprar}</h4>
           </div>
           <div className='row'>
-            <div className='col'>
+            <div className='col-sm'>
               <p className='beneficios-jumbo'>{idioma.cotizacion.beneficio1}</p>
               <p className='beneficios-jumbo'>{idioma.cotizacion.beneficio2}</p>
               <p className='beneficios-jumbo'>{idioma.cotizacion.beneficio3}</p>
             </div>
-            <div className='col'>
+            <div className='col-sm'>
               <p className='beneficios-jumbo'>{idioma.cotizacion.beneficio4}</p>
               <p className='beneficios-jumbo'>{idioma.cotizacion.beneficio5}</p>
               <p className='beneficios-jumbo'>{idioma.cotizacion.beneficio6}</p>

@@ -66,17 +66,17 @@
 
 /* MEDIUM devices (landscape tablets, 768px and up) */
 @media only screen and (min-width: 768px) {
-  /* Code here */
+  /* code goes here ... */
 }
 
 /* LARGE devices (laptops/desktops, 992px and up) */
 @media only screen and (min-width: 992px) {
-  /* Code here */
+  /* code goes here ... */
 }
 
 /* EXTRA LARGE devices (large laptops and desktops, 1200px and up) */
 @media only screen and (min-width: 1200px) {
-  /* Code here */
+  /* code goes here ... */
 }
 
 /* ========== RESPONSIVE HACEMOS CSS ========== */
