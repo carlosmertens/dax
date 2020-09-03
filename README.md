@@ -12,7 +12,7 @@ The project consist in creating from scratch a new website and bring some functi
 
 #### Published for testing
 
-- [DaxParts](https://carlosmertens.github.io/daxparts)
+- [DaxParts](https://carlosmertens.github.io)
 
 ## Tecnología | Technology
 
@@ -31,6 +31,28 @@ The project consist in creating from scratch a new website and bring some functi
 3. En la terminal del pc ir al archivo del proyecto | Terminal comands:
 4. Utilizar comando: `npm install`
 5. Utilizar comando: `npm star`
+
+## Instalar dependencias | Install Dependencies
+
+`npm install redux`
+
+`npm install redux-promise`
+
+`npm install react-redux`
+
+`npm install react-router-dom`
+
+`npm install axios`
+
+`npm instal jquery`
+
+`npm install bootstrap`
+
+`npm i --save @fortawesome/fontawesome-svg-core`
+
+`npm i --save @fortawesome/free-solid-svg-icons`
+
+`npm i --save @fortawesome/react-fontawesome`
 
 ## Author
 
