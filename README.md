@@ -12,7 +12,7 @@ The project consist in creating from scratch a new website and bring some functi
 
 #### Published for testing
 
-- [DaxParts](https://carlosmertens.github.io)
+- [DaxParts](https://carlosmertens.github.io/dax-test)
 
 ## Tecnología | Technology
 
