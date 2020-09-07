@@ -6,16 +6,11 @@ import openModal from '../actions/openModal';
 import navLogo from '../img/logoNav.png';
 import Login from './Login';
 
-// TODO: Wait for API from DaxParts to know exactly what information is
-// needed to be submitted in this section.
-// Set up API submit POST using async and wait
-
 const SignUp = (props) => {
   const idioma = props.idioma;
 
   const [NomCliente, setNomCliente] = useState('');
   const [NomContacto, setNomContacto] = useState('');
-  // const [id, setId] = useState('Cedula de identidad');
   const [NumNit, setNumNit] = useState('');
   const [CodPais, setCodPais] = useState('');
   const [CodCiudad, setCodCiudad] = useState('');
@@ -26,7 +21,6 @@ const SignUp = (props) => {
   const [NomUsuario, setNomUsuario] = useState('');
   const [LogUsuario, setLogUsuario] = useState('');
   const [Contrasena, setContrasena] = useState('');
-  // const [password2, setPassword2] = useState('');
 
   // Funcion para cerrar el modal al enviar formulario
   // Conponent to close the modal
@@ -52,7 +46,7 @@ const SignUp = (props) => {
 
     // ***** Llamar DaxParts API *****
     // ***** Call DaxParts API *****
-    const url = 'http://www.wp.daxparts.com/api/sesion/validar';
+    const url = 'http://www.wp.daxparts.com/api/cliente/guardarCliente';
     const data = {
       IdCliente: '0',
       NomCliente: NomCliente,

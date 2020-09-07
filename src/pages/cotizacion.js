@@ -24,8 +24,7 @@ const Cotizacion = (props) => {
     fetchData();
   }, [strNroParte, codpais]);
 
-  console.log(codpais);
-  console.log(strNroParte);
+  console.log(busqueda);
 
   // Mientras "buscar state" este vacio, spinner va a correr
   // Run spinner while the API return the search

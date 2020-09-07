@@ -61,7 +61,7 @@ function App() {
     codpais = 'PY';
   } else {
     // TODO: When API bug for US is findByText, change PE for US
-    codpais = 'PE';
+    codpais = 'US';
   }
   return (
     <Router>
