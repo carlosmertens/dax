@@ -59,11 +59,12 @@ const Homepage = (props) => {
                 </div>
 
                 <div className='container'>
-                  <Link to='/tutorial'>
+                  <Link to='/hacemos'>
                     <img className='logo-tutorial' src={iconVideos} alt='Tutorial Logo' />
                     <p className='tutorial-text'>{props.idioma.home.leyendaTutorial}</p>
                   </Link>
                 </div>
+                <p><a href='https://www.youtube.com/embed/4jnCVogNCtc'>Como cotizar</a></p>
               </div>
             </div>
           </header>

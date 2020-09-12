@@ -4,9 +4,9 @@ import axios from 'axios';
 import './styles/App.css';
 import Navbar from './components/Navbar';
 import Homepage from './pages/homepage';
-import Somos from './pages/somos';
+import Empresa from './pages/empresa';
 import Hacemos from './pages/hacemos';
-import Ofrecemos from './pages/ofrecemos';
+import Industrias from './pages/industrias';
 import Contacto from './pages/contacto';
 import Tutorial from './pages/tutorial';
 import Cotizacion from './pages/cotizacion';
@@ -90,9 +90,16 @@ function App() {
       />
       <Route
         exact
-        path='/somos'
+        path='/empresa'
         render={() => {
-          return <Somos idioma={idioma} />;
+          return <Empresa idioma={idioma} />;
+        }}
+      />
+      <Route
+        exact
+        path='/industrias'
+        render={() => {
+          return <Industrias idioma={idioma} />;
         }}
       />
       <Route
@@ -102,13 +109,7 @@ function App() {
           return <Hacemos idioma={idioma} />;
         }}
       />
-      <Route
-        exact
-        path='/ofrecemos'
-        render={() => {
-          return <Ofrecemos idioma={idioma} />;
-        }}
-      />
+      
       <Route
         exact
         path='/contacto'

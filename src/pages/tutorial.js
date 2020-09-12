@@ -117,7 +117,7 @@ const Tutorial = ({ idioma }) => (
                   width='121'
                   height='65'
                   title='Catarpillar'
-                  src='src="https://www.youtube.com/embed/MaOpwIWJa0o"'></iframe>
+                  src='https://www.youtube.com/embed/MaOpwIWJa0o'></iframe>
               </div>
               <div className='col'>
                 <span className='tutorial-video-texto'>Catarpillar</span>
