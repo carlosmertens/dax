@@ -149,7 +149,7 @@
     },
     
     "cotizacion": {
-      "titulo": "Search result for spare part number:",
+      "titulo": "Search result for part number:",
       "tabla": {
         "col1": "Descripcion",
         "col2": "Aplicacion",
@@ -166,7 +166,7 @@
       "beneficio4": "✓ and much more...",
       "beneficio5": "✓ and much more...",
       "beneficio6": "✓ and much more...",
-      "botonComprar": "Buy it"
+      "botonComprar": "Order"
     },
   
     "spinner": "SEARCHING AROUND THE WORLD..."

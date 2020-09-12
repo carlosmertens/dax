@@ -20,8 +20,6 @@ function App() {
   const [country, setCountry] = useState('');
   const [strNroParte, setStrNoParte] = useState('');
 
-  // Capturar el pais del usuario
-  // Capture user's country
   useEffect(() => {
     const locationUrl = 'https://extreme-ip-lookup.com/json/';
     axios.get(locationUrl).then((response) => {
@@ -31,38 +29,19 @@ function App() {
     });
   }, []);
 
-  // Evento de cambiar lenguage seleccionado
-  // Handler to capture language selection
   const handleLanguage = (e) => {
     setLanguage(e.target.value);
   };
 
-  // Logica para selecionar idioma json-- Iniciado en español
-  // Logic to select json language-- Init spanish
   let idioma = spanish;
   if (language !== 'Español') {
     idioma = english;
   }
 
-  // Evento que captura el numero de busqueda
-  // Handler to capture spare part number for the search
   const handleSearch = (e) => {
     setStrNoParte(e.target.value);
   };
 
-  // Logica para crear API variable "copais"
-  // Logic to create varible copais for the API
-  let codpais = '';
-  if (country === 'Bolivia') {
-    codpais = 'BO';
-  } else if (country === 'Peru') {
-    codpais = 'PE';
-  } else if (country === 'Paraguay') {
-    codpais = 'PY';
-  } else {
-    // TODO: When API bug for US is findByText, change PE for US
-    codpais = 'US';
-  }
   return (
     <Router>
       <Route path='/' component={Modal} idioma={idioma} />
@@ -133,7 +112,6 @@ function App() {
               idioma={idioma}
               strNroParte={strNroParte}
               country={country}
-              codpais={codpais}
             />
           );
         }}

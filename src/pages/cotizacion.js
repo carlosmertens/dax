@@ -6,14 +6,20 @@ import Spinner from '../components/Spinner';
 import axios from 'axios';
 import Ingresar from '../components/Login';
 
-const Cotizacion = (props) => {
-  const idioma = { ...props.idioma };
-  const strNroParte = props.strNroParte;
-  const codpais = props.codpais;
+const Cotizacion = ({idioma, strNroParte, country, openModal}) => {
   const [busqueda, setBusqueda] = useState([]);
 
-  // Obtener busqueda de la API
-  // Fetch data from API
+  let codpais = '';
+  if (country === 'Bolivia') {
+    codpais = 'BO';
+  } else if (country === 'Peru') {
+    codpais = 'PE';
+  } else if (country === 'Paraguay') {
+    codpais = 'PY';
+  } else {
+    codpais = 'PY';
+  }
+
   useEffect(() => {
     const apiUrl = `http://www.wp.daxparts.com/api/cotizacion/BuscarCodigo2/${strNroParte}/${codpais}`;
     const fetchData = async () => {
@@ -25,15 +31,12 @@ const Cotizacion = (props) => {
   }, [strNroParte, codpais]);
 
   console.log(busqueda);
+  console.log(codpais)
 
-  // Mientras "buscar state" este vacio, spinner va a correr
-  // Run spinner while the API return the search
   if (busqueda.length === 0) {
-    return <Spinner idioma={props.idioma} />;
+    return <Spinner idioma={idioma} />;
   }
 
-  // Bucle el resultado y formar las lineas de la tabla
-  // Map through the API results
   const cotizarGrid = busqueda.map((item, index) => {
     return (
       <tr key={index}>
@@ -47,9 +50,9 @@ const Cotizacion = (props) => {
             type='button'
             className='btn'
             onClick={() => {
-              props.openModal(
+              openModal(
                 'open',
-                <Ingresar idioma={props.idioma} codigo={item.CodRepuesto} />
+                <Ingresar idioma={idioma} codigo={item.CodRepuesto} />
               );
             }}>
             {idioma.cotizacion.botonComprar}
@@ -59,8 +62,6 @@ const Cotizacion = (props) => {
     );
   });
 
-  // Retorno del componente Cotizacion
-  // Return for the component Cotizacion
   return (
     <div className='container-fluid cotizacion-contenido'>
       <div className='container cotizacion-title'>
@@ -116,8 +117,6 @@ const Cotizacion = (props) => {
   );
 };
 
-// Funcion para llamar el modal de Ingresar
-// Function to call up modal Ingresar
 function mapDispatchToProps(dispacher) {
   return bindActionCreators(
     {
