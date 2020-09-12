@@ -5,7 +5,7 @@ import './styles/App.css';
 import Navbar from './components/Navbar';
 import Homepage from './pages/homepage';
 import Empresa from './pages/empresa';
-import Hacemos from './pages/hacemos';
+import Aprender from './pages/aprender';
 import Industrias from './pages/industrias';
 import Contacto from './pages/contacto';
 import Tutorial from './pages/tutorial';
@@ -13,7 +13,6 @@ import Cotizacion from './pages/cotizacion';
 import Modal from './components/Modal';
 import spanish from './text/esp.json';
 import english from './text/eng.json';
-
 
 function App() {
   const [language, setLanguage] = useState('Español');
@@ -83,12 +82,12 @@ function App() {
       />
       <Route
         exact
-        path='/hacemos'
+        path='/aprender'
         render={() => {
-          return <Hacemos idioma={idioma} />;
+          return <Aprender idioma={idioma} />;
         }}
       />
-      
+
       <Route
         exact
         path='/contacto'
@@ -117,7 +116,7 @@ function App() {
         }}
       />
     </Router>
-  )
+  );
 }
 
 export default App;
