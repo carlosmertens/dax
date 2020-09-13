@@ -75,8 +75,6 @@ const SignUp = (props) => {
         <img src={navLogo} alt='Dax Logo' />
       </div>
 
-      <hr />
-
       <div className='modal-body'>
         <form onSubmit={handleSubmit}>
           <h4>{idioma.crear.titulo1}</h4>
