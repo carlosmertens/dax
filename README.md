@@ -10,9 +10,9 @@ EN:
 DaxParts is a startup from Bolivia with an online search engine focus on spare parts of heavy machinery.
 The project consist in creating from scratch a new website and bring some functionalities from their system on the front end.
 
-#### Published for testing
+#### Published for testing with Netlify
 
-- [DaxParts](https://carlosmertens.github.io/dax-test)
+- [DaxParts](https://dax-test.netlify.app/)
 
 ## Tecnología | Technology
 
