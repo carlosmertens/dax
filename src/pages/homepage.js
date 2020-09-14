@@ -69,9 +69,6 @@ const Homepage = (props) => {
                 </p>
               </Link>
             </div>
-            <p>
-              <a href='https://www.youtube.com/embed/4jnCVogNCtc'>Como cotizar</a>
-            </p>
           </div>
         </div>
       </header>
