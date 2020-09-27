@@ -25,7 +25,7 @@ function App() {
     const locationUrl = 'https://extreme-ip-lookup.com/json/';
     axios.get(locationUrl).then((response) => {
       const userCountry = response.data.country;
-      console.log('User is visiting from:', userCountry);
+      // console.log('User is visiting from:', userCountry);
       setCountry(userCountry);
     });
   }, []);
