@@ -32,7 +32,6 @@ const Cotizacion = ({ idioma, strNroParte, country, openModal }) => {
   }, [strNroParte, codpais]);
 
   console.log(busqueda);
-  console.log(codpais);
 
   if (busqueda.length === 0) {
     return <Spinner idioma={idioma} />;
