@@ -8,6 +8,8 @@ import regAction from '../actions/regAction';
 import navLogo from '../img/logoNav.png';
 import Login from './Login';
 
+import { Redirect } from 'react-router-dom';
+
 // TEST API: https://airbnb-api.robertbunch.dev
 
 const SignUp = (props) => {
@@ -109,186 +111,190 @@ const SignUp = (props) => {
 
   return (
     <>
-      <div className='modal-logo d-flex justify-content-center'>
-        <img src={navLogo} alt='Dax Logo' />
-      </div>
-
-      {/* TEST */}
-      <div className='modal-body'>
-        <form onSubmit={handleSubmit}>
-          <h4>{idioma.crear.titulo1}</h4>
-          <div className='form-group d-flex justify-content-center'>
-            <input
-              type='email'
-              className='form-control mr-sm-2'
-              placeholder='Email'
-              onChange={(e) => setMail(e.target.value)}
-              value={Mail}
-            />
+      {props.auth.email ? (
+        <Redirect to='/panel' />
+      ) : (
+        <>
+          {' '}
+          <div className='modal-logo d-flex justify-content-center'>
+            <img src={navLogo} alt='Dax Logo' />
           </div>
-          <div className='form-group d-flex justify-content-center'>
-            <input
-              type='password'
-              className='form-control mr-sm-2'
-              placeholder={idioma.crear.password1}
-              onChange={(e) => setContrasena(e.target.value)}
-              value={Contrasena}
-            />
+          {/* TEST */}
+          <div className='modal-body'>
+            <form onSubmit={handleSubmit}>
+              <h4>{idioma.crear.titulo1}</h4>
+              <div className='form-group d-flex justify-content-center'>
+                <input
+                  type='email'
+                  className='form-control mr-sm-2'
+                  placeholder='Email'
+                  onChange={(e) => setMail(e.target.value)}
+                  value={Mail}
+                />
+              </div>
+              <div className='form-group d-flex justify-content-center'>
+                <input
+                  type='password'
+                  className='form-control mr-sm-2'
+                  placeholder={idioma.crear.password1}
+                  onChange={(e) => setContrasena(e.target.value)}
+                  value={Contrasena}
+                />
+              </div>
+              <div className='boton-form'>
+                <button type='submit' className='btn'>
+                  {idioma.crear.botonCrear}
+                </button>
+              </div>
+            </form>
           </div>
-          <div className='boton-form'>
-            <button type='submit' className='btn'>
-              {idioma.crear.botonCrear}
-            </button>
-          </div>
-        </form>
-      </div>
-
-      {/* <div className='modal-body'>
-        <form onSubmit={handleSubmit}>
-          <h4>{idioma.crear.titulo1}</h4>
-          <div className='form-group d-flex justify-content-center'>
-            <input
-              type='text'
-              className='form-control mr-sm-2'
-              placeholder={idioma.crear.empresa}
-              onChange={(e) => setNomCliente(e.target.value)}
-              value={NomCliente}
-            />
-          </div>
-
-          <div className='form-group d-flex justify-content-center'>
-            <input
-              type='text'
-              className='form-control mr-sm-2'
-              placeholder={idioma.crear.nombre}
-              onChange={(e) => setNomContacto(e.target.value)}
-              value={NomContacto}
-            />
-          </div>
-
-          <div className='form-group d-flex justify-content-center'>
-            <input
-              type='text'
-              className='form-control mr-sm-2'
-              placeholder={idioma.crear.numero}
-              onChange={(e) => setNumNit(e.target.value)}
-              value={NumNit}
-            />
-          </div>
-
-          <div className='form-group d-flex justify-content-center'>
-            <input
-              type='text'
-              className='form-control mr-sm-2'
-              placeholder={idioma.crear.pais}
-              onChange={(e) => setCodPais(e.target.value)}
-              value={CodPais}
-            />
-          </div>
-
-          <div className='form-group d-flex justify-content-center'>
-            <input
-              type='text'
-              className='form-control mr-sm-2'
-              placeholder={idioma.crear.ciudad}
-              onChange={(e) => setCodCiudad(e.target.value)}
-              value={CodCiudad}
-            />
-          </div>
-
-          <div className='form-group d-flex justify-content-center'>
-            <input
-              type='text'
-              className='form-control mr-sm-2'
-              placeholder='Direccion'
-              onChange={(e) => setDireccion(e.target.value)}
-              value={Direccion}
-            />
-          </div>
-
-          <div className='form-group d-flex justify-content-center'>
-            <input
-              type='text'
-              className='form-control mr-sm-2'
-              placeholder={idioma.crear.telefono1}
-              onChange={(e) => setNumTel1(e.target.value)}
-              value={NumTel1}
-            />
-          </div>
-
-          <div className='form-group d-flex justify-content-center'>
-            <input
-              type='text'
-              className='form-control mr-sm-2'
-              placeholder={idioma.crear.telefono2}
-              onChange={(e) => setNumTel2(e.target.value)}
-              value={NumTel2}
-            />
-          </div>
-
-          <div className='form-group d-flex justify-content-center'>
-            <input
-              type='email'
-              className='form-control mr-sm-2'
-              placeholder='Email'
-              onChange={(e) => setMail(e.target.value)}
-              value={Mail}
-            />
-          </div>
-
-          <h4>{idioma.crear.titulo2}</h4>
-
-          <div className='form-group d-flex justify-content-center'>
-            <input
-              type='text'
-              className='form-control mr-sm-2'
-              placeholder={idioma.crear.nomUsuario}
-              onChange={(e) => setNomUsuario(e.target.value)}
-              value={NomUsuario}
-            />
-          </div>
-
-          <div className='form-group d-flex justify-content-center'>
-            <input
-              type='text'
-              className='form-control mr-sm-2'
-              placeholder={idioma.crear.usuario}
-              onChange={(e) => setLogUsuario(e.target.value)}
-              value={LogUsuario}
-            />
-          </div>
-
-          <div className='form-group d-flex justify-content-center'>
-            <input
-              type='password'
-              className='form-control mr-sm-2'
-              placeholder={idioma.crear.password1}
-              onChange={(e) => setContrasena(e.target.value)}
-              value={Contrasena}
-            />
-          </div>
-
-          <div className='boton-form'>
-            <button type='submit' className='btn'>
-              {idioma.crear.botonCrear}
-            </button>
-          </div>
-        </form>
-      </div> */}
-
-      <div className='modal-footer d-flex justify-content-center'>
-        <div>
-          {idioma.crear.cambiarModal}{' '}
-          <span
-            className='pointer'
-            onClick={() => {
-              props.openModal('open', <Login idioma={idioma} />);
-            }}
-            style={{ color: '#fca728' }}>
-            {idioma.crear.cambiarEnlace}
-          </span>
+          {/* <div className='modal-body'>
+      <form onSubmit={handleSubmit}>
+        <h4>{idioma.crear.titulo1}</h4>
+        <div className='form-group d-flex justify-content-center'>
+          <input
+            type='text'
+            className='form-control mr-sm-2'
+            placeholder={idioma.crear.empresa}
+            onChange={(e) => setNomCliente(e.target.value)}
+            value={NomCliente}
+          />
         </div>
-      </div>
+
+        <div className='form-group d-flex justify-content-center'>
+          <input
+            type='text'
+            className='form-control mr-sm-2'
+            placeholder={idioma.crear.nombre}
+            onChange={(e) => setNomContacto(e.target.value)}
+            value={NomContacto}
+          />
+        </div>
+
+        <div className='form-group d-flex justify-content-center'>
+          <input
+            type='text'
+            className='form-control mr-sm-2'
+            placeholder={idioma.crear.numero}
+            onChange={(e) => setNumNit(e.target.value)}
+            value={NumNit}
+          />
+        </div>
+
+        <div className='form-group d-flex justify-content-center'>
+          <input
+            type='text'
+            className='form-control mr-sm-2'
+            placeholder={idioma.crear.pais}
+            onChange={(e) => setCodPais(e.target.value)}
+            value={CodPais}
+          />
+        </div>
+
+        <div className='form-group d-flex justify-content-center'>
+          <input
+            type='text'
+            className='form-control mr-sm-2'
+            placeholder={idioma.crear.ciudad}
+            onChange={(e) => setCodCiudad(e.target.value)}
+            value={CodCiudad}
+          />
+        </div>
+
+        <div className='form-group d-flex justify-content-center'>
+          <input
+            type='text'
+            className='form-control mr-sm-2'
+            placeholder='Direccion'
+            onChange={(e) => setDireccion(e.target.value)}
+            value={Direccion}
+          />
+        </div>
+
+        <div className='form-group d-flex justify-content-center'>
+          <input
+            type='text'
+            className='form-control mr-sm-2'
+            placeholder={idioma.crear.telefono1}
+            onChange={(e) => setNumTel1(e.target.value)}
+            value={NumTel1}
+          />
+        </div>
+
+        <div className='form-group d-flex justify-content-center'>
+          <input
+            type='text'
+            className='form-control mr-sm-2'
+            placeholder={idioma.crear.telefono2}
+            onChange={(e) => setNumTel2(e.target.value)}
+            value={NumTel2}
+          />
+        </div>
+
+        <div className='form-group d-flex justify-content-center'>
+          <input
+            type='email'
+            className='form-control mr-sm-2'
+            placeholder='Email'
+            onChange={(e) => setMail(e.target.value)}
+            value={Mail}
+          />
+        </div>
+
+        <h4>{idioma.crear.titulo2}</h4>
+
+        <div className='form-group d-flex justify-content-center'>
+          <input
+            type='text'
+            className='form-control mr-sm-2'
+            placeholder={idioma.crear.nomUsuario}
+            onChange={(e) => setNomUsuario(e.target.value)}
+            value={NomUsuario}
+          />
+        </div>
+
+        <div className='form-group d-flex justify-content-center'>
+          <input
+            type='text'
+            className='form-control mr-sm-2'
+            placeholder={idioma.crear.usuario}
+            onChange={(e) => setLogUsuario(e.target.value)}
+            value={LogUsuario}
+          />
+        </div>
+
+        <div className='form-group d-flex justify-content-center'>
+          <input
+            type='password'
+            className='form-control mr-sm-2'
+            placeholder={idioma.crear.password1}
+            onChange={(e) => setContrasena(e.target.value)}
+            value={Contrasena}
+          />
+        </div>
+
+        <div className='boton-form'>
+          <button type='submit' className='btn'>
+            {idioma.crear.botonCrear}
+          </button>
+        </div>
+      </form>
+    </div> */}
+          <div className='modal-footer d-flex justify-content-center'>
+            <div>
+              {idioma.crear.cambiarModal}{' '}
+              <span
+                className='pointer'
+                onClick={() => {
+                  props.openModal('open', <Login idioma={idioma} />);
+                }}
+                style={{ color: '#fca728' }}>
+                {idioma.crear.cambiarEnlace}
+              </span>
+            </div>
+          </div>
+        </>
+      )}
     </>
   );
 };
