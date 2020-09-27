@@ -14,6 +14,8 @@ import Modal from './components/Modal';
 import spanish from './text/esp.json';
 import english from './text/eng.json';
 
+import Panel from './pages/panelCliente';
+
 function App() {
   const [language, setLanguage] = useState('Español');
   const [country, setCountry] = useState('');
@@ -115,6 +117,7 @@ function App() {
           );
         }}
       />
+      <Route path='/panel' component={Panel} />
     </Router>
   );
 }

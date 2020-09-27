@@ -1,7 +1,6 @@
 import React from 'react';
 
 const Idioma = (props) => {
-  // console.log(props);
   return (
     <select
       className='btn btn-idioma'

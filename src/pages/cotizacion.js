@@ -6,7 +6,7 @@ import Spinner from '../components/Spinner';
 import axios from 'axios';
 import Ingresar from '../components/Login';
 
-const Cotizacion = ({idioma, strNroParte, country, openModal}) => {
+const Cotizacion = ({ idioma, strNroParte, country, openModal }) => {
   const [busqueda, setBusqueda] = useState([]);
 
   let codpais = '';
@@ -17,7 +17,7 @@ const Cotizacion = ({idioma, strNroParte, country, openModal}) => {
   } else if (country === 'Paraguay') {
     codpais = 'PY';
   } else {
-    codpais = 'PY';
+    codpais = 'US';
   }
 
   useEffect(() => {
@@ -25,13 +25,14 @@ const Cotizacion = ({idioma, strNroParte, country, openModal}) => {
     const fetchData = async () => {
       const response = await axios.get(apiUrl);
       setBusqueda(response.data.dato);
+      console.log(response);
     };
 
     fetchData();
   }, [strNroParte, codpais]);
 
   console.log(busqueda);
-  console.log(codpais)
+  console.log(codpais);
 
   if (busqueda.length === 0) {
     return <Spinner idioma={idioma} />;

@@ -2,24 +2,28 @@ import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import axios from 'axios';
+import swal from 'sweetalert';
 import openModal from '../actions/openModal';
+import regAction from '../actions/regAction';
 import navLogo from '../img/logoNav.png';
 import Login from './Login';
+
+// TEST API: https://airbnb-api.robertbunch.dev
 
 const SignUp = (props) => {
   const idioma = props.idioma;
 
-  const [NomCliente, setNomCliente] = useState('');
-  const [NomContacto, setNomContacto] = useState('');
-  const [NumNit, setNumNit] = useState('');
-  const [CodPais, setCodPais] = useState('');
-  const [CodCiudad, setCodCiudad] = useState('');
-  const [Direccion, setDireccion] = useState('');
-  const [NumTel1, setNumTel1] = useState('');
-  const [NumTel2, setNumTel2] = useState('');
+  // const [NomCliente, setNomCliente] = useState('');
+  // const [NomContacto, setNomContacto] = useState('');
+  // const [NumNit, setNumNit] = useState('');
+  // const [CodPais, setCodPais] = useState('');
+  // const [CodCiudad, setCodCiudad] = useState('');
+  // const [Direccion, setDireccion] = useState('');
+  // const [NumTel1, setNumTel1] = useState('');
+  // const [NumTel2, setNumTel2] = useState('');
   const [Mail, setMail] = useState('');
-  const [NomUsuario, setNomUsuario] = useState('');
-  const [LogUsuario, setLogUsuario] = useState('');
+  // const [NomUsuario, setNomUsuario] = useState('');
+  // const [LogUsuario, setLogUsuario] = useState('');
   const [Contrasena, setContrasena] = useState('');
 
   // Funcion para cerrar el modal al enviar formulario
@@ -30,44 +34,78 @@ const SignUp = (props) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    closeModal();
-
-    console.log(NomCliente);
-    console.log(NomContacto);
-    console.log(NumNit);
-    console.log(CodPais);
-    console.log(CodCiudad);
-    console.log(Direccion);
-    console.log(NumTel1);
-    console.log(NumTel2);
-    console.log(Mail);
-    console.log(LogUsuario);
-    console.log(Contrasena);
-
-    // ***** Llamar DaxParts API *****
-    // ***** Call DaxParts API *****
-    const url = 'http://www.wp.daxparts.com/api/cliente/guardarCliente';
+    const url = 'https://airbnb-api.robertbunch.dev/users/signup';
     const data = {
-      IdCliente: '0',
-      NomCliente: NomCliente,
-      NomContacto: NomContacto,
-      NumNit: NumNit,
-      CodPais: CodPais,
-      CodCiudad: CodCiudad,
-      Direccion: Direccion,
-      NumTel1: NumTel1,
-      NumTel2: NumTel2,
-      Mail: Mail,
-      NomUsuario: NomUsuario,
-      LogUsuario: LogUsuario,
-      Contrasena: Contrasena,
+      email: Mail,
+      password: Contrasena,
     };
-    // ***** Enviar pedido POST a la API
-    // ***** Call POST request *****
-    const response = await axios.post(url, data);
-    console.log(response);
-    // url
+    const resp = await axios.post(url, data);
+    // const token = resp.data.token;
+    // console.log(token);
+
+    if (resp.data.msg === 'userExists') {
+      swal({
+        title: 'Email Exists',
+        text: 'Email provided is already registered!',
+        icon: 'error',
+      });
+    } else if (resp.data.msg === 'invalidData') {
+      swal({
+        title: 'Invalid Email/Password',
+        text: 'Please verify your email and password!',
+        icon: 'error',
+      });
+    } else if (resp.data.msg === 'userAdded') {
+      swal({
+        title: 'Success Registration!',
+        icon: 'success',
+      });
+      // Call register action to update auth reducer
+      props.regAction(resp.data);
+      closeModal();
+    }
   };
+  console.log(props.auth);
+
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault();
+  //   closeModal();
+
+  //   console.log(NomCliente);
+  //   console.log(NomContacto);
+  //   console.log(NumNit);
+  //   console.log(CodPais);
+  //   console.log(CodCiudad);
+  //   console.log(Direccion);
+  //   console.log(NumTel1);
+  //   console.log(NumTel2);
+  //   console.log(Mail);
+  //   console.log(LogUsuario);
+  //   console.log(Contrasena);
+
+  //   ***** Llamar DaxParts API *****
+  //   ***** Call DaxParts API *****
+  //   const url = 'http://www.wp.daxparts.com/api/cliente/guardarCliente';
+  //   const data = {
+  //     IdCliente: '0',
+  //     NomCliente: NomCliente,
+  //     NomContacto: NomContacto,
+  //     NumNit: NumNit,
+  //     CodPais: CodPais,
+  //     CodCiudad: CodCiudad,
+  //     Direccion: Direccion,
+  //     NumTel1: NumTel1,
+  //     NumTel2: NumTel2,
+  //     Mail: Mail,
+  //     NomUsuario: NomUsuario,
+  //     LogUsuario: LogUsuario,
+  //     Contrasena: Contrasena,
+  //   };
+  //   ***** Enviar pedido POST a la API
+  //   ***** Call POST request *****
+  //   const response = await axios.post(url, data);
+  //   console.log(response);
+  // };
 
   return (
     <>
@@ -75,7 +113,37 @@ const SignUp = (props) => {
         <img src={navLogo} alt='Dax Logo' />
       </div>
 
+      {/* TEST */}
       <div className='modal-body'>
+        <form onSubmit={handleSubmit}>
+          <h4>{idioma.crear.titulo1}</h4>
+          <div className='form-group d-flex justify-content-center'>
+            <input
+              type='email'
+              className='form-control mr-sm-2'
+              placeholder='Email'
+              onChange={(e) => setMail(e.target.value)}
+              value={Mail}
+            />
+          </div>
+          <div className='form-group d-flex justify-content-center'>
+            <input
+              type='password'
+              className='form-control mr-sm-2'
+              placeholder={idioma.crear.password1}
+              onChange={(e) => setContrasena(e.target.value)}
+              value={Contrasena}
+            />
+          </div>
+          <div className='boton-form'>
+            <button type='submit' className='btn'>
+              {idioma.crear.botonCrear}
+            </button>
+          </div>
+        </form>
+      </div>
+
+      {/* <div className='modal-body'>
         <form onSubmit={handleSubmit}>
           <h4>{idioma.crear.titulo1}</h4>
           <div className='form-group d-flex justify-content-center'>
@@ -97,21 +165,6 @@ const SignUp = (props) => {
               value={NomContacto}
             />
           </div>
-
-          {/* API no lo requiere 
-            TODO: Confirm with Dax since API does not request it */}
-
-          {/* <div className='form-group d-flex justify-content-center'>
-            <select
-              className='form-control'
-              onChange={(e) => setId(e.target.value)}
-              value={id}>
-              <option>{idioma.crear.cedula}</option>
-              <option>NIT</option>
-              <option>{idioma.crear.pasaporte}</option>
-              <option>RUC</option>
-            </select>
-          </div> */}
 
           <div className='form-group d-flex justify-content-center'>
             <input
@@ -215,26 +268,13 @@ const SignUp = (props) => {
             />
           </div>
 
-          {/* API no lo requiere 
-            TODO: Confirm with Dax since API does not request it */}
-
-          {/* <div className='form-group d-flex justify-content-center'>
-            <input
-              type='password'
-              className='form-control mr-sm-2'
-              placeholder={idioma.crear.password2}
-              onChange={(e) => setPassword2(e.target.value)}
-              value={password2}
-            />
-          </div> */}
-
           <div className='boton-form'>
             <button type='submit' className='btn'>
               {idioma.crear.botonCrear}
             </button>
           </div>
         </form>
-      </div>
+      </div> */}
 
       <div className='modal-footer d-flex justify-content-center'>
         <div>
@@ -256,6 +296,7 @@ const SignUp = (props) => {
 function mapStateToProps(state) {
   return {
     siteModal: state.siteModal,
+    auth: state.auth,
   };
 }
 
@@ -263,6 +304,7 @@ function mapDispatchToProps(dispacher) {
   return bindActionCreators(
     {
       openModal: openModal,
+      regAction: regAction,
     },
     dispacher
   );

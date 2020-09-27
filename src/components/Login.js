@@ -16,27 +16,31 @@ const Login = (props) => {
     props.openModal('closed', '');
   };
 
-  // Submit Login
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    closeModal();
     console.log(usuario);
     console.log(password);
-    // ***** Llamar DaxParts API *****
-    // ***** Call DaxParts API *****
-    const url = 'http://www.wp.daxparts.com/api/sesion/validar';
-    const data = {
-      logususario: usuario,
-      clausuario: password,
-    };
-
-    // ***** Enviar pedido POST a la API
-    // ***** Call POST request *****
-    const response = await axios.post(url, data);
-    console.log(response);
-    // Hacer algo con la respuesta del API (Usuario valido o no)
-    // TODO: Do something with the response
+    closeModal();
   };
+
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault();
+  //   closeModal();
+  //   console.log(usuario);
+  //   console.log(password);
+  //   ***** Llamar DaxParts API *****
+  //   ***** Call DaxParts API *****
+  //   const url = 'http://www.wp.daxparts.com/api/sesion/validar';
+  //   const data = {
+  //     logususario: usuario,
+  //     clausuario: password,
+  //   };
+
+  //   ***** Enviar pedido POST a la API
+  //   ***** Call POST request *****
+  //   const response = await axios.post(url, data);
+  //   console.log(response);
+  // };
 
   return (
     <>
@@ -48,7 +52,7 @@ const Login = (props) => {
         <form onSubmit={handleSubmit}>
           <div className='form-group d-flex justify-content-center'>
             <input
-              type='text'
+              type='email'
               className='form-control mr-sm-2'
               placeholder={idioma.ingresar.nombre}
               onChange={(e) => setUsuario(e.target.value)}
@@ -65,12 +69,6 @@ const Login = (props) => {
               value={password}
             />
           </div>
-
-          {/* <div className='enlace-form'>
-            <a className='me-olvide' href='/#'>
-              {idioma.ingresar.olvide}
-            </a>
-          </div> */}
 
           <div className='boton-form'>
             <button type='submit' className='btn'>

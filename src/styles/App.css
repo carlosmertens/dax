@@ -7,7 +7,9 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-box-sizing: border-box;
-  /* background-color: whitesmoke; */
+  /* -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none; */
 }
 html,
 body {
