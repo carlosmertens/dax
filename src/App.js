@@ -15,6 +15,7 @@ import spanish from './text/esp.json';
 import english from './text/eng.json';
 
 import Panel from './pages/panelCliente';
+import Comprar from './pages/comprarParte';
 
 function App() {
   const [language, setLanguage] = useState('Español');
@@ -25,7 +26,7 @@ function App() {
     const locationUrl = 'https://extreme-ip-lookup.com/json/';
     axios.get(locationUrl).then((response) => {
       const userCountry = response.data.country;
-      // console.log('User is visiting from:', userCountry);
+      console.log('User is visiting from:', userCountry);
       setCountry(userCountry);
     });
   }, []);
@@ -118,6 +119,7 @@ function App() {
         }}
       />
       <Route path='/panel' component={Panel} />
+      <Route path='/comprar' component={Comprar} />
     </Router>
   );
 }

@@ -2,9 +2,9 @@ import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import openModal from '../actions/openModal';
-import Spinner from '../components/Spinner';
+// import Spinner from '../components/Spinner';
 import axios from 'axios';
-import Ingresar from '../components/Login';
+import BuyPart from '../components/BuyPart';
 
 const Cotizacion = ({ idioma, strNroParte, country, openModal }) => {
   const [busqueda, setBusqueda] = useState([]);
@@ -23,9 +23,8 @@ const Cotizacion = ({ idioma, strNroParte, country, openModal }) => {
   useEffect(() => {
     const apiUrl = `http://www.wp.daxparts.com/api/cotizacion/BuscarCodigo2/${strNroParte}/${codpais}`;
     const fetchData = async () => {
-      const response = await axios.get(apiUrl);
-      setBusqueda(response.data.dato);
-      console.log(response);
+      const resp = await axios.get(apiUrl);
+      setBusqueda(resp.data.dato);
     };
 
     fetchData();
@@ -33,9 +32,9 @@ const Cotizacion = ({ idioma, strNroParte, country, openModal }) => {
 
   console.log(busqueda);
 
-  if (busqueda.length === 0) {
-    return <Spinner idioma={idioma} />;
-  }
+  // if (busqueda.length === 0) {
+  //   return <Spinner idioma={idioma} />;
+  // }
 
   const cotizarGrid = busqueda.map((item, index) => {
     return (
@@ -52,7 +51,7 @@ const Cotizacion = ({ idioma, strNroParte, country, openModal }) => {
             onClick={() => {
               openModal(
                 'open',
-                <Ingresar idioma={idioma} codigo={item.CodRepuesto} />
+                <BuyPart idioma={idioma} intCodRepuesto={item.CodRepuesto} />
               );
             }}>
             {idioma.cotizacion.botonComprar}
