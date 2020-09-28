@@ -5,7 +5,7 @@ import { Redirect } from 'react-router-dom';
 import openModal from '../actions/openModal';
 import regAction from '../actions/regAction';
 import axios from 'axios';
-// import swal from 'sweetalert';
+import swal from 'sweetalert';
 import navLogo from '../img/logoNav.png';
 import SignUpBuy from './SignUpBuy';
 
@@ -13,65 +13,64 @@ const LoginBuy = (props) => {
   const idioma = props.idioma;
   const [usuario, setUsuario] = useState('');
   const [password, setPassword] = useState('');
-  const [compraLista, setCompraList] = useState({});
+  // const [compraLista, setCompraList] = useState({});
 
-  // Conponent to close the modal
   const closeModal = () => {
     props.openModal('closed', '');
   };
 
   // ============================= START TEST WITH AIRBNB-API============================== //
-  // const handleSubmit = async (e) => {
-  //   e.preventDefault();
-
-  //   const url = 'https://airbnb-api.robertbunch.dev/users/login';
-  //   const data = {
-  //     email: usuario,
-  //     password: password,
-  //   };
-  //   const resp = await axios.post(url, data);
-
-  //   if (resp.data.msg === 'noEmail') {
-  //     swal({
-  //       title: 'That email is not registered.',
-  //       icon: 'error',
-  //     });
-  //   } else if (resp.data.msg === 'badPass') {
-  //     swal({
-  //       title: 'Invalid email/password',
-  //       text: "We don't have a match for that user name and password.",
-  //       icon: 'error',
-  //     });
-  //   } else if (resp.data.msg === 'loggedIn') {
-  //     props.regAction(resp.data);
-  //     closeModal();
-  //   }
-  // };
-  // console.log(props.auth);
-  // =============================END TEST WITH AIRBNB-API============================== //
-
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const url = 'http://www.wp.daxparts.com/api/sesion/validar';
+    const url = 'https://airbnb-api.robertbunch.dev/users/login';
     const data = {
-      logususario: usuario,
-      clausuario: password,
+      email: usuario,
+      password: password,
     };
     const resp = await axios.post(url, data);
-    console.log(resp);
 
-    const intCodCliente = resp.data.datos.intCodCliente;
-    const url2 = `http://www.wp.daxparts.com/api/cotizacion/CrearCot/${intCodCliente}/${props.intCodRepuesto}`;
-    const resp2 = await axios.get(url2);
-    setCompraList(resp2);
-
-    closeModal();
+    if (resp.data.msg === 'noEmail') {
+      swal({
+        title: 'That email is not registered.',
+        icon: 'error',
+      });
+    } else if (resp.data.msg === 'badPass') {
+      swal({
+        title: 'Invalid email/password',
+        text: "We don't have a match for that user name and password.",
+        icon: 'error',
+      });
+    } else if (resp.data.msg === 'loggedIn') {
+      props.regAction(resp.data);
+      closeModal();
+    }
   };
+  console.log(props.auth);
+  // =============================END TEST WITH AIRBNB-API============================== //
+
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault();
+
+  //   const url = 'http://www.wp.daxparts.com/api/sesion/validar';
+  //   const data = {
+  //     logususario: usuario,
+  //     clausuario: password,
+  //   };
+  //   const resp = await axios.post(url, data);
+  //   console.log(resp);
+
+  //   const intCodCliente = resp.data.datos.intCodCliente;
+  //   const url2 = `http://www.wp.daxparts.com/api/cotizacion/CrearCot/${intCodCliente}/${props.intCodRepuesto}`;
+  //   const resp2 = await axios.get(url2);
+  //   setCompraList(resp2);
+
+  //   closeModal();
+  // };
 
   return (
     <>
-      {compraLista.dato.nroCot ? (
+      {props.auth.email ? (
         <Redirect to='/comprar' />
       ) : (
         <>
