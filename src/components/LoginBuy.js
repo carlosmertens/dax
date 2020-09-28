@@ -5,14 +5,15 @@ import { Redirect } from 'react-router-dom';
 import openModal from '../actions/openModal';
 import regAction from '../actions/regAction';
 import axios from 'axios';
-import swal from 'sweetalert';
+// import swal from 'sweetalert';
 import navLogo from '../img/logoNav.png';
-import SignUp from './SignUp';
+import SignUpBuy from './SignUpBuy';
 
-const Login = (props) => {
+const LoginBuy = (props) => {
   const idioma = props.idioma;
   const [usuario, setUsuario] = useState('');
   const [password, setPassword] = useState('');
+  const [compraLista, setCompraList] = useState({});
 
   // Conponent to close the modal
   const closeModal = () => {
@@ -20,53 +21,58 @@ const Login = (props) => {
   };
 
   // ============================= START TEST WITH AIRBNB-API============================== //
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault();
+
+  //   const url = 'https://airbnb-api.robertbunch.dev/users/login';
+  //   const data = {
+  //     email: usuario,
+  //     password: password,
+  //   };
+  //   const resp = await axios.post(url, data);
+
+  //   if (resp.data.msg === 'noEmail') {
+  //     swal({
+  //       title: 'That email is not registered.',
+  //       icon: 'error',
+  //     });
+  //   } else if (resp.data.msg === 'badPass') {
+  //     swal({
+  //       title: 'Invalid email/password',
+  //       text: "We don't have a match for that user name and password.",
+  //       icon: 'error',
+  //     });
+  //   } else if (resp.data.msg === 'loggedIn') {
+  //     props.regAction(resp.data);
+  //     closeModal();
+  //   }
+  // };
+  // console.log(props.auth);
+  // =============================END TEST WITH AIRBNB-API============================== //
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const url = 'https://airbnb-api.robertbunch.dev/users/login';
+    const url = 'http://www.wp.daxparts.com/api/sesion/validar';
     const data = {
-      email: usuario,
-      password: password,
+      logususario: usuario,
+      clausuario: password,
     };
     const resp = await axios.post(url, data);
+    console.log(resp);
 
-    if (resp.data.msg === 'noEmail') {
-      swal({
-        title: 'That email is not registered.',
-        icon: 'error',
-      });
-    } else if (resp.data.msg === 'badPass') {
-      swal({
-        title: 'Invalid email/password',
-        text: "We don't have a match for that user name and password.",
-        icon: 'error',
-      });
-    } else if (resp.data.msg === 'loggedIn') {
-      props.regAction(resp.data);
-      closeModal();
-    }
+    const intCodCliente = resp.data.datos.intCodCliente;
+    const url2 = `http://www.wp.daxparts.com/api/cotizacion/CrearCot/${intCodCliente}/${props.intCodRepuesto}`;
+    const resp2 = await axios.get(url2);
+    setCompraList(resp2);
+
+    closeModal();
   };
-  console.log(props.auth);
-  // =============================END TEST WITH AIRBNB-API============================== //
-
-  // const handleSubmit = async (e) => {
-  //   e.preventDefault();
-  //   closeModal();
-
-  //   const url = 'http://www.wp.daxparts.com/api/sesion/validar';
-  //   const data = {
-  //     logususario: usuario,
-  //     clausuario: password,
-  //   };
-
-  //   const resp = await axios.post(url, data);
-  //   console.log(resp);
-  // };
 
   return (
     <>
-      {props.auth.email ? (
-        <Redirect to='/panel' />
+      {compraLista.dato.nroCot ? (
+        <Redirect to='/comprar' />
       ) : (
         <>
           <div className='modal-logo d-flex justify-content-center'>
@@ -109,7 +115,13 @@ const Login = (props) => {
               <span
                 className='pointer'
                 onClick={() => {
-                  props.openModal('open', <SignUp idioma={idioma} />);
+                  props.openModal(
+                    'open',
+                    <SignUpBuy
+                      idioma={idioma}
+                      intCodRepuesto={props.intCodRepuesto}
+                    />
+                  );
                 }}
                 style={{ color: '#fca728' }}>
                 {idioma.ingresar.cambiarEnlace}
@@ -139,4 +151,4 @@ function mapDispatchToProps(dispacher) {
   );
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Login);
+export default connect(mapStateToProps, mapDispatchToProps)(LoginBuy);
