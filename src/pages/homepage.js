@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import openModal from '../actions/openModal';
+import parteAction from '../actions/parteAction';
 import { Link } from 'react-router-dom';
 import logoCentro from '../img/logoCentro.png';
 import iconVideos from '../img/IconVideos.png';
@@ -11,9 +12,15 @@ import Noparte from '../components/NoParte';
 
 const Homepage = (props) => {
   let buscarParte = '';
-  if (props.strNroParte !== '') {
+  if (props.parte !== '') {
     buscarParte = 'cotizacion';
   }
+
+  const handleSearch = (e) => {
+    props.parteAction(e.target.value);
+  };
+
+  // console.log(props.parte);
   return (
     <div className='Homepage'>
       <header className='Homepage-header'>
@@ -37,8 +44,8 @@ const Homepage = (props) => {
                 <input
                   type='text'
                   placeholder={props.idioma.home.campoBuscar}
-                  value={props.parte}
-                  onChange={props.handleChange}
+                  // value=''
+                  onChange={handleSearch}
                 />
                 <Link to={`/${buscarParte}`} className='btn btn-buscar'>
                   {props.idioma.home.botonBuscar}
@@ -76,14 +83,20 @@ const Homepage = (props) => {
   );
 };
 
-// Function para abrir modal
+function mapStateToProps(state) {
+  return {
+    parte: state.parte,
+  };
+}
+
 function mapDispatchToProps(dispacher) {
   return bindActionCreators(
     {
       openModal: openModal,
+      parteAction: parteAction,
     },
     dispacher
   );
 }
 
-export default connect(null, mapDispatchToProps)(Homepage);
+export default connect(mapStateToProps, mapDispatchToProps)(Homepage);
