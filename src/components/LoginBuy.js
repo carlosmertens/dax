@@ -1,76 +1,64 @@
 import React, { useState } from 'react';
+import { Redirect } from 'react-router-dom';
+
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { Redirect } from 'react-router-dom';
+
 import openModal from '../actions/openModal';
-import regAction from '../actions/regAction';
+
 import axios from 'axios';
 import swal from 'sweetalert';
+
 import navLogo from '../img/logoNav.png';
 import SignUpBuy from './SignUpBuy';
 
-const LoginBuy = (props) => {
+const Login = (props) => {
   const idioma = props.idioma;
   const [usuario, setUsuario] = useState('');
   const [password, setPassword] = useState('');
-  // const [compraLista, setCompraList] = useState({});
+  const [intCodCliente, setIntCodCliente] = useState({});
+  const [logged, setLogged] = useState(false);
 
   const closeModal = () => {
     props.openModal('closed', '');
   };
 
-  // ============================= START TEST WITH AIRBNB-API============================== //
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const url = 'https://airbnb-api.robertbunch.dev/users/login';
+    const url = 'http://www.wp.daxparts.com/api/sesion/validar';
     const data = {
-      email: usuario,
-      password: password,
+      logusuario: usuario,
+      clausuario: password,
     };
+
     const resp = await axios.post(url, data);
+    // console.log(resp.data);
 
-    if (resp.data.msg === 'noEmail') {
+    if (resp.data.estado === 'OK') {
+      setIntCodCliente(resp.data.dato[0].logusuario);
+      // const url2 = `http://www.wp.daxparts.com/api/cotizacion/CrearCot/${intCodCliente}/${props.intCodRepuesto}`;
+      // const resp2 = await axios.get(url2);
+      setLogged(true);
+    } else {
       swal({
-        title: 'That email is not registered.',
+        title: 'LOGIN INCORRECTO!',
+        text: 'Email/Password equivocado o no registrado',
         icon: 'error',
       });
-    } else if (resp.data.msg === 'badPass') {
-      swal({
-        title: 'Invalid email/password',
-        text: "We don't have a match for that user name and password.",
-        icon: 'error',
-      });
-    } else if (resp.data.msg === 'loggedIn') {
-      props.regAction(resp.data);
-      closeModal();
     }
+    closeModal();
   };
-  console.log(props.auth);
-  // =============================END TEST WITH AIRBNB-API============================== //
 
-  // const handleSubmit = async (e) => {
-  //   e.preventDefault();
+  // console.log(props);
+  // console.log(intCodCliente);
 
-  //   const url = 'http://www.wp.daxparts.com/api/sesion/validar';
-  //   const data = {
-  //     logususario: usuario,
-  //     clausuario: password,
-  //   };
-  //   const resp = await axios.post(url, data);
-  //   console.log(resp);
-
-  //   const intCodCliente = resp.data.datos.intCodCliente;
-  //   const url2 = `http://www.wp.daxparts.com/api/cotizacion/CrearCot/${intCodCliente}/${props.intCodRepuesto}`;
-  //   const resp2 = await axios.get(url2);
-  //   setCompraList(resp2);
-
-  //   closeModal();
-  // };
+  console.log(props.intCodRepuesto);
+  console.log(intCodCliente);
 
   return (
     <>
-      {props.auth.email ? (
+      {logged ? (
         <Redirect to='/comprar' />
       ) : (
         <>
@@ -114,13 +102,7 @@ const LoginBuy = (props) => {
               <span
                 className='pointer'
                 onClick={() => {
-                  props.openModal(
-                    'open',
-                    <SignUpBuy
-                      idioma={idioma}
-                      intCodRepuesto={props.intCodRepuesto}
-                    />
-                  );
+                  props.openModal('open', <SignUpBuy idioma={idioma} />);
                 }}
                 style={{ color: '#fca728' }}>
                 {idioma.ingresar.cambiarEnlace}
@@ -136,7 +118,6 @@ const LoginBuy = (props) => {
 function mapStateToProps(state) {
   return {
     siteModal: state.siteModal,
-    auth: state.auth,
   };
 }
 
@@ -144,10 +125,9 @@ function mapDispatchToProps(dispacher) {
   return bindActionCreators(
     {
       openModal: openModal,
-      regAction: regAction,
     },
     dispacher
   );
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(LoginBuy);
+export default connect(mapStateToProps, mapDispatchToProps)(Login);

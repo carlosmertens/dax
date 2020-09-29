@@ -49,7 +49,7 @@ const Cotizacion = (props) => {
             type='button'
             className='btn'
             onClick={() => {
-              openModal(
+              props.openModal(
                 'open',
                 <BuyPart
                   idioma={props.idioma}
@@ -63,7 +63,6 @@ const Cotizacion = (props) => {
       </tr>
     );
   });
-  console.log(props.country);
 
   return (
     <div className='container-fluid cotizacion-contenido'>

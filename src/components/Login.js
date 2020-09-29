@@ -1,11 +1,14 @@
 import React, { useState } from 'react';
+import { Redirect } from 'react-router-dom';
+
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { Redirect } from 'react-router-dom';
+
 import openModal from '../actions/openModal';
-import regAction from '../actions/regAction';
+
 import axios from 'axios';
-// import swal from 'sweetalert';
+import swal from 'sweetalert';
+
 import navLogo from '../img/logoNav.png';
 import SignUp from './SignUp';
 
@@ -18,36 +21,6 @@ const Login = (props) => {
   const closeModal = () => {
     props.openModal('closed', '');
   };
-
-  // ============================= START TEST WITH AIRBNB-API============================== //
-  // const handleSubmit = async (e) => {
-  //   e.preventDefault();
-
-  //   const url = 'https://airbnb-api.robertbunch.dev/users/login';
-  //   const data = {
-  //     email: usuario,
-  //     password: password,
-  //   };
-  //   const resp = await axios.post(url, data);
-
-  //   if (resp.data.msg === 'noEmail') {
-  //     swal({
-  //       title: 'That email is not registered.',
-  //       icon: 'error',
-  //     });
-  //   } else if (resp.data.msg === 'badPass') {
-  //     swal({
-  //       title: 'Invalid email/password',
-  //       text: "We don't have a match for that user name and password.",
-  //       icon: 'error',
-  //     });
-  //   } else if (resp.data.msg === 'loggedIn') {
-  //     props.regAction(resp.data);
-  //     closeModal();
-  //   }
-  // };
-  // console.log(props.auth);
-  // =============================END TEST WITH AIRBNB-API============================== //
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -62,6 +35,12 @@ const Login = (props) => {
     console.log(resp.data);
     if (resp.data.estado === 'OK') {
       setLogged(true);
+    } else {
+      swal({
+        title: 'LOGIN INCORRECTO!',
+        text: 'Email/Password equivocado o no registrado',
+        icon: 'error',
+      });
     }
     closeModal();
   };
@@ -128,7 +107,6 @@ const Login = (props) => {
 function mapStateToProps(state) {
   return {
     siteModal: state.siteModal,
-    auth: state.auth,
   };
 }
 
@@ -136,7 +114,6 @@ function mapDispatchToProps(dispacher) {
   return bindActionCreators(
     {
       openModal: openModal,
-      regAction: regAction,
     },
     dispacher
   );
