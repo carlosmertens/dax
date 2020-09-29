@@ -6,29 +6,29 @@ import openModal from '../actions/openModal';
 import axios from 'axios';
 import BuyPart from '../components/BuyPart';
 
-const Cotizacion = ({ idioma, strNroParte, country, openModal }) => {
+const Cotizacion = (props) => {
   const [busqueda, setBusqueda] = useState([]);
 
   let codpais = '';
-  if (country === 'Bolivia') {
+  if (props.country === 'Bolivia') {
     codpais = 'BO';
-  } else if (country === 'Peru') {
+  } else if (props.country === 'Peru') {
     codpais = 'PE';
-  } else if (country === 'Paraguay') {
+  } else if (props.country === 'Paraguay') {
     codpais = 'PY';
   } else {
     codpais = 'US';
   }
 
   useEffect(() => {
-    const apiUrl = `http://www.wp.daxparts.com/api/cotizacion/BuscarCodigo2/${strNroParte}/${codpais}`;
+    const apiUrl = `http://www.wp.daxparts.com/api/cotizacion/BuscarCodigo2/${props.strNroParte}/${codpais}`;
     const fetchData = async () => {
       const resp = await axios.get(apiUrl);
       setBusqueda(resp.data.dato);
     };
 
     fetchData();
-  }, [strNroParte, codpais]);
+  }, [props.strNroParte, codpais]);
 
   console.log(busqueda);
 
@@ -51,21 +51,25 @@ const Cotizacion = ({ idioma, strNroParte, country, openModal }) => {
             onClick={() => {
               openModal(
                 'open',
-                <BuyPart idioma={idioma} intCodRepuesto={item.CodRepuesto} />
+                <BuyPart
+                  idioma={props.idioma}
+                  intCodRepuesto={item.CodRepuesto}
+                />
               );
             }}>
-            {idioma.cotizacion.botonComprar}
+            {props.idioma.cotizacion.botonComprar}
           </button>
         </td>
       </tr>
     );
   });
+  console.log(props.parte);
 
   return (
     <div className='container-fluid cotizacion-contenido'>
       <div className='container cotizacion-title'>
         <p>
-          {idioma.cotizacion.titulo} {strNroParte}
+          {props.idioma.cotizacion.titulo} {props.strNroParte}
         </p>
       </div>
 
@@ -74,11 +78,11 @@ const Cotizacion = ({ idioma, strNroParte, country, openModal }) => {
           <table className='table table-striped table-bordered'>
             <thead className='thead-dark'>
               <tr>
-                <th scope='col'>{idioma.cotizacion.tabla.col1}</th>
-                <th scope='col'>{idioma.cotizacion.tabla.col2}</th>
-                <th scope='col'>{idioma.cotizacion.tabla.col3}</th>
-                <th scope='col'>{idioma.cotizacion.tabla.col4}</th>
-                <th scope='col'>{idioma.cotizacion.tabla.col5}</th>
+                <th scope='col'>{props.idioma.cotizacion.tabla.col1}</th>
+                <th scope='col'>{props.idioma.cotizacion.tabla.col2}</th>
+                <th scope='col'>{props.idioma.cotizacion.tabla.col3}</th>
+                <th scope='col'>{props.idioma.cotizacion.tabla.col4}</th>
+                <th scope='col'>{props.idioma.cotizacion.tabla.col5}</th>
                 <th scope='col'></th>
               </tr>
             </thead>
@@ -88,7 +92,8 @@ const Cotizacion = ({ idioma, strNroParte, country, openModal }) => {
 
         <div className='container bg-secondary'>
           <p className='nota text-white'>
-            <span>{idioma.cotizacion.nota}</span> {idioma.cotizacion.notaTexto}
+            <span>{props.idioma.cotizacion.nota}</span>{' '}
+            {props.idioma.cotizacion.notaTexto}
           </p>
         </div>
       </div>
@@ -96,18 +101,32 @@ const Cotizacion = ({ idioma, strNroParte, country, openModal }) => {
       <div className='container'>
         <div className='col-md-8 offset-md-2 bg-dark beneficios'>
           <div className='container row'>
-            <h4 className='titulo-jumbo'>{idioma.cotizacion.tituloComprar}</h4>
+            <h4 className='titulo-jumbo'>
+              {props.idioma.cotizacion.tituloComprar}
+            </h4>
           </div>
           <div className='row'>
             <div className='col-sm'>
-              <p className='beneficios-jumbo'>{idioma.cotizacion.beneficio1}</p>
-              <p className='beneficios-jumbo'>{idioma.cotizacion.beneficio2}</p>
-              <p className='beneficios-jumbo'>{idioma.cotizacion.beneficio3}</p>
+              <p className='beneficios-jumbo'>
+                {props.idioma.cotizacion.beneficio1}
+              </p>
+              <p className='beneficios-jumbo'>
+                {props.idioma.cotizacion.beneficio2}
+              </p>
+              <p className='beneficios-jumbo'>
+                {props.idioma.cotizacion.beneficio3}
+              </p>
             </div>
             <div className='col-sm'>
-              <p className='beneficios-jumbo'>{idioma.cotizacion.beneficio4}</p>
-              <p className='beneficios-jumbo'>{idioma.cotizacion.beneficio5}</p>
-              <p className='beneficios-jumbo'>{idioma.cotizacion.beneficio6}</p>
+              <p className='beneficios-jumbo'>
+                {props.idioma.cotizacion.beneficio4}
+              </p>
+              <p className='beneficios-jumbo'>
+                {props.idioma.cotizacion.beneficio5}
+              </p>
+              <p className='beneficios-jumbo'>
+                {props.idioma.cotizacion.beneficio6}
+              </p>
             </div>
           </div>
         </div>
@@ -115,6 +134,12 @@ const Cotizacion = ({ idioma, strNroParte, country, openModal }) => {
     </div>
   );
 };
+
+function mapStateToProps(state) {
+  return {
+    parte: state.parte,
+  };
+}
 
 function mapDispatchToProps(dispacher) {
   return bindActionCreators(
@@ -125,4 +150,4 @@ function mapDispatchToProps(dispacher) {
   );
 }
 
-export default connect(null, mapDispatchToProps)(Cotizacion);
+export default connect(mapStateToProps, mapDispatchToProps)(Cotizacion);
