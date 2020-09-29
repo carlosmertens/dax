@@ -25,7 +25,6 @@ const Homepage = (props) => {
     props.parteAction(e.target.value);
   };
 
-  // console.log(props.parte);
   return (
     <div className='Homepage'>
       <header className='Homepage-header'>
@@ -91,6 +90,7 @@ const Homepage = (props) => {
 function mapStateToProps(state) {
   return {
     parte: state.parte,
+    country: state.country,
   };
 }
 

@@ -19,19 +19,21 @@ import english from './text/eng.json';
 
 import Panel from './pages/panelCliente';
 import Comprar from './pages/comprarParte';
+import countryAction from './actions/countryAction';
 
-function App() {
+function App(props) {
   const [language, setLanguage] = useState('Español');
-  const [country, setCountry] = useState('');
+  // const [country, setCountry] = useState('');
 
   useEffect(() => {
     const locationUrl = 'https://extreme-ip-lookup.com/json/';
     axios.get(locationUrl).then((response) => {
       const userCountry = response.data.country;
       // console.log('User is visiting from:', userCountry);
-      setCountry(userCountry);
+      // setCountry(userCountry);
+      props.countryAction(userCountry);
     });
-  }, []);
+  }, [props]);
 
   const handleLanguage = (e) => {
     setLanguage(e.target.value);
@@ -59,7 +61,6 @@ function App() {
             <Homepage
               idioma={idioma}
               language={language}
-              country={country}
               handleLanguage={handleLanguage}
             />
           );
@@ -105,7 +106,7 @@ function App() {
         exact
         path='/cotizacion'
         render={() => {
-          return <Cotizacion idioma={idioma} country={country} />;
+          return <Cotizacion idioma={idioma} />;
         }}
       />
       <Route path='/panel' component={Panel} />
@@ -117,6 +118,7 @@ function App() {
 function mapStateToProps(state) {
   return {
     parte: state.parte,
+    country: state.country,
   };
 }
 
@@ -125,9 +127,11 @@ function mapDispatchToProps(dispacher) {
     {
       // openModal: openModal,
       // parteAction: parteAction,
+      countryAction: countryAction,
     },
     dispacher
   );
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
+// export default App;

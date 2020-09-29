@@ -63,13 +63,13 @@ const Cotizacion = (props) => {
       </tr>
     );
   });
-  // console.log(props.parte);
+  console.log(props.country);
 
   return (
     <div className='container-fluid cotizacion-contenido'>
       <div className='container cotizacion-title'>
         <p>
-          {props.idioma.cotizacion.titulo} {props.strNroParte}
+          {props.idioma.cotizacion.titulo} {props.parte}
         </p>
       </div>
 
@@ -138,6 +138,7 @@ const Cotizacion = (props) => {
 function mapStateToProps(state) {
   return {
     parte: state.parte,
+    country: state.country,
   };
 }
 
