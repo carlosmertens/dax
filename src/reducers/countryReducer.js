@@ -1,6 +1,6 @@
 export default (state = '', action) => {
-  if (action.type === 'NRO_PARTE') {
-    return action.payload.parte;
+  if (action.type === 'COUNTRY') {
+    return action.payload.country;
   } else {
     return state;
   }

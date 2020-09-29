@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+
 import axios from 'axios';
 import './styles/App.css';
 import Navbar from './components/Navbar';
@@ -20,13 +23,12 @@ import Comprar from './pages/comprarParte';
 function App() {
   const [language, setLanguage] = useState('Español');
   const [country, setCountry] = useState('');
-  const [strNroParte, setStrNoParte] = useState('');
 
   useEffect(() => {
     const locationUrl = 'https://extreme-ip-lookup.com/json/';
     axios.get(locationUrl).then((response) => {
       const userCountry = response.data.country;
-      console.log('User is visiting from:', userCountry);
+      // console.log('User is visiting from:', userCountry);
       setCountry(userCountry);
     });
   }, []);
@@ -39,10 +41,6 @@ function App() {
   if (language !== 'Español') {
     idioma = english;
   }
-
-  const handleSearch = (e) => {
-    setStrNoParte(e.target.value);
-  };
 
   return (
     <Router>
@@ -63,8 +61,6 @@ function App() {
               language={language}
               country={country}
               handleLanguage={handleLanguage}
-              strNroParte={strNroParte}
-              handleChange={handleSearch}
             />
           );
         }}
@@ -109,13 +105,7 @@ function App() {
         exact
         path='/cotizacion'
         render={() => {
-          return (
-            <Cotizacion
-              idioma={idioma}
-              strNroParte={strNroParte}
-              country={country}
-            />
-          );
+          return <Cotizacion idioma={idioma} country={country} />;
         }}
       />
       <Route path='/panel' component={Panel} />
@@ -124,4 +114,20 @@ function App() {
   );
 }
 
-export default App;
+function mapStateToProps(state) {
+  return {
+    parte: state.parte,
+  };
+}
+
+function mapDispatchToProps(dispacher) {
+  return bindActionCreators(
+    {
+      // openModal: openModal,
+      // parteAction: parteAction,
+    },
+    dispacher
+  );
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);

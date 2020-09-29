@@ -1,11 +1,16 @@
 import React from 'react';
+
+import { Link } from 'react-router-dom';
+
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+
 import openModal from '../actions/openModal';
 import parteAction from '../actions/parteAction';
-import { Link } from 'react-router-dom';
+
 import logoCentro from '../img/logoCentro.png';
 import iconVideos from '../img/IconVideos.png';
+
 import Idioma from '../components/Idioma';
 import Pais from '../components/Pais';
 import Noparte from '../components/NoParte';

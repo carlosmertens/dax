@@ -21,16 +21,16 @@ const Cotizacion = (props) => {
   }
 
   useEffect(() => {
-    const apiUrl = `http://www.wp.daxparts.com/api/cotizacion/BuscarCodigo2/${props.strNroParte}/${codpais}`;
+    const apiUrl = `http://www.wp.daxparts.com/api/cotizacion/BuscarCodigo2/${props.parte}/${codpais}`;
     const fetchData = async () => {
       const resp = await axios.get(apiUrl);
       setBusqueda(resp.data.dato);
     };
 
     fetchData();
-  }, [props.strNroParte, codpais]);
+  }, [props.parte, codpais]);
 
-  console.log(busqueda);
+  // console.log(busqueda);
 
   // if (busqueda.length === 0) {
   //   return <Spinner idioma={idioma} />;
@@ -63,7 +63,7 @@ const Cotizacion = (props) => {
       </tr>
     );
   });
-  console.log(props.parte);
+  // console.log(props.parte);
 
   return (
     <div className='container-fluid cotizacion-contenido'>
