@@ -13,9 +13,8 @@ import navLogo from '../img/logoNav.png';
 import SignUp from './SignUp';
 
 const Login = (props) => {
-  const idioma = props.idioma;
-  const [usuario, setUsuario] = useState('');
-  const [password, setPassword] = useState('');
+  const [logusuario, setLogusuario] = useState('');
+  const [clausuario, setClausuario] = useState('');
   const [logged, setLogged] = useState(false);
 
   const closeModal = () => {
@@ -27,12 +26,11 @@ const Login = (props) => {
 
     const url = 'http://www.wp.daxparts.com/api/sesion/validar';
     const data = {
-      logusuario: usuario,
-      clausuario: password,
+      logusuario,
+      clausuario,
     };
 
     const resp = await axios.post(url, data);
-    console.log(resp.data);
     if (resp.data.estado === 'OK') {
       setLogged(true);
     } else {
@@ -61,9 +59,9 @@ const Login = (props) => {
                 <input
                   type='text'
                   className='form-control mr-sm-2'
-                  placeholder={idioma.ingresar.nombre}
-                  onChange={(e) => setUsuario(e.target.value)}
-                  value={usuario}
+                  placeholder={props.idioma.ingresar.nombre}
+                  onChange={(e) => setLogusuario(e.target.value)}
+                  value={logusuario}
                 />
               </div>
 
@@ -71,15 +69,15 @@ const Login = (props) => {
                 <input
                   type='password'
                   className='form-control mr-sm-2'
-                  placeholder={idioma.ingresar.password}
-                  onChange={(e) => setPassword(e.target.value)}
-                  value={password}
+                  placeholder={props.idioma.ingresar.password}
+                  onChange={(e) => setClausuario(e.target.value)}
+                  value={clausuario}
                 />
               </div>
 
               <div className='boton-form'>
                 <button type='submit' className='btn'>
-                  {idioma.ingresar.botonIngresar}
+                  {props.idioma.ingresar.botonIngresar}
                 </button>
               </div>
             </form>
@@ -87,14 +85,14 @@ const Login = (props) => {
 
           <div className='modal-footer d-flex justify-content-center'>
             <div>
-              {idioma.ingresar.cambiarModal}{' '}
+              {props.idioma.ingresar.cambiarModal}{' '}
               <span
                 className='pointer'
                 onClick={() => {
-                  props.openModal('open', <SignUp idioma={idioma} />);
+                  props.openModal('open', <SignUp idioma={props.idioma} />);
                 }}
                 style={{ color: '#fca728' }}>
-                {idioma.ingresar.cambiarEnlace}
+                {props.idioma.ingresar.cambiarEnlace}
               </span>
             </div>
           </div>

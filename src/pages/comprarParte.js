@@ -9,7 +9,7 @@ const comprarParte = () => (
     </div>
 
     <div className='container'>
-      <p>El cliente ha slecionado la parte que quiere comprar</p>
+      <h4>Cotizacion esta en el panel del cliente!!!</h4>
     </div>
   </div>
 );
