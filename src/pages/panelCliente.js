@@ -9,7 +9,7 @@ const panelCliente = () => (
     </div>
 
     <div className='container'>
-      <p>El cliente ha logeado o ha registrado nueva cuenta</p>
+      <h4>El cliente ha logeado o ha registrado nueva cuenta</h4>
     </div>
   </div>
 );
