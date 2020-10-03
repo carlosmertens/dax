@@ -34,6 +34,7 @@ const BuyPart = (props) => {
             }}>
             {props.idioma.navbar.botonTexto1}
           </button>
+
           <button
             type='button'
             className='btn'

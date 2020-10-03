@@ -53,7 +53,21 @@ const SignUp = (props) => {
 
     const resp = await axios.post(url, data);
     if (resp.data.estado === 'OK') {
-      setLogged(true);
+      // console.log(resp.data);
+      const url2 = `http://www.wp.daxparts.com/api/cotizacion/CrearCot/${resp.data.dato[0].IdCliente}/${props.intCodRepuesto}`;
+      // console.log(url2);
+      const resp2 = await axios.get(url2);
+      if (resp2.data.estado === 'OK') {
+        //Redirect user to "Panel del Cliente"
+        setLogged(true);
+      } else {
+        swal({
+          title: 'Upps!!!',
+          text:
+            'Lo siento, no logramos conectar con la base de datos. Intentalo de nuevo!',
+          icon: 'error',
+        });
+      }
     } else {
       swal({
         title: 'REGISTRO INCORRECTO!',

@@ -52,7 +52,7 @@ const SignUp = (props) => {
     };
 
     const resp = await axios.post(url, data);
-    console.log(resp);
+    // console.log(resp);
     if (resp.data.estado === 'OK') {
       setLogged(true);
     } else {
