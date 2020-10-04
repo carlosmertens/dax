@@ -16,9 +16,9 @@ const BuyPart = (props) => {
       </div>
 
       <div className='modal-body'>
-        {/* <div className='modal-header'>
-          <h4 className='modal-title'>Ingresa o crea tu cuenta!</h4>
-        </div> */}
+        <div className='modal-header'>
+          <h6 className='modal-title'>Ingresa o crea tu cuenta!</h6>
+        </div>
         <div className='modal-body d-flex justify-content-center'>
           <button
             type='button'

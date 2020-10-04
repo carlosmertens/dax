@@ -5,6 +5,7 @@ import openModal from '../actions/openModal';
 // import Spinner from '../components/Spinner';
 import axios from 'axios';
 import BuyPart from '../components/BuyPart';
+import InfoParte from '../components/InfoParte';
 
 const Cotizacion = (props) => {
   const [busqueda, setBusqueda] = useState([]);
@@ -20,17 +21,23 @@ const Cotizacion = (props) => {
     codpais = 'US';
   }
 
+  const apiUrl = `http://www.wp.daxparts.com/api/cotizacion/BuscarCodigo2/${props.parte}/${codpais}`;
+
   useEffect(() => {
-    const apiUrl = `http://www.wp.daxparts.com/api/cotizacion/BuscarCodigo2/${props.parte}/${codpais}`;
     const fetchData = async () => {
       const resp = await axios.get(apiUrl);
-      setBusqueda(resp.data.dato);
+      console.log(resp.data);
+      if (resp.data.estado === 'NC') {
+        props.openModal('open', <InfoParte idioma={props.idioma} />);
+      } else {
+        setBusqueda(resp.data.dato);
+      }
     };
 
     fetchData();
-  }, [props.parte, codpais]);
+  }, [apiUrl, props]);
 
-  // console.log(busqueda);
+  console.log(busqueda);
 
   // if (busqueda.length === 0) {
   //   return <Spinner idioma={idioma} />;
