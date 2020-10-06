@@ -1,23 +1,34 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import openModal from '../actions/openModal';
-import regAction from '../actions/regAction';
 import navLogo from '../img/logoNav.png';
 
 import LoginBuy from './LoginBuy';
 import SignUpBuy from './SignUpBuy';
 
 const InfoParte = (props) => {
+  const [marca, setMarca] = useState([]);
+
   useEffect(() => {
     const fetchData = async () => {
-      const resp = axios.get('http://www.wp.daxparts.com/api/marca/listado');
-      console.log(resp);
-      // Responding a promise
+      const url = 'http://www.wp.daxparts.com/api/marca/listado';
+      const resp = await axios.get(url);
+      setMarca(resp.data.dato);
     };
     fetchData();
   }, []);
+
+  const optionsMarca = marca.map((item, index) => {
+    return (
+      <option key={index} value={item.NomMarca}>
+        {item.NomMarca}
+      </option>
+    );
+  });
+
+  // console.log(props);
 
   return (
     <>
@@ -36,23 +47,14 @@ const InfoParte = (props) => {
         <div className='modal-body'>
           <form>
             <div className='form-group d-flex justify-content-center'>
-              <select className='' value=''>
-                <option>Catarpillar</option>
-                <option>Case</option>
-              </select>
+              <select>{optionsMarca}</select>
             </div>
             <div className='form-group d-flex justify-content-center'>
               <button
                 type='button'
                 className='btn'
                 onClick={() => {
-                  props.openModal(
-                    'open',
-                    <LoginBuy
-                      idioma={props.idioma}
-                      intCodRepuesto={props.intCodRepuesto}
-                    />
-                  );
+                  props.openModal('open', <LoginBuy idioma={props.idioma} />);
                 }}>
                 {props.idioma.navbar.botonTexto1}
               </button>
@@ -61,13 +63,7 @@ const InfoParte = (props) => {
                 type='button'
                 className='btn'
                 onClick={() => {
-                  props.openModal(
-                    'open',
-                    <SignUpBuy
-                      idioma={props.idioma}
-                      intCodRepuesto={props.intCodRepuesto}
-                    />
-                  );
+                  props.openModal('open', <SignUpBuy idioma={props.idioma} />);
                 }}>
                 {props.idioma.navbar.botonTexto2}
               </button>
@@ -84,7 +80,7 @@ const InfoParte = (props) => {
 function mapStateToProps(state) {
   return {
     siteModal: state.siteModal,
-    // auth: state.auth,
+    parte: state.parte,
   };
 }
 
@@ -92,7 +88,6 @@ function mapDispatchToProps(dispacher) {
   return bindActionCreators(
     {
       openModal: openModal,
-      regAction: regAction,
     },
     dispacher
   );

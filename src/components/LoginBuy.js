@@ -99,7 +99,13 @@ const Login = (props) => {
               <span
                 className='pointer'
                 onClick={() => {
-                  props.openModal('open', <SignUpBuy idioma={props.idioma} />);
+                  props.openModal(
+                    'open',
+                    <SignUpBuy
+                      idioma={props.idioma}
+                      intCodRepuesto={props.intCodRepuesto}
+                    />
+                  );
                 }}
                 style={{ color: '#fca728' }}>
                 {props.idioma.ingresar.cambiarEnlace}

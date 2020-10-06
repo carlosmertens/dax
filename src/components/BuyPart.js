@@ -16,8 +16,8 @@ const BuyPart = (props) => {
       </div>
 
       <div className='modal-body'>
-        <div className='modal-header'>
-          <h6 className='modal-title'>Ingresa o crea tu cuenta!</h6>
+        <div className='modal-header d-flex justify-content-center'>
+          <h4 className='modal-title'>Ingresa a tu cuenta!</h4>
         </div>
         <div className='modal-body d-flex justify-content-center'>
           <button
@@ -34,21 +34,25 @@ const BuyPart = (props) => {
             }}>
             {props.idioma.navbar.botonTexto1}
           </button>
-
-          <button
-            type='button'
-            className='btn'
-            onClick={() => {
-              props.openModal(
-                'open',
-                <SignUpBuy
-                  idioma={props.idioma}
-                  intCodRepuesto={props.intCodRepuesto}
-                />
-              );
-            }}>
-            {props.idioma.navbar.botonTexto2}
-          </button>
+        </div>
+        <div className='modal-footer d-flex justify-content-center'>
+          <div>
+            {props.idioma.ingresar.cambiarModal}{' '}
+            <span
+              className='pointer'
+              onClick={() => {
+                props.openModal(
+                  'open',
+                  <SignUpBuy
+                    idioma={props.idioma}
+                    intCodRepuesto={props.intCodRepuesto}
+                  />
+                );
+              }}
+              style={{ color: '#fca728' }}>
+              {props.idioma.ingresar.cambiarEnlace}
+            </span>
+          </div>
         </div>
       </div>
     </>
