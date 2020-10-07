@@ -5,11 +5,12 @@ import { bindActionCreators } from 'redux';
 import openModal from '../actions/openModal';
 import navLogo from '../img/logoNav.png';
 
-import LoginBuy from './LoginBuy';
-import SignUpBuy from './SignUpBuy';
+import Login from './Login';
+import SignUp from './SignUp';
 
 const InfoParte = (props) => {
   const [marca, setMarca] = useState([]);
+  const [itemMarca, setItemMarca] = useState('CATERPILLAR');
 
   useEffect(() => {
     const fetchData = async () => {
@@ -28,7 +29,11 @@ const InfoParte = (props) => {
     );
   });
 
-  // console.log(props);
+  const handleChange = (e) => {
+    setItemMarca(e.target.value);
+  };
+
+  // console.log(itemMarca);
 
   return (
     <>
@@ -45,32 +50,48 @@ const InfoParte = (props) => {
           </h6>
         </div>
         <div className='modal-body'>
-          <form>
-            <div className='form-group d-flex justify-content-center'>
-              <select>{optionsMarca}</select>
-            </div>
-            <div className='form-group d-flex justify-content-center'>
-              <button
-                type='button'
-                className='btn'
-                onClick={() => {
-                  props.openModal('open', <LoginBuy idioma={props.idioma} />);
-                }}>
-                {props.idioma.navbar.botonTexto1}
-              </button>
-
-              <button
-                type='button'
-                className='btn'
-                onClick={() => {
-                  props.openModal('open', <SignUpBuy idioma={props.idioma} />);
-                }}>
-                {props.idioma.navbar.botonTexto2}
-              </button>
-            </div>
-          </form>
-
-          <div></div>
+          <div className='form-group d-flex justify-content-center'>
+            <select onChange={handleChange}>{optionsMarca}</select>
+          </div>
+          <div className='form-group d-flex justify-content-center'>
+            <button
+              type='button'
+              className='btn'
+              onClick={() => {
+                props.openModal(
+                  'open',
+                  <Login
+                    idioma={props.idioma}
+                    itemMarca={itemMarca}
+                    intCodRepuesto={0}
+                    parte={props.parte}
+                  />
+                );
+              }}>
+              {props.idioma.navbar.botonTexto1}
+            </button>
+          </div>
+        </div>
+        <div className='modal-footer d-flex justify-content-center'>
+          <div>
+            {props.idioma.ingresar.cambiarModal}{' '}
+            <span
+              className='pointer'
+              onClick={() => {
+                props.openModal(
+                  'open',
+                  <SignUp
+                    idioma={props.idioma}
+                    itemMarca={itemMarca}
+                    intCodRepuesto={0}
+                    parte={props.parte}
+                  />
+                );
+              }}
+              style={{ color: '#fca728' }}>
+              {props.idioma.ingresar.cambiarEnlace}
+            </span>
+          </div>
         </div>
       </div>
     </>
