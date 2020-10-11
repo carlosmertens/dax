@@ -1,6 +1,6 @@
 export default (langObj) => {
   return {
-    type: 'REGISTER_ACTION',
+    type: 'IDIOMA_ACTION',
     payload: langObj,
   };
 };
