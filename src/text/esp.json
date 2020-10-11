@@ -1,7 +1,7 @@
 {
   "navbar": {
     "enlace1": "Empresa",
-    "enlace2": "Como lo hacemos?",
+    "enlace2": "Tutoriales",
     "enlace3": "Industrias",
     "enlace4": "Contactos",
     "botonTexto1": "Ingresar",
@@ -14,15 +14,15 @@
     "olvide": "Me olvide",
     "botonIngresar": "Ingresar",
     "cambiarModal": "No tienes una cuenta?",
-    "cambiarEnlace": "Click aqui!"
+    "cambiarEnlace": "Click aquí!"
   },
 
   "crear": {
     "titulo1": "Datos del cliente:",
     "empresa": "Empresa",
     "nombre": "Nombre",
-    "numero": "Numero de identidad",
-    "pais": "Pais",
+    "numero": "Número de identidad",
+    "pais": "País",
     "ciudad": "Ciudad",
     "telefono1": "Teléfono 1",
     "telefono2": "Teléfono 2",
@@ -33,29 +33,28 @@
     "password2": "Confirmar contraseña",
     "botonCrear": "Crear cuenta",
     "cambiarModal": "Ya tienes una cuenta?",
-    "cambiarEnlace": "Click aqui!"
+    "cambiarEnlace": "Click aquí!"
   },
 
   "home": {
     "leyendaBuscar": "Nro. de parte",
-    "campoBuscar": "Introduce el numero de parte",
+    "campoBuscar": "Introduce el número de parte",
     "botonBuscar": "Buscar",
-    "enlaceClick": "Click aqui si no sabes el numero de parte",
-    "leyendaTutorial": "Como cotizar",
+    "enlaceClick": "Click aquí si no sabes el numero de parte",
+    "leyendaTutorial": "Cómo cotizar",
 
     "modal": {
-      "titulo": "No tienes numero de parte?",
+      "titulo": "No tienes número de parte?",
       "enlaceTutorial": "Manuales gratuitos",
       "enlaceBuscamos": "Te lo buscamos",
       "tienesCuenta": "Ya tienes una cuenta?",
-      "click": "Click aqui"
+      "click": "Click aquí"
     }
   },
 
   "empresa": {
     "titulo": "Dax Parts",
-    "contenido": "Somos una empresa especializada en facilitar repuestos para todo tipo de maquinaria a sus clientes en Latino América y USA. Inicialmente atendiendo el rubro de la construcción en Bolivia, Perú y Paraguay, hoy nuestros servicios se extienden a diversos países y rubros.",
-    "titulo2": "Que hacemos?",
+    "contenido": "Somos una empresa especializada en facilitar repuestos para todo tipo de maquinaria a clientes en países en desarrollo. Inicialmente atendiendo el rubro de la construcción en Bolivia, hoy nuestros servicios se extienden a diversos países y rubros.",
     "contenido2": "Nuestra pasión por la tecnología nos ha permitido desarrollar tecnología propia que permite a nuestros clientes encontrar, cotizar y comprar repuestos online de manera fácil y sencilla. Permitiendo a nuestros clientes beneficiarse con ahorros en precios y tiempos.",
     "contenido3": "Nuestro sistema nos permite ofrecer más de 250.000 repuestos de las mejores marcas, de 50 distintos fabricantes y una red de socios locales e internacionales. Tú eliges cuál comprar y nosotros te lo enviamos.",
     "contenido4": "No necesitas llamar a diferentes tiendas para encontrar tu parte, nosotros la encontramos por ti. Todo en un solo lugar."
@@ -82,10 +81,10 @@
 
   "tutorial": {
     "titulo": "Tutoriales y Manuales",
-    "descripcion": "Te compartimos los siguientes links donde puedes tener acceso a manuales de parte de manera gratuita:",
-    "columna1Titulo": "Usar Manuales de partes en linea",
+    "descripcion": "Te invitamos a ver nuestra selección de videos que te enseñarán como acceder a diferentes manuales de repuestos en línea gratuitos y aprovechar al máximo Dax Parts.",
+    "columna1Titulo": "Manuales de partes en línea.",
     "columna1Texto": "puedes tener acceso a manuales de manera gratuita.",
-    "columna2Titulo": "Como usar nuestra pagina",
+    "columna2Titulo": "Cómo usar nuestra página.",
     "columna2Texto": "te enseñamos como de manera sencilla y breve.",
     "enlaceTutorial": "Has click para ir al tutorial."
   },
@@ -93,7 +92,7 @@
   "contacto": {
     "titulo": "Contáctanos!",
     "usa": {
-      "nombre": "Dax Parts Usa",
+      "nombre": "Dax Parts USA",
       "email": "dax@daxparts.com",
       "telefono": "+1-305-438-6104"
     },
@@ -112,11 +111,12 @@
       "email": "ventaspy@daxparts.com",
       "telefono": "+595 991 406 459"
     },
-    "contenido": "Nos gusta conocer y conversar con nuestros nuevos clientes. Comienza enviándonos un mensaje y nos pondremos en contacto en breve."
+    "contenido": "Nos gusta conocer y conversar con nuestros clientes. Comienza enviándonos un mensaje y nos pondremos en contacto en breve.",
+    "contenido2": "No ves una oficina local en tu país? No es problema contáctanos a la oficina central en USA."
   },
 
   "aprender": {
-    "titulo": "Simple Cotizacion",
+    "titulo": "Simple Cotización",
     "contenido": "Nuestro sistema de ventas nos permite ofrecer más de 250,000 repuestos, de 50 distintos fabricantes y una red de socios locales e internacionales. Colocas tu número de parte (sino lo conoces te ayudamos a encontrarlo) y nuestro motor de búsqueda te ofertará las mejores opciones. Te ofrecemos repuestos de las todas marcas, de las mejores tiendas en Bolivia y el mundo. Caterpillar, John Deere, Komatsu, Case, New Holland, Kubota, Volvo, Cummins, Iveco y muchas más."
   },
 

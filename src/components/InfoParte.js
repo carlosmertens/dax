@@ -6,16 +6,17 @@ import openModal from '../actions/openModal';
 import navLogo from '../img/logoNav.png';
 
 import Login from './Login';
-import SignUp from './SignUp';
+// import SignUp from './SignUp';
 
 const InfoParte = (props) => {
   const [marca, setMarca] = useState([]);
-  const [itemMarca, setItemMarca] = useState('CATERPILLAR');
+  const [itemMarca, setItemMarca] = useState('');
 
   useEffect(() => {
     const fetchData = async () => {
       const url = 'http://www.wp.daxparts.com/api/marca/listado';
       const resp = await axios.get(url);
+      console.log(resp.data.dato);
       setMarca(resp.data.dato);
     };
     fetchData();
@@ -44,9 +45,8 @@ const InfoParte = (props) => {
       <div className='modal-body'>
         <div className='modal-header'>
           <h6 className=''>
-            El item que ingresó no lo tenemos registrado, pero con su ayuda pronto
-            lo tendremos. Por favor ayúdenos con esta sencilla información del
-            fabricante:
+            No tenemos ese número de parte registrado. Por favor, selecciona la
+            marca.
           </h6>
         </div>
         <div className='modal-body'>
@@ -68,11 +68,11 @@ const InfoParte = (props) => {
                   />
                 );
               }}>
-              {props.idioma.navbar.botonTexto1}
+              Cotizar
             </button>
           </div>
         </div>
-        <div className='modal-footer d-flex justify-content-center'>
+        {/* <div className='modal-footer d-flex justify-content-center'>
           <div>
             {props.idioma.ingresar.cambiarModal}{' '}
             <span
@@ -92,7 +92,7 @@ const InfoParte = (props) => {
               {props.idioma.ingresar.cambiarEnlace}
             </span>
           </div>
-        </div>
+        </div> */}
       </div>
     </>
   );

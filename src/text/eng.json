@@ -1,9 +1,9 @@
 {
   "navbar": {
     "enlace1": "Company",
-    "enlace2": "How do we do it?",
-    "enlace3": "What do we offer?",
-    "enlace4": "Contacts",
+    "enlace2": "Tutorials",
+    "enlace3": "Industries",
+    "enlace4": "Contact Us",
     "botonTexto1": "Login",
     "botonTexto2": "Sign up"
   },
@@ -54,44 +54,43 @@
 
   "empresa": {
     "titulo": "Dax Parts",
-    "contenido": "Since 2018, DAX has specialized in providing spare parts for all types of machinery to its clients in Latin America. Initially attending to the construction sector in Bolivia, Peru, and Paraguay; Today the DAX service extends to various countries and areas. His passion for technology; It has allowed it to develop its own technology that allows its customers to purchase spare parts efficiently, economically and in one place. Allowing your customers to benefit from savings on spare parts, freight, and time.",
-    "titulo2": "What do we do?",
-    "contenido2": "We offer you an easy and simple service to search, quote and buy spare parts for heavy, agricultural and construction equipment. Our system will offer you the best brands, prices and delivery times in Bolivia and the world. You decide which one to buy and we will send it to you. You don't need to call different stores to find your part, we will find it for you. All in one place.",
-    "contenido3": "Nuestro sistema nos permite ofrecer más de 250.000 repuestos de las mejores marcas, de 50 distintos fabricantes y una red de socios locales e internacionales. Tú eliges cuál comprar y nosotros te lo enviamos.",
-    "contenido4": "No necesitas llamar a diferentes tiendas para encontrar tu parte, nosotros la encontramos por ti. Todo en un solo lugar."
+    "contenido": "We are a company dedicated in facilitating the purchase of spare parts for all types of machinery to our customers in developing countries. With humble beginnings in Bolivia today our services reach divers countries and industries.",
+    "contenido2": "Our drive for great customer service has allowed our customers to find, quote, compare, and buy their spare parts with a hassle free and one stop experience.",
+    "contenido3": "Our systems allow us to offer over 250,000 spare parts, from over 50 different suppliers, with both local and international partners. You simple choose what you need and we take care of the rest.",
+    "contenido4": "No more multiple calls, suppliers, order minimums, or problems."
   },
 
   "industrias": {
     "titulo": "Spare parts for",
     "subtitulo": "Spare parts for:",
     "span": {
-      "a1": "Earth moving equipment:",
-      "a2": "Excavators, tractors, bull-dozer shovel loaders, motor graders etc.",
-      "b1": "Cranes and lifting equipment:",
-      "b2": "Manlift cranes forklift telehandler etc.",
-      "c1": "Agricultural Equipment:",
-      "c2": "Combine harvesters, sprayers, etc.",
+      "a1": "Earthmoving Equipment:",
+      "a2": "Excavators, Bulldozers, tractors, motor graders, loaders, etc.",
+      "b1": "Lifting Equipment:",
+      "b2": "Cranes, man lifts, forklifts, etc.",
+      "c1": "Agriculture Equipment:",
+      "c2": "Combines, Sprayers, farm tractor, etc.",
       "d1": "Stationary Equipment:",
       "d2": "Generators, compressors, welders, pumps, etc.",
-      "e1": "Cane Equipment:",
-      "e2": "harvesters Seeders etc",
-      "f1": "Trucks",
-      "f2": "Dump trucks special equipment etc"
+      "e1": "Sugar Cane Equipment:",
+      "e2": "Harvester, planters, etc.",
+      "f1": "Trucks:",
+      "f2": "Dumpers, Semi’s, etc."
     }
   },
 
   "tutorial": {
-    "titulo": "Tutorials & Guidelines",
-    "descripcion": "We share the following links where you can have access to user's guide for free:",
-    "columna1Titulo": "Use tutorials online",
+    "titulo": "Parts Manuals and Tutorials",
+    "descripcion": "We invite you to watch our selection for videos which will teach you how to access different free online parts manuals and get the most out of Dax Parts.",
+    "columna1Titulo": "Use online manuals:",
     "columna1Texto": "You can access to user's manual for free.",
-    "columna2Titulo": "How to use our services",
+    "columna2Titulo": "How to use our system:",
     "columna2Texto": "We can show you easily and quickly.",
     "enlaceTutorial": "Click here to go to our tutorials."
   },
 
   "contacto": {
-    "titulo": "We are here for you",
+    "titulo": "Contact Us",
     "usa": {
       "nombre": "Dax Parts Usa",
       "email": "dax@daxparts.com",
@@ -112,7 +111,8 @@
       "email": "ventaspy@daxparts.com",
       "telefono": "+595 991 406 459"
     },
-    "contenido": "We love to meet and chat with our new clients. You can begin by sending us a message and we will contact you shortly."
+    "contenido": "We enjoy knowing and talking with our customers. Start by sending us a quick email or call, will make sure to contact you.",
+    "contenido2": "Don’t see a local office in your country? No problem, just contact our headquarters in the USA."
   },
 
   "aprender": {

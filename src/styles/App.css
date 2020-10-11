@@ -189,8 +189,15 @@ header input {
   text-align: center;
 }
 .contacto-texto {
+  text-align: justify;
+  /* padding-bottom: 40px; */
+}
+
+.contacto-texto1 {
+  text-align: justify;
   padding-bottom: 40px;
 }
+
 .contacto-grupo {
   margin-bottom: 40px !important;
 }
@@ -279,7 +286,7 @@ header input {
   margin-bottom: 20px !important;
 }
 .tutorial-subtitulo {
-  margin-bottom: 50px;
+  margin-bottom: 70px;
 }
 .tutorial p {
   font-size: 20px;

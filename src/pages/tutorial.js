@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 
 const Tutorial = ({ idioma }) => (
   <div className='container-fluid tutorial'>
@@ -21,14 +21,14 @@ const Tutorial = ({ idioma }) => (
             <div className='row'>
               <p>
                 {idioma.tutorial.columna2Titulo} <br />
-                <span>
+                {/* <span>
                   {idioma.tutorial.columna2Texto} <br />
                   <Link to='/hacemos'>
                     <em className='tutorial-enlace'>
                       {idioma.tutorial.enlaceTutorial}
                     </em>
                   </Link>
-                </span>
+                </span> */}
               </p>
             </div>
           </div>
@@ -84,14 +84,14 @@ const Tutorial = ({ idioma }) => (
             <div className='row'>
               <p>
                 {idioma.tutorial.columna1Titulo} <br />
-                <span>
+                {/* <span>
                   {idioma.tutorial.columna1Texto} <br />
                   <Link to='/hacemos'>
                     <em className='tutorial-enlace'>
                       {idioma.tutorial.enlaceTutorial}
                     </em>
                   </Link>
-                </span>
+                </span> */}
               </p>
             </div>
           </div>
@@ -120,7 +120,7 @@ const Tutorial = ({ idioma }) => (
                   src='https://www.youtube.com/embed/MaOpwIWJa0o'></iframe>
               </div>
               <div className='col'>
-                <span className='tutorial-video-texto'>Catarpillar</span>
+                <span className='tutorial-video-texto'>Caterpillar</span>
               </div>
             </div>
           </div>

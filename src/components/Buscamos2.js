@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import axios from 'axios';
+import swal from 'sweetalert';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import openModal from '../actions/openModal';
@@ -26,35 +28,56 @@ const Buscamos2 = (props) => {
 
   // Añadir async: const handleSubmit = async (e) => {
   // Add async
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     closeModal();
-    console.log(props.marcaEquipo);
-    console.log(props.modeloEquipo);
-    console.log(props.serieEquipo);
-    console.log(props.marcaMotor);
-    console.log(props.modeloMotor);
-    console.log(props.serieMotor);
-    console.log(cantidad);
-    console.log(descripcion);
-    console.log(nombre);
-    console.log(pais);
-    console.log(email);
-    console.log(telefono);
+    // console.log(props.marcaEquipo);
+    // console.log(props.modeloEquipo);
+    // console.log(props.serieEquipo);
+    // console.log(props.marcaMotor);
+    // console.log(props.modeloMotor);
+    // console.log(props.serieMotor);
+    // console.log(cantidad);
+    // console.log(descripcion);
+    // console.log(nombre);
+    // console.log(pais);
+    // console.log(email);
+    // console.log(telefono);
+
     // ***** Llamar DaxParts API *****
     // ***** Call DaxParts API *****
-    // const url = 'http://www.wp.daxparts.com/api/...';
-    // const data = {
-    //   campo1: props.marcaEquipo,
-    //   campo2: props.modeloEquipo,
-    //   campo3: props.serieEquipo,
-    //   ... TODO: Copletar los campos
-    // };
+    const url = 'http://www.wp.daxparts.com/api/cotizacion/CrearCotSc';
+    const data = {
+      MarcaEquipo: props.marcaEquipo,
+      ModeloEquipo: props.modeloEquipo,
+      SerieEquipo: props.serieEquipo,
+      MarcaMotor: props.marcaMotor,
+      ModeloMotor: props.modeloMotor,
+      SerieMotor: props.serieMotor,
+      DesRep: descripcion,
+      Cantidad: cantidad,
+      CodCliente: 3,
+    };
 
     // ***** Enviar pedido POST a la API
     // ***** Call POST request *****
-    // const response = await axios.post(url, data);
-    // console.log(response);
+    const resp = await axios.post(url, data);
+    console.log(resp);
+    if (resp.data.estado === 'OK') {
+      swal({
+        title: 'Thank you!!!',
+        text:
+          'Se ha creado tu cotizacion. Puedes darle seguimiento en tu panel de usuario.',
+        icon: 'success',
+      });
+    } else {
+      swal({
+        title: 'Upps!!!',
+        text:
+          'Lo siento, no logramos conectar con la base de datos. Intentalo de nuevo!',
+        icon: 'error',
+      });
+    }
   };
 
   return (

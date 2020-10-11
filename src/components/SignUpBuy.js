@@ -151,7 +151,7 @@ const SignUp = (props) => {
                 <input
                   type='text'
                   className='form-control mr-sm-2'
-                  placeholder='Direccion'
+                  placeholder='Dirección'
                   onChange={(e) => setDireccion(e.target.value)}
                   value={Direccion}
                   required

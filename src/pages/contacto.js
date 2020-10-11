@@ -18,7 +18,8 @@ const Contacto = ({ idioma }) => (
         {/* === Columna 1 === */}
         <div className='col-md'>
           <div className='contacto-texto'>
-            <p>{idioma.contacto.contenido}</p>
+            <p className='contacto-texto'>{idioma.contacto.contenido}</p>
+            <p className='contacto-texto1'>{idioma.contacto.contenido2}</p>
           </div>
           <div className='contacto-country row'>
             {/* row banderas */}
