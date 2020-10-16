@@ -7,7 +7,6 @@ import axios from 'axios';
 import './styles/App.css';
 
 import countryAction from './actions/countryAction';
-import idiomaAction from './actions/idiomaAction';
 
 import Homepage from './pages/homepage';
 import Empresa from './pages/empresa';
@@ -22,19 +21,18 @@ import Comprar from './pages/comprarParte';
 import Navbar from './components/Navbar';
 import Modal from './components/Modal';
 
-function App({ country, idioma, countryAction }) {
+function App({ country, countryAction }) {
   useEffect(() => {
     const locationUrl = 'https://extreme-ip-lookup.com/json/';
     axios.get(locationUrl).then((response) => {
       countryAction(response.data.country);
-      // const userCountry = response.data.country;
       console.log('User is visiting from:', country);
     });
   }, [country, countryAction]);
 
   return (
     <Router>
-      <Route path='/' component={Modal} idioma={idioma} />
+      <Route path='/' component={Modal} />
       <Route path='/' component={Navbar} />
       <Route exact path='/' component={Homepage} />
       <Route path='/empresa' component={Empresa} />
@@ -52,7 +50,6 @@ function App({ country, idioma, countryAction }) {
 function mapStateToProps(state) {
   return {
     country: state.country,
-    idioma: state.idioma,
   };
 }
 
@@ -60,7 +57,6 @@ function mapDispatchToProps(dispacher) {
   return bindActionCreators(
     {
       countryAction: countryAction,
-      idiomaAction: idiomaAction,
     },
     dispacher
   );

@@ -1,11 +1,8 @@
 import React from 'react';
 
-const Idioma = (props) => {
+const Idioma = ({ language, handleLanguage }) => {
   return (
-    <select
-      className='btn btn-idioma'
-      value={props.language}
-      onChange={props.handleLanguage}>
+    <select className='btn btn-idioma' value={language} onChange={handleLanguage}>
       <option>Español</option>
       <option>English</option>
     </select>
