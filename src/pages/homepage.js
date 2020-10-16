@@ -1,28 +1,50 @@
-import React from 'react';
-
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-import openModal from '../actions/openModal';
-import parteAction from '../actions/parteAction';
-
 import logoCentro from '../img/logoCentro.png';
 import iconVideos from '../img/IconVideos.png';
+
+import spanish from '../text/esp.json';
+import english from '../text/eng.json';
+
+import openModal from '../actions/openModal';
+import parteAction from '../actions/parteAction';
+import idiomaAction from '../actions/idiomaAction';
 
 import Idioma from '../components/Idioma';
 import Pais from '../components/Pais';
 import Noparte from '../components/NoParte';
 
-const Homepage = (props) => {
+const Homepage = ({
+  country,
+  idioma,
+  idiomaAction,
+  openModal,
+  parte,
+  parteAction,
+}) => {
+  const [language, setLanguage] = useState('Español');
+
+  useEffect(() => {
+    idiomaAction(spanish);
+    if (language !== 'Español') {
+      idiomaAction(english);
+    }
+  }, [language, idiomaAction]);
+
+  const handleLanguage = (e) => {
+    setLanguage(e.target.value);
+  };
+
   let buscarParte = '';
-  if (props.parte !== '') {
+  if (parte !== '') {
     buscarParte = 'cotizacion';
   }
 
   const handleSearch = (e) => {
-    props.parteAction(e.target.value);
+    parteAction(e.target.value);
   };
 
   return (
@@ -30,11 +52,8 @@ const Homepage = (props) => {
       <header className='Homepage-header'>
         <div className='container-fluid'>
           <div className='container-fluid d-flex justify-content-between pais-idioma'>
-            <Pais country={props.country} />
-            <Idioma
-              language={props.language}
-              handleLanguage={props.handleLanguage}
-            />
+            <Pais country={country} />
+            <Idioma language={language} handleLanguage={handleLanguage} />
           </div>
 
           <div className='header-contenido'>
@@ -44,15 +63,15 @@ const Homepage = (props) => {
 
             <div className='container d-flex justify-content-center'>
               <form className='form-inline d-flex justify-content-center'>
-                <label>{props.idioma.home.leyendaBuscar}</label>
+                <label>{idioma.home.leyendaBuscar}</label>
                 <input
                   type='text'
-                  placeholder={props.idioma.home.campoBuscar}
+                  placeholder={idioma.home.campoBuscar}
                   // value=''
                   onChange={handleSearch}
                 />
                 <Link to={`/${buscarParte}`} className='btn btn-buscar'>
-                  {props.idioma.home.botonBuscar}
+                  {idioma.home.botonBuscar}
                 </Link>
               </form>
             </div>
@@ -62,9 +81,9 @@ const Homepage = (props) => {
                 type='button'
                 className='button-link'
                 onClick={() => {
-                  props.openModal('open', <Noparte idioma={props.idioma} />);
+                  openModal('open', <Noparte idioma={idioma} />);
                 }}>
-                <p className=''>{props.idioma.home.enlaceClick}</p>
+                <p className=''>{idioma.home.enlaceClick}</p>
               </button>
             </div>
 
@@ -75,9 +94,7 @@ const Homepage = (props) => {
                   src={iconVideos}
                   alt='Tutorial Logo'
                 />
-                <p className='tutorial-text'>
-                  {props.idioma.home.leyendaTutorial}
-                </p>
+                <p className='tutorial-text'>{idioma.home.leyendaTutorial}</p>
               </Link>
             </div>
           </div>
@@ -100,6 +117,7 @@ function mapDispatchToProps(dispacher) {
     {
       openModal: openModal,
       parteAction: parteAction,
+      idiomaAction: idiomaAction,
     },
     dispacher
   );
