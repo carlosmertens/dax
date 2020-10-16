@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
 const Empresa = ({ idioma }) => (
   <div className='somos-contenido'>
@@ -10,15 +11,21 @@ const Empresa = ({ idioma }) => (
 
     <div className='container somos-texto'>
       <p>{idioma.empresa.contenido}</p>
-      <br/>
+      <br />
       {/* <h2>{idioma.somos.titulo2}</h2> */}
       <p>{idioma.empresa.contenido2}</p>
-      <br/>
+      <br />
       <p>{idioma.empresa.contenido3}</p>
-      <br/>
+      <br />
       <p>{idioma.empresa.contenido4}</p>
     </div>
   </div>
 );
 
-export default Empresa;
+function mapStateToProps(state) {
+  return {
+    idioma: state.idioma,
+  };
+}
+
+export default connect(mapStateToProps, null)(Empresa);

@@ -1,4 +1,6 @@
 import React from 'react';
+import { connect } from 'react-redux';
+
 // import { Link } from 'react-router-dom';
 
 const Tutorial = ({ idioma }) => (
@@ -145,4 +147,10 @@ const Tutorial = ({ idioma }) => (
   </div>
 );
 
-export default Tutorial;
+function mapStateToProps(state) {
+  return {
+    idioma: state.idioma,
+  };
+}
+
+export default connect(mapStateToProps, null)(Tutorial);

@@ -145,6 +145,7 @@ function mapStateToProps(state) {
   return {
     parte: state.parte,
     country: state.country,
+    idioma: state.idioma,
   };
 }
 
