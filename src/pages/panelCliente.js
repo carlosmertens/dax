@@ -10,6 +10,9 @@ const panelCliente = () => (
 
     <div className='container'>
       <h4>El cliente ha logeado o ha registrado nueva cuenta</h4>
+      <p>
+        O el cliente nos ha informado de un numero que no esta en la base de datos
+      </p>
     </div>
   </div>
 );

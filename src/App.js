@@ -20,10 +20,12 @@ import english from './text/eng.json';
 import Panel from './pages/panelCliente';
 import Comprar from './pages/comprarParte';
 import countryAction from './actions/countryAction';
+import idiomaAction from './actions/idiomaAction';
 
 function App(props) {
   const [language, setLanguage] = useState('Español');
   // const [country, setCountry] = useState('');
+  console.log(props);
 
   useEffect(() => {
     const locationUrl = 'https://extreme-ip-lookup.com/json/';
@@ -39,52 +41,48 @@ function App(props) {
     setLanguage(e.target.value);
   };
 
-  let idioma = spanish;
-  if (language !== 'Español') {
-    idioma = english;
-  }
+  // let idioma = spanish;
+  // if (language !== 'Español') {
+  //   idioma = english;
+  // }
+
+  useEffect(() => {
+    props.idiomaAction(spanish);
+    if (language !== 'Español') {
+      props.idiomaAction(english);
+    }
+  }, [language]);
 
   return (
     <Router>
-      <Route path='/' component={Modal} idioma={idioma} />
-      <Route
-        path='/'
-        render={() => {
-          return <Navbar idioma={idioma} />;
-        }}
-      />
+      <Route path='/' component={Modal} idioma={props.idioma} />
+      <Route path='/' component={Navbar} />
       <Route
         exact
         path='/'
         render={() => {
-          return (
-            <Homepage
-              idioma={idioma}
-              language={language}
-              handleLanguage={handleLanguage}
-            />
-          );
+          return <Homepage language={language} handleLanguage={handleLanguage} />;
         }}
       />
       <Route
         exact
         path='/empresa'
         render={() => {
-          return <Empresa idioma={idioma} />;
+          return <Empresa idioma={props.idioma} />;
         }}
       />
       <Route
         exact
         path='/industrias'
         render={() => {
-          return <Industrias idioma={idioma} />;
+          return <Industrias idioma={props.idioma} />;
         }}
       />
       <Route
         exact
         path='/aprender'
         render={() => {
-          return <Aprender idioma={idioma} />;
+          return <Aprender idioma={props.idioma} />;
         }}
       />
 
@@ -92,21 +90,21 @@ function App(props) {
         exact
         path='/contacto'
         render={() => {
-          return <Contacto idioma={idioma} />;
+          return <Contacto idioma={props.idioma} />;
         }}
       />
       <Route
         exact
         path='/tutorial'
         render={() => {
-          return <Tutorial idioma={idioma} />;
+          return <Tutorial idioma={props.idioma} />;
         }}
       />
       <Route
         exact
         path='/cotizacion'
         render={() => {
-          return <Cotizacion idioma={idioma} />;
+          return <Cotizacion idioma={props.idioma} />;
         }}
       />
       <Route path='/panel' component={Panel} />
@@ -119,6 +117,7 @@ function mapStateToProps(state) {
   return {
     parte: state.parte,
     country: state.country,
+    idioma: state.idioma,
   };
 }
 
@@ -128,6 +127,7 @@ function mapDispatchToProps(dispacher) {
       // openModal: openModal,
       // parteAction: parteAction,
       countryAction: countryAction,
+      idiomaAction: idiomaAction,
     },
     dispacher
   );

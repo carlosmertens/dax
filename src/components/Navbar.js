@@ -78,6 +78,14 @@ const Navbar = (props) => (
   </nav>
 );
 
+function mapStateToProps(state) {
+  return {
+    // parte: state.parte,
+    // country: state.country,
+    idioma: state.idioma,
+  };
+}
+
 function mapDispatchToProps(dispacher) {
   return bindActionCreators(
     {
@@ -87,4 +95,4 @@ function mapDispatchToProps(dispacher) {
   );
 }
 
-export default connect(null, mapDispatchToProps)(Navbar);
+export default connect(mapStateToProps, mapDispatchToProps)(Navbar);
