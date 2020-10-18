@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Redirect } from 'react-router-dom';
+// import { Redirect } from 'react-router-dom';
 
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
@@ -16,6 +16,8 @@ const Login = (props) => {
   const [logusuario, setLogusuario] = useState('');
   const [clausuario, setClausuario] = useState('');
   const [logged, setLogged] = useState(false);
+  const [NroCotizacion, setNroCotizacion] = useState('');
+  const [codcliente, setCodcliente] = useState('');
 
   const closeModal = () => {
     props.openModal('closed', '');
@@ -29,10 +31,11 @@ const Login = (props) => {
 
     const resp = await axios.post(url, data);
     if (resp.data.estado === 'OK') {
+      setCodcliente(resp.data.dato[0].logusuario);
       const url2 = `http://www.wp.daxparts.com/api/cotizacion/CrearCot/${resp.data.dato[0].logusuario}/${props.intCodRepuesto}`;
       const resp2 = await axios.get(url2);
       if (resp2.data.estado === 'OK') {
-        //Redirect user to "Panel del Cliente"
+        setNroCotizacion(resp2.data.dato[0].NroCotizacion);
         setLogged(true);
       } else {
         swal({
@@ -56,7 +59,9 @@ const Login = (props) => {
   return (
     <>
       {logged ? (
-        <Redirect to='/comprar' />
+        window.location.replace(
+          `http://www.demo.daxparts.com/Clientes/frmCliCotDet.aspx?numcot=${NroCotizacion}&blnnu=False&codcliente=${codcliente}`
+        )
       ) : (
         <>
           <div className='modal-logo d-flex justify-content-center'>

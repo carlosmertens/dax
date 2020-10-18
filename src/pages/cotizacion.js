@@ -4,7 +4,7 @@ import { bindActionCreators } from 'redux';
 import openModal from '../actions/openModal';
 // import Spinner from '../components/Spinner';
 import axios from 'axios';
-import BuyPart from '../components/BuyPart';
+import LoginBuy from '../components/LoginBuy';
 import InfoParte from '../components/InfoParte';
 
 const Cotizacion = (props) => {
@@ -26,7 +26,6 @@ const Cotizacion = (props) => {
   useEffect(() => {
     const fetchData = async () => {
       const resp = await axios.get(apiUrl);
-      // console.log(resp.data);
       if (resp.data.estado === 'NC') {
         props.openModal('open', <InfoParte idioma={props.idioma} />);
       } else {
@@ -36,8 +35,6 @@ const Cotizacion = (props) => {
 
     fetchData();
   }, [apiUrl, props]);
-
-  // console.log(busqueda);
 
   // if (busqueda.length === 0) {
   //   return <Spinner idioma={idioma} />;
@@ -58,7 +55,7 @@ const Cotizacion = (props) => {
             onClick={() => {
               props.openModal(
                 'open',
-                <BuyPart
+                <LoginBuy
                   idioma={props.idioma}
                   intCodRepuesto={item.CodRepuesto}
                 />
