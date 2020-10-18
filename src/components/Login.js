@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { Redirect } from 'react-router-dom';
 
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
@@ -16,6 +15,7 @@ const Login = (props) => {
   const [logusuario, setLogusuario] = useState('');
   const [clausuario, setClausuario] = useState('');
   const [logged, setLogged] = useState(false);
+  const [codcliente, setCodcliente] = useState('');
 
   const closeModal = () => {
     props.openModal('closed', '');
@@ -32,6 +32,8 @@ const Login = (props) => {
 
     const resp = await axios.post(url, data);
     if (resp.data.estado === 'OK') {
+      const cod = resp.data.dato[0].logusuario;
+      setCodcliente(cod);
       setLogged(true);
     } else {
       swal({
@@ -46,7 +48,9 @@ const Login = (props) => {
   return (
     <>
       {logged ? (
-        <Redirect to='/panel' />
+        window.location.replace(
+          `http://www.demo.daxparts.com/Clientes/frmCliCotPrin.aspx?codcliente=${codcliente}`
+        )
       ) : (
         <>
           <div className='modal-logo d-flex justify-content-center'>

@@ -26,7 +26,7 @@ const Cotizacion = (props) => {
   useEffect(() => {
     const fetchData = async () => {
       const resp = await axios.get(apiUrl);
-      console.log(resp.data);
+      // console.log(resp.data);
       if (resp.data.estado === 'NC') {
         props.openModal('open', <InfoParte idioma={props.idioma} />);
       } else {
@@ -37,7 +37,7 @@ const Cotizacion = (props) => {
     fetchData();
   }, [apiUrl, props]);
 
-  console.log(busqueda);
+  // console.log(busqueda);
 
   // if (busqueda.length === 0) {
   //   return <Spinner idioma={idioma} />;
