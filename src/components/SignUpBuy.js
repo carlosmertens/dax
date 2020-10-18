@@ -8,8 +8,6 @@ import regAction from '../actions/regAction';
 import navLogo from '../img/logoNav.png';
 import LoginBuy from './LoginBuy';
 
-import { Redirect } from 'react-router-dom';
-
 const SignUp = (props) => {
   const idioma = props.idioma;
 
@@ -26,6 +24,8 @@ const SignUp = (props) => {
   const [LogUsuario, setLogUsuario] = useState('');
   const [Contrasena, setContrasena] = useState('');
   const [logged, setLogged] = useState(false);
+  const [NroCotizacion, setNroCotizacion] = useState('');
+  const [codcliente, setCodcliente] = useState('');
 
   const closeModal = () => {
     props.openModal('closed', '');
@@ -53,12 +53,11 @@ const SignUp = (props) => {
 
     const resp = await axios.post(url, data);
     if (resp.data.estado === 'OK') {
-      // console.log(resp.data);
+      setCodcliente(resp.data.dato[0].IdCliente);
       const url2 = `http://www.wp.daxparts.com/api/cotizacion/CrearCot/${resp.data.dato[0].IdCliente}/${props.intCodRepuesto}`;
-      // console.log(url2);
       const resp2 = await axios.get(url2);
       if (resp2.data.estado === 'OK') {
-        //Redirect user to "Panel del Cliente"
+        setNroCotizacion(resp2.data.dato[0].NroCotizacion);
         setLogged(true);
       } else {
         swal({
@@ -82,7 +81,9 @@ const SignUp = (props) => {
   return (
     <>
       {logged ? (
-        <Redirect to='/comprar' />
+        window.location.replace(
+          `http://www.demo.daxparts.com/Clientes/frmCliCotDet.aspx?numcot=${NroCotizacion}&blnnu=False&codcliente=${codcliente}`
+        )
       ) : (
         <>
           <div className='modal-logo d-flex justify-content-center'>
@@ -240,7 +241,13 @@ const SignUp = (props) => {
               <span
                 className='pointer'
                 onClick={() => {
-                  props.openModal('open', <LoginBuy idioma={idioma} />);
+                  props.openModal(
+                    'open',
+                    <LoginBuy
+                      idioma={idioma}
+                      intCodRepuesto={props.intCodRepuesto}
+                    />
+                  );
                 }}
                 style={{ color: '#fca728' }}>
                 {idioma.crear.cambiarEnlace}
