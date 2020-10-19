@@ -27,12 +27,14 @@ const Login = (props) => {
 
     const url = 'http://www.wp.daxparts.com/api/sesion/validar';
     const data = { logusuario, clausuario };
-
     const resp = await axios.post(url, data);
+
     if (resp.data.estado === 'OK') {
       setCodcliente(resp.data.dato[0].logusuario);
+
       const url2 = `http://www.wp.daxparts.com/api/cotizacion/CrearCot/${resp.data.dato[0].logusuario}/${props.intCodRepuesto}`;
       const resp2 = await axios.get(url2);
+
       if (resp2.data.estado === 'OK') {
         setNroCotizacion(resp2.data.dato[0].NroCotizacion);
         setLogged(true);

@@ -16,7 +16,6 @@ const InfoParte = (props) => {
     const fetchData = async () => {
       const url = 'http://www.wp.daxparts.com/api/marca/listado';
       const resp = await axios.get(url);
-      console.log(resp.data.dato);
       setMarca(resp.data.dato);
     };
     fetchData();
@@ -33,8 +32,6 @@ const InfoParte = (props) => {
   const handleChange = (e) => {
     setItemMarca(e.target.value);
   };
-
-  // console.log(itemMarca);
 
   return (
     <>

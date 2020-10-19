@@ -142,8 +142,9 @@
 
     "botonContinuar": "Siguiente",
 
-    "botonCotizar": "Cotizar",
-    "cambiarModal": "Ya tienes una cuenta?",
+    "botonCotizar": "Ingresar",
+    "cambiarModal": "No tienes una cuenta?",
+    "cambiarModal1": "Ya tienes una cuenta?",
     "cambiarEnlace": "Click aqui!"
   },
 

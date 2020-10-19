@@ -1,84 +1,62 @@
 import React, { useState } from 'react';
-import axios from 'axios';
-import swal from 'sweetalert';
+// import axios from 'axios';
+// import swal from 'sweetalert';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import openModal from '../actions/openModal';
 import navLogo from '../img/logoNav.png';
-import Ingresar from './Login';
-
-// TODO: Wait for the API from DaxParts to know exactly what information is
-// needed in this section and Buscamos2
+import Login3 from './Login3';
 
 const Buscamos2 = (props) => {
   const idioma = props.idioma;
 
   const [cantidad, setCantidad] = useState('');
   const [descripcion, setDescripcion] = useState('');
-  const [nombre, setNombre] = useState('');
-  const [pais, setPais] = useState('');
-  const [email, setEmail] = useState('');
-  const [telefono, setTelefono] = useState('');
+  // const [nombre, setNombre] = useState('');
+  // const [pais, setPais] = useState('');
+  // const [email, setEmail] = useState('');
+  // const [telefono, setTelefono] = useState('');
 
-  // Funcion para cerrar modal
-  // Conponent to close the modal
-  const closeModal = () => {
-    props.openModal('closed', '');
-  };
+  // const closeModal = () => {
+  //   props.openModal('closed', '');
+  // };
 
-  // Añadir async: const handleSubmit = async (e) => {
-  // Add async
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    closeModal();
-    // console.log(props.marcaEquipo);
-    // console.log(props.modeloEquipo);
-    // console.log(props.serieEquipo);
-    // console.log(props.marcaMotor);
-    // console.log(props.modeloMotor);
-    // console.log(props.serieMotor);
-    // console.log(cantidad);
-    // console.log(descripcion);
-    // console.log(nombre);
-    // console.log(pais);
-    // console.log(email);
-    // console.log(telefono);
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault();
 
-    // ***** Llamar DaxParts API *****
-    // ***** Call DaxParts API *****
-    const url = 'http://www.wp.daxparts.com/api/cotizacion/CrearCotSc';
-    const data = {
-      MarcaEquipo: props.marcaEquipo,
-      ModeloEquipo: props.modeloEquipo,
-      SerieEquipo: props.serieEquipo,
-      MarcaMotor: props.marcaMotor,
-      ModeloMotor: props.modeloMotor,
-      SerieMotor: props.serieMotor,
-      DesRep: descripcion,
-      Cantidad: cantidad,
-      CodCliente: 3,
-    };
+  //   const url = 'http://www.wp.daxparts.com/api/cotizacion/CrearCotSc';
+  //   const data = {
+  //     MarcaEquipo: props.marcaEquipo,
+  //     ModeloEquipo: props.modeloEquipo,
+  //     SerieEquipo: props.serieEquipo,
+  //     MarcaMotor: props.marcaMotor,
+  //     ModeloMotor: props.modeloMotor,
+  //     SerieMotor: props.serieMotor,
+  //     DesRep: descripcion,
+  //     Cantidad: cantidad,
+  //     CodCliente: 3,
+  //   };
 
-    // ***** Enviar pedido POST a la API
-    // ***** Call POST request *****
-    const resp = await axios.post(url, data);
-    console.log(resp);
-    if (resp.data.estado === 'OK') {
-      swal({
-        title: 'Thank you!!!',
-        text:
-          'Se ha creado tu cotizacion. Puedes darle seguimiento en tu panel de usuario.',
-        icon: 'success',
-      });
-    } else {
-      swal({
-        title: 'Upps!!!',
-        text:
-          'Lo siento, no logramos conectar con la base de datos. Intentalo de nuevo!',
-        icon: 'error',
-      });
-    }
-  };
+  //   const resp = await axios.post(url, data);
+  //   console.log(resp);
+  //   if (resp.data.estado === 'OK') {
+  //     swal({
+  //       title: 'Thank you!!!',
+  //       text:
+  //         'Se ha creado tu cotizacion. Puedes darle seguimiento en tu panel de usuario.',
+  //       icon: 'success',
+  //     });
+  //   } else {
+  //     swal({
+  //       title: 'Upps!!!',
+  //       text:
+  //         'Lo siento, no logramos conectar con la base de datos. Intentalo de nuevo!',
+  //       icon: 'error',
+  //     });
+  //   }
+
+  //   closeModal();
+  // };
 
   return (
     <>
@@ -89,7 +67,10 @@ const Buscamos2 = (props) => {
       <hr />
 
       <div className='modal-body'>
-        <form onSubmit={handleSubmit}>
+        <form
+          onSubmit={(e) => {
+            e.preventDefault();
+          }}>
           <h4>{idioma.buscamos.titulo3}</h4>
 
           <div className='form-group d-flex justify-content-center'>
@@ -112,7 +93,7 @@ const Buscamos2 = (props) => {
           </div>
 
           <h4>{idioma.buscamos.titulo4}</h4>
-          <div className='form-group d-flex justify-content-center'>
+          {/* <div className='form-group d-flex justify-content-center'>
             <input
               type='text'
               className='form-control mr-sm-2'
@@ -120,9 +101,9 @@ const Buscamos2 = (props) => {
               onChange={(e) => setNombre(e.target.value)}
               value={nombre}
             />
-          </div>
+          </div> */}
 
-          <div className='form-group d-flex justify-content-center'>
+          {/* <div className='form-group d-flex justify-content-center'>
             <input
               type='text'
               className='form-control mr-sm-2'
@@ -130,9 +111,9 @@ const Buscamos2 = (props) => {
               onChange={(e) => setPais(e.target.value)}
               value={pais}
             />
-          </div>
+          </div> */}
 
-          <div className='form-group d-flex justify-content-center'>
+          {/* <div className='form-group d-flex justify-content-center'>
             <input
               type='email'
               className='form-control mr-sm-2'
@@ -140,9 +121,9 @@ const Buscamos2 = (props) => {
               onChange={(e) => setEmail(e.target.value)}
               value={email}
             />
-          </div>
+          </div> */}
 
-          <div className='form-group d-flex justify-content-center'>
+          {/* <div className='form-group d-flex justify-content-center'>
             <input
               type='text'
               className='form-control mr-sm-2'
@@ -150,13 +131,37 @@ const Buscamos2 = (props) => {
               onChange={(e) => setTelefono(e.target.value)}
               value={telefono}
             />
-          </div>
+          </div> */}
 
-          <div className='boton-form'>
-            <button type='submit' className='btn'>
+          <div className='form-group d-flex justify-content-center'>
+            <button
+              type='button'
+              className='btn'
+              onClick={() => {
+                props.openModal(
+                  'open',
+                  <Login3
+                    idioma={props.idioma}
+                    marcaEquipo={props.marcaEquipo}
+                    modeloEquipo={props.modeloEquipo}
+                    serieEquipo={props.serieEquipo}
+                    marcaMotor={props.marcaMotor}
+                    modeloMotor={props.modeloMotor}
+                    serieMotor={props.serieMotor}
+                    descripcion={descripcion}
+                    cantidad={cantidad}
+                  />
+                );
+              }}>
               {idioma.buscamos.botonCotizar}
             </button>
           </div>
+
+          {/* <div className='boton-form'>
+            <button type='submit' className='btn'>
+              {idioma.buscamos.botonCotizar}
+            </button>
+          </div> */}
         </form>
       </div>
 
@@ -166,7 +171,20 @@ const Buscamos2 = (props) => {
           <span
             className='pointer'
             onClick={() => {
-              props.openModal('open', <Ingresar idioma={idioma} />);
+              props.openModal(
+                'open',
+                <Login3
+                  idioma={props.idioma}
+                  marcaEquipo={props.marcaEquipo}
+                  modeloEquipo={props.modeloEquipo}
+                  serieEquipo={props.serieEquipo}
+                  marcaMotor={props.marcaMotor}
+                  modeloMotor={props.modeloMotor}
+                  serieMotor={props.serieMotor}
+                  descripcion={descripcion}
+                  cantidad={cantidad}
+                />
+              );
             }}
             style={{ color: '#fca728' }}>
             {idioma.buscamos.cambiarEnlace}
