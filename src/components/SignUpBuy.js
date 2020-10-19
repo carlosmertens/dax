@@ -102,7 +102,6 @@ const SignUp = (props) => {
                   placeholder={idioma.crear.empresa}
                   onChange={(e) => setNomCliente(e.target.value)}
                   value={NomCliente}
-                  required
                 />
               </div>
 
@@ -113,7 +112,6 @@ const SignUp = (props) => {
                   placeholder={idioma.crear.nombre}
                   onChange={(e) => setNomContacto(e.target.value)}
                   value={NomContacto}
-                  required
                 />
               </div>
 
@@ -124,7 +122,6 @@ const SignUp = (props) => {
                   placeholder={idioma.crear.numero}
                   onChange={(e) => setNumNit(e.target.value)}
                   value={NumNit}
-                  required
                 />
               </div>
 
@@ -135,7 +132,6 @@ const SignUp = (props) => {
                   placeholder={idioma.crear.pais}
                   onChange={(e) => setCodPais(e.target.value)}
                   value={CodPais}
-                  required
                 />
               </div>
 
@@ -146,7 +142,6 @@ const SignUp = (props) => {
                   placeholder={idioma.crear.ciudad}
                   onChange={(e) => setCodCiudad(e.target.value)}
                   value={CodCiudad}
-                  required
                 />
               </div>
 
@@ -157,7 +152,6 @@ const SignUp = (props) => {
                   placeholder='Dirección'
                   onChange={(e) => setDireccion(e.target.value)}
                   value={Direccion}
-                  required
                 />
               </div>
 
@@ -179,7 +173,6 @@ const SignUp = (props) => {
                   placeholder={idioma.crear.telefono2}
                   onChange={(e) => setNumTel2(e.target.value)}
                   value={NumTel2}
-                  required
                 />
               </div>
 
@@ -203,7 +196,6 @@ const SignUp = (props) => {
                   placeholder={idioma.crear.nomUsuario}
                   onChange={(e) => setNomUsuario(e.target.value)}
                   value={NomUsuario}
-                  required
                 />
               </div>
 
