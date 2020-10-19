@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
+
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+
 import axios from 'axios';
 import swal from 'sweetalert';
+
 import openModal from '../actions/openModal';
-import regAction from '../actions/regAction';
 import navLogo from '../img/logoNav.png';
 import LoginBuy from './LoginBuy';
 
@@ -263,7 +265,6 @@ const SignUp = (props) => {
 function mapStateToProps(state) {
   return {
     siteModal: state.siteModal,
-    auth: state.auth,
   };
 }
 
@@ -271,7 +272,6 @@ function mapDispatchToProps(dispacher) {
   return bindActionCreators(
     {
       openModal: openModal,
-      regAction: regAction,
     },
     dispacher
   );

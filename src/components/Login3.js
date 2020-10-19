@@ -9,7 +9,7 @@ import axios from 'axios';
 import swal from 'sweetalert';
 
 import navLogo from '../img/logoNav.png';
-import SignUp from './SignUp';
+import SignUp3 from './SignUp3';
 
 const Login3 = (props) => {
   const [logusuario, setLogusuario] = useState('');
@@ -109,7 +109,20 @@ const Login3 = (props) => {
           <span
             className='pointer'
             onClick={() => {
-              props.openModal('open', <SignUp idioma={props.idioma} />);
+              props.openModal(
+                'open',
+                <SignUp3
+                  idioma={props.idioma}
+                  marcaEquipo={props.marcaEquipo}
+                  modeloEquipo={props.modeloEquipo}
+                  serieEquipo={props.serieEquipo}
+                  marcaMotor={props.marcaMotor}
+                  modeloMotor={props.modeloMotor}
+                  serieMotor={props.serieMotor}
+                  descripcion={props.descripcion}
+                  cantidad={props.cantidad}
+                />
+              );
             }}
             style={{ color: '#fca728' }}>
             {props.idioma.ingresar.cambiarEnlace}
