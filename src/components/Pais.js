@@ -1,13 +1,12 @@
 import React from 'react';
+
 import flagBolivia from '../img/bolivia.png';
 import flagPeru from '../img/peru.png';
 import flagParaguay from '../img/paraguay.png';
 import flagUsa from '../img/usa.png';
 
-const Pais = (props) => {
-  // Logica para seleccionar pais del usuario
-  // Logic to display the user's country
-  if (props.country === 'Bolivia') {
+const Pais = ({ country }) => {
+  if (country === 'Bolivia') {
     return (
       <div>
         <div className='d-flex flex-row'>
@@ -18,7 +17,7 @@ const Pais = (props) => {
         </div>
       </div>
     );
-  } else if (props.country === 'Peru') {
+  } else if (country === 'Peru') {
     return (
       <div>
         <div className='d-flex flex-row'>
@@ -29,18 +28,22 @@ const Pais = (props) => {
         </div>
       </div>
     );
-  } else if (props.country === 'Paraguay') {
+  } else if (country === 'Paraguay') {
     return (
       <div>
         <div className='d-flex flex-row'>
-          <img src={flagParaguay} alt='Bandera Paraguay' className='pais-bandera' />
+          <img
+            src={flagParaguay}
+            alt='Bandera Paraguay'
+            className='pais-bandera'
+          />
           <p className='pais-texto'>
             <strong>Paraguay</strong>
           </p>
         </div>
       </div>
     );
-  } else if (props.country === 'United States') {
+  } else if (country === 'United States') {
     return (
       <div>
         <div className='d-flex flex-row'>

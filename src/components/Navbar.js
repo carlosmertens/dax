@@ -1,9 +1,13 @@
 import React from 'react';
+
+import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+
 import openModal from '../actions/openModal';
-import { Link } from 'react-router-dom';
+
 import navLogoWhite from '../img/logoNavWhite.png';
+
 import Ingresar from './Login';
 import Crear from './SignUp';
 
@@ -33,11 +37,6 @@ const Navbar = (props) => (
             {props.idioma.navbar.enlace1}
           </Link>
         </li>
-        {/* <li className='nav-item'>
-          <Link to='/hacemos' className='nav-link text-white'>
-            {props.idioma.navbar.enlace2}
-          </Link>
-        </li> */}
 
         <li className='nav-item'>
           <Link to='industrias' className='nav-link text-white'>
@@ -80,8 +79,6 @@ const Navbar = (props) => (
 
 function mapStateToProps(state) {
   return {
-    // parte: state.parte,
-    // country: state.country,
     idioma: state.idioma,
   };
 }

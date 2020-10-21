@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
-// import axios from 'axios';
-// import swal from 'sweetalert';
+
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+
 import openModal from '../actions/openModal';
+
 import navLogo from '../img/logoNav.png';
+
 import Login3 from './Login3';
 
 const Buscamos2 = (props) => {
@@ -12,51 +14,6 @@ const Buscamos2 = (props) => {
 
   const [cantidad, setCantidad] = useState('');
   const [descripcion, setDescripcion] = useState('');
-  // const [nombre, setNombre] = useState('');
-  // const [pais, setPais] = useState('');
-  // const [email, setEmail] = useState('');
-  // const [telefono, setTelefono] = useState('');
-
-  // const closeModal = () => {
-  //   props.openModal('closed', '');
-  // };
-
-  // const handleSubmit = async (e) => {
-  //   e.preventDefault();
-
-  //   const url = 'http://www.wp.daxparts.com/api/cotizacion/CrearCotSc';
-  //   const data = {
-  //     MarcaEquipo: props.marcaEquipo,
-  //     ModeloEquipo: props.modeloEquipo,
-  //     SerieEquipo: props.serieEquipo,
-  //     MarcaMotor: props.marcaMotor,
-  //     ModeloMotor: props.modeloMotor,
-  //     SerieMotor: props.serieMotor,
-  //     DesRep: descripcion,
-  //     Cantidad: cantidad,
-  //     CodCliente: 3,
-  //   };
-
-  //   const resp = await axios.post(url, data);
-  //   console.log(resp);
-  //   if (resp.data.estado === 'OK') {
-  //     swal({
-  //       title: 'Thank you!!!',
-  //       text:
-  //         'Se ha creado tu cotizacion. Puedes darle seguimiento en tu panel de usuario.',
-  //       icon: 'success',
-  //     });
-  //   } else {
-  //     swal({
-  //       title: 'Upps!!!',
-  //       text:
-  //         'Lo siento, no logramos conectar con la base de datos. Intentalo de nuevo!',
-  //       icon: 'error',
-  //     });
-  //   }
-
-  //   closeModal();
-  // };
 
   return (
     <>
@@ -92,47 +49,6 @@ const Buscamos2 = (props) => {
             />
           </div>
 
-          <h4>{idioma.buscamos.titulo4}</h4>
-          {/* <div className='form-group d-flex justify-content-center'>
-            <input
-              type='text'
-              className='form-control mr-sm-2'
-              placeholder={idioma.buscamos.nombre}
-              onChange={(e) => setNombre(e.target.value)}
-              value={nombre}
-            />
-          </div> */}
-
-          {/* <div className='form-group d-flex justify-content-center'>
-            <input
-              type='text'
-              className='form-control mr-sm-2'
-              placeholder={idioma.buscamos.pais}
-              onChange={(e) => setPais(e.target.value)}
-              value={pais}
-            />
-          </div> */}
-
-          {/* <div className='form-group d-flex justify-content-center'>
-            <input
-              type='email'
-              className='form-control mr-sm-2'
-              placeholder='Email'
-              onChange={(e) => setEmail(e.target.value)}
-              value={email}
-            />
-          </div> */}
-
-          {/* <div className='form-group d-flex justify-content-center'>
-            <input
-              type='text'
-              className='form-control mr-sm-2'
-              placeholder={idioma.buscamos.telefono}
-              onChange={(e) => setTelefono(e.target.value)}
-              value={telefono}
-            />
-          </div> */}
-
           <div className='form-group d-flex justify-content-center'>
             <button
               type='button'
@@ -156,12 +72,6 @@ const Buscamos2 = (props) => {
               {idioma.buscamos.botonCotizar}
             </button>
           </div>
-
-          {/* <div className='boton-form'>
-            <button type='submit' className='btn'>
-              {idioma.buscamos.botonCotizar}
-            </button>
-          </div> */}
         </form>
       </div>
 
