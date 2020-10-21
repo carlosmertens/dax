@@ -5,23 +5,30 @@ import { bindActionCreators } from 'redux';
 import openModal from '../actions/openModal';
 import navLogo from '../img/logoNav.png';
 
-import Login from './Login';
+import LoginBuy from './LoginBuy';
 // import SignUp from './SignUp';
 
 const InfoParte = (props) => {
-  const [marca, setMarca] = useState([]);
+  const [marcas, setMarcas] = useState([]);
   const [itemMarca, setItemMarca] = useState('');
+  const [otros, setOtros] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
       const url = 'http://www.wp.daxparts.com/api/marca/listado2';
       const resp = await axios.get(url);
-      setMarca(resp.data.dato);
+      setMarcas(resp.data.dato);
     };
     fetchData();
   }, []);
 
-  const optionsMarca = marca.map((item, index) => {
+  useEffect(() => {
+    if (itemMarca === '<<OTROS>>') {
+      setOtros(true);
+    }
+  }, [itemMarca]);
+
+  const optionsMarca = marcas.map((item, index) => {
     return (
       <option key={index} value={item.NomMarca}>
         {item.NomMarca}
@@ -32,6 +39,9 @@ const InfoParte = (props) => {
   const handleChange = (e) => {
     setItemMarca(e.target.value);
   };
+
+  // console.log(marcas);
+  console.log(itemMarca);
 
   return (
     <>
@@ -50,6 +60,18 @@ const InfoParte = (props) => {
           <div className='form-group d-flex justify-content-center'>
             <select onChange={handleChange}>{optionsMarca}</select>
           </div>
+          {otros ? (
+            <div className='form-group d-flex justify-content-center'>
+              <input
+                type='text'
+                className='form-control mr-sm-2'
+                placeholder='Marca'
+                onChange={(e) => setItemMarca(e.target.value)}
+              />
+            </div>
+          ) : (
+            <br />
+          )}
           <div className='form-group d-flex justify-content-center'>
             <button
               type='button'
@@ -57,7 +79,7 @@ const InfoParte = (props) => {
               onClick={() => {
                 props.openModal(
                   'open',
-                  <Login
+                  <LoginBuy
                     idioma={props.idioma}
                     itemMarca={itemMarca}
                     intCodRepuesto={0}

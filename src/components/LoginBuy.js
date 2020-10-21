@@ -18,6 +18,8 @@ const Login = (props) => {
   const [NroCotizacion, setNroCotizacion] = useState('');
   const [codcliente, setCodcliente] = useState('');
 
+  console.log(props);
+
   const closeModal = () => {
     props.openModal('closed', '');
   };
