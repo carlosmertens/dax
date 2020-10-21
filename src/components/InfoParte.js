@@ -6,7 +6,7 @@ import openModal from '../actions/openModal';
 import navLogo from '../img/logoNav.png';
 
 import LoginBuy from './LoginBuy';
-// import SignUp from './SignUp';
+import SignUpBuy from './SignUpBuy';
 
 const InfoParte = (props) => {
   const [marcas, setMarcas] = useState([]);
@@ -39,9 +39,6 @@ const InfoParte = (props) => {
   const handleChange = (e) => {
     setItemMarca(e.target.value);
   };
-
-  // console.log(marcas);
-  console.log(itemMarca);
 
   return (
     <>
@@ -91,7 +88,7 @@ const InfoParte = (props) => {
             </button>
           </div>
         </div>
-        {/* <div className='modal-footer d-flex justify-content-center'>
+        <div className='modal-footer d-flex justify-content-center'>
           <div>
             {props.idioma.ingresar.cambiarModal}{' '}
             <span
@@ -99,7 +96,7 @@ const InfoParte = (props) => {
               onClick={() => {
                 props.openModal(
                   'open',
-                  <SignUp
+                  <SignUpBuy
                     idioma={props.idioma}
                     itemMarca={itemMarca}
                     intCodRepuesto={0}
@@ -111,7 +108,7 @@ const InfoParte = (props) => {
               {props.idioma.ingresar.cambiarEnlace}
             </span>
           </div>
-        </div> */}
+        </div>
       </div>
     </>
   );
