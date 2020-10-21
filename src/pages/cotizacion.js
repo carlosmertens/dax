@@ -1,17 +1,17 @@
 import React, { useEffect, useState } from 'react';
-import axios from 'axios';
 
+import axios from 'axios';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+
 import openModal from '../actions/openModal';
 
-// import Spinner from '../components/Spinner';
+import Spinner from '../components/Spinner';
 import LoginBuy from '../components/LoginBuy';
 import InfoParte from '../components/InfoParte';
 
 const Cotizacion = (props) => {
   const [busqueda, setBusqueda] = useState([]);
-  // const [busqueda1, setBusqueda1] = useState([]);
 
   let codpais = '';
   if (props.country === 'Bolivia') {
@@ -30,7 +30,6 @@ const Cotizacion = (props) => {
     const fetchData = async () => {
       const resp = await axios.get(apiUrl);
       if (resp.data.estado === 'NC') {
-        // setBusqueda1(resp.data);
         props.openModal('open', <InfoParte idioma={props.idioma} />);
       } else {
         setBusqueda(resp.data.dato);
@@ -40,11 +39,9 @@ const Cotizacion = (props) => {
     fetchData();
   }, [apiUrl, props]);
 
-  // if (busqueda.length === 0) {
-  //   return <Spinner idioma={idioma} />;
-  // }
-
-  // console.log(busqueda1);
+  if (busqueda.length === 0) {
+    return <Spinner idioma={props.idioma} />;
+  }
 
   const cotizarGrid = busqueda.map((item, index) => {
     return (

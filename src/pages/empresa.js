@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { connect } from 'react-redux';
 
 const Empresa = ({ idioma }) => (
@@ -12,7 +13,6 @@ const Empresa = ({ idioma }) => (
     <div className='container somos-texto'>
       <p>{idioma.empresa.contenido}</p>
       <br />
-      {/* <h2>{idioma.somos.titulo2}</h2> */}
       <p>{idioma.empresa.contenido2}</p>
       <br />
       <p>{idioma.empresa.contenido3}</p>

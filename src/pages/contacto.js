@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { connect } from 'react-redux';
 
 import usa from '../img/usa.png';
@@ -17,14 +18,12 @@ const Contacto = ({ idioma }) => (
 
     <div className='container contacto-contenido'>
       <div className='row align-items-center'>
-        {/* === Columna 1 === */}
         <div className='col-md'>
           <div className='contacto-texto'>
             <p className='contacto-texto'>{idioma.contacto.contenido}</p>
             <p className='contacto-texto1'>{idioma.contacto.contenido2}</p>
           </div>
           <div className='contacto-country row'>
-            {/* row banderas */}
             <div className='contacto-grupo col-md'>
               <img src={usa} alt='Bandera Usa' />
               <h4>{idioma.contacto.usa.nombre}</h4>
@@ -75,7 +74,6 @@ const Contacto = ({ idioma }) => (
           </div>
         </div>
 
-        {/* === Columna 2 === */}
         <div className='col-md'>
           <div className='contacto-mapa'>
             <img src={mapa} className='img-fluid' alt='Mapa' />

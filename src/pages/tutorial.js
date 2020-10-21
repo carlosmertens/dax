@@ -1,7 +1,6 @@
 import React from 'react';
-import { connect } from 'react-redux';
 
-// import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
 
 const Tutorial = ({ idioma }) => (
   <div className='container-fluid tutorial'>
@@ -17,20 +16,11 @@ const Tutorial = ({ idioma }) => (
 
     <div className='container tutorial-contenido'>
       <div className='row'>
-        {/* === Columna 2 === */}
         <div className='col-sm'>
           <div className='container'>
             <div className='row'>
               <p>
                 {idioma.tutorial.columna2Titulo} <br />
-                {/* <span>
-                  {idioma.tutorial.columna2Texto} <br />
-                  <Link to='/hacemos'>
-                    <em className='tutorial-enlace'>
-                      {idioma.tutorial.enlaceTutorial}
-                    </em>
-                  </Link>
-                </span> */}
               </p>
             </div>
           </div>
@@ -80,20 +70,12 @@ const Tutorial = ({ idioma }) => (
             </div>
           </div>
         </div>
-        {/* === Columna 1 === */}
+
         <div className='col-sm'>
           <div className='container'>
             <div className='row'>
               <p>
                 {idioma.tutorial.columna1Titulo} <br />
-                {/* <span>
-                  {idioma.tutorial.columna1Texto} <br />
-                  <Link to='/hacemos'>
-                    <em className='tutorial-enlace'>
-                      {idioma.tutorial.enlaceTutorial}
-                    </em>
-                  </Link>
-                </span> */}
               </p>
             </div>
           </div>

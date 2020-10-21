@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { Redirect } from 'react-router-dom';
-import { Link } from 'react-router-dom';
+
+import { Redirect, Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
@@ -31,10 +31,6 @@ const Homepage = ({ country, idioma, idiomaAction, openModal, parteAction }) => 
 
   const onChangeLanguage = (e) => {
     setLanguage(e.target.value);
-  };
-
-  const onChangeSearch = (e) => {
-    parteAction(e.target.value);
   };
 
   const onSubmitSearch = (e) => {
@@ -70,7 +66,7 @@ const Homepage = ({ country, idioma, idiomaAction, openModal, parteAction }) => 
                     <input
                       type='text'
                       placeholder={idioma.home.campoBuscar}
-                      onChange={onChangeSearch}
+                      onChange={(e) => parteAction(e.target.value)}
                     />
                     <button type='submit' className='btn btn-buscar'>
                       {idioma.home.botonBuscar}

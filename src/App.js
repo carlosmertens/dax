@@ -1,10 +1,10 @@
+import './styles/App.css';
 import React, { useEffect } from 'react';
+
+import axios from 'axios';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import axios from 'axios';
-
-import './styles/App.css';
 
 import countryAction from './actions/countryAction';
 
@@ -15,8 +15,6 @@ import Industrias from './pages/industrias';
 import Contacto from './pages/contacto';
 import Tutorial from './pages/tutorial';
 import Cotizacion from './pages/cotizacion';
-import Panel from './pages/panelCliente';
-import Comprar from './pages/comprarParte';
 
 import Navbar from './components/Navbar';
 import Modal from './components/Modal';
@@ -26,7 +24,6 @@ function App({ country, countryAction }) {
     const locationUrl = 'https://extreme-ip-lookup.com/json/';
     axios.get(locationUrl).then((response) => {
       countryAction(response.data.country);
-      // console.log('User is visiting from:', country);
     });
   }, [country, countryAction]);
 
@@ -41,8 +38,6 @@ function App({ country, countryAction }) {
       <Route path='/contacto' component={Contacto} />
       <Route path='/aprender' component={Aprender} />
       <Route path='/cotizacion' component={Cotizacion} />
-      <Route path='/panel' component={Panel} />
-      <Route path='/comprar' component={Comprar} />
     </Router>
   );
 }

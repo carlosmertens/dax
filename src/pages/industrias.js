@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { connect } from 'react-redux';
 
 import { ReactComponent as Bulldozer } from '../img/bulldozer.svg';
@@ -17,8 +18,7 @@ const Industrias = ({ idioma }) => (
     </div>
 
     <div className='container ofrecemos-subtitle'>
-      {/* <h4>{idioma.industrias.subtitulo}</h4> */}
-      <h4> </h4>
+      <h4>{''}</h4>
     </div>
 
     <div className='container ofrecemos-contenido'>
