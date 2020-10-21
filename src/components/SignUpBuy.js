@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
@@ -28,6 +28,24 @@ const SignUp = (props) => {
   const [logged, setLogged] = useState(false);
   const [NroCotizacion, setNroCotizacion] = useState('');
   const [codcliente, setCodcliente] = useState('');
+  const [paises, setPaises] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const url = 'http://www.wp.daxparts.com/api/pais/listado';
+      const resp = await axios.get(url);
+      setPaises(resp.data.dato);
+    };
+    fetchData();
+  }, []);
+
+  const optionsPais = paises.map((item, index) => {
+    return (
+      <option key={index} value={item.NomPais}>
+        {item.NomPais}
+      </option>
+    );
+  });
 
   const closeModal = () => {
     props.openModal('closed', '');
@@ -126,13 +144,9 @@ const SignUp = (props) => {
               </div>
 
               <div className='form-group d-flex justify-content-center'>
-                <input
-                  type='text'
-                  className='form-control mr-sm-2'
-                  placeholder={idioma.crear.pais}
-                  onChange={(e) => setCodPais(e.target.value)}
-                  value={CodPais}
-                />
+                <select onChange={(e) => setCodPais(e.target.value)}>
+                  {optionsPais}
+                </select>
               </div>
 
               <div className='form-group d-flex justify-content-center'>
