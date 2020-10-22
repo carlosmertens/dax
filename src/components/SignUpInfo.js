@@ -8,9 +8,9 @@ import swal from 'sweetalert';
 
 import openModal from '../actions/openModal';
 import navLogo from '../img/logoNav.png';
-import LoginBuy from './LoginBuy';
+import LoginInfo from './LoginInfo';
 
-const SignUpBuy = (props) => {
+const SignUpInfo = (props) => {
   const idioma = props.idioma;
 
   const [NomCliente, setNomCliente] = useState('');
@@ -70,12 +70,13 @@ const SignUpBuy = (props) => {
       LogUsuario: LogUsuario,
       Contrasena: Contrasena,
     };
-
     const resp = await axios.post(url, data);
+
     if (resp.data.estado === 'OK') {
       setCodcliente(resp.data.dato[0].IdCliente);
-      const url2 = `http://www.wp.daxparts.com/api/cotizacion/CrearCot/${resp.data.dato[0].IdCliente}/${props.intCodRepuesto}`;
+      const url2 = `http://www.wp.daxparts.com/api/cotizacion/CotSinCosto/${resp.data.dato[0].IdCliente}/${props.parte}/${props.itemMarca}`;
       const resp2 = await axios.get(url2);
+
       if (resp2.data.estado === 'OK') {
         setNroCotizacion(resp2.data.dato[0].NroCotizacion);
         setLogged(true);
@@ -251,9 +252,10 @@ const SignUpBuy = (props) => {
                 onClick={() => {
                   props.openModal(
                     'open',
-                    <LoginBuy
-                      idioma={idioma}
-                      intCodRepuesto={props.intCodRepuesto}
+                    <LoginInfo
+                      idioma={props.idioma}
+                      itemMarca={props.itemMarca}
+                      parte={props.parte}
                     />
                   );
                 }}
@@ -283,4 +285,4 @@ function mapDispatchToProps(dispacher) {
   );
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(SignUpBuy);
+export default connect(mapStateToProps, mapDispatchToProps)(SignUpInfo);
