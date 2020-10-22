@@ -30,7 +30,7 @@ const SignUp = (props) => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const url = 'http://www.wp.daxparts.com/api/pais/listado';
+      const url = 'http://www.wp.daxparts.com/api/pais/listado2';
       const resp = await axios.get(url);
       setPaises(resp.data.dato);
     };
