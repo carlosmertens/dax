@@ -9,9 +9,9 @@ import axios from 'axios';
 import swal from 'sweetalert';
 
 import navLogo from '../img/logoNav.png';
-import SignUp3 from './SignUp3';
+import SignUpBuscamos from './SignUpBuscamos';
 
-const Login3 = (props) => {
+const LoginBuscamos = (props) => {
   const [logusuario, setLogusuario] = useState('');
   const [clausuario, setClausuario] = useState('');
 
@@ -111,7 +111,7 @@ const Login3 = (props) => {
             onClick={() => {
               props.openModal(
                 'open',
-                <SignUp3
+                <SignUpBuscamos
                   idioma={props.idioma}
                   marcaEquipo={props.marcaEquipo}
                   modeloEquipo={props.modeloEquipo}
@@ -148,4 +148,4 @@ function mapDispatchToProps(dispacher) {
   );
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Login3);
+export default connect(mapStateToProps, mapDispatchToProps)(LoginBuscamos);

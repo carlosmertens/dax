@@ -13,7 +13,6 @@ library.add(faSearch);
 library.add(faPlayCircle);
 
 const Noparte = (props) => {
-  // Crear funcion de cerrar modal
   const closeModal = () => {
     props.openModal('closed', '');
   };

@@ -8,9 +8,9 @@ import swal from 'sweetalert';
 
 import openModal from '../actions/openModal';
 import navLogo from '../img/logoNav.png';
-import Login3 from './Login3';
+import LoginBuscamos from './LoginBuscamos';
 
-const SignUp3 = (props) => {
+const SignUpBuscamos = (props) => {
   const [NomCliente, setNomCliente] = useState('');
   const [NomContacto, setNomContacto] = useState('');
   const [NumNit, setNumNit] = useState('');
@@ -255,7 +255,7 @@ const SignUp3 = (props) => {
             onClick={() => {
               props.openModal(
                 'open',
-                <Login3
+                <LoginBuscamos
                   idioma={props.idioma}
                   marcaEquipo={props.marcaEquipo}
                   modeloEquipo={props.modeloEquipo}
@@ -292,4 +292,4 @@ function mapDispatchToProps(dispacher) {
   );
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(SignUp3);
+export default connect(mapStateToProps, mapDispatchToProps)(SignUpBuscamos);

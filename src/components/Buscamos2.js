@@ -7,7 +7,8 @@ import openModal from '../actions/openModal';
 
 import navLogo from '../img/logoNav.png';
 
-import Login3 from './Login3';
+import LoginBuscamos from './LoginBuscamos';
+import SignUpBuscamos from './SignUpBuscamos';
 
 const Buscamos2 = (props) => {
   const idioma = props.idioma;
@@ -56,7 +57,7 @@ const Buscamos2 = (props) => {
               onClick={() => {
                 props.openModal(
                   'open',
-                  <Login3
+                  <LoginBuscamos
                     idioma={props.idioma}
                     marcaEquipo={props.marcaEquipo}
                     modeloEquipo={props.modeloEquipo}
@@ -83,7 +84,7 @@ const Buscamos2 = (props) => {
             onClick={() => {
               props.openModal(
                 'open',
-                <Login3
+                <SignUpBuscamos
                   idioma={props.idioma}
                   marcaEquipo={props.marcaEquipo}
                   modeloEquipo={props.modeloEquipo}
