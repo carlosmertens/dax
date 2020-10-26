@@ -23,7 +23,7 @@ import spanish from './text/esp.json';
 import english from './text/eng.json';
 import idiomaAction from './actions/idiomaAction';
 
-function App({ country, countryAction, idiomaAction }) {
+function App({ country, countryAction, idiomaAction, idioma }) {
   const [language, setLanguage] = useState('Español');
 
   useEffect(() => {
@@ -47,22 +47,68 @@ function App({ country, countryAction, idiomaAction }) {
   return (
     <Router>
       <Route path='/' component={Modal} />
-      <Route path='/' component={Navbar} />
+      <Route
+        path='/'
+        render={() => {
+          return <Navbar idioma={idioma} />;
+        }}
+      />
       <Route
         exact
         path='/'
         render={() => {
           return (
-            <Homepage language={language} onChangeLanguage={onChangeLanguage} />
+            <Homepage
+              idioma={idioma}
+              language={language}
+              onChangeLanguage={onChangeLanguage}
+            />
           );
         }}
       />
-      <Route path='/empresa' component={Empresa} />
-      <Route path='/industrias' component={Industrias} />
-      <Route path='/tutorial' component={Tutorial} />
-      <Route path='/contacto' component={Contacto} />
-      <Route path='/aprender' component={Aprender} />
-      <Route path='/cotizacion' component={Cotizacion} />
+      <Route
+        exact
+        path='/empresa'
+        render={() => {
+          return <Empresa idioma={idioma} />;
+        }}
+      />
+      <Route
+        exact
+        path='/industrias'
+        render={() => {
+          return <Industrias idioma={idioma} />;
+        }}
+      />
+      <Route
+        exact
+        path='/aprender'
+        render={() => {
+          return <Aprender idioma={idioma} />;
+        }}
+      />
+
+      <Route
+        exact
+        path='/contacto'
+        render={() => {
+          return <Contacto idioma={idioma} />;
+        }}
+      />
+      <Route
+        exact
+        path='/tutorial'
+        render={() => {
+          return <Tutorial idioma={idioma} />;
+        }}
+      />
+      <Route
+        exact
+        path='/cotizacion'
+        render={() => {
+          return <Cotizacion idioma={idioma} />;
+        }}
+      />
     </Router>
   );
 }
@@ -70,6 +116,7 @@ function App({ country, countryAction, idiomaAction }) {
 function mapStateToProps(state) {
   return {
     country: state.country,
+    idioma: state.idioma,
   };
 }
 
