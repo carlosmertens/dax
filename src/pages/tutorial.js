@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { connect } from 'react-redux';
+// import { connect } from 'react-redux';
 
 const Tutorial = ({ idioma }) => (
   <div className='container-fluid tutorial'>
@@ -129,10 +129,12 @@ const Tutorial = ({ idioma }) => (
   </div>
 );
 
-function mapStateToProps(state) {
-  return {
-    idioma: state.idioma,
-  };
-}
+export default Tutorial;
 
-export default connect(mapStateToProps, null)(Tutorial);
+// function mapStateToProps(state) {
+//   return {
+//     idioma: state.idioma,
+//   };
+// }
+
+// export default connect(mapStateToProps, null)(Tutorial);

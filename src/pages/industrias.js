@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { connect } from 'react-redux';
+// import { connect } from 'react-redux';
 
 import { ReactComponent as Bulldozer } from '../img/bulldozer.svg';
 import { ReactComponent as Crane } from '../img/crane.svg';
@@ -132,10 +132,12 @@ const Industrias = ({ idioma }) => (
   </div>
 );
 
-function mapStateToProps(state) {
-  return {
-    idioma: state.idioma,
-  };
-}
+export default Industrias;
 
-export default connect(mapStateToProps, null)(Industrias);
+// function mapStateToProps(state) {
+//   return {
+//     idioma: state.idioma,
+//   };
+// }
+
+// export default connect(mapStateToProps, null)(Industrias);
