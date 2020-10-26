@@ -77,11 +77,11 @@ const Navbar = (props) => (
   </nav>
 );
 
-function mapStateToProps(state) {
-  return {
-    idioma: state.idioma,
-  };
-}
+// function mapStateToProps(state) {
+//   return {
+//     idioma: state.idioma,
+//   };
+// }
 
 function mapDispatchToProps(dispacher) {
   return bindActionCreators(
@@ -92,4 +92,4 @@ function mapDispatchToProps(dispacher) {
   );
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Navbar);
+export default connect(null, mapDispatchToProps)(Navbar);

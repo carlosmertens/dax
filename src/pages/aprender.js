@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { connect } from 'react-redux';
+// import { connect } from 'react-redux';
 
 const Aprender = ({ idioma }) => (
   <div className='container-fluid hacemos'>
@@ -31,10 +31,12 @@ const Aprender = ({ idioma }) => (
   </div>
 );
 
-function mapStateToProps(state) {
-  return {
-    idioma: state.idioma,
-  };
-}
+export default Aprender;
 
-export default connect(mapStateToProps, null)(Aprender);
+// function mapStateToProps(state) {
+//   return {
+//     idioma: state.idioma,
+//   };
+// }
+
+// export default connect(mapStateToProps, null)(Aprender);

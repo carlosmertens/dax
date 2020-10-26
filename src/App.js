@@ -21,10 +21,15 @@ import Modal from './components/Modal';
 
 import spanish from './text/esp.json';
 import english from './text/eng.json';
-import idiomaAction from './actions/idiomaAction';
+// import idiomaAction from './actions/idiomaAction';
 
-function App({ country, countryAction, idiomaAction, idioma }) {
+function App({ country, countryAction }) {
   const [language, setLanguage] = useState('Español');
+
+  let idioma = spanish;
+  if (language !== 'Español') {
+    idioma = english;
+  }
 
   useEffect(() => {
     const locationUrl = 'https://extreme-ip-lookup.com/json/';
@@ -33,12 +38,12 @@ function App({ country, countryAction, idiomaAction, idioma }) {
     });
   }, [country, countryAction]);
 
-  useEffect(() => {
-    idiomaAction(spanish);
-    if (language !== 'Español') {
-      idiomaAction(english);
-    }
-  }, [language, idiomaAction]);
+  // useEffect(() => {
+  //   idiomaAction(spanish);
+  //   if (language !== 'Español') {
+  //     idiomaAction(english);
+  //   }
+  // }, [language, idiomaAction]);
 
   const onChangeLanguage = (e) => {
     setLanguage(e.target.value);
@@ -116,7 +121,7 @@ function App({ country, countryAction, idiomaAction, idioma }) {
 function mapStateToProps(state) {
   return {
     country: state.country,
-    idioma: state.idioma,
+    // idioma: state.idioma,
   };
 }
 
@@ -124,7 +129,7 @@ function mapDispatchToProps(dispacher) {
   return bindActionCreators(
     {
       countryAction: countryAction,
-      idiomaAction: idiomaAction,
+      // idiomaAction: idiomaAction,
     },
     dispacher
   );

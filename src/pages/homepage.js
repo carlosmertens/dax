@@ -96,7 +96,7 @@ const Homepage = (props) => {
 function mapStateToProps(state) {
   return {
     country: state.country,
-    idioma: state.idioma,
+    // idioma: state.idioma,
   };
 }
 

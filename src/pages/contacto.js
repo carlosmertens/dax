@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { connect } from 'react-redux';
+// import { connect } from 'react-redux';
 
 import usa from '../img/usa.png';
 import bolivia from '../img/bolivia.png';
@@ -84,10 +84,12 @@ const Contacto = ({ idioma }) => (
   </div>
 );
 
-function mapStateToProps(state) {
-  return {
-    idioma: state.idioma,
-  };
-}
+export default Contacto;
 
-export default connect(mapStateToProps, null)(Contacto);
+// function mapStateToProps(state) {
+//   return {
+//     idioma: state.idioma,
+//   };
+// }
+
+// export default connect(mapStateToProps, null)(Contacto);
