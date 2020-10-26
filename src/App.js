@@ -1,5 +1,5 @@
 import './styles/App.css';
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 
 import axios from 'axios';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
@@ -19,7 +19,13 @@ import Cotizacion from './pages/cotizacion';
 import Navbar from './components/Navbar';
 import Modal from './components/Modal';
 
-function App({ country, countryAction }) {
+import spanish from './text/esp.json';
+import english from './text/eng.json';
+import idiomaAction from './actions/idiomaAction';
+
+function App({ country, countryAction, idiomaAction }) {
+  const [language, setLanguage] = useState('Español');
+
   useEffect(() => {
     const locationUrl = 'https://extreme-ip-lookup.com/json/';
     axios.get(locationUrl).then((response) => {
@@ -27,11 +33,30 @@ function App({ country, countryAction }) {
     });
   }, [country, countryAction]);
 
+  useEffect(() => {
+    idiomaAction(spanish);
+    if (language !== 'Español') {
+      idiomaAction(english);
+    }
+  }, [language, idiomaAction]);
+
+  const onChangeLanguage = (e) => {
+    setLanguage(e.target.value);
+  };
+
   return (
     <Router>
       <Route path='/' component={Modal} />
       <Route path='/' component={Navbar} />
-      <Route exact path='/' component={Homepage} />
+      <Route
+        exact
+        path='/'
+        render={() => {
+          return (
+            <Homepage language={language} onChangeLanguage={onChangeLanguage} />
+          );
+        }}
+      />
       <Route path='/empresa' component={Empresa} />
       <Route path='/industrias' component={Industrias} />
       <Route path='/tutorial' component={Tutorial} />
@@ -52,6 +77,7 @@ function mapDispatchToProps(dispacher) {
   return bindActionCreators(
     {
       countryAction: countryAction,
+      idiomaAction: idiomaAction,
     },
     dispacher
   );

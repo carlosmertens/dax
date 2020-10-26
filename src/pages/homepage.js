@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 
 import { Redirect, Link } from 'react-router-dom';
 import { connect } from 'react-redux';
@@ -7,31 +7,15 @@ import { bindActionCreators } from 'redux';
 import logoCentro from '../img/logoCentro.png';
 import iconVideos from '../img/IconVideos.png';
 
-import spanish from '../text/esp.json';
-import english from '../text/eng.json';
-
 import openModal from '../actions/openModal';
 import parteAction from '../actions/parteAction';
-import idiomaAction from '../actions/idiomaAction';
 
 import Idioma from '../components/Idioma';
 import Pais from '../components/Pais';
 import Noparte from '../components/NoParte';
 
-const Homepage = ({ country, idioma, idiomaAction, openModal, parteAction }) => {
-  const [language, setLanguage] = useState('Español');
+const Homepage = (props) => {
   const [cotizar, setCotizar] = useState(false);
-
-  useEffect(() => {
-    idiomaAction(spanish);
-    if (language !== 'Español') {
-      idiomaAction(english);
-    }
-  }, [language, idiomaAction]);
-
-  const onChangeLanguage = (e) => {
-    setLanguage(e.target.value);
-  };
 
   const onSubmitSearch = (e) => {
     e.preventDefault();
@@ -49,8 +33,11 @@ const Homepage = ({ country, idioma, idiomaAction, openModal, parteAction }) => 
           <header className='Homepage-header'>
             <div className='container-fluid'>
               <div className='container-fluid d-flex justify-content-between pais-idioma'>
-                <Pais country={country} />
-                <Idioma language={language} onChangeLanguage={onChangeLanguage} />
+                <Pais country={props.country} />
+                <Idioma
+                  language={props.language}
+                  onChangeLanguage={props.onChangeLanguage}
+                />
               </div>
 
               <div className='header-contenido'>
@@ -62,14 +49,14 @@ const Homepage = ({ country, idioma, idiomaAction, openModal, parteAction }) => 
                   <form
                     onSubmit={onSubmitSearch}
                     className='form-inline d-flex justify-content-center'>
-                    <label>{idioma.home.leyendaBuscar}</label>
+                    <label>{props.idioma.home.leyendaBuscar}</label>
                     <input
                       type='text'
-                      placeholder={idioma.home.campoBuscar}
+                      placeholder={props.idioma.home.campoBuscar}
                       onChange={(e) => parteAction(e.target.value)}
                     />
                     <button type='submit' className='btn btn-buscar'>
-                      {idioma.home.botonBuscar}
+                      {props.idioma.home.botonBuscar}
                     </button>
                   </form>
                 </div>
@@ -79,9 +66,9 @@ const Homepage = ({ country, idioma, idiomaAction, openModal, parteAction }) => 
                     type='button'
                     className='button-link'
                     onClick={() => {
-                      openModal('open', <Noparte idioma={idioma} />);
+                      openModal('open', <Noparte idioma={props.idioma} />);
                     }}>
-                    <p className=''>{idioma.home.enlaceClick}</p>
+                    <p className=''>{props.idioma.home.enlaceClick}</p>
                   </button>
                 </div>
 
@@ -92,7 +79,9 @@ const Homepage = ({ country, idioma, idiomaAction, openModal, parteAction }) => 
                       src={iconVideos}
                       alt='Tutorial Logo'
                     />
-                    <p className='tutorial-text'>{idioma.home.leyendaTutorial}</p>
+                    <p className='tutorial-text'>
+                      {props.idioma.home.leyendaTutorial}
+                    </p>
                   </Link>
                 </div>
               </div>
@@ -116,7 +105,6 @@ function mapDispatchToProps(dispacher) {
     {
       openModal: openModal,
       parteAction: parteAction,
-      idiomaAction: idiomaAction,
     },
     dispacher
   );
