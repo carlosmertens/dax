@@ -85,6 +85,8 @@ const SignUp = (props) => {
     closeModal();
   };
 
+  console.log(paises);
+
   return (
     <>
       {logged ? (

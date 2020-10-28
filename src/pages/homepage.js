@@ -53,7 +53,7 @@ const Homepage = (props) => {
                     <input
                       type='text'
                       placeholder={props.idioma.home.campoBuscar}
-                      onChange={(e) => parteAction(e.target.value)}
+                      onChange={(e) => props.parteAction(e.target.value)}
                     />
                     <button type='submit' className='btn btn-buscar'>
                       {props.idioma.home.botonBuscar}
@@ -96,7 +96,7 @@ const Homepage = (props) => {
 function mapStateToProps(state) {
   return {
     country: state.country,
-    // idioma: state.idioma,
+    parte: state.parte,
   };
 }
 
