@@ -1,11 +1,27 @@
 {
   "navbar": {
     "enlace1": "Empresa",
-    "enlace2": "Tutoriales",
-    "enlace3": "Industrias",
+    "enlace2": "Industrias",
+    "enlace3": "Tutoriales",
     "enlace4": "Contactos",
     "botonTexto1": "Ingresar",
     "botonTexto2": "Crear cuenta"
+  },
+
+  "home": {
+    "leyendaBuscar": "Nro. de parte",
+    "campoBuscar": "Introduce el número de parte",
+    "botonBuscar": "Buscar",
+    "enlaceClick": "Click aquí si no sabes el número de parte",
+    "leyendaTutorial": "Cómo cotizar",
+
+    "modal": {
+      "titulo": "No tienes número de parte?",
+      "enlaceTutorial": "Manuales gratuitos",
+      "enlaceBuscamos": "Te lo buscamos",
+      "tienesCuenta": "Ya tienes una cuenta?",
+      "click": "Click aquí"
+    }
   },
 
   "ingresar": {
@@ -34,22 +50,6 @@
     "botonCrear": "Crear cuenta",
     "cambiarModal": "Ya tienes una cuenta?",
     "cambiarEnlace": "Click aquí!"
-  },
-
-  "home": {
-    "leyendaBuscar": "Nro. de parte",
-    "campoBuscar": "Introduce el número de parte",
-    "botonBuscar": "Buscar",
-    "enlaceClick": "Click aquí si no sabes el numero de parte",
-    "leyendaTutorial": "Cómo cotizar",
-
-    "modal": {
-      "titulo": "No tienes número de parte?",
-      "enlaceTutorial": "Manuales gratuitos",
-      "enlaceBuscamos": "Te lo buscamos",
-      "tienesCuenta": "Ya tienes una cuenta?",
-      "click": "Click aquí"
-    }
   },
 
   "empresa": {

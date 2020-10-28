@@ -1,11 +1,27 @@
 {
   "navbar": {
     "enlace1": "Company",
-    "enlace2": "Tutorials",
-    "enlace3": "Industries",
+    "enlace2": "Industries",
+    "enlace3": "Tutorials",
     "enlace4": "Contact Us",
     "botonTexto1": "Login",
     "botonTexto2": "Sign up"
+  },
+
+  "home": {
+    "leyendaBuscar": "Part number",
+    "campoBuscar": "Enter number",
+    "botonBuscar": "Search",
+    "enlaceClick": "Click here if you don't know the part",
+    "leyendaTutorial": "How it works",
+
+    "modal": {
+      "titulo": "Don't know spare part number?",
+      "enlaceTutorial": "Online tutorials",
+      "enlaceBuscamos": "We find it for you",
+      "tienesCuenta": "Do you have an account?",
+      "click": "Click here"
+    }
   },
 
   "ingresar": {
@@ -34,22 +50,6 @@
     "botonCrear": "Sign Up",
     "cambiarModal": "Already have an account?",
     "cambiarEnlace": "Click here!"
-  },
-
-  "home": {
-    "leyendaBuscar": "Part number",
-    "campoBuscar": "Enter number",
-    "botonBuscar": "Search",
-    "enlaceClick": "Click here if you don't know the code",
-    "leyendaTutorial": "Get prices",
-
-    "modal": {
-      "titulo": "Don't know spare part number?",
-      "enlaceTutorial": "Online tutorials",
-      "enlaceBuscamos": "We find it for you",
-      "tienesCuenta": "Do you have an account?",
-      "click": "Click here"
-    }
   },
 
   "empresa": {

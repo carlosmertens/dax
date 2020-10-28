@@ -40,12 +40,12 @@ const Navbar = (props) => (
 
         <li className='nav-item'>
           <Link to='industrias' className='nav-link text-white'>
-            {props.idioma.navbar.enlace3}
+            {props.idioma.navbar.enlace2}
           </Link>
         </li>
         <li className='nav-item'>
           <Link to='/tutorial' className='nav-link text-white'>
-            {props.idioma.navbar.enlace2}
+            {props.idioma.navbar.enlace3}
           </Link>
         </li>
         <li className='nav-item'>
