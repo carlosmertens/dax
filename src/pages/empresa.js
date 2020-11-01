@@ -18,6 +18,9 @@ const Empresa = (props) => (
       <p>{props.idioma.empresa.contenido3}</p>
       <br />
       <p>{props.idioma.empresa.contenido4}</p>
+      <br />
+      <p>{props.idioma.empresa.contenido5}</p>
+      <br />
     </div>
   </div>
 );
