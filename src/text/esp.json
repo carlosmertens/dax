@@ -40,6 +40,7 @@
     "numero": "Número de identidad",
     "pais": "País",
     "ciudad": "Ciudad",
+    "direccion": "Direccíon",
     "telefono1": "Teléfono 1",
     "telefono2": "Teléfono 2",
     "titulo2": "Datos de ingreso:",
@@ -150,23 +151,23 @@
   },
 
   "cotizacion": {
-    "titulo": "Resultado para parte:",
+    "titulo": "Nro. de parte:",
     "tabla": {
-      "col1": "Descripcion",
-      "col2": "Aplicacion",
+      "col1": "Descripción",
+      "col2": "Aplicación",
       "col3": "Tipo",
-      "col4": "Precio",
+      "col4": "Precio USD",
       "col5": "Tiempo de Entrega"
     },
     "nota": "Nota",
     "notaTexto": "Nombres OEM, logos y numeros de partes son usados para referencia. No implicamos que nuestros productos o servicios estén afiliados, patrocinados o aprobados por los fabricantes de equipos originales",
-    "tituloComprar": "Si eres usuario podras:",
-    "beneficio1": "✓ Crear varias cotizaciones",
-    "beneficio2": "✓ Hacer seguimiento a tus ordenes",
-    "beneficio3": "✓ Acceder a piezas usadas y reconstruidas",
-    "beneficio4": "✓ y mucho mas...",
-    "beneficio5": "✓ y mucho mas...",
-    "beneficio6": "✓ y mucho mas...",
+    "tituloComprar": "Si tienes una cuenta podrás:",
+    "beneficio1": "✓ Crear varias cotizaciones.",
+    "beneficio2": "✓ Cotizar partes en lotes.",
+    "beneficio3": "✓ Enviar y/o imprimir cotizaciones y proformas.",
+    "beneficio4": "✓ Hacer seguimiento a tus órdenes de compra.",
+    "beneficio5": "✓ Recibir ofertas y descuentos.",
+    "beneficio6": "✓ Acceder a piezas usadas y reconstruidas.",
     "botonComprar": "Comprar"
   },
 

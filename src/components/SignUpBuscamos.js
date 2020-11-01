@@ -1,11 +1,8 @@
 import React, { useState, useEffect } from 'react';
-
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-
 import axios from 'axios';
 import swal from 'sweetalert';
-
 import openModal from '../actions/openModal';
 import navLogo from '../img/logoNav.png';
 import LoginBuscamos from './LoginBuscamos';
@@ -27,7 +24,7 @@ const SignUpBuscamos = (props) => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const url = 'http://www.wp.daxparts.com/api/pais/listado';
+      const url = 'http://www.wp.daxparts.com/api/pais/listado2';
       const resp = await axios.get(url);
       setPaises(resp.data.dato);
     };
@@ -167,7 +164,7 @@ const SignUpBuscamos = (props) => {
             <input
               type='text'
               className='form-control mr-sm-2'
-              placeholder='Dirección'
+              placeholder={props.idioma.crear.direccion}
               onChange={(e) => setDireccion(e.target.value)}
               value={Direccion}
             />

@@ -5,14 +5,14 @@
     "enlace3": "Tutorials",
     "enlace4": "Contact Us",
     "botonTexto1": "Login",
-    "botonTexto2": "Sign up"
+    "botonTexto2": "New Account"
   },
 
   "home": {
-    "leyendaBuscar": "Part number",
+    "leyendaBuscar": "Part Number",
     "campoBuscar": "Enter number",
     "botonBuscar": "Search",
-    "enlaceClick": "Click here if you don't know the part",
+    "enlaceClick": "You don’t have the part number, click here!",
     "leyendaTutorial": "How it works",
 
     "modal": {
@@ -29,8 +29,8 @@
     "password": "Password",
     "olvide": "Forgot your password?",
     "botonIngresar": "Login",
-    "cambiarModal": "Don't have an account?",
-    "cambiarEnlace": "Click here!"
+    "cambiarModal": "Create new account,",
+    "cambiarEnlace": "click here!"
   },
 
   "crear": {
@@ -40,6 +40,7 @@
     "numero": "Number of ID",
     "pais": "Country",
     "ciudad": "City",
+    "direccion": "Address",
     "telefono1": "Phone 1",
     "telefono2": "Phone 2",
     "titulo2": "Login details:",
@@ -149,25 +150,25 @@
   },
 
   "cotizacion": {
-    "titulo": "Search result for part number:",
+    "titulo": "Part Number",
     "tabla": {
       "col1": "Descripcion",
       "col2": "Aplicacion",
       "col3": "Type",
-      "col4": "Price",
+      "col4": "Price USD",
       "col5": "Delivery time"
     },
     "nota": "Disclosure:",
     "notaTexto": "OEM names, logos and part numbers are used for reference. We do not imply that our products or services are affiliated with, sponsored or endorsed by the original equipment manufacturers.",
-    "tituloComprar": "Benefits for registered users:",
-    "beneficio1": "✓ Create multiple estimates",
-    "beneficio2": "✓ Follow your orders",
-    "beneficio3": "✓ Access to thousands of used and refurbished spare parts",
-    "beneficio4": "✓ and much more...",
-    "beneficio5": "✓ and much more...",
-    "beneficio6": "✓ and much more...",
+    "tituloComprar": "With an account, you could:",
+    "beneficio1": "✓ Create multiple quotes.",
+    "beneficio2": "✓ Quote parts in batches.",
+    "beneficio3": "✓ Send and/or print quotes and proformas.",
+    "beneficio4": "✓ Track your purchase orders.",
+    "beneficio5": "✓ Receive offers and discounts.",
+    "beneficio6": "✓ Access used and rebuilt parts.",
     "botonComprar": "Order"
   },
 
-  "spinner": "SEARCHING AROUND THE WORLD..."
+  "spinner": "SEARCHING THE PART NUMBER..."
 }

@@ -152,7 +152,7 @@ const SignUp = (props) => {
                 <input
                   type='text'
                   className='form-control mr-sm-2'
-                  placeholder='Direccion'
+                  placeholder={idioma.crear.direccion}
                   onChange={(e) => setDireccion(e.target.value)}
                   value={Direccion}
                 />
