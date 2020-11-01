@@ -49,7 +49,7 @@ const Cotizacion = (props) => {
         <th scope='row'>{item.DesRepuesto}</th>
         <td>{item.Aplicacion}</td>
         <td>{item.TipRepuesto}</td>
-        <td>{item.Precio} USD</td>
+        <td>{item.Precio}</td>
         <td>{item.TiEntrega}</td>
         <td>
           <button
@@ -87,7 +87,9 @@ const Cotizacion = (props) => {
                 <th scope='col'>{props.idioma.cotizacion.tabla.col1}</th>
                 <th scope='col'>{props.idioma.cotizacion.tabla.col2}</th>
                 <th scope='col'>{props.idioma.cotizacion.tabla.col3}</th>
-                <th scope='col'>{props.idioma.cotizacion.tabla.col4}</th>
+                <th scope='col'>
+                  {props.idioma.cotizacion.tabla.col4} - {props.country}
+                </th>
                 <th scope='col'>{props.idioma.cotizacion.tabla.col5}</th>
                 <th scope='col'></th>
               </tr>
