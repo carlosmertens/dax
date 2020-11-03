@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { Redirect } from 'react-router-dom';
 
 import axios from 'axios';
+import { Helmet } from 'react-helmet';
+
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
@@ -97,6 +99,9 @@ const Cotizacion = (props) => {
         <Redirect push to='/' />
       ) : (
         <div className='container-fluid cotizacion-contenido'>
+          <Helmet>
+            <title>DaxParts | Cotización</title>
+          </Helmet>
           <div className='container cotizacion-title'>
             <p>
               {props.idioma.cotizacion.titulo} {props.parte}

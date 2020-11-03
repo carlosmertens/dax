@@ -1,5 +1,7 @@
 import React from 'react';
 
+import { Helmet } from 'react-helmet';
+
 // import { connect } from 'react-redux';
 
 import { ReactComponent as Bulldozer } from '../img/bulldozer.svg';
@@ -11,6 +13,9 @@ import { ReactComponent as Truck } from '../img/truck.svg';
 
 const Industrias = ({ idioma }) => (
   <div className='container-fluid ofrecemos-contenido'>
+    <Helmet>
+      <title>DaxParts | Industrias</title>
+    </Helmet>
     <div className='container ofrecemos-titulo'>
       <h1>
         <strong>{idioma.industrias.titulo}</strong>

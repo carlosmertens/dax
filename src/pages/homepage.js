@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 
+import { Helmet } from 'react-helmet';
+
 import { Redirect, Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
@@ -30,6 +32,9 @@ const Homepage = (props) => {
         <Redirect to='/cotizacion' />
       ) : (
         <div className='Homepage'>
+          <Helmet>
+            <title>DaxParts | Home</title>
+          </Helmet>
           <header className='Homepage-header'>
             <div className='container-fluid'>
               <div className='container-fluid d-flex justify-content-between pais-idioma'>

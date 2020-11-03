@@ -1,9 +1,14 @@
 import React from 'react';
 
+import { Helmet } from 'react-helmet';
+
 // import { connect } from 'react-redux';
 
 const Empresa = (props) => (
   <div className='somos-contenido'>
+    <Helmet>
+      <title>DaxParts | Empresa</title>
+    </Helmet>
     <div className='container somos-titulo'>
       <h1>
         <strong>{props.idioma.empresa.titulo}</strong>

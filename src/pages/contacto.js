@@ -1,5 +1,7 @@
 import React from 'react';
 
+import { Helmet } from 'react-helmet';
+
 // import { connect } from 'react-redux';
 
 import usa from '../img/usa.png';
@@ -10,6 +12,9 @@ import mapa from '../img/mapaDAX.png';
 
 const Contacto = ({ idioma }) => (
   <div className='container-fluid contacto-contenido'>
+    <Helmet>
+      <title>DaxParts | Contacto</title>
+    </Helmet>
     <div className='container contacto-title'>
       <h1>
         <strong>{idioma.contacto.titulo}</strong>

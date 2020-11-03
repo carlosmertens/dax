@@ -1,9 +1,14 @@
 import React from 'react';
 
+import { Helmet } from 'react-helmet';
+
 // import { connect } from 'react-redux';
 
 const Tutorial = ({ idioma }) => (
   <div className='container-fluid tutorial'>
+    <Helmet>
+      <title>DaxParts | Tutoriales</title>
+    </Helmet>
     <div className='container tutorial-titulo'>
       <h1>
         <strong>{idioma.tutorial.titulo}</strong>
