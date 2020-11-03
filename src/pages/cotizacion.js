@@ -25,14 +25,19 @@ const Cotizacion = (props) => {
   ];
 
   let codpais = '';
+  let monpais = '';
   if (props.country === 'Bolivia') {
     codpais = 'BO';
+    monpais = 'Bolivia';
   } else if (props.country === 'Peru') {
     codpais = 'PE';
+    monpais = 'Perú';
   } else if (props.country === 'Paraguay') {
     codpais = 'PY';
+    monpais = 'Paraguay';
   } else {
     codpais = 'US';
+    monpais = 'USA';
   }
 
   const apiUrl = `http://www.wp.daxparts.com/api/cotizacion/BuscarCodigo2/${props.parte}/${codpais}`;
@@ -107,7 +112,7 @@ const Cotizacion = (props) => {
                     <th scope='col'>{props.idioma.cotizacion.tabla.col2}</th>
                     <th scope='col'>{props.idioma.cotizacion.tabla.col3}</th>
                     <th scope='col'>
-                      {props.idioma.cotizacion.tabla.col4} - {props.country}
+                      {props.idioma.cotizacion.tabla.col4} - {monpais}
                     </th>
                     <th scope='col'>{props.idioma.cotizacion.tabla.col5}</th>
                     <th scope='col'></th>
