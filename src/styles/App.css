@@ -235,9 +235,13 @@ header input {
 .nota {
   font-size: 10px;
   padding: 15px 5px 15px 25px;
+  border-radius: 20px;
 }
 .nota span {
   font-size: 15px;
+}
+.nota-border {
+  border-radius: 10px;
 }
 .beneficios {
   border-radius: 15px;
