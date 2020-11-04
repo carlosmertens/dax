@@ -78,7 +78,7 @@ const Homepage = (props) => {
                 </div>
 
                 <div className='container'>
-                  <Link to='/aprender'>
+                  <Link to='/tutorial'>
                     <img
                       className='logo-tutorial'
                       src={iconVideos}

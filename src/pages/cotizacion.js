@@ -113,7 +113,9 @@ const Cotizacion = (props) => {
               <table className='table table-striped table-bordered'>
                 <thead className='thead-dark'>
                   <tr>
-                    <th scope='col'>{props.idioma.cotizacion.tabla.col1}</th>
+                    <th className='align-self-center' scope='col'>
+                      {props.idioma.cotizacion.tabla.col1}
+                    </th>
                     <th scope='col'>{props.idioma.cotizacion.tabla.col2}</th>
                     <th scope='col'>{props.idioma.cotizacion.tabla.col3}</th>
                     <th scope='col'>

@@ -7,7 +7,7 @@ import { Helmet } from 'react-helmet';
 const Tutorial = ({ idioma }) => (
   <div className='container-fluid tutorial'>
     <Helmet>
-      <title>DaxParts | Tutoriales</title>
+      <title>DaxParts | Tutorial</title>
     </Helmet>
     <div className='container tutorial-titulo'>
       <h1>
@@ -34,8 +34,9 @@ const Tutorial = ({ idioma }) => (
             <div className='row'>
               <div className='col'>
                 <iframe
-                  width='121'
-                  height='65'
+                  // width='121'
+                  // height='65'
+                  className='embed-responsive-item'
                   title='Castellano'
                   src='https://www.youtube.com/embed/4jnCVogNCtc'></iframe>
               </div>
@@ -49,8 +50,9 @@ const Tutorial = ({ idioma }) => (
             <div className='row'>
               <div className='col'>
                 <iframe
-                  width='121'
-                  height='65'
+                  // width='121'
+                  // height='65'
+                  className='embed-responsive-item'
                   title='EnglishDax'
                   src='https://www.youtube.com/embed/L22Gk3eXE7I'></iframe>
               </div>
@@ -64,8 +66,9 @@ const Tutorial = ({ idioma }) => (
             <div className='row'>
               <div className='col'>
                 <iframe
-                  width='121'
-                  height='65'
+                  // width='121'
+                  // height='65'
+                  className='embed-responsive-item'
                   title='Demo'
                   src='https://www.youtube.com/embed/j42UyjVCDuo'></iframe>
               </div>
@@ -88,8 +91,9 @@ const Tutorial = ({ idioma }) => (
             <div className='row'>
               <div className='col'>
                 <iframe
-                  width='121'
-                  height='65'
+                  // width='121'
+                  // height='65'
+                  className='embed-responsive-item'
                   title='John Deere'
                   src='https://www.youtube.com/embed/FkRyowhMekU'></iframe>
               </div>
@@ -103,8 +107,9 @@ const Tutorial = ({ idioma }) => (
             <div className='row'>
               <div className='col'>
                 <iframe
-                  width='121'
-                  height='65'
+                  // width='121'
+                  // height='65'
+                  className='embed-responsive-item'
                   title='Catarpillar'
                   src='https://www.youtube.com/embed/MaOpwIWJa0o'></iframe>
               </div>
@@ -118,8 +123,9 @@ const Tutorial = ({ idioma }) => (
             <div className='row'>
               <div className='col'>
                 <iframe
-                  width='121'
-                  height='65'
+                  // width='121'
+                  // height='65'
+                  className='embed-responsive-item'
                   title='CASE'
                   src='https://www.youtube.com/embed/nApCi2Y8w7Y'></iframe>
               </div>
