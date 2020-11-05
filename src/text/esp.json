@@ -13,7 +13,7 @@
     "campoBuscar": "Introduce el número de parte",
     "botonBuscar": "Buscar",
     "enlaceClick": "Click aquí si no sabes el número de parte",
-    "leyendaTutorial": "Cómo cotizar",
+    "leyendaTutorial": "Videos tutoriales",
 
     "modal": {
       "titulo": "No tienes número de parte?",
@@ -25,10 +25,12 @@
   },
 
   "ingresar": {
+    "titulo": "Buscaremos tu parte, por favor deja tus datos de contacto.",
     "nombre": "Nombre de usuario",
     "password": "Contraseña",
     "olvide": "Me olvide",
     "botonIngresar": "Ingresar",
+    "botonCotizar": "Cotizar",
     "cambiarModal": "No tienes una cuenta?",
     "cambiarEnlace": "Click aquí!"
   },
@@ -67,17 +69,17 @@
     "subtitulo": "Repuesto para:",
     "span": {
       "a1": "Equipo de movimiento de tierra:",
-      "a2": "Excavadoras, tractores, bull-dozer pala cargadoras motoniveladoras etc.",
+      "a2": "Excavadoras, tractores, bull-dozer, pala cargadoras, motoniveladoras, etc.",
       "b1": "Grúas y equipos de izaje:",
-      "b2": "Grúas Manlift montacargas telehandler etc.",
+      "b2": "Grúas, manlift, montacargas, telehandler, etc.",
       "c1": "Equipo Agrícola:",
-      "c2": "Cosechadoras tractores fumigadoras etc.",
+      "c2": "Cosechadoras, tractores, fumigadoras, etc.",
       "d1": "Equipos Estacionarios:",
       "d2": "Generadores, compresores, soldadoras, bombas, etc.",
       "e1": "Equipos de Caña:",
-      "e2": "osechadoras Sembradoras etc",
+      "e2": "Cosechadoras,sembradoras, etc",
       "f1": "Camiones",
-      "f2": "Camiones volquetas equipos especiales etc"
+      "f2": "Camiones, volquetas, equipos especiales, etc"
     }
   },
 
@@ -123,19 +125,19 @@
   },
 
   "buscamos": {
-    "titulo1": "Datos del equipo:",
-    "marca": "Marca de tu equipo",
-    "modelo": "Modelo de tu equipo",
-    "serie": "Serie de tu equipo",
+    "titulo1": "Equipo:",
+    "marca": "Equipo",
+    "modelo": "Modelo",
+    "serie": "Serie",
 
-    "titulo2": "Datos del motor",
-    "marcaMotor": "Marca de tu motor",
-    "modeloMotor": "Modelo de tu motor",
-    "serieMotor": "Serie de tu motor",
+    "titulo2": "Motor",
+    "marcaMotor": "Motor",
+    "modeloMotor": "Modelo",
+    "serieMotor": "Serie",
 
-    "titulo3": "Datos de la orden",
+    "titulo3": "Datos de la parte",
     "cantidad": "Cantidad",
-    "descripcion": "Describe la parte...",
+    "descripcion": "Descripción",
 
     "titulo4": "Tus datos:",
     "nombre": "Nombre",
@@ -144,7 +146,7 @@
 
     "botonContinuar": "Siguiente",
 
-    "botonCotizar": "Ingresar",
+    "botonCotizar": "Cotizar",
     "cambiarModal": "No tienes una cuenta?",
     "cambiarModal1": "Ya tienes una cuenta?",
     "cambiarEnlace": "Click aqui!"
@@ -161,15 +163,21 @@
     },
     "nota": "Nota",
     "notaTexto": "Nombres OEM, logos y numeros de partes son usados para referencia. No implicamos que nuestros productos o servicios estén afiliados, patrocinados o aprobados por los fabricantes de equipos originales",
-    "tituloComprar": "Si tienes una cuenta podrás:",
-    "beneficio1": "✓ \"Crear una cuenta es gratis\"",
-    "beneficio2": "✓ Crear varias cotizaciones.",
-    "beneficio3": "✓ Cotizar partes en lotes.",
-    "beneficio4": "✓ Enviar y/o imprimir cotizaciones y proformas.",
-    "beneficio5": "✓ Hacer seguimiento a tus órdenes de compra.",
-    "beneficio6": "✓ Recibir ofertas y descuentos.",
+    "tituloComprar": "Si eres usuario podrás (es GRATIS!):",
+    "beneficio1": "✓ Crear varias cotizaciones.",
+    "beneficio2": "✓ Cotizar partes en lotes.",
+    "beneficio3": "✓ Enviar y/o imprimir cotizaciones y proformas.",
+    "beneficio4": "✓ Hacer seguimiento a tus órdenes de compra.",
+    "beneficio5": "✓ Recibir ofertas y descuentos.",
+    "beneficio6": "✓ Acceder a partes usadas y reconstruidas.",
     "botonComprar": "Comprar"
   },
 
-  "spinner": "BUSCANDO TU NÚMERO DE PARTE..."
+  "spinner": "BUSCANDO TU NÚMERO DE PARTE...",
+
+  "infoParte": {
+    "titulo": "No tenemos ese número de parte registrado. Por favor, selecciona la marca.",
+    "holder": "Marca",
+    "boton": "Cotizar"
+  }
 }

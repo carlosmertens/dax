@@ -74,6 +74,9 @@ const LoginBuscamos = (props) => {
       </div>
 
       <div className='modal-body'>
+        <div className='modal-header'>
+          <h6 className=''>{props.idioma.ingresar.titulo}</h6>
+        </div>
         <form onSubmit={handleSubmit}>
           <div className='form-group d-flex justify-content-center'>
             <input

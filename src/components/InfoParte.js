@@ -48,10 +48,7 @@ const InfoParte = (props) => {
 
       <div className='modal-body'>
         <div className='modal-header'>
-          <h6 className=''>
-            No tenemos ese número de parte registrado. Por favor, selecciona la
-            marca.
-          </h6>
+          <h6 className=''>{props.idioma.infoParte.titulo}</h6>
         </div>
         <div className='modal-body'>
           <div className='form-group d-flex justify-content-center'>
@@ -62,7 +59,7 @@ const InfoParte = (props) => {
               <input
                 type='text'
                 className='form-control mr-sm-2'
-                placeholder='Marca'
+                placeholder={props.idioma.infoParte.holder}
                 onChange={(e) => setItemMarca(e.target.value)}
               />
             </div>
@@ -84,7 +81,7 @@ const InfoParte = (props) => {
                   />
                 );
               }}>
-              Cotizar
+              {props.idioma.infoParte.boton}
             </button>
           </div>
         </div>

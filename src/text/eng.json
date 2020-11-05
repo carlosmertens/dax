@@ -10,21 +10,22 @@
 
   "home": {
     "leyendaBuscar": "Part Number",
-    "campoBuscar": "Enter number",
+    "campoBuscar": "Enter part number here",
     "botonBuscar": "Search",
-    "enlaceClick": "You don’t have the part number, click here!",
-    "leyendaTutorial": "How it works",
+    "enlaceClick": "Don’t know your part number, click here!",
+    "leyendaTutorial": "Video tutorials",
 
     "modal": {
       "titulo": "Don't know spare part number?",
       "enlaceTutorial": "Online tutorials",
-      "enlaceBuscamos": "We find it for you",
+      "enlaceBuscamos": "We do it for you",
       "tienesCuenta": "Do you have an account?",
       "click": "Click here"
     }
   },
 
   "ingresar": {
+    "titulo": "We will search your part, please give us your contact info.",
     "nombre": "User Name",
     "password": "Password",
     "olvide": "Forgot your password?",
@@ -67,11 +68,11 @@
     "subtitulo": "Spare parts for:",
     "span": {
       "a1": "Earthmoving Equipment:",
-      "a2": "Excavators, Bulldozers, tractors, motor graders, loaders, etc.",
+      "a2": "Excavators, bulldozers, tractors, motor graders, loaders, etc.",
       "b1": "Lifting Equipment:",
       "b2": "Cranes, man lifts, forklifts, etc.",
       "c1": "Agriculture Equipment:",
-      "c2": "Combines, Sprayers, farm tractor, etc.",
+      "c2": "Combines, sprayers, farm tractor, etc.",
       "d1": "Stationary Equipment:",
       "d2": "Generators, compressors, welders, pumps, etc.",
       "e1": "Sugar Cane Equipment:",
@@ -123,19 +124,19 @@
   },
 
   "buscamos": {
-    "titulo1": "Equipment details:",
-    "marca": "Equipment's brand",
-    "modelo": "Equipment's model",
-    "serie": "Equipment's series",
+    "titulo1": "Equipment:",
+    "marca": "Equipment",
+    "modelo": "Model",
+    "serie": "Serial",
 
-    "titulo2": "Motor details",
-    "marcaMotor": "Brand of the motor",
-    "modeloMotor": "Model of the motor",
-    "serieMotor": "Serie of the motor",
+    "titulo2": "Engine:",
+    "marcaMotor": "Engine",
+    "modeloMotor": "Model",
+    "serieMotor": "Serial",
 
-    "titulo3": "Orden details",
+    "titulo3": "Part needed",
     "cantidad": "Quantity",
-    "descripcion": "Describe the order...",
+    "descripcion": "Description",
 
     "titulo4": "Personal details:",
     "nombre": "Name",
@@ -144,7 +145,7 @@
 
     "botonContinuar": "Next",
 
-    "botonCotizar": "Find it",
+    "botonCotizar": "Quote",
     "cambiarModal": "Already have an account?",
     "cambiarEnlace": "Click here!"
   },
@@ -160,15 +161,21 @@
     },
     "nota": "Disclosure",
     "notaTexto": "OEM names, logos and part numbers are used for reference. We do not imply that our products or services are affiliated with, sponsored or endorsed by the original equipment manufacturers.",
-    "tituloComprar": "With an account, you could:",
+    "tituloComprar": "Benefits for registered users (it’s FREE):",
     "beneficio1": "✓ Create multiple quotes.",
     "beneficio2": "✓ Quote parts in batches.",
-    "beneficio3": "✓ Send and/or print quotes and proformas.",
-    "beneficio4": "✓ Track your purchase orders.",
+    "beneficio3": "✓ Send and print quotes and invoices.",
+    "beneficio4": "✓ Track your orders.",
     "beneficio5": "✓ Receive offers and discounts.",
-    "beneficio6": "✓ Access used and rebuilt parts.",
+    "beneficio6": "✓ Access to used and rebuilt parts.",
     "botonComprar": "Order"
   },
 
-  "spinner": "SEARCHING THE PART NUMBER..."
+  "spinner": "SEARCHING THE PART NUMBER...",
+
+  "infoParte": {
+    "titulo": "We don't have that part number on file. Please select the brand.",
+    "holder": "Brand",
+    "boton": "Quote"
+  }
 }
