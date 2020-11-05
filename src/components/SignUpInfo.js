@@ -131,7 +131,7 @@ const SignUpInfo = (props) => {
                 />
               </div>
 
-              <div className='form-group d-flex justify-content-center'>
+              {/* <div className='form-group d-flex justify-content-center'>
                 <input
                   type='text'
                   className='form-control mr-sm-2'
@@ -139,7 +139,7 @@ const SignUpInfo = (props) => {
                   onChange={(e) => setNumNit(e.target.value)}
                   value={NumNit}
                 />
-              </div>
+              </div> */}
 
               <div className='form-group d-flex justify-content-center'>
                 <select onChange={(e) => setCodPais(e.target.value)}>
@@ -157,7 +157,7 @@ const SignUpInfo = (props) => {
                 />
               </div>
 
-              <div className='form-group d-flex justify-content-center'>
+              {/* <div className='form-group d-flex justify-content-center'>
                 <input
                   type='text'
                   className='form-control mr-sm-2'
@@ -165,7 +165,7 @@ const SignUpInfo = (props) => {
                   onChange={(e) => setDireccion(e.target.value)}
                   value={Direccion}
                 />
-              </div>
+              </div> */}
 
               <div className='form-group d-flex justify-content-center'>
                 <input
@@ -178,7 +178,7 @@ const SignUpInfo = (props) => {
                 />
               </div>
 
-              <div className='form-group d-flex justify-content-center'>
+              {/* <div className='form-group d-flex justify-content-center'>
                 <input
                   type='text'
                   className='form-control mr-sm-2'
@@ -186,7 +186,7 @@ const SignUpInfo = (props) => {
                   onChange={(e) => setNumTel2(e.target.value)}
                   value={NumTel2}
                 />
-              </div>
+              </div> */}
 
               <div className='form-group d-flex justify-content-center'>
                 <input
@@ -199,9 +199,9 @@ const SignUpInfo = (props) => {
                 />
               </div>
 
-              <h4>{idioma.crear.titulo2}</h4>
+              {/* <h4>{idioma.crear.titulo2}</h4> */}
 
-              <div className='form-group d-flex justify-content-center'>
+              {/* <div className='form-group d-flex justify-content-center'>
                 <input
                   type='text'
                   className='form-control mr-sm-2'
@@ -209,7 +209,7 @@ const SignUpInfo = (props) => {
                   onChange={(e) => setNomUsuario(e.target.value)}
                   value={NomUsuario}
                 />
-              </div>
+              </div> */}
 
               <div className='form-group d-flex justify-content-center'>
                 <input

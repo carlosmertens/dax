@@ -85,7 +85,7 @@ const InfoParte = (props) => {
             </button>
           </div>
         </div>
-        <div className='modal-footer d-flex justify-content-center'>
+        {/* <div className='modal-footer d-flex justify-content-center'>
           <div>
             {props.idioma.ingresar.cambiarModal}{' '}
             <span
@@ -104,7 +104,7 @@ const InfoParte = (props) => {
               {props.idioma.ingresar.cambiarEnlace}
             </span>
           </div>
-        </div>
+        </div> */}
       </div>
     </>
   );

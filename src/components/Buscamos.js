@@ -187,7 +187,7 @@ const Buscamos = (props) => {
         </form>
       </div>
 
-      <div className='modal-footer d-flex justify-content-center'>
+      {/* <div className='modal-footer d-flex justify-content-center'>
         <div>
           {idioma.buscamos.cambiarModal}{' '}
           <span
@@ -199,7 +199,7 @@ const Buscamos = (props) => {
             {idioma.buscamos.cambiarEnlace}
           </span>
         </div>
-      </div>
+      </div> */}
     </>
   );
 };
