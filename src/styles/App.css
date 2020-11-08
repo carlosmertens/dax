@@ -271,6 +271,15 @@ header input {
   width: 159px;
 }
 
+.table-responsive {
+  border-radius: 15px !important;
+  text-align: center !important;
+}
+
+.title-cells {
+  vertical-align: middle !important;
+}
+
 /* *************************************** */
 /* ===== HACEMOS ===== */
 .hacemos-texto {

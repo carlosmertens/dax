@@ -111,13 +111,17 @@ const Cotizacion = (props) => {
           <div className='container cotizacion-table'>
             <div className='table-responsive'>
               <table className='table table-striped table-bordered'>
-                <thead className='thead-dark'>
+                <thead className='table-cells thead-dark'>
                   <tr>
-                    <th className='align-self-center' scope='col'>
+                    <th className='title-cells' scope='col'>
                       {props.idioma.cotizacion.tabla.col1}
                     </th>
-                    <th scope='col'>{props.idioma.cotizacion.tabla.col2}</th>
-                    <th scope='col'>{props.idioma.cotizacion.tabla.col3}</th>
+                    <th className='title-cells' scope='col'>
+                      {props.idioma.cotizacion.tabla.col2}
+                    </th>
+                    <th className='title-cells' scope='col'>
+                      {props.idioma.cotizacion.tabla.col3}
+                    </th>
                     <th scope='col'>
                       {props.idioma.cotizacion.tabla.col4} - {monpais}
                     </th>
