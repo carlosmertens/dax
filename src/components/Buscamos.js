@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import openModal from '../actions/openModal';
 import navLogo from '../img/logoNav.png';
-import Ingresar from './Login';
+// import Ingresar from './Login';
 import Buscamos2 from './Buscamos2';
 
 const Buscamos = (props) => {

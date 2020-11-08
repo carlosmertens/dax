@@ -12,14 +12,14 @@ const SignUpInfo = (props) => {
 
   const [NomCliente, setNomCliente] = useState('');
   const [NomContacto, setNomContacto] = useState('');
-  const [NumNit, setNumNit] = useState('');
+  // const [NumNit, setNumNit] = useState('');
   const [CodPais, setCodPais] = useState('');
   const [CodCiudad, setCodCiudad] = useState('');
-  const [Direccion, setDireccion] = useState('');
+  // const [Direccion, setDireccion] = useState('');
   const [NumTel1, setNumTel1] = useState('');
-  const [NumTel2, setNumTel2] = useState('');
+  // const [NumTel2, setNumTel2] = useState('');
   const [Mail, setMail] = useState('');
-  const [NomUsuario, setNomUsuario] = useState('');
+  // const [NomUsuario, setNomUsuario] = useState('');
   const [LogUsuario, setLogUsuario] = useState('');
   const [Contrasena, setContrasena] = useState('');
   const [logged, setLogged] = useState(false);
@@ -56,14 +56,14 @@ const SignUpInfo = (props) => {
       IdCliente: '0',
       NomCliente: NomCliente,
       NomContacto: NomContacto,
-      NumNit: NumNit,
+      NumNit: '',
       CodPais: CodPais,
       CodCiudad: CodCiudad,
-      Direccion: Direccion,
+      Direccion: '',
       NumTel1: NumTel1,
-      NumTel2: NumTel2,
+      NumTel2: '',
       Mail: Mail,
-      NomUsuario: NomUsuario,
+      NomUsuario: '',
       LogUsuario: LogUsuario,
       Contrasena: Contrasena,
     };

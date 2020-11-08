@@ -6,7 +6,7 @@ import openModal from '../actions/openModal';
 import navLogo from '../img/logoNav.png';
 
 import LoginInfo from './LoginInfo';
-import SignUpInfo from './SignUpInfo';
+// import SignUpInfo from './SignUpInfo';
 
 const InfoParte = (props) => {
   const [marcas, setMarcas] = useState([]);

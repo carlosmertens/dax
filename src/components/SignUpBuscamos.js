@@ -10,14 +10,14 @@ import LoginBuscamos from './LoginBuscamos';
 const SignUpBuscamos = (props) => {
   const [NomCliente, setNomCliente] = useState('');
   const [NomContacto, setNomContacto] = useState('');
-  const [NumNit, setNumNit] = useState('');
+  // const [NumNit, setNumNit] = useState('');
   const [CodPais, setCodPais] = useState('');
   const [CodCiudad, setCodCiudad] = useState('');
-  const [Direccion, setDireccion] = useState('');
+  // const [Direccion, setDireccion] = useState('');
   const [NumTel1, setNumTel1] = useState('');
-  const [NumTel2, setNumTel2] = useState('');
+  // const [NumTel2, setNumTel2] = useState('');
   const [Mail, setMail] = useState('');
-  const [NomUsuario, setNomUsuario] = useState('');
+  // const [NomUsuario, setNomUsuario] = useState('');
   const [LogUsuario, setLogUsuario] = useState('');
   const [Contrasena, setContrasena] = useState('');
   const [paises, setPaises] = useState([]);
@@ -51,14 +51,14 @@ const SignUpBuscamos = (props) => {
       IdCliente: '0',
       NomCliente: NomCliente,
       NomContacto: NomContacto,
-      NumNit: NumNit,
+      // NumNit: NumNit,
       CodPais: CodPais,
       CodCiudad: CodCiudad,
-      Direccion: Direccion,
+      // Direccion: Direccion,
       NumTel1: NumTel1,
-      NumTel2: NumTel2,
+      // NumTel2: NumTel2,
       Mail: Mail,
-      NomUsuario: NomUsuario,
+      // NomUsuario: NomUsuario,
       LogUsuario: LogUsuario,
       Contrasena: Contrasena,
     };
@@ -134,7 +134,7 @@ const SignUpBuscamos = (props) => {
             />
           </div>
 
-          <div className='form-group d-flex justify-content-center'>
+          {/* <div className='form-group d-flex justify-content-center'>
             <input
               type='text'
               className='form-control mr-sm-2'
@@ -142,7 +142,7 @@ const SignUpBuscamos = (props) => {
               onChange={(e) => setNumNit(e.target.value)}
               value={NumNit}
             />
-          </div>
+          </div> */}
 
           <div className='form-group d-flex justify-content-center'>
             <select onChange={(e) => setCodPais(e.target.value)}>
@@ -160,7 +160,7 @@ const SignUpBuscamos = (props) => {
             />
           </div>
 
-          <div className='form-group d-flex justify-content-center'>
+          {/* <div className='form-group d-flex justify-content-center'>
             <input
               type='text'
               className='form-control mr-sm-2'
@@ -168,7 +168,7 @@ const SignUpBuscamos = (props) => {
               onChange={(e) => setDireccion(e.target.value)}
               value={Direccion}
             />
-          </div>
+          </div> */}
 
           <div className='form-group d-flex justify-content-center'>
             <input
@@ -181,7 +181,7 @@ const SignUpBuscamos = (props) => {
             />
           </div>
 
-          <div className='form-group d-flex justify-content-center'>
+          {/* <div className='form-group d-flex justify-content-center'>
             <input
               type='text'
               className='form-control mr-sm-2'
@@ -189,7 +189,7 @@ const SignUpBuscamos = (props) => {
               onChange={(e) => setNumTel2(e.target.value)}
               value={NumTel2}
             />
-          </div>
+          </div> */}
 
           <div className='form-group d-flex justify-content-center'>
             <input
@@ -202,9 +202,9 @@ const SignUpBuscamos = (props) => {
             />
           </div>
 
-          <h4>{props.idioma.crear.titulo2}</h4>
+          {/* <h4>{props.idioma.crear.titulo2}</h4> */}
 
-          <div className='form-group d-flex justify-content-center'>
+          {/* <div className='form-group d-flex justify-content-center'>
             <input
               type='text'
               className='form-control mr-sm-2'
@@ -212,7 +212,7 @@ const SignUpBuscamos = (props) => {
               onChange={(e) => setNomUsuario(e.target.value)}
               value={NomUsuario}
             />
-          </div>
+          </div> */}
 
           <div className='form-group d-flex justify-content-center'>
             <input

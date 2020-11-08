@@ -8,7 +8,7 @@ import openModal from '../actions/openModal';
 import navLogo from '../img/logoNav.png';
 
 import LoginBuscamos from './LoginBuscamos';
-import SignUpBuscamos from './SignUpBuscamos';
+// import SignUpBuscamos from './SignUpBuscamos';
 
 const Buscamos2 = (props) => {
   const idioma = props.idioma;
