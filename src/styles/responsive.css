@@ -1,4 +1,4 @@
-/* ========== RESPONSIVE CONTACTO ========== */
+/* ==================== RESPONSIVE CONTACTO ==================== */
 /* EXTRA SMALL devices (less than 480px) */
 @media only screen and (max-width: 480px) {
   .contacto-title h1 {
@@ -47,7 +47,7 @@
   }
 }
 
-/* ========== RESPONSIVE COTIZACION ========== */
+/* ==================== RESPONSIVE COTIZACION ==================== */
 /* EXTRA SMALL devices (less than 480px) */
 @media only screen and (max-width: 480px) {
   .btn-comprar {
@@ -79,7 +79,7 @@
   /* code goes here ... */
 }
 
-/* ========== RESPONSIVE HACEMOS CSS ========== */
+/* ==================== RESPONSIVE HACEMOS CSS ==================== */
 /* EXTRA SMALL devices (less than 480px) */
 @media only screen and (max-width: 480px) {
   .hacemos-titulo h1 {
@@ -149,7 +149,7 @@
   }
 }
 
-/* ========== RESPONSIVE HOME ========== */
+/* ==================== RESPONSIVE HOME =================== */
 /* EXTRA SMALL devices (less than 480px) */
 @media only screen and (max-width: 480px) {
   .pais-bandera {
@@ -363,33 +363,7 @@
   }
 }
 
-/* *************************************** */
-/* ===== OFRECEMOS ===== */
-.ofrecemos-contenido h4 {
-  text-align: left;
-}
-.ofrecemos-contenido p {
-  font-size: 15px;
-}
-.ofrecemos-contenido .row {
-  text-align: center;
-}
-.ofrecemos-contenido span {
-  color: #fca728;
-}
-.ofrecemos-opciones {
-  margin-bottom: 40px !important;
-}
-.ofrecemos-icono {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.ofrecemos-texto {
-  text-align: left;
-}
-
-/* ========== RESPONSIVE TEMPLATE ========== */
+/* ========== RESPONSIVE OFRECEMOS ========== */
 /* EXTRA SMALL devices (less than 480px) */
 @media only screen and (max-width: 480px) {
   .ofrecemos-titulo h1 {
@@ -459,7 +433,7 @@
   }
 }
 
-/* ========== RESPONSIVE SOMOS ========== */
+/* ==================== RESPONSIVE SOMOS ==================== */
 /* EXTRA SMALL devices (less than 480px) */
 @media only screen and (max-width: 480px) {
   .somos-titulo h1 {
@@ -474,14 +448,6 @@
     font-size: 13px;
     padding-top: 20px;
   }
-
-  /* .somos-banner {
-    margin-top: 50px;
-  }
-  .somos-banner h3 {
-    margin: 30px 0px 25px 0px;
-    font-size: 18px;
-  } */
 }
 
 /* SMALL devices (old iPhones, 480px and up) */
@@ -497,14 +463,6 @@
     font-size: 18px;
     padding-top: 80px;
   }
-
-  /* .somos-banner {
-    margin-top: 100px;
-  }
-  .somos-banner h3 {
-    margin: 40px 0px 40px 0px;
-    font-size: 22px;
-  } */
 }
 
 /* MEDIUM devices (landscape tablets, 768px and up) */
@@ -520,14 +478,6 @@
     font-size: 20px;
     padding-top: 80px;
   }
-
-  /* .somos-banner {
-    margin-top: 100px;
-  }
-  .somos-banner h3 {
-    margin: 50px 0px 50px 0px;
-    font-size: 28px;
-  } */
 }
 
 /* LARGE devices (laptops/desktops, 992px and up) */
@@ -543,14 +493,6 @@
     font-size: 20px;
     padding-top: 80px;
   }
-
-  /* .somos-banner {
-    margin-top: 100px;
-  }
-  .somos-banner h3 {
-    margin: 50px 0px 50px 0px;
-    font-size: 30px;
-  } */
 }
 
 /* EXTRA LARGE devices (large laptops and desktops, 1200px and up) */
@@ -569,20 +511,9 @@
     font-size: 20px;
     padding-top: 80px;
   }
-  /* .somos-texto h4 {
-    color: #fca728;
-  } */
-
-  /* .somos-banner {
-    margin-top: 100px;
-  } */
-  /* .somos-banner h3 {
-    margin: 50px 0px 50px 0px;
-    font-size: 35px;
-  } */
 }
 
-/* ========== RESPONSIVE TUTORIAL ========== */
+/* ==================== RESPONSIVE TUTORIAL ==================== */
 /* EXTRA SMALL devices (less than 480px) */
 @media only screen and (max-width: 480px) {
   .tutorial-titulo h1 {
@@ -641,7 +572,7 @@
   }
 }
 
-/* ========== RESPONSIVE NAVBAR CSS ========== */
+/* ==================== RESPONSIVE NAVBAR CSS ==================== */
 /* Extra small devices (less than 480px) */
 @media only screen and (max-width: 480px) {
   nav img {

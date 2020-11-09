@@ -50,8 +50,17 @@ h1 {
 .btn:hover {
   background-color: #c9c5c0 !important;
 }
+.btn-idioma:visited {
+  background-color: #fca728 !important;
+}
+.btn-idioma:link {
+  background-color: #fca728;
+}
 .btn-idioma:hover {
   background-color: #fca728ab !important;
+}
+.btn-idioma:active {
+  background-color: #fca728 !important;
 }
 
 /* *************************************** */
@@ -295,6 +304,32 @@ header input {
 .somos-texto {
   text-align: justify;
   margin-bottom: 40px;
+}
+
+/* *************************************** */
+/* ===== OFRECEMOS ===== */
+.ofrecemos-contenido h4 {
+  text-align: left;
+}
+.ofrecemos-contenido p {
+  font-size: 15px;
+}
+.ofrecemos-contenido .row {
+  text-align: center;
+}
+.ofrecemos-contenido span {
+  color: #fca728;
+}
+.ofrecemos-opciones {
+  margin-bottom: 40px !important;
+}
+.ofrecemos-icono {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.ofrecemos-texto {
+  text-align: left;
 }
 
 /* *************************************** */
