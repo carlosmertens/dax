@@ -10,7 +10,7 @@ import SignUpInfo from './SignUpInfo';
 // import SignUpInfo from './SignUpInfo';
 
 const InfoParte = (props) => {
-  const [marcas, setMarcas] = useState([]);
+  const [marcas, setMarcas] = useState(['']);
   const [itemMarca, setItemMarca] = useState('');
   const [otros, setOtros] = useState(false);
 

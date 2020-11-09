@@ -42,12 +42,12 @@ const Cotizacion = (props) => {
     monpais = 'USA';
   }
 
-  const apiUrl = `http://www.wp.daxparts.com/api/cotizacion/BuscarCodigo2/${props.parte}/${codpais}`;
-
   // TODO: Clean up code (React complaint)
   useEffect(() => {
     const fetchData = async () => {
-      const resp = await axios.get(apiUrl);
+      const resp = await axios.get(
+        `http://www.wp.daxparts.com/api/cotizacion/BuscarCodigo2/${props.parte}/${codpais}`
+      );
       if (resp.data.estado === 'NC') {
         props.openModal('open', <InfoParte idioma={props.idioma} />);
         setBusqueda(dummyData);
@@ -59,7 +59,7 @@ const Cotizacion = (props) => {
     };
 
     fetchData();
-  }, [apiUrl, dummyData, props]);
+  }, [codpais, dummyData, props]);
 
   if (busqueda.length === 0) {
     return <Spinner idioma={props.idioma} />;
