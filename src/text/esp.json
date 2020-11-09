@@ -42,9 +42,9 @@
     "numero": "Número de identidad",
     "pais": "País",
     "ciudad": "Ciudad",
-    "direccion": "Direccíon",
-    "telefono1": "Teléfono 1",
-    "telefono2": "Teléfono 2",
+    "direccion": "Dirección",
+    "telefono1": "Teléfono",
+    "telefono2": "Teléfono",
     "titulo2": "Datos de ingreso:",
     "nomUsuario": "Nombre del Ususario",
     "usuario": "Usuario",
@@ -125,6 +125,7 @@
   },
 
   "buscamos": {
+    "mensaje": "Introduce los datos de tu Equipo o de tu Motor.",
     "titulo1": "Equipo:",
     "marca": "Equipo",
     "modelo": "Modelo",
@@ -176,8 +177,12 @@
   "spinner": "BUSCANDO TU NÚMERO DE PARTE...",
 
   "infoParte": {
-    "titulo": "No tenemos ese número de parte registrado. Por favor, selecciona la marca.",
+    "titulo": "No tenemos ese número de parte registrado. Ayúdanos a encontrarlo seleccionando la marca.",
     "holder": "Marca",
     "boton": "Cotizar"
+  },
+
+  "datosBuscar": {
+    "boton": "Enviar"
   }
 }

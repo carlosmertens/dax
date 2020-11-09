@@ -57,13 +57,15 @@ const Buscamos = (props) => {
         <img src={navLogo} alt='Dax Logo' />
       </div>
 
-      <hr />
-
       <div className='modal-body'>
+        <div className='modal-header'>
+          <h6 className=''>{idioma.buscamos.mensaje}</h6>
+        </div>
         <form
           onSubmit={(e) => {
             e.preventDefault();
           }}>
+          <br />
           <h4>{idioma.buscamos.titulo1}</h4>
           <div className='form-group d-flex justify-content-center'>
             {/* <input
@@ -113,6 +115,7 @@ const Buscamos = (props) => {
             />
           </div>
 
+          <br />
           <h4>{idioma.buscamos.titulo2}</h4>
 
           <div className='form-group d-flex justify-content-center'>

@@ -29,12 +29,12 @@ const SignUpBuy = (props) => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const url = 'http://www.wp.daxparts.com/api/pais/listado3/BO';
+      const url = `http://www.wp.daxparts.com/api/pais/listado3/${props.country}`;
       const resp = await axios.get(url);
       setPaises(resp.data.dato);
     };
     fetchData();
-  }, []);
+  }, [props.country]);
 
   const optionsPais = paises.map((item, index) => {
     return (
@@ -268,6 +268,7 @@ const SignUpBuy = (props) => {
 function mapStateToProps(state) {
   return {
     siteModal: state.siteModal,
+    country: state.country,
   };
 }
 

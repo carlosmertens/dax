@@ -5,7 +5,8 @@ import { bindActionCreators } from 'redux';
 import openModal from '../actions/openModal';
 import navLogo from '../img/logoNav.png';
 
-import LoginInfo from './LoginInfo';
+// import LoginInfo from './LoginInfo';
+import SignUpInfo from './SignUpInfo';
 // import SignUpInfo from './SignUpInfo';
 
 const InfoParte = (props) => {
@@ -73,7 +74,7 @@ const InfoParte = (props) => {
               onClick={() => {
                 props.openModal(
                   'open',
-                  <LoginInfo
+                  <SignUpInfo
                     idioma={props.idioma}
                     itemMarca={itemMarca}
                     intCodRepuesto={0}

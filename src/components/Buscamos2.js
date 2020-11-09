@@ -7,8 +7,8 @@ import openModal from '../actions/openModal';
 
 import navLogo from '../img/logoNav.png';
 
-import LoginBuscamos from './LoginBuscamos';
-// import SignUpBuscamos from './SignUpBuscamos';
+// import LoginBuscamos from './LoginBuscamos';
+import SignUpBuscamos from './SignUpBuscamos';
 
 const Buscamos2 = (props) => {
   const idioma = props.idioma;
@@ -57,7 +57,7 @@ const Buscamos2 = (props) => {
               onClick={() => {
                 props.openModal(
                   'open',
-                  <LoginBuscamos
+                  <SignUpBuscamos
                     idioma={props.idioma}
                     marcaEquipo={props.marcaEquipo}
                     modeloEquipo={props.modeloEquipo}

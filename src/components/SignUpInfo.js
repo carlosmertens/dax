@@ -20,8 +20,8 @@ const SignUpInfo = (props) => {
   // const [NumTel2, setNumTel2] = useState('');
   const [Mail, setMail] = useState('');
   // const [NomUsuario, setNomUsuario] = useState('');
-  const [LogUsuario, setLogUsuario] = useState('');
-  const [Contrasena, setContrasena] = useState('');
+  // const [LogUsuario, setLogUsuario] = useState('');
+  // const [Contrasena, setContrasena] = useState('');
   const [logged, setLogged] = useState(false);
   const [NroCotizacion, setNroCotizacion] = useState('');
   const [codcliente, setCodcliente] = useState('');
@@ -29,12 +29,12 @@ const SignUpInfo = (props) => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const url = 'http://www.wp.daxparts.com/api/pais/listado/BO';
+      const url = `http://www.wp.daxparts.com/api/pais/listado3/${props.country}`;
       const resp = await axios.get(url);
       setPaises(resp.data.dato);
     };
     fetchData();
-  }, []);
+  }, [props.country]);
 
   const optionsPais = paises.map((item, index) => {
     return (
@@ -64,8 +64,8 @@ const SignUpInfo = (props) => {
       NumTel2: '',
       Mail: Mail,
       NomUsuario: '',
-      LogUsuario: LogUsuario,
-      Contrasena: Contrasena,
+      LogUsuario: '',
+      Contrasena: '',
     };
     const resp = await axios.post(url, data);
 
@@ -109,8 +109,11 @@ const SignUpInfo = (props) => {
           </div>
 
           <div className='modal-body'>
+            <div className='modal-header'>
+              <h6 className=''>{props.idioma.ingresar.titulo}</h6>
+            </div>
             <form onSubmit={handleSubmit}>
-              <h4>{idioma.crear.titulo1}</h4>
+              {/* <h4>{idioma.crear.titulo1}</h4> */}
               <div className='form-group d-flex justify-content-center'>
                 <input
                   type='text'
@@ -211,7 +214,7 @@ const SignUpInfo = (props) => {
                 />
               </div> */}
 
-              <div className='form-group d-flex justify-content-center'>
+              {/* <div className='form-group d-flex justify-content-center'>
                 <input
                   type='text'
                   className='form-control mr-sm-2'
@@ -220,9 +223,9 @@ const SignUpInfo = (props) => {
                   value={LogUsuario}
                   required
                 />
-              </div>
+              </div> */}
 
-              <div className='form-group d-flex justify-content-center'>
+              {/* <div className='form-group d-flex justify-content-center'>
                 <input
                   type='password'
                   className='form-control mr-sm-2'
@@ -231,11 +234,11 @@ const SignUpInfo = (props) => {
                   value={Contrasena}
                   required
                 />
-              </div>
+              </div> */}
 
               <div className='boton-form'>
                 <button type='submit' className='btn'>
-                  {idioma.crear.botonCrear}
+                  {idioma.datosBuscar.boton}
                 </button>
               </div>
             </form>
@@ -270,6 +273,7 @@ const SignUpInfo = (props) => {
 function mapStateToProps(state) {
   return {
     siteModal: state.siteModal,
+    country: state.country,
   };
 }
 

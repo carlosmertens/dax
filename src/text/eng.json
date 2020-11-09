@@ -26,7 +26,7 @@
 
   "ingresar": {
     "titulo": "We will search your part, please give us your contact info.",
-    "nombre": "User Name",
+    "nombre": "Username",
     "password": "Password",
     "olvide": "Forgot your password?",
     "botonIngresar": "Login",
@@ -42,8 +42,8 @@
     "pais": "Country",
     "ciudad": "City",
     "direccion": "Address",
-    "telefono1": "Phone 1",
-    "telefono2": "Phone 2",
+    "telefono1": "Phone",
+    "telefono2": "Phone",
     "titulo2": "Login details:",
     "nomUsuario": "User name",
     "usuario": "Login Name",
@@ -124,6 +124,7 @@
   },
 
   "buscamos": {
+    "mensaje": "Introduce the details of your equipment or your Engine.",
     "titulo1": "Equipment:",
     "marca": "Equipment",
     "modelo": "Model",
@@ -174,8 +175,12 @@
   "spinner": "SEARCHING THE PART NUMBER...",
 
   "infoParte": {
-    "titulo": "We don't have that part number on file. Please select the brand.",
+    "titulo": "We don't have that part number. Help us to find it selecting the brand.",
     "holder": "Brand",
     "boton": "Quote"
+  },
+
+  "datosBuscar": {
+    "boton": "Send"
   }
 }
