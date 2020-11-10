@@ -95,8 +95,6 @@ const SignUpBuscamos = (props) => {
     closeModal();
   };
 
-  console.log(CodPais);
-
   return (
     <>
       <div className='modal-logo d-flex justify-content-center'>

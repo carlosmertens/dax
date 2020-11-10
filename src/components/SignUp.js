@@ -14,7 +14,7 @@ const SignUp = (props) => {
   const [NomCliente, setNomCliente] = useState('');
   const [NomContacto, setNomContacto] = useState('');
   const [NumNit, setNumNit] = useState('');
-  const [CodPais, setCodPais] = useState('');
+  const [CodPais, setCodPais] = useState(props.country);
   const [CodCiudad, setCodCiudad] = useState('');
   const [Direccion, setDireccion] = useState('');
   const [NumTel1, setNumTel1] = useState('');
