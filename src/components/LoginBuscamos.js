@@ -1,13 +1,9 @@
 import React, { useState } from 'react';
-
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-
 import openModal from '../actions/openModal';
-
 import axios from 'axios';
 import swal from 'sweetalert';
-
 import navLogo from '../img/logoNav.png';
 import SignUpBuscamos from './SignUpBuscamos';
 
@@ -21,11 +17,9 @@ const LoginBuscamos = (props) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
     const url = 'http://www.wp.daxparts.com/api/sesion/validar';
     const data = { logusuario, clausuario };
     const resp = await axios.post(url, data);
-
     if (resp.data.estado === 'OK') {
       const url2 = 'http://www.wp.daxparts.com/api/cotizacion/CrearCotSc';
       const data2 = {
@@ -40,12 +34,11 @@ const LoginBuscamos = (props) => {
         CodCliente: resp.data.dato[0].logusuario,
       };
       const resp2 = await axios.post(url2, data2);
-
       if (resp2.data.estado === 'OK') {
         const coti = resp2.data.dato[0].NroCotizacion;
         swal({
-          title: 'Thank you!!!',
-          text: `Se ha creado tu cotizacion con número ${coti}. Puedes darle seguimiento en tu panel de usuario.`,
+          title: `${props.idioma.buscamos.swalTitle} ${coti}`,
+          text: `${props.idioma.buscamos.swalText}`,
           icon: 'success',
         });
       } else {
@@ -63,7 +56,6 @@ const LoginBuscamos = (props) => {
         icon: 'error',
       });
     }
-
     closeModal();
   };
 
@@ -72,11 +64,7 @@ const LoginBuscamos = (props) => {
       <div className='modal-logo d-flex justify-content-center'>
         <img src={navLogo} alt='Dax Logo' />
       </div>
-
       <div className='modal-body'>
-        {/* <div className='modal-header'>
-          <h6 className=''>{props.idioma.ingresar.titulo}</h6>
-        </div> */}
         <form onSubmit={handleSubmit}>
           <div className='form-group d-flex justify-content-center'>
             <input
@@ -87,7 +75,6 @@ const LoginBuscamos = (props) => {
               value={logusuario}
             />
           </div>
-
           <div className='form-group d-flex justify-content-center'>
             <input
               type='password'
@@ -97,15 +84,13 @@ const LoginBuscamos = (props) => {
               value={clausuario}
             />
           </div>
-
           <div className='boton-form'>
             <button type='submit' className='btn'>
-              {props.idioma.ingresar.botonIngresar}
+              {props.idioma.buscamos.botonCotizar}
             </button>
           </div>
         </form>
       </div>
-
       <div className='modal-footer d-flex justify-content-center'>
         <div>
           {props.idioma.ingresar.cambiarModal}{' '}

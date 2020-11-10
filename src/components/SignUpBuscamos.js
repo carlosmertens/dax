@@ -10,16 +10,10 @@ import LoginBuscamos from './LoginBuscamos';
 const SignUpBuscamos = (props) => {
   const [NomCliente, setNomCliente] = useState('');
   const [NomContacto, setNomContacto] = useState('');
-  // const [NumNit, setNumNit] = useState('');
   const [CodPais, setCodPais] = useState('');
   const [CodCiudad, setCodCiudad] = useState('');
-  // const [Direccion, setDireccion] = useState('');
   const [NumTel1, setNumTel1] = useState('');
-  // const [NumTel2, setNumTel2] = useState('');
   const [Mail, setMail] = useState('');
-  // const [NomUsuario, setNomUsuario] = useState('');
-  // const [LogUsuario, setLogUsuario] = useState('');
-  // const [Contrasena, setContrasena] = useState('');
   const [paises, setPaises] = useState([]);
 
   useEffect(() => {
@@ -45,7 +39,6 @@ const SignUpBuscamos = (props) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
     const url = 'http://www.wp.daxparts.com/api/cliente/guardarCliente';
     const data = {
       IdCliente: '0',
@@ -63,7 +56,6 @@ const SignUpBuscamos = (props) => {
       Contrasena: '',
     };
     const resp = await axios.post(url, data);
-
     if (resp.data.estado === 'OK') {
       const url2 = 'http://www.wp.daxparts.com/api/cotizacion/CrearCotSc';
       const data2 = {
@@ -78,12 +70,11 @@ const SignUpBuscamos = (props) => {
         CodCliente: resp.data.dato[0].logusuario,
       };
       const resp2 = await axios.post(url2, data2);
-
       if (resp2.data.estado === 'OK') {
         const coti = resp2.data.dato[0].NroCotizacion;
         swal({
-          title: 'Thank you!!!',
-          text: `Se ha creado tu cotizacion con número ${coti}. Puedes darle seguimiento en tu panel de usuario.`,
+          title: `${props.idioma.buscamos.swalTitle} ${coti}`,
+          text: `${props.idioma.buscamos.swalText}`,
           icon: 'success',
         });
       } else {
@@ -101,7 +92,6 @@ const SignUpBuscamos = (props) => {
         icon: 'error',
       });
     }
-
     closeModal();
   };
 
@@ -110,13 +100,11 @@ const SignUpBuscamos = (props) => {
       <div className='modal-logo d-flex justify-content-center'>
         <img src={navLogo} alt='Dax Logo' />
       </div>
-
       <div className='modal-body'>
         <div className='modal-header'>
           <h6 className=''>{props.idioma.ingresar.titulo}</h6>
         </div>
         <form onSubmit={handleSubmit}>
-          {/* <h4>{props.idioma.crear.titulo1}</h4> */}
           <div className='form-group d-flex justify-content-center'>
             <input
               type='text'
@@ -126,7 +114,6 @@ const SignUpBuscamos = (props) => {
               value={NomCliente}
             />
           </div>
-
           <div className='form-group d-flex justify-content-center'>
             <input
               type='text'
@@ -136,23 +123,11 @@ const SignUpBuscamos = (props) => {
               value={NomContacto}
             />
           </div>
-
-          {/* <div className='form-group d-flex justify-content-center'>
-            <input
-              type='text'
-              className='form-control mr-sm-2'
-              placeholder={props.idioma.crear.numero}
-              onChange={(e) => setNumNit(e.target.value)}
-              value={NumNit}
-            />
-          </div> */}
-
           <div className='form-group d-flex justify-content-center'>
             <select onChange={(e) => setCodPais(e.target.value)}>
               {optionsPais}
             </select>
           </div>
-
           <div className='form-group d-flex justify-content-center'>
             <input
               type='text'
@@ -162,17 +137,6 @@ const SignUpBuscamos = (props) => {
               value={CodCiudad}
             />
           </div>
-
-          {/* <div className='form-group d-flex justify-content-center'>
-            <input
-              type='text'
-              className='form-control mr-sm-2'
-              placeholder={props.idioma.crear.direccion}
-              onChange={(e) => setDireccion(e.target.value)}
-              value={Direccion}
-            />
-          </div> */}
-
           <div className='form-group d-flex justify-content-center'>
             <input
               type='text'
@@ -183,17 +147,6 @@ const SignUpBuscamos = (props) => {
               required
             />
           </div>
-
-          {/* <div className='form-group d-flex justify-content-center'>
-            <input
-              type='text'
-              className='form-control mr-sm-2'
-              placeholder={props.idioma.crear.telefono2}
-              onChange={(e) => setNumTel2(e.target.value)}
-              value={NumTel2}
-            />
-          </div> */}
-
           <div className='form-group d-flex justify-content-center'>
             <input
               type='email'
@@ -204,49 +157,13 @@ const SignUpBuscamos = (props) => {
               required
             />
           </div>
-
-          {/* <h4>{props.idioma.crear.titulo2}</h4> */}
-
-          {/* <div className='form-group d-flex justify-content-center'>
-            <input
-              type='text'
-              className='form-control mr-sm-2'
-              placeholder={props.idioma.crear.nomUsuario}
-              onChange={(e) => setNomUsuario(e.target.value)}
-              value={NomUsuario}
-            />
-          </div> */}
-
-          {/* <div className='form-group d-flex justify-content-center'>
-            <input
-              type='text'
-              className='form-control mr-sm-2'
-              placeholder={props.idioma.crear.usuario}
-              onChange={(e) => setLogUsuario(e.target.value)}
-              value={LogUsuario}
-              required
-            />
-          </div> */}
-
-          {/* <div className='form-group d-flex justify-content-center'>
-            <input
-              type='password'
-              className='form-control mr-sm-2'
-              placeholder={props.idioma.crear.password1}
-              onChange={(e) => setContrasena(e.target.value)}
-              value={Contrasena}
-              required
-            />
-          </div> */}
-
           <div className='boton-form'>
             <button type='submit' className='btn'>
-              {props.idioma.datosBuscar.boton}
+              {props.idioma.buscamos.botonCotizar}
             </button>
           </div>
         </form>
       </div>
-
       <div className='modal-footer d-flex justify-content-center'>
         <div>
           {props.idioma.crear.cambiarModal}{' '}

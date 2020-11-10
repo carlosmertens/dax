@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import openModal from '../actions/openModal';
 import navLogo from '../img/logoNav.png';
-// import Ingresar from './Login';
 import Buscamos2 from './Buscamos2';
 
 const Buscamos = (props) => {
@@ -15,33 +14,18 @@ const Buscamos = (props) => {
   const [marcaMotor, setMarcaMotor] = useState('');
   const [modeloMotor, setModeloMotor] = useState('');
   const [serieMotor, setSerieMotor] = useState('');
-
   const [marcas, setMarcas] = useState([]);
-  const [otroEquipo, setOtroEquipo] = useState(false);
-  const [otroMotor, setOtroMotor] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
-      const url = 'http://www.wp.daxparts.com/api/marca/listado2';
+      const url = 'http://www.wp.daxparts.com/api/marca/listado';
       const resp = await axios.get(url);
       setMarcas(resp.data.dato);
+      setMarcaEquipo(resp.data.dato[0].NomMarca);
+      setMarcaMotor(resp.data.dato[0].NomMarca);
     };
     fetchData();
   }, []);
-
-  useEffect(() => {
-    if (marcaEquipo === '<<OTROS>>') {
-      setOtroEquipo(true);
-    } else if (marcaMotor === '<<OTROS>>') {
-      setOtroMotor(true);
-    }
-  }, [marcaEquipo, marcaMotor]);
-
-  // useEffect(() => {
-  //   if (marcaMotor === '<<OTROS>>') {
-  //     setOtroMotor(true);
-  //   }
-  // }, [marcaMotor]);
 
   const optionsMarca = marcas.map((item, index) => {
     return (
@@ -68,33 +52,12 @@ const Buscamos = (props) => {
           <br />
           <h4>{idioma.buscamos.titulo1}</h4>
           <div className='form-group d-flex justify-content-center'>
-            {/* <input
-              type='text'
-              className='form-control mr-sm-2'
-              placeholder={idioma.buscamos.marca}
-              onChange={(e) => setMarcaEquipo(e.target.value)}
-              value={marcaEquipo}
-            /> */}
             <div className='form-group d-flex justify-content-center'>
               <select onChange={(e) => setMarcaEquipo(e.target.value)}>
                 {optionsMarca}
               </select>
             </div>
           </div>
-
-          {otroEquipo ? (
-            <div className='form-group d-flex justify-content-center'>
-              <input
-                type='text'
-                className='form-control mr-sm-2'
-                placeholder={idioma.buscamos.marca}
-                onChange={(e) => setMarcaEquipo(e.target.value)}
-              />
-            </div>
-          ) : (
-            <></>
-          )}
-
           <div className='form-group d-flex justify-content-center'>
             <input
               type='text'
@@ -104,7 +67,6 @@ const Buscamos = (props) => {
               value={modeloEquipo}
             />
           </div>
-
           <div className='form-group d-flex justify-content-center'>
             <input
               type='text'
@@ -114,38 +76,15 @@ const Buscamos = (props) => {
               value={serieEquipo}
             />
           </div>
-
           <br />
           <h4>{idioma.buscamos.titulo2}</h4>
-
           <div className='form-group d-flex justify-content-center'>
-            {/* <input
-              type='text'
-              className='form-control mr-sm-2'
-              placeholder={idioma.buscamos.marcaMotor}
-              onChange={(e) => setMarcaMotor(e.target.value)}
-              value={marcaMotor}
-            /> */}
             <div className='form-group d-flex justify-content-center'>
               <select onChange={(e) => setMarcaMotor(e.target.value)}>
                 {optionsMarca}
               </select>
             </div>
           </div>
-
-          {otroMotor ? (
-            <div className='form-group d-flex justify-content-center'>
-              <input
-                type='text'
-                className='form-control mr-sm-2'
-                placeholder={idioma.buscamos.marcaMotor}
-                onChange={(e) => setMarcaMotor(e.target.value)}
-              />
-            </div>
-          ) : (
-            <></>
-          )}
-
           <div className='form-group d-flex justify-content-center'>
             <input
               type='text'
@@ -155,7 +94,6 @@ const Buscamos = (props) => {
               value={modeloMotor}
             />
           </div>
-
           <div className='form-group d-flex justify-content-center'>
             <input
               type='text'
@@ -165,7 +103,6 @@ const Buscamos = (props) => {
               value={serieMotor}
             />
           </div>
-
           <div className='boton-form'>
             <button
               type='button'
@@ -189,20 +126,6 @@ const Buscamos = (props) => {
           </div>
         </form>
       </div>
-
-      {/* <div className='modal-footer d-flex justify-content-center'>
-        <div>
-          {idioma.buscamos.cambiarModal}{' '}
-          <span
-            className='pointer'
-            onClick={() => {
-              props.openModal('open', <Ingresar idioma={idioma} />);
-            }}
-            style={{ color: '#fca728' }}>
-            {idioma.buscamos.cambiarEnlace}
-          </span>
-        </div>
-      </div> */}
     </>
   );
 };

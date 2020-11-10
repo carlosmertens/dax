@@ -148,7 +148,10 @@
 
     "botonCotizar": "Quote",
     "cambiarModal": "Already have an account?",
-    "cambiarEnlace": "Click here!"
+    "cambiarEnlace": "Click here!",
+
+    "swalTitle": "Quote Number:",
+    "swalText": "Thanks for choosing DaxParts. We will reach you soon!"
   },
 
   "cotizacion": {

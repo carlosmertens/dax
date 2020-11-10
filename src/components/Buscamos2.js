@@ -1,13 +1,8 @@
 import React, { useState } from 'react';
-
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-
 import openModal from '../actions/openModal';
-
 import navLogo from '../img/logoNav.png';
-
-// import LoginBuscamos from './LoginBuscamos';
 import SignUpBuscamos from './SignUpBuscamos';
 
 const Buscamos2 = (props) => {
@@ -21,16 +16,13 @@ const Buscamos2 = (props) => {
       <div className='modal-logo d-flex justify-content-center'>
         <img src={navLogo} alt='Dax Logo' />
       </div>
-
       <hr />
-
       <div className='modal-body'>
         <form
           onSubmit={(e) => {
             e.preventDefault();
           }}>
           <h4>{idioma.buscamos.titulo3}</h4>
-
           <div className='form-group d-flex justify-content-center'>
             <textarea
               type='text'
@@ -39,7 +31,6 @@ const Buscamos2 = (props) => {
               onChange={(e) => setDescripcion(e.target.value)}
               value={descripcion}></textarea>
           </div>
-
           <div className='form-group d-flex justify-content-center'>
             <input
               type='text'
@@ -49,7 +40,6 @@ const Buscamos2 = (props) => {
               value={cantidad}
             />
           </div>
-
           <div className='form-group d-flex justify-content-center'>
             <button
               type='button'
@@ -70,38 +60,11 @@ const Buscamos2 = (props) => {
                   />
                 );
               }}>
-              {idioma.buscamos.botonCotizar}
+              {idioma.buscamos.botonContinuar}
             </button>
           </div>
         </form>
       </div>
-
-      {/* <div className='modal-footer d-flex justify-content-center'>
-        <div>
-          {idioma.buscamos.cambiarModal}{' '}
-          <span
-            className='pointer'
-            onClick={() => {
-              props.openModal(
-                'open',
-                <SignUpBuscamos
-                  idioma={props.idioma}
-                  marcaEquipo={props.marcaEquipo}
-                  modeloEquipo={props.modeloEquipo}
-                  serieEquipo={props.serieEquipo}
-                  marcaMotor={props.marcaMotor}
-                  modeloMotor={props.modeloMotor}
-                  serieMotor={props.serieMotor}
-                  descripcion={descripcion}
-                  cantidad={cantidad}
-                />
-              );
-            }}
-            style={{ color: '#fca728' }}>
-            {idioma.buscamos.cambiarEnlace}
-          </span>
-        </div>
-      </div> */}
     </>
   );
 };
