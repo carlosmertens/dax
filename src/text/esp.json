@@ -125,7 +125,7 @@
   },
 
   "buscamos": {
-    "mensaje": "Introduce los datos de tu Equipo o de tu Motor.",
+    "mensaje": "Por favor especifica datos del Equipo o del Motor.",
     "titulo1": "Equipo:",
     "marca": "Equipo",
     "modelo": "Modelo",
