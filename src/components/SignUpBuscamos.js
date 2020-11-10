@@ -10,7 +10,7 @@ import LoginBuscamos from './LoginBuscamos';
 const SignUpBuscamos = (props) => {
   const [NomCliente, setNomCliente] = useState('');
   const [NomContacto, setNomContacto] = useState('');
-  const [CodPais, setCodPais] = useState('');
+  const [CodPais, setCodPais] = useState(props.country);
   const [CodCiudad, setCodCiudad] = useState('');
   const [NumTel1, setNumTel1] = useState('');
   const [Mail, setMail] = useState('');
@@ -94,6 +94,8 @@ const SignUpBuscamos = (props) => {
     }
     closeModal();
   };
+
+  console.log(CodPais);
 
   return (
     <>
