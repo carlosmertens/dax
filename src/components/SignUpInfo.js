@@ -15,9 +15,6 @@ const SignUpInfo = (props) => {
   const [CodCiudad, setCodCiudad] = useState('');
   const [NumTel1, setNumTel1] = useState('');
   const [Mail, setMail] = useState('');
-  const [logged, setLogged] = useState(false);
-  const [NroCotizacion, setNroCotizacion] = useState('');
-  const [codcliente, setCodcliente] = useState('');
   const [paises, setPaises] = useState([]);
 
   useEffect(() => {
@@ -63,13 +60,16 @@ const SignUpInfo = (props) => {
     const resp = await axios.post(url, data);
     console.log(resp);
     if (resp.data.estado === 'OK') {
-      setCodcliente(resp.data.dato[0].IdCliente);
       const url2 = `http://www.wp.daxparts.com/api/cotizacion/CotSinCosto/${resp.data.dato[0].IdCliente}/${props.parte}/${props.itemMarca}`;
       const resp2 = await axios.get(url2);
       console.log(resp2);
       if (resp2.data.estado === 'OK') {
-        setNroCotizacion(resp2.data.dato[0].NroCotizacion);
-        setLogged(true);
+        const coti = resp2.data.dato[0].NroCotizacion;
+        swal({
+          title: `${props.idioma.buscamos.swalTitle} ${coti}`,
+          text: `${props.idioma.buscamos.swalText}`,
+          icon: 'success',
+        });
       } else {
         swal({
           title: 'Upps!!!',
@@ -91,103 +91,95 @@ const SignUpInfo = (props) => {
 
   return (
     <>
-      {logged ? (
-        window.location.replace(
-          `http://www.demo.daxparts.com/Clientes/frmCliCotDet.aspx?numcot=${NroCotizacion}&blnnu=False&codcliente=${codcliente}`
-        )
-      ) : (
-        <>
-          <div className='modal-logo d-flex justify-content-center'>
-            <img src={navLogo} alt='Dax Logo' />
+      <div className='modal-logo d-flex justify-content-center'>
+        <img src={navLogo} alt='Dax Logo' />
+      </div>
+      <div className='modal-body'>
+        <div className='modal-header'>
+          <h6 className=''>{props.idioma.ingresar.titulo}</h6>
+        </div>
+        <form onSubmit={handleSubmit}>
+          <div className='form-group d-flex justify-content-center'>
+            <input
+              type='text'
+              className='form-control mr-sm-2'
+              placeholder={idioma.crear.empresa}
+              onChange={(e) => setNomCliente(e.target.value)}
+              value={NomCliente}
+            />
           </div>
-          <div className='modal-body'>
-            <div className='modal-header'>
-              <h6 className=''>{props.idioma.ingresar.titulo}</h6>
-            </div>
-            <form onSubmit={handleSubmit}>
-              <div className='form-group d-flex justify-content-center'>
-                <input
-                  type='text'
-                  className='form-control mr-sm-2'
-                  placeholder={idioma.crear.empresa}
-                  onChange={(e) => setNomCliente(e.target.value)}
-                  value={NomCliente}
-                />
-              </div>
-              <div className='form-group d-flex justify-content-center'>
-                <input
-                  type='text'
-                  className='form-control mr-sm-2'
-                  placeholder={idioma.crear.nombre}
-                  onChange={(e) => setNomContacto(e.target.value)}
-                  value={NomContacto}
-                />
-              </div>
-              <div className='form-group d-flex justify-content-center'>
-                <select
-                  className='form-control mr-sm-2'
-                  onChange={(e) => setCodPais(e.target.value)}>
-                  {optionsPais}
-                </select>
-              </div>
-              <div className='form-group d-flex justify-content-center'>
-                <input
-                  type='text'
-                  className='form-control mr-sm-2'
-                  placeholder={idioma.crear.ciudad}
-                  onChange={(e) => setCodCiudad(e.target.value)}
-                  value={CodCiudad}
-                />
-              </div>
-              <div className='form-group d-flex justify-content-center'>
-                <input
-                  type='text'
-                  className='form-control mr-sm-2'
-                  placeholder={idioma.crear.telefono1}
-                  onChange={(e) => setNumTel1(e.target.value)}
-                  value={NumTel1}
-                  required
-                />
-              </div>
-              <div className='form-group d-flex justify-content-center'>
-                <input
-                  type='email'
-                  className='form-control mr-sm-2'
-                  placeholder='Email'
-                  onChange={(e) => setMail(e.target.value)}
-                  value={Mail}
-                  required
-                />
-              </div>
-              <div className='boton-form'>
-                <button type='submit' className='btn'>
-                  {idioma.infoParte.botonEnviar}
-                </button>
-              </div>
-            </form>
+          <div className='form-group d-flex justify-content-center'>
+            <input
+              type='text'
+              className='form-control mr-sm-2'
+              placeholder={idioma.crear.nombre}
+              onChange={(e) => setNomContacto(e.target.value)}
+              value={NomContacto}
+            />
           </div>
-          <div className='modal-footer d-flex justify-content-center'>
-            <div>
-              {idioma.crear.cambiarModal}{' '}
-              <span
-                className='pointer'
-                onClick={() => {
-                  props.openModal(
-                    'open',
-                    <LoginInfo
-                      idioma={props.idioma}
-                      itemMarca={props.itemMarca}
-                      parte={props.parte}
-                    />
-                  );
-                }}
-                style={{ color: '#fca728' }}>
-                {idioma.crear.cambiarEnlace}
-              </span>
-            </div>
+          <div className='form-group d-flex justify-content-center'>
+            <select
+              className='form-control mr-sm-2'
+              onChange={(e) => setCodPais(e.target.value)}>
+              {optionsPais}
+            </select>
           </div>
-        </>
-      )}
+          <div className='form-group d-flex justify-content-center'>
+            <input
+              type='text'
+              className='form-control mr-sm-2'
+              placeholder={idioma.crear.ciudad}
+              onChange={(e) => setCodCiudad(e.target.value)}
+              value={CodCiudad}
+            />
+          </div>
+          <div className='form-group d-flex justify-content-center'>
+            <input
+              type='text'
+              className='form-control mr-sm-2'
+              placeholder={idioma.crear.telefono1}
+              onChange={(e) => setNumTel1(e.target.value)}
+              value={NumTel1}
+              required
+            />
+          </div>
+          <div className='form-group d-flex justify-content-center'>
+            <input
+              type='email'
+              className='form-control mr-sm-2'
+              placeholder='Email'
+              onChange={(e) => setMail(e.target.value)}
+              value={Mail}
+              required
+            />
+          </div>
+          <div className='boton-form'>
+            <button type='submit' className='btn'>
+              {idioma.infoParte.botonEnviar}
+            </button>
+          </div>
+        </form>
+      </div>
+      <div className='modal-footer d-flex justify-content-center'>
+        <div>
+          {idioma.crear.cambiarModal}{' '}
+          <span
+            className='pointer'
+            onClick={() => {
+              props.openModal(
+                'open',
+                <LoginInfo
+                  idioma={props.idioma}
+                  itemMarca={props.itemMarca}
+                  parte={props.parte}
+                />
+              );
+            }}
+            style={{ color: '#fca728' }}>
+            {idioma.crear.cambiarEnlace}
+          </span>
+        </div>
+      </div>
     </>
   );
 };

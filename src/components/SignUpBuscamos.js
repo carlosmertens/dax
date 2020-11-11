@@ -56,6 +56,7 @@ const SignUpBuscamos = (props) => {
       Contrasena: '',
     };
     const resp = await axios.post(url, data);
+    console.log(resp);
     if (resp.data.estado === 'OK') {
       const url2 = 'http://www.wp.daxparts.com/api/cotizacion/CrearCotSc';
       const data2 = {
@@ -70,6 +71,7 @@ const SignUpBuscamos = (props) => {
         CodCliente: resp.data.dato[0].logusuario,
       };
       const resp2 = await axios.post(url2, data2);
+      console.log(resp2);
       if (resp2.data.estado === 'OK') {
         const coti = resp2.data.dato[0].NroCotizacion;
         swal({

@@ -10,6 +10,9 @@ import SignUpBuscamos from './SignUpBuscamos';
 const LoginBuscamos = (props) => {
   const [logusuario, setLogusuario] = useState('');
   const [clausuario, setClausuario] = useState('');
+  const [logged, setLogged] = useState(false);
+  const [NroCotizacion, setNroCotizacion] = useState('');
+  const [codcliente, setCodcliente] = useState('');
 
   const closeModal = () => {
     props.openModal('closed', '');
@@ -21,6 +24,8 @@ const LoginBuscamos = (props) => {
     const data = { logusuario, clausuario };
     const resp = await axios.post(url, data);
     if (resp.data.estado === 'OK') {
+      console.log(resp);
+      setCodcliente(resp.data.dato[0].logusuario);
       const url2 = 'http://www.wp.daxparts.com/api/cotizacion/CrearCotSc';
       const data2 = {
         MarcaEquipo: props.marcaEquipo,
@@ -35,12 +40,9 @@ const LoginBuscamos = (props) => {
       };
       const resp2 = await axios.post(url2, data2);
       if (resp2.data.estado === 'OK') {
-        const coti = resp2.data.dato[0].NroCotizacion;
-        swal({
-          title: `${props.idioma.buscamos.swalTitle} ${coti}`,
-          text: `${props.idioma.buscamos.swalText}`,
-          icon: 'success',
-        });
+        console.log(resp2);
+        setNroCotizacion(resp2.data.dato[0].NroCotizacion);
+        setLogged(true);
       } else {
         swal({
           title: 'Upps!!!',
@@ -61,62 +63,70 @@ const LoginBuscamos = (props) => {
 
   return (
     <>
-      <div className='modal-logo d-flex justify-content-center'>
-        <img src={navLogo} alt='Dax Logo' />
-      </div>
-      <div className='modal-body'>
-        <form onSubmit={handleSubmit}>
-          <div className='form-group d-flex justify-content-center'>
-            <input
-              type='text'
-              className='form-control mr-sm-2'
-              placeholder={props.idioma.ingresar.nombre}
-              onChange={(e) => setLogusuario(e.target.value)}
-              value={logusuario}
-            />
+      {logged ? (
+        window.location.replace(
+          `http://www.demo.daxparts.com/Clientes/frmCliCotDet.aspx?numcot=${NroCotizacion}&blnnu=False&codcliente=${codcliente}`
+        )
+      ) : (
+        <>
+          <div className='modal-logo d-flex justify-content-center'>
+            <img src={navLogo} alt='Dax Logo' />
           </div>
-          <div className='form-group d-flex justify-content-center'>
-            <input
-              type='password'
-              className='form-control mr-sm-2'
-              placeholder={props.idioma.ingresar.password}
-              onChange={(e) => setClausuario(e.target.value)}
-              value={clausuario}
-            />
-          </div>
-          <div className='boton-form'>
-            <button type='submit' className='btn'>
-              {props.idioma.buscamos.botonCotizar}
-            </button>
-          </div>
-        </form>
-      </div>
-      <div className='modal-footer d-flex justify-content-center'>
-        <div>
-          {props.idioma.ingresar.cambiarModal}{' '}
-          <span
-            className='pointer'
-            onClick={() => {
-              props.openModal(
-                'open',
-                <SignUpBuscamos
-                  idioma={props.idioma}
-                  marcaEquipo={props.marcaEquipo}
-                  modeloEquipo={props.modeloEquipo}
-                  serieEquipo={props.serieEquipo}
-                  marcaMotor={props.marcaMotor}
-                  modeloMotor={props.modeloMotor}
-                  serieMotor={props.serieMotor}
-                  descripcion={props.descripcion}
-                  cantidad={props.cantidad}
+          <div className='modal-body'>
+            <form onSubmit={handleSubmit}>
+              <div className='form-group d-flex justify-content-center'>
+                <input
+                  type='text'
+                  className='form-control mr-sm-2'
+                  placeholder={props.idioma.ingresar.nombre}
+                  onChange={(e) => setLogusuario(e.target.value)}
+                  value={logusuario}
                 />
-              );
-            }}
-            style={{ color: '#fca728' }}>
-            {props.idioma.ingresar.cambiarEnlace}
-          </span>
-        </div>
-      </div>
+              </div>
+              <div className='form-group d-flex justify-content-center'>
+                <input
+                  type='password'
+                  className='form-control mr-sm-2'
+                  placeholder={props.idioma.ingresar.password}
+                  onChange={(e) => setClausuario(e.target.value)}
+                  value={clausuario}
+                />
+              </div>
+              <div className='boton-form'>
+                <button type='submit' className='btn'>
+                  {props.idioma.buscamos.botonCotizar}
+                </button>
+              </div>
+            </form>
+          </div>
+          <div className='modal-footer d-flex justify-content-center'>
+            <div>
+              {props.idioma.ingresar.cambiarModal}{' '}
+              <span
+                className='pointer'
+                onClick={() => {
+                  props.openModal(
+                    'open',
+                    <SignUpBuscamos
+                      idioma={props.idioma}
+                      marcaEquipo={props.marcaEquipo}
+                      modeloEquipo={props.modeloEquipo}
+                      serieEquipo={props.serieEquipo}
+                      marcaMotor={props.marcaMotor}
+                      modeloMotor={props.modeloMotor}
+                      serieMotor={props.serieMotor}
+                      descripcion={props.descripcion}
+                      cantidad={props.cantidad}
+                    />
+                  );
+                }}
+                style={{ color: '#fca728' }}>
+                {props.idioma.ingresar.cambiarEnlace}
+              </span>
+            </div>
+          </div>
+        </>
+      )}
     </>
   );
 };
