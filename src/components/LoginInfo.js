@@ -1,13 +1,9 @@
 import React, { useState } from 'react';
-
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-
 import openModal from '../actions/openModal';
-
 import axios from 'axios';
 import swal from 'sweetalert';
-
 import navLogo from '../img/logoNav.png';
 import SignUpInfo from './SignUpInfo';
 
@@ -24,19 +20,13 @@ const LoginInfo = (props) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
     const url = 'http://www.wp.daxparts.com/api/sesion/validar';
     const data = { logusuario, clausuario };
     const resp = await axios.post(url, data);
-
     if (resp.data.estado === 'OK') {
       setCodcliente(resp.data.dato[0].logusuario);
-
       const url2 = `http://www.wp.daxparts.com/api/cotizacion/CotSinCosto/${resp.data.dato[0].logusuario}/${props.parte}/${props.itemMarca}`;
       const resp2 = await axios.get(url2);
-
-      console.log(resp2);
-
       if (resp2.data.estado === 'OK') {
         setNroCotizacion(resp2.data.dato[0].NroCotizacion);
         setLogged(true);
@@ -55,7 +45,6 @@ const LoginInfo = (props) => {
         icon: 'error',
       });
     }
-
     closeModal();
   };
 
@@ -70,11 +59,7 @@ const LoginInfo = (props) => {
           <div className='modal-logo d-flex justify-content-center'>
             <img src={navLogo} alt='Dax Logo' />
           </div>
-
           <div className='modal-body'>
-            {/* <div className='modal-header'>
-              <h6 className=''>{props.idioma.ingresar.titulo}</h6>
-            </div> */}
             <form onSubmit={handleSubmit}>
               <div className='form-group d-flex justify-content-center'>
                 <input
@@ -85,7 +70,6 @@ const LoginInfo = (props) => {
                   value={logusuario}
                 />
               </div>
-
               <div className='form-group d-flex justify-content-center'>
                 <input
                   type='password'
@@ -95,15 +79,13 @@ const LoginInfo = (props) => {
                   value={clausuario}
                 />
               </div>
-
               <div className='boton-form'>
                 <button type='submit' className='btn'>
-                  {props.idioma.ingresar.botonIngresar}
+                  {props.idioma.infoParte.botonEnviar}
                 </button>
               </div>
             </form>
           </div>
-
           <div className='modal-footer d-flex justify-content-center'>
             <div>
               {props.idioma.ingresar.cambiarModal}{' '}
@@ -133,6 +115,7 @@ const LoginInfo = (props) => {
 function mapStateToProps(state) {
   return {
     siteModal: state.siteModal,
+    parte: state.parte,
   };
 }
 

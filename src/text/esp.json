@@ -151,7 +151,7 @@
     "cambiarModal": "No tienes una cuenta?",
     "cambiarModal1": "Ya tienes una cuenta?",
     "cambiarEnlace": "Click aqui!",
-    
+
     "swalTitle": "Número de cotización:",
     "swalText": "Gracias por elegir DaxParts. Pronto te contáctaremos!"
   },
@@ -182,10 +182,8 @@
   "infoParte": {
     "titulo": "No tenemos ese número de parte registrado. Ayúdanos a encontrarlo seleccionando la marca.",
     "holder": "Marca",
-    "boton": "Cotizar"
-  },
-
-  "datosBuscar": {
-    "boton": "Enviar"
+    "botonSiguiente": "Siguiente",
+    "botonCotizar": "Cotizar",
+    "botonEnviar": "Enviar"
   }
 }

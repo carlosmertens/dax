@@ -4,10 +4,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import openModal from '../actions/openModal';
 import navLogo from '../img/logoNav.png';
-
-// import LoginInfo from './LoginInfo';
 import SignUpInfo from './SignUpInfo';
-// import SignUpInfo from './SignUpInfo';
 
 const InfoParte = (props) => {
   const [marcas, setMarcas] = useState(['']);
@@ -26,12 +23,14 @@ const InfoParte = (props) => {
   useEffect(() => {
     if (itemMarca === '<<OTROS>>') {
       setOtros(true);
+    } else {
+      setOtros(false);
     }
   }, [itemMarca]);
 
   const optionsMarca = marcas.map((item, index) => {
     return (
-      <option key={index} value={item.NomMarca}>
+      <option key={index} value={item.NomMarca} required>
         {item.NomMarca}
       </option>
     );
@@ -53,7 +52,12 @@ const InfoParte = (props) => {
         </div>
         <div className='modal-body'>
           <div className='form-group d-flex justify-content-center'>
-            <select onChange={handleChange}>{optionsMarca}</select>
+            <select
+              className='form-control mr-sm-2'
+              onChange={handleChange}
+              required>
+              {optionsMarca}
+            </select>
           </div>
           {otros ? (
             <div className='form-group d-flex justify-content-center'>
@@ -82,30 +86,10 @@ const InfoParte = (props) => {
                   />
                 );
               }}>
-              {props.idioma.infoParte.boton}
+              {props.idioma.infoParte.botonSiguiente}
             </button>
           </div>
         </div>
-        {/* <div className='modal-footer d-flex justify-content-center'>
-          <div>
-            {props.idioma.ingresar.cambiarModal}{' '}
-            <span
-              className='pointer'
-              onClick={() => {
-                props.openModal(
-                  'open',
-                  <SignUpInfo
-                    idioma={props.idioma}
-                    itemMarca={itemMarca}
-                    parte={props.parte}
-                  />
-                );
-              }}
-              style={{ color: '#fca728' }}>
-              {props.idioma.ingresar.cambiarEnlace}
-            </span>
-          </div>
-        </div> */}
       </div>
     </>
   );

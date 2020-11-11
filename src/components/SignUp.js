@@ -96,7 +96,6 @@ const SignUp = (props) => {
           <div className='modal-logo d-flex justify-content-center'>
             <img src={navLogo} alt='Dax Logo' />
           </div>
-
           <div className='modal-body'>
             <form onSubmit={handleSubmit}>
               <h4>{idioma.crear.titulo1}</h4>
@@ -109,7 +108,6 @@ const SignUp = (props) => {
                   value={NomCliente}
                 />
               </div>
-
               <div className='form-group d-flex justify-content-center'>
                 <input
                   type='text'
@@ -119,7 +117,6 @@ const SignUp = (props) => {
                   value={NomContacto}
                 />
               </div>
-
               <div className='form-group d-flex justify-content-center'>
                 <input
                   type='text'
@@ -129,13 +126,11 @@ const SignUp = (props) => {
                   value={NumNit}
                 />
               </div>
-
               <div className='form-group d-flex justify-content-center'>
                 <select onChange={(e) => setCodPais(e.target.value)}>
                   {optionsPais}
                 </select>
               </div>
-
               <div className='form-group d-flex justify-content-center'>
                 <input
                   type='text'
@@ -145,7 +140,6 @@ const SignUp = (props) => {
                   value={CodCiudad}
                 />
               </div>
-
               <div className='form-group d-flex justify-content-center'>
                 <input
                   type='text'
@@ -155,7 +149,6 @@ const SignUp = (props) => {
                   value={Direccion}
                 />
               </div>
-
               <div className='form-group d-flex justify-content-center'>
                 <input
                   type='text'
@@ -166,7 +159,6 @@ const SignUp = (props) => {
                   required
                 />
               </div>
-
               <div className='form-group d-flex justify-content-center'>
                 <input
                   type='text'
@@ -176,7 +168,6 @@ const SignUp = (props) => {
                   value={NumTel2}
                 />
               </div>
-
               <div className='form-group d-flex justify-content-center'>
                 <input
                   type='email'
@@ -187,9 +178,7 @@ const SignUp = (props) => {
                   required
                 />
               </div>
-
               <h4>{idioma.crear.titulo2}</h4>
-
               <div className='form-group d-flex justify-content-center'>
                 <input
                   type='text'
@@ -199,7 +188,6 @@ const SignUp = (props) => {
                   value={NomUsuario}
                 />
               </div>
-
               <div className='form-group d-flex justify-content-center'>
                 <input
                   type='text'
@@ -210,7 +198,6 @@ const SignUp = (props) => {
                   required
                 />
               </div>
-
               <div className='form-group d-flex justify-content-center'>
                 <input
                   type='password'
@@ -221,7 +208,6 @@ const SignUp = (props) => {
                   required
                 />
               </div>
-
               <div className='boton-form'>
                 <button type='submit' className='btn'>
                   {idioma.crear.botonCrear}
@@ -229,7 +215,6 @@ const SignUp = (props) => {
               </div>
             </form>
           </div>
-
           <div className='modal-footer d-flex justify-content-center'>
             <div>
               {idioma.crear.cambiarModal}{' '}

@@ -180,7 +180,9 @@
   "infoParte": {
     "titulo": "We don't have that part number. Help us to find it selecting the brand.",
     "holder": "Brand",
-    "boton": "Quote"
+    "botonSiguiente": "Next",
+    "botonCotizar": "Quote",
+    "botonEnviar": "Send"
   },
 
   "datosBuscar": {

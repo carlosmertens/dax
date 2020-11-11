@@ -1,17 +1,12 @@
 import React, { useState } from 'react';
-
 import { Helmet } from 'react-helmet';
-
 import { Redirect, Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-
 import logoCentro from '../img/logoCentro.png';
 import iconVideos from '../img/IconVideos.png';
-
 import openModal from '../actions/openModal';
 import parteAction from '../actions/parteAction';
-
 import Idioma from '../components/Idioma';
 import Pais from '../components/Pais';
 import Noparte from '../components/NoParte';
@@ -44,12 +39,10 @@ const Homepage = (props) => {
                   onChangeLanguage={props.onChangeLanguage}
                 />
               </div>
-
               <div className='header-contenido'>
                 <div className='container'>
                   <img className='logo-centro' src={logoCentro} alt='Dax Logo' />
                 </div>
-
                 <div className='container d-flex justify-content-center'>
                   <form
                     onSubmit={onSubmitSearch}
@@ -65,7 +58,6 @@ const Homepage = (props) => {
                     </button>
                   </form>
                 </div>
-
                 <div className='container click-link'>
                   <button
                     type='button'
@@ -76,7 +68,6 @@ const Homepage = (props) => {
                     <p className=''>{props.idioma.home.enlaceClick}</p>
                   </button>
                 </div>
-
                 <div className='container'>
                   <Link to='/tutorial'>
                     <img
