@@ -172,7 +172,8 @@
     "beneficio4": "✓ Track your orders.",
     "beneficio5": "✓ Receive offers and discounts.",
     "beneficio6": "✓ Access to used and rebuilt parts.",
-    "botonComprar": "Order"
+    "botonComprar": "Order",
+    "botonNuevo": "Search again"
   },
 
   "spinner": "SEARCHING THE PART NUMBER...",

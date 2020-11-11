@@ -87,7 +87,7 @@ const Cotizacion = ({ idioma, openModal, country, parte }) => {
           </p>
           <p>
             <Link to='/' className='btn'>
-              Nueva busqueda
+              {idioma.cotizacion.botonNuevo}
             </Link>
           </p>
         </div>

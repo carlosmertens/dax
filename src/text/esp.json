@@ -125,7 +125,7 @@
   },
 
   "buscamos": {
-    "mensaje": "Por favor especifica datos del Equipo o del Motor.",
+    "mensaje": "Por favor especifica datos del Equipo o Motor.",
     "titulo1": "Equipo:",
     "marca": "Equipo",
     "modelo": "Modelo",
@@ -174,7 +174,8 @@
     "beneficio4": "✓ Hacer seguimiento a tus órdenes de compra.",
     "beneficio5": "✓ Recibir ofertas y descuentos.",
     "beneficio6": "✓ Acceder a partes usadas y reconstruidas.",
-    "botonComprar": "Comprar"
+    "botonComprar": "Comprar",
+    "botonNuevo": "Nueva búsqueda"
   },
 
   "spinner": "BUSCANDO TU NÚMERO DE PARTE...",
