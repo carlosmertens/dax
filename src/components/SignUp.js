@@ -127,7 +127,9 @@ const SignUp = (props) => {
                 />
               </div>
               <div className='form-group d-flex justify-content-center'>
-                <select onChange={(e) => setCodPais(e.target.value)}>
+                <select
+                  className='custom-select'
+                  onChange={(e) => setCodPais(e.target.value)}>
                   {optionsPais}
                 </select>
               </div>
