@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import axios from 'axios';
@@ -25,24 +25,6 @@ const SignUpBuy = (props) => {
   const [logged, setLogged] = useState(false);
   const [NroCotizacion, setNroCotizacion] = useState('');
   const [codcliente, setCodcliente] = useState('');
-  const [paises, setPaises] = useState([]);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      const url = `http://www.wp.daxparts.com/api/pais/listado3/${props.country}`;
-      const resp = await axios.get(url);
-      setPaises(resp.data.dato);
-    };
-    fetchData();
-  }, [props.country]);
-
-  const optionsPais = paises.map((item, index) => {
-    return (
-      <option key={index} value={item.NomPais}>
-        {item.NomPais}
-      </option>
-    );
-  });
 
   const closeModal = () => {
     props.openModal('closed', '');
@@ -96,7 +78,7 @@ const SignUpBuy = (props) => {
   };
 
   return (
-    <>
+    <React.Fragment>
       {logged ? (
         window.location.replace(
           `http://www.demo.daxparts.com/Clientes/frmCliCotDet.aspx?numcot=${NroCotizacion}&blnnu=False&codcliente=${codcliente}`
@@ -141,8 +123,15 @@ const SignUpBuy = (props) => {
               </div>
 
               <div className='form-group d-flex justify-content-center'>
-                <select onChange={(e) => setCodPais(e.target.value)}>
-                  {optionsPais}
+                <select
+                  className='custom-select'
+                  value={CodPais}
+                  onChange={(e) => setCodPais(e.target.value)}>
+                  {props.paises.map((option) => (
+                    <option value={option.NomPais} key={option.CodPais}>
+                      {option.NomPais}
+                    </option>
+                  ))}
                 </select>
               </div>
 
@@ -261,7 +250,7 @@ const SignUpBuy = (props) => {
           </div>
         </>
       )}
-    </>
+    </React.Fragment>
   );
 };
 
@@ -269,6 +258,7 @@ function mapStateToProps(state) {
   return {
     siteModal: state.siteModal,
     country: state.country,
+    paises: state.paises,
   };
 }
 

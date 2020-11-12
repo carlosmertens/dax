@@ -1,4 +1,5 @@
 import './styles/App.css';
+
 import React, { useState, useEffect } from 'react';
 
 import axios from 'axios';
@@ -7,6 +8,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
 import countryAction from './actions/countryAction';
+import paisesAction from './actions/paisesAction';
 
 import Homepage from './pages/homepage';
 import Empresa from './pages/empresa';
@@ -23,7 +25,7 @@ import spanish from './text/esp.json';
 import english from './text/eng.json';
 // import idiomaAction from './actions/idiomaAction';
 
-function App({ country, countryAction }) {
+function App({ country, paises, countryAction, paisesAction }) {
   const [language, setLanguage] = useState('Español');
 
   let idioma = spanish;
@@ -36,7 +38,18 @@ function App({ country, countryAction }) {
     axios.get(locationUrl).then((response) => {
       countryAction(response.data.country);
     });
-  }, [country, countryAction]);
+  }, [countryAction]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const url = `http://www.wp.daxparts.com/api/pais/listado3/${country}`;
+      const resp = await axios.get(url);
+      paisesAction(resp.data.dato);
+    };
+    fetchData();
+  }, [paisesAction, country]);
+
+  console.log('App 51', paises);
 
   // useEffect(() => {
   //   idiomaAction(spanish);
@@ -121,6 +134,7 @@ function App({ country, countryAction }) {
 function mapStateToProps(state) {
   return {
     country: state.country,
+    paises: state.paises,
     // idioma: state.idioma,
   };
 }
@@ -129,6 +143,7 @@ function mapDispatchToProps(dispacher) {
   return bindActionCreators(
     {
       countryAction: countryAction,
+      paisesAction: paisesAction,
       // idiomaAction: idiomaAction,
     },
     dispacher

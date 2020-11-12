@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import axios from 'axios';
@@ -15,24 +15,6 @@ const SignUpInfo = (props) => {
   const [CodCiudad, setCodCiudad] = useState('');
   const [NumTel1, setNumTel1] = useState('');
   const [Mail, setMail] = useState('');
-  const [paises, setPaises] = useState([]);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      const url = `http://www.wp.daxparts.com/api/pais/listado3/${props.country}`;
-      const resp = await axios.get(url);
-      setPaises(resp.data.dato);
-    };
-    fetchData();
-  }, [props.country]);
-
-  const optionsPais = paises.map((item, index) => {
-    return (
-      <option key={index} value={item.NomPais}>
-        {item.NomPais}
-      </option>
-    );
-  });
 
   const closeModal = () => {
     props.openModal('closed', '');
@@ -90,7 +72,7 @@ const SignUpInfo = (props) => {
   };
 
   return (
-    <>
+    <React.Fragment>
       <div className='modal-logo d-flex justify-content-center'>
         <img src={navLogo} alt='Dax Logo' />
       </div>
@@ -119,9 +101,14 @@ const SignUpInfo = (props) => {
           </div>
           <div className='form-group d-flex justify-content-center'>
             <select
-              className='form-control mr-sm-2'
+              className='custom-select'
+              value={CodPais}
               onChange={(e) => setCodPais(e.target.value)}>
-              {optionsPais}
+              {props.paises.map((option) => (
+                <option value={option.NomPais} key={option.CodPais}>
+                  {option.NomPais}
+                </option>
+              ))}
             </select>
           </div>
           <div className='form-group d-flex justify-content-center'>
@@ -180,7 +167,7 @@ const SignUpInfo = (props) => {
           </span>
         </div>
       </div>
-    </>
+    </React.Fragment>
   );
 };
 
@@ -189,6 +176,7 @@ function mapStateToProps(state) {
     siteModal: state.siteModal,
     country: state.country,
     parte: state.parte,
+    paises: state.paises,
   };
 }
 

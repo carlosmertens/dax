@@ -1,16 +1,13 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import axios from 'axios';
 import swal from 'sweetalert';
 import openModal from '../actions/openModal';
-import regAction from '../actions/regAction';
 import navLogo from '../img/logoNav.png';
 import Login from './Login';
 
 const SignUp = (props) => {
-  const idioma = props.idioma;
-
   const [NomCliente, setNomCliente] = useState('');
   const [NomContacto, setNomContacto] = useState('');
   const [NumNit, setNumNit] = useState('');
@@ -25,25 +22,6 @@ const SignUp = (props) => {
   const [Contrasena, setContrasena] = useState('');
   const [logged, setLogged] = useState(false);
   const [codcliente, setCodcliente] = useState('');
-
-  const [paises, setPaises] = useState([]);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      const url = `http://www.wp.daxparts.com/api/pais/listado3/${props.country}`;
-      const resp = await axios.get(url);
-      setPaises(resp.data.dato);
-    };
-    fetchData();
-  }, [props.country]);
-
-  const optionsPais = paises.map((item, index) => {
-    return (
-      <option key={index} value={item.NomPais}>
-        {item.NomPais}
-      </option>
-    );
-  });
 
   const closeModal = () => {
     props.openModal('closed', '');
@@ -85,8 +63,12 @@ const SignUp = (props) => {
     closeModal();
   };
 
+  const handleChange = (e) => {
+    setCodPais(e.target.value);
+  };
+
   return (
-    <>
+    <React.Fragment>
       {logged ? (
         window.location.replace(
           `http://www.demo.daxparts.com/Clientes/frmCliCotPrin.aspx?codcliente=${codcliente}`
@@ -98,12 +80,12 @@ const SignUp = (props) => {
           </div>
           <div className='modal-body'>
             <form onSubmit={handleSubmit}>
-              <h4>{idioma.crear.titulo1}</h4>
+              <h4>{props.idioma.crear.titulo1}</h4>
               <div className='form-group d-flex justify-content-center'>
                 <input
                   type='text'
                   className='form-control mr-sm-2'
-                  placeholder={idioma.crear.empresa}
+                  placeholder={props.idioma.crear.empresa}
                   onChange={(e) => setNomCliente(e.target.value)}
                   value={NomCliente}
                 />
@@ -112,7 +94,7 @@ const SignUp = (props) => {
                 <input
                   type='text'
                   className='form-control mr-sm-2'
-                  placeholder={idioma.crear.nombre}
+                  placeholder={props.idioma.crear.nombre}
                   onChange={(e) => setNomContacto(e.target.value)}
                   value={NomContacto}
                 />
@@ -121,7 +103,7 @@ const SignUp = (props) => {
                 <input
                   type='text'
                   className='form-control mr-sm-2'
-                  placeholder={idioma.crear.numero}
+                  placeholder={props.idioma.crear.numero}
                   onChange={(e) => setNumNit(e.target.value)}
                   value={NumNit}
                 />
@@ -129,15 +111,33 @@ const SignUp = (props) => {
               <div className='form-group d-flex justify-content-center'>
                 <select
                   className='custom-select'
-                  onChange={(e) => setCodPais(e.target.value)}>
-                  {optionsPais}
+                  value={CodPais}
+                  onChange={handleChange}>
+                  {props.paises.map((option) => (
+                    <option value={option.NomPais} key={option.CodPais}>
+                      {option.NomPais}
+                    </option>
+                  ))}
+
+                  {/* {Array.from(props.paises).map((item, index) => (
+                    <option key={index} value={item.NomPais}>
+                      {item.NomPais}
+                    </option>
+                  ))} */}
+
+                  {/* {optionsPaises} */}
+
+                  {/* <option selected>Bolivia</option>
+                  <option value='1'>Chile</option>
+                  <option value='2'>Perú</option>
+                  <option value='3'>United Sates</option> */}
                 </select>
               </div>
               <div className='form-group d-flex justify-content-center'>
                 <input
                   type='text'
                   className='form-control mr-sm-2'
-                  placeholder={idioma.crear.ciudad}
+                  placeholder={props.idioma.crear.ciudad}
                   onChange={(e) => setCodCiudad(e.target.value)}
                   value={CodCiudad}
                 />
@@ -146,7 +146,7 @@ const SignUp = (props) => {
                 <input
                   type='text'
                   className='form-control mr-sm-2'
-                  placeholder={idioma.crear.direccion}
+                  placeholder={props.idioma.crear.direccion}
                   onChange={(e) => setDireccion(e.target.value)}
                   value={Direccion}
                 />
@@ -155,7 +155,7 @@ const SignUp = (props) => {
                 <input
                   type='text'
                   className='form-control mr-sm-2'
-                  placeholder={idioma.crear.telefono1}
+                  placeholder={props.idioma.crear.telefono1}
                   onChange={(e) => setNumTel1(e.target.value)}
                   value={NumTel1}
                   required
@@ -165,7 +165,7 @@ const SignUp = (props) => {
                 <input
                   type='text'
                   className='form-control mr-sm-2'
-                  placeholder={idioma.crear.telefono2}
+                  placeholder={props.idioma.crear.telefono2}
                   onChange={(e) => setNumTel2(e.target.value)}
                   value={NumTel2}
                 />
@@ -180,12 +180,12 @@ const SignUp = (props) => {
                   required
                 />
               </div>
-              <h4>{idioma.crear.titulo2}</h4>
+              <h4>{props.idioma.crear.titulo2}</h4>
               <div className='form-group d-flex justify-content-center'>
                 <input
                   type='text'
                   className='form-control mr-sm-2'
-                  placeholder={idioma.crear.nomUsuario}
+                  placeholder={props.idioma.crear.nomUsuario}
                   onChange={(e) => setNomUsuario(e.target.value)}
                   value={NomUsuario}
                 />
@@ -194,7 +194,7 @@ const SignUp = (props) => {
                 <input
                   type='text'
                   className='form-control mr-sm-2'
-                  placeholder={idioma.crear.usuario}
+                  placeholder={props.idioma.crear.usuario}
                   onChange={(e) => setLogUsuario(e.target.value)}
                   value={LogUsuario}
                   required
@@ -204,7 +204,7 @@ const SignUp = (props) => {
                 <input
                   type='password'
                   className='form-control mr-sm-2'
-                  placeholder={idioma.crear.password1}
+                  placeholder={props.idioma.crear.password1}
                   onChange={(e) => setContrasena(e.target.value)}
                   value={Contrasena}
                   required
@@ -212,27 +212,27 @@ const SignUp = (props) => {
               </div>
               <div className='boton-form'>
                 <button type='submit' className='btn'>
-                  {idioma.crear.botonCrear}
+                  {props.idioma.crear.botonCrear}
                 </button>
               </div>
             </form>
           </div>
           <div className='modal-footer d-flex justify-content-center'>
             <div>
-              {idioma.crear.cambiarModal}{' '}
+              {props.idioma.crear.cambiarModal}{' '}
               <span
                 className='pointer'
                 onClick={() => {
-                  props.openModal('open', <Login idioma={idioma} />);
+                  props.openModal('open', <Login idioma={props.idioma} />);
                 }}
                 style={{ color: '#fca728' }}>
-                {idioma.crear.cambiarEnlace}
+                {props.idioma.crear.cambiarEnlace}
               </span>
             </div>
           </div>
         </>
       )}
-    </>
+    </React.Fragment>
   );
 };
 
@@ -240,7 +240,7 @@ function mapStateToProps(state) {
   return {
     siteModal: state.siteModal,
     country: state.country,
-    auth: state.auth,
+    paises: state.paises,
   };
 }
 
@@ -248,7 +248,6 @@ function mapDispatchToProps(dispacher) {
   return bindActionCreators(
     {
       openModal: openModal,
-      regAction: regAction,
     },
     dispacher
   );
