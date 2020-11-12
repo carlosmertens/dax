@@ -7,10 +7,10 @@ import navLogo from '../img/logoNav.png';
 import Buscamos2 from './Buscamos2';
 
 const Buscamos = (props) => {
-  const [marcaEquipo, setMarcaEquipo] = useState(props.marcas[0].NomMarca);
+  const [marcaEquipo, setMarcaEquipo] = useState('');
   const [modeloEquipo, setModeloEquipo] = useState('');
   const [serieEquipo, setSerieEquipo] = useState('');
-  const [marcaMotor, setMarcaMotor] = useState(props.marcas[0].NomMarca);
+  const [marcaMotor, setMarcaMotor] = useState('');
   const [modeloMotor, setModeloMotor] = useState('');
   const [serieMotor, setSerieMotor] = useState('');
 
