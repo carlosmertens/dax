@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import React, { useState } from 'react';
+// import axios from 'axios';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import openModal from '../actions/openModal';
@@ -7,62 +7,45 @@ import navLogo from '../img/logoNav.png';
 import Buscamos2 from './Buscamos2';
 
 const Buscamos = (props) => {
-  const idioma = props.idioma;
-  const [marcaEquipo, setMarcaEquipo] = useState('');
+  const [marcaEquipo, setMarcaEquipo] = useState(props.marcas[0].NomMarca);
   const [modeloEquipo, setModeloEquipo] = useState('');
   const [serieEquipo, setSerieEquipo] = useState('');
-  const [marcaMotor, setMarcaMotor] = useState('');
+  const [marcaMotor, setMarcaMotor] = useState(props.marcas[0].NomMarca);
   const [modeloMotor, setModeloMotor] = useState('');
   const [serieMotor, setSerieMotor] = useState('');
-  const [marcas, setMarcas] = useState([]);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      const url = 'http://www.wp.daxparts.com/api/marca/listado';
-      const resp = await axios.get(url);
-      setMarcas(resp.data.dato);
-      setMarcaEquipo(resp.data.dato[0].NomMarca);
-      setMarcaMotor(resp.data.dato[0].NomMarca);
-    };
-    fetchData();
-  }, []);
-
-  const optionsMarca = marcas.map((item, index) => {
-    return (
-      <option key={index} value={item.NomMarca}>
-        {item.NomMarca}
-      </option>
-    );
-  });
 
   return (
-    <>
+    <React.Fragment>
       <div className='modal-logo d-flex justify-content-center'>
         <img src={navLogo} alt='Dax Logo' />
       </div>
 
       <div className='modal-body'>
         <div className='modal-header'>
-          <h6 className=''>{idioma.buscamos.mensaje}</h6>
+          <h6 className=''>{props.idioma.buscamos.mensaje}</h6>
         </div>
         <form
           onSubmit={(e) => {
             e.preventDefault();
           }}>
           <br />
-          <h4>{idioma.buscamos.titulo1}</h4>
+          <h4>{props.idioma.buscamos.titulo1}</h4>
           <div className='form-group d-flex justify-content-center'>
-            <div className='form-group d-flex justify-content-center'>
-              <select onChange={(e) => setMarcaEquipo(e.target.value)}>
-                {optionsMarca}
-              </select>
-            </div>
+            <select
+              className='custom-select'
+              onChange={(e) => setMarcaEquipo(e.target.value)}>
+              {props.marcas.map((option) => (
+                <option value={option.NomMarca} key={option.CodMarca}>
+                  {option.NomMarca}
+                </option>
+              ))}
+            </select>
           </div>
           <div className='form-group d-flex justify-content-center'>
             <input
               type='text'
               className='form-control mr-sm-2'
-              placeholder={idioma.buscamos.modelo}
+              placeholder={props.idioma.buscamos.modelo}
               onChange={(e) => setModeloEquipo(e.target.value)}
               value={modeloEquipo}
             />
@@ -71,25 +54,29 @@ const Buscamos = (props) => {
             <input
               type='text'
               className='form-control mr-sm-2'
-              placeholder={idioma.buscamos.serie}
+              placeholder={props.idioma.buscamos.serie}
               onChange={(e) => setSerieEquipo(e.target.value)}
               value={serieEquipo}
             />
           </div>
           <br />
-          <h4>{idioma.buscamos.titulo2}</h4>
+          <h4>{props.idioma.buscamos.titulo2}</h4>
           <div className='form-group d-flex justify-content-center'>
-            <div className='form-group d-flex justify-content-center'>
-              <select onChange={(e) => setMarcaMotor(e.target.value)}>
-                {optionsMarca}
-              </select>
-            </div>
+            <select
+              className='custom-select'
+              onChange={(e) => setMarcaMotor(e.target.value)}>
+              {props.marcas.map((option) => (
+                <option value={option.NomMarca} key={option.CodMarca}>
+                  {option.NomMarca}
+                </option>
+              ))}
+            </select>
           </div>
           <div className='form-group d-flex justify-content-center'>
             <input
               type='text'
               className='form-control mr-sm-2'
-              placeholder={idioma.buscamos.modeloMotor}
+              placeholder={props.idioma.buscamos.modeloMotor}
               onChange={(e) => setModeloMotor(e.target.value)}
               value={modeloMotor}
             />
@@ -98,7 +85,7 @@ const Buscamos = (props) => {
             <input
               type='text'
               className='form-control mr-sm-2'
-              placeholder={idioma.buscamos.serieMotor}
+              placeholder={props.idioma.buscamos.serieMotor}
               onChange={(e) => setSerieMotor(e.target.value)}
               value={serieMotor}
             />
@@ -121,18 +108,19 @@ const Buscamos = (props) => {
                   />
                 );
               }}>
-              {idioma.buscamos.botonContinuar}
+              {props.idioma.buscamos.botonContinuar}
             </button>
           </div>
         </form>
       </div>
-    </>
+    </React.Fragment>
   );
 };
 
 function mapStateToProps(state) {
   return {
     siteModal: state.siteModal,
+    marcas: state.marcas,
   };
 }
 

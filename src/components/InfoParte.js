@@ -41,7 +41,7 @@ const InfoParte = (props) => {
   };
 
   return (
-    <>
+    <React.Fragment>
       <div className='modal-logo d-flex justify-content-center'>
         <img src={navLogo} alt='Dax Logo' />
       </div>
@@ -52,10 +52,7 @@ const InfoParte = (props) => {
         </div>
         <div className='modal-body'>
           <div className='form-group d-flex justify-content-center'>
-            <select
-              className='form-control mr-sm-2'
-              onChange={handleChange}
-              required>
+            <select className='custom-select' onChange={handleChange}>
               {optionsMarca}
             </select>
           </div>
@@ -91,7 +88,7 @@ const InfoParte = (props) => {
           </div>
         </div>
       </div>
-    </>
+    </React.Fragment>
   );
 };
 

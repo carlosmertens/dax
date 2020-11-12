@@ -22,7 +22,7 @@ const Homepage = (props) => {
   };
 
   return (
-    <>
+    <React.Fragment>
       {cotizar ? (
         <Redirect to='/cotizacion' />
       ) : (
@@ -47,8 +47,11 @@ const Homepage = (props) => {
                   <form
                     onSubmit={onSubmitSearch}
                     className='form-inline d-flex justify-content-center'>
-                    <label>{props.idioma.home.leyendaBuscar}</label>
+                    <label htmlFor='buscar-numero'>
+                      {props.idioma.home.leyendaBuscar}
+                    </label>
                     <input
+                      id='buscar-numero'
                       type='text'
                       placeholder={props.idioma.home.campoBuscar}
                       onChange={(e) => props.parteAction(e.target.value)}
@@ -85,7 +88,7 @@ const Homepage = (props) => {
           </header>
         </div>
       )}
-    </>
+    </React.Fragment>
   );
 };
 
