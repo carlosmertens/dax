@@ -52,11 +52,12 @@ h1 {
 .btn:hover {
   background-color: #c9c5c0 !important;
 }
-.btn-idioma:visited {
+
+.btn-idioma:link {
   background-color: #fca728 !important;
 }
-.btn-idioma:link {
-  background-color: #fca728;
+.btn-idioma:visited {
+  background-color: #fca728 !important;
 }
 .btn-idioma:hover {
   background-color: #fca728ab !important;
