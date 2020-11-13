@@ -17,7 +17,6 @@ import Navbar from './components/Navbar';
 import Modal from './components/Modal';
 import spanish from './text/esp.json';
 import english from './text/eng.json';
-// import idiomaAction from './actions/idiomaAction';
 
 function App({ country, countryAction, paisesAction, marcasAction }) {
   const [language, setLanguage] = useState('Español');
@@ -39,29 +38,18 @@ function App({ country, countryAction, paisesAction, marcasAction }) {
   }, [countryAction]);
 
   useEffect(() => {
-    const fetchData = async () => {
-      const url = `http://www.wp.daxparts.com/api/pais/listado3/${country}`;
-      const resp = await axios.get(url);
-      paisesAction(resp.data.dato);
-    };
-    fetchData();
+    const url = `http://www.wp.daxparts.com/api/pais/listado3/${country}`;
+    axios.get(url).then((response) => {
+      paisesAction(response.data.dato);
+    });
   }, [paisesAction, country]);
 
   useEffect(() => {
-    const fetchData = async () => {
-      const url = 'http://www.wp.daxparts.com/api/marca/listado';
-      const resp = await axios.get(url);
-      marcasAction(resp.data.dato);
-    };
-    fetchData();
+    const url = 'http://www.wp.daxparts.com/api/marca/listado3';
+    axios.get(url).then((response) => {
+      marcasAction(response.data.dato);
+    });
   }, [marcasAction]);
-
-  // useEffect(() => {
-  //   idiomaAction(spanish);
-  //   if (language !== 'Español') {
-  //     idiomaAction(english);
-  //   }
-  // }, [language, idiomaAction]);
 
   return (
     <Router>
@@ -129,7 +117,6 @@ function mapStateToProps(state) {
     country: state.country,
     paises: state.paises,
     marcas: state.marcas,
-    // idioma: state.idioma,
   };
 }
 
@@ -139,7 +126,6 @@ function mapDispatchToProps(dispacher) {
       countryAction: countryAction,
       paisesAction: paisesAction,
       marcasAction: marcasAction,
-      // idiomaAction: idiomaAction,
     },
     dispacher
   );
