@@ -54,60 +54,38 @@ function App({ country, countryAction, paisesAction, marcasAction }) {
   return (
     <Router>
       <Route path='/' component={Modal} />
-      <Route
-        path='/'
-        render={() => {
-          return <Navbar idioma={idioma} />;
-        }}
-      />
-      <Route
-        exact
-        path='/'
-        render={() => {
-          return (
-            <Homepage
-              idioma={idioma}
-              language={language}
-              onChangeLanguage={onChangeLanguage}
-            />
-          );
-        }}
-      />
-      <Route
-        exact
-        path='/empresa'
-        render={() => {
-          return <Empresa idioma={idioma} />;
-        }}
-      />
-      <Route
-        exact
-        path='/industrias'
-        render={() => {
-          return <Industrias idioma={idioma} />;
-        }}
-      />
-      <Route
-        exact
-        path='/contacto'
-        render={() => {
-          return <Contacto idioma={idioma} />;
-        }}
-      />
-      <Route
-        exact
-        path='/tutorial'
-        render={() => {
-          return <Tutorial idioma={idioma} />;
-        }}
-      />
-      <Route
-        exact
-        path='/cotizacion'
-        render={() => {
-          return <Cotizacion idioma={idioma} />;
-        }}
-      />
+
+      <Route path='/'>
+        <Navbar idioma={idioma} />
+      </Route>
+
+      <Route exact path='/'>
+        <Homepage
+          idioma={idioma}
+          language={language}
+          onChangeLanguage={onChangeLanguage}
+        />
+      </Route>
+
+      <Route exact path='/empresa'>
+        <Empresa idioma={idioma} />
+      </Route>
+
+      <Route exact path='/industrias'>
+        <Industrias idioma={idioma} />
+      </Route>
+
+      <Route exact path='/contacto'>
+        <Contacto idioma={idioma} />
+      </Route>
+
+      <Route exact path='/tutorial'>
+        <Tutorial idioma={idioma} />
+      </Route>
+
+      <Route exact path='/cotizacion'>
+        <Cotizacion idioma={idioma} />
+      </Route>
     </Router>
   );
 }
