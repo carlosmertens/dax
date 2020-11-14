@@ -9,9 +9,9 @@ const Spinner = ({ idioma }) => (
     <div className='spinner-wrapper'>
       <FontAwesomeIcon icon='spinner' size='10x' spin />
     </div>
-    <div className='spinner-title'>
+    {/* <div className='spinner-title'>
       <h2>{idioma.spinner}</h2>
-    </div>
+    </div> */}
   </>
 );
 
