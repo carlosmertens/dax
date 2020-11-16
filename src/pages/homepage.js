@@ -28,7 +28,7 @@ const Homepage = (props) => {
       ) : (
         <div className='Homepage'>
           <Helmet>
-            <title>DaxParts | Home</title>
+            <title>Dax Parts | Repuestos para Maquinaria Pesada</title>
           </Helmet>
           <header className='Homepage-header'>
             <div className='container-fluid'>
