@@ -10,7 +10,7 @@ import Login from './Login';
 const SignUp = (props) => {
   const [NomCliente, setNomCliente] = useState('');
   const [NomContacto, setNomContacto] = useState('');
-  const [NumNit, setNumNit] = useState('');
+  // const [NumNit, setNumNit] = useState('');
   const [CodPais, setCodPais] = useState(props.country);
   const [CodCiudad, setCodCiudad] = useState('');
   const [Direccion, setDireccion] = useState('');
@@ -35,7 +35,7 @@ const SignUp = (props) => {
       IdCliente: '0',
       NomCliente: NomCliente,
       NomContacto: NomContacto,
-      NumNit: NumNit,
+      NumNit: '',
       CodPais: CodPais,
       CodCiudad: CodCiudad,
       Direccion: Direccion,
@@ -99,7 +99,7 @@ const SignUp = (props) => {
                   value={NomContacto}
                 />
               </div>
-              <div className='form-group d-flex justify-content-center'>
+              {/* <div className='form-group d-flex justify-content-center'>
                 <input
                   type='text'
                   className='form-control mr-sm-2'
@@ -107,7 +107,7 @@ const SignUp = (props) => {
                   onChange={(e) => setNumNit(e.target.value)}
                   value={NumNit}
                 />
-              </div>
+              </div> */}
               <div className='form-group d-flex justify-content-center'>
                 <select
                   className='custom-select'

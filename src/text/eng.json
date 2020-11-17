@@ -16,7 +16,7 @@
     "leyendaTutorial": "Video tutorials",
 
     "modal": {
-      "titulo": "Don't know spare part number?",
+      "titulo": "Don't know your part number?",
       "enlaceTutorial": "Online tutorials",
       "enlaceBuscamos": "We do it for you",
       "tienesCuenta": "Do you have an account?",
@@ -124,7 +124,7 @@
   },
 
   "buscamos": {
-    "mensaje": "Introduce the details of your equipment or your Engine.",
+    "mensaje": "Introduce the details of your Equipment or Engine.",
     "titulo1": "Equipment:",
     "marca": "Equipment",
     "modelo": "Model",
@@ -157,8 +157,8 @@
   "cotizacion": {
     "titulo": "Part Number",
     "tabla": {
-      "col1": "Descripcion",
-      "col2": "Aplicacion",
+      "col1": "Description",
+      "col2": "Aplication",
       "col3": "Type",
       "col4": "Price USD",
       "col5": "Delivery time"

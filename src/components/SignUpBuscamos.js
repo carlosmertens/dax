@@ -105,6 +105,7 @@ const SignUpBuscamos = (props) => {
               placeholder={props.idioma.crear.nombre}
               onChange={(e) => setNomContacto(e.target.value)}
               value={NomContacto}
+              required
             />
           </div>
           <div className='form-group d-flex justify-content-center'>

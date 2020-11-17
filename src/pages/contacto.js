@@ -1,13 +1,10 @@
 import React from 'react';
-
 import { Helmet } from 'react-helmet';
-
 // import { connect } from 'react-redux';
-
 import usa from '../img/usa.png';
 import bolivia from '../img/bolivia.png';
 import peru from '../img/peru.png';
-import paraguay from '../img/paraguay.png';
+// import paraguay from '../img/paraguay.png';
 import mapa from '../img/mapaDAX.png';
 
 const Contacto = ({ idioma }) => (
@@ -65,7 +62,7 @@ const Contacto = ({ idioma }) => (
                 {idioma.contacto.peru.telefono}
               </a>
             </div>
-            <div className='contacto-grupo col-md'>
+            {/* <div className='contacto-grupo col-md'>
               <img src={paraguay} alt='Bandera Paraguay' />
               <h4>{idioma.contacto.paraguay.nombre}</h4>
               <a className='contacto-email' href='mailto:ventaspy@daxparts.com'>
@@ -75,7 +72,7 @@ const Contacto = ({ idioma }) => (
               <a className='contacto-telefono' href='tel:+59167898045'>
                 {idioma.contacto.paraguay.telefono}
               </a>
-            </div>
+            </div> */}
           </div>
         </div>
 
