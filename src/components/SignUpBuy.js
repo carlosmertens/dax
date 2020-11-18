@@ -109,6 +109,7 @@ const SignUpBuy = (props) => {
                   placeholder={idioma.crear.nombre}
                   onChange={(e) => setNomContacto(e.target.value)}
                   value={NomContacto}
+                  required
                 />
               </div>
 
@@ -142,6 +143,7 @@ const SignUpBuy = (props) => {
                   placeholder={idioma.crear.ciudad}
                   onChange={(e) => setCodCiudad(e.target.value)}
                   value={CodCiudad}
+                  required
                 />
               </div>
 
@@ -180,7 +182,7 @@ const SignUpBuy = (props) => {
                 <input
                   type='email'
                   className='form-control mr-sm-2'
-                  placeholder='Email'
+                  placeholder={idioma.crear.email}
                   onChange={(e) => setMail(e.target.value)}
                   value={Mail}
                   required

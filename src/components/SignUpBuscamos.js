@@ -127,6 +127,7 @@ const SignUpBuscamos = (props) => {
               placeholder={props.idioma.crear.ciudad}
               onChange={(e) => setCodCiudad(e.target.value)}
               value={CodCiudad}
+              required
             />
           </div>
           <div className='form-group d-flex justify-content-center'>
@@ -143,7 +144,7 @@ const SignUpBuscamos = (props) => {
             <input
               type='email'
               className='form-control mr-sm-2'
-              placeholder='Email'
+              placeholder={props.idioma.crear.email}
               onChange={(e) => setMail(e.target.value)}
               value={Mail}
               required

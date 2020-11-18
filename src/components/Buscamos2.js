@@ -21,6 +21,20 @@ const Buscamos2 = (props) => {
         <form
           onSubmit={(e) => {
             e.preventDefault();
+            props.openModal(
+              'open',
+              <SignUpBuscamos
+                idioma={props.idioma}
+                marcaEquipo={props.marcaEquipo}
+                modeloEquipo={props.modeloEquipo}
+                serieEquipo={props.serieEquipo}
+                marcaMotor={props.marcaMotor}
+                modeloMotor={props.modeloMotor}
+                serieMotor={props.serieMotor}
+                descripcion={descripcion}
+                cantidad={cantidad}
+              />
+            );
           }}>
           <h4>{idioma.buscamos.titulo3}</h4>
           <div className='form-group d-flex justify-content-center'>
@@ -29,7 +43,8 @@ const Buscamos2 = (props) => {
               className='description form-control mr-sm-2'
               placeholder={idioma.buscamos.descripcion}
               onChange={(e) => setDescripcion(e.target.value)}
-              value={descripcion}></textarea>
+              value={descripcion}
+              required></textarea>
           </div>
           <div className='form-group d-flex justify-content-center'>
             <input
@@ -38,28 +53,30 @@ const Buscamos2 = (props) => {
               placeholder={idioma.buscamos.cantidad}
               onChange={(e) => setCantidad(e.target.value)}
               value={cantidad}
+              required
             />
           </div>
           <div className='form-group d-flex justify-content-center'>
             <button
-              type='button'
+              type='submit'
               className='btn'
-              onClick={() => {
-                props.openModal(
-                  'open',
-                  <SignUpBuscamos
-                    idioma={props.idioma}
-                    marcaEquipo={props.marcaEquipo}
-                    modeloEquipo={props.modeloEquipo}
-                    serieEquipo={props.serieEquipo}
-                    marcaMotor={props.marcaMotor}
-                    modeloMotor={props.modeloMotor}
-                    serieMotor={props.serieMotor}
-                    descripcion={descripcion}
-                    cantidad={cantidad}
-                  />
-                );
-              }}>
+              // onClick={() => {
+              //   props.openModal(
+              //     'open',
+              //     <SignUpBuscamos
+              //       idioma={props.idioma}
+              //       marcaEquipo={props.marcaEquipo}
+              //       modeloEquipo={props.modeloEquipo}
+              //       serieEquipo={props.serieEquipo}
+              //       marcaMotor={props.marcaMotor}
+              //       modeloMotor={props.modeloMotor}
+              //       serieMotor={props.serieMotor}
+              //       descripcion={descripcion}
+              //       cantidad={cantidad}
+              //     />
+              //   );
+              // }}
+            >
               {idioma.buscamos.botonContinuar}
             </button>
           </div>

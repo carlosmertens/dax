@@ -119,6 +119,7 @@ const SignUpInfo = (props) => {
               placeholder={idioma.crear.ciudad}
               onChange={(e) => setCodCiudad(e.target.value)}
               value={CodCiudad}
+              required
             />
           </div>
           <div className='form-group d-flex justify-content-center'>
