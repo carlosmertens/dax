@@ -40,11 +40,11 @@ const SignUpInfo = (props) => {
       Contrasena: '',
     };
     const resp = await axios.post(url, data);
-    console.log(resp);
+    // console.log(resp);
     if (resp.data.estado === 'OK') {
       const url2 = `http://www.wp.daxparts.com/api/cotizacion/CotSinCosto/${resp.data.dato[0].IdCliente}/${props.parte}/${props.itemMarca}`;
       const resp2 = await axios.get(url2);
-      console.log(resp2);
+      // console.log(resp2);
       if (resp2.data.estado === 'OK') {
         const coti = resp2.data.dato[0].NroCotizacion;
         swal({

@@ -8,7 +8,9 @@ import SignUpInfo from './SignUpInfo';
 
 const InfoParte = (props) => {
   const [marcas, setMarcas] = useState(['']);
-  const [itemMarca, setItemMarca] = useState('');
+  const [marca, setMarca] = useState('');
+  const [selectMarca, setSelectMarca] = useState('');
+  const [otherMarca, setOtherMarca] = useState('');
   const [otros, setOtros] = useState(false);
 
   useEffect(() => {
@@ -21,12 +23,14 @@ const InfoParte = (props) => {
   }, []);
 
   useEffect(() => {
-    if (itemMarca === '<<OTROS>>') {
+    if (selectMarca === '<<OTROS>>') {
       setOtros(true);
+      setMarca(otherMarca);
     } else {
       setOtros(false);
+      setMarca(selectMarca);
     }
-  }, [itemMarca]);
+  }, [selectMarca, otherMarca]);
 
   const optionsMarca = marcas.map((item, index) => {
     return (
@@ -35,10 +39,6 @@ const InfoParte = (props) => {
       </option>
     );
   });
-
-  const handleChange = (e) => {
-    setItemMarca(e.target.value);
-  };
 
   return (
     <React.Fragment>
@@ -52,7 +52,9 @@ const InfoParte = (props) => {
         </div>
         <div className='modal-body'>
           <div className='form-group d-flex justify-content-center'>
-            <select className='custom-select' onChange={handleChange}>
+            <select
+              className='custom-select'
+              onChange={(e) => setSelectMarca(e.target.value)}>
               {optionsMarca}
             </select>
           </div>
@@ -62,7 +64,7 @@ const InfoParte = (props) => {
                 type='text'
                 className='form-control mr-sm-2'
                 placeholder={props.idioma.infoParte.holder}
-                onChange={(e) => setItemMarca(e.target.value)}
+                onChange={(e) => setOtherMarca(e.target.value)}
               />
             </div>
           ) : (
@@ -77,7 +79,7 @@ const InfoParte = (props) => {
                   'open',
                   <SignUpInfo
                     idioma={props.idioma}
-                    itemMarca={itemMarca}
+                    itemMarca={marca}
                     intCodRepuesto={0}
                     parte={props.parte}
                   />
