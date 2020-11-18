@@ -43,6 +43,7 @@ const LoginBuscamos = (props) => {
         console.log(resp2);
         setNroCotizacion(resp2.data.dato[0].NroCotizacion);
         setLogged(true);
+        closeModal();
       } else {
         swal({
           title: 'Upps!!!',
@@ -58,7 +59,7 @@ const LoginBuscamos = (props) => {
         icon: 'error',
       });
     }
-    closeModal();
+    // closeModal();
   };
 
   return (

@@ -30,6 +30,7 @@ const LoginInfo = (props) => {
       if (resp2.data.estado === 'OK') {
         setNroCotizacion(resp2.data.dato[0].NroCotizacion);
         setLogged(true);
+        closeModal();
       } else {
         swal({
           title: 'Upps!!!',
@@ -45,7 +46,7 @@ const LoginInfo = (props) => {
         icon: 'error',
       });
     }
-    closeModal();
+    // closeModal();
   };
 
   return (
