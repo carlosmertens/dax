@@ -12,6 +12,7 @@ import InfoParte from '../components/InfoParte';
 
 const Cotizacion = ({ idioma, openModal, country, parte }) => {
   const [busqueda, setBusqueda] = useState([]);
+  const [showNew, setShowNew] = useState(false);
 
   let codpais = '';
   let monpais = '';
@@ -43,6 +44,9 @@ const Cotizacion = ({ idioma, openModal, country, parte }) => {
         openModal('open', <InfoParte idioma={idioma} />);
       } else {
         setBusqueda(resp.data.dato);
+        if (resp.data.dato[0].NroParte !== parte) {
+          setShowNew(true);
+        }
       }
     };
     fetchData();
@@ -86,7 +90,8 @@ const Cotizacion = ({ idioma, openModal, country, parte }) => {
         <div className='container cotizacion-title'>
           <p>
             <strong>
-              {idioma.cotizacion.titulo} {parte}
+              {idioma.cotizacion.titulo} {parte}{' '}
+              {showNew ? `⟹ ${busqueda[0].NroParte}` : ''}
             </strong>
           </p>
           <p>
@@ -156,7 +161,6 @@ function mapStateToProps(state) {
   return {
     parte: state.parte,
     country: state.country,
-    // idioma: state.idioma,
   };
 }
 
