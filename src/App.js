@@ -4,7 +4,6 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import axios from 'axios';
-// import Spinner from './components/Spinner';
 import countryAction from './actions/countryAction';
 import paisesAction from './actions/paisesAction';
 import marcasAction from './actions/marcasAction';
@@ -18,15 +17,6 @@ import Navbar from './components/Navbar';
 import Modal from './components/Modal';
 import spanish from './text/esp.json';
 import english from './text/eng.json';
-
-// const Homepage = lazy(() => import('./pages/homepage'));
-// const Empresa = lazy(() => import('./pages/empresa'));
-// const Industrias = lazy(() => import('./pages/industrias'));
-// const Contacto = lazy(() => import('./pages/contacto'));
-// const Tutorial = lazy(() => import('./pages/tutorial'));
-// const Cotizacion = lazy(() => import('./pages/cotizacion'));
-// const Navbar = lazy(() => import('./components/Navbar'));
-// const Modal = lazy(() => import('./components/Modal'));
 
 function App({ country, countryAction, paisesAction, marcasAction }) {
   const [language, setLanguage] = useState('Español');
@@ -85,7 +75,7 @@ function App({ country, countryAction, paisesAction, marcasAction }) {
         <Industrias idioma={idioma} />
       </Route>
 
-      <Route exact path='/contacto'>
+      <Route exact path='/contactos'>
         <Contacto idioma={idioma} />
       </Route>
 

@@ -1,8 +1,5 @@
 import React from 'react';
-
 import { Helmet } from 'react-helmet';
-
-// import { connect } from 'react-redux';
 
 const Tutorial = ({ idioma }) => (
   <div className='container-fluid tutorial'>
@@ -14,11 +11,9 @@ const Tutorial = ({ idioma }) => (
         <strong>{idioma.tutorial.titulo}</strong>
       </h1>
     </div>
-
     <div className='container tutorial-subtitulo'>
       <p>{idioma.tutorial.descripcion}</p>
     </div>
-
     <div className='container tutorial-contenido'>
       <div className='row'>
         <div className='col-sm'>
@@ -29,13 +24,9 @@ const Tutorial = ({ idioma }) => (
               </p>
             </div>
           </div>
-
-          {/* <div className='container'> */}
           <div className='row'>
             <div className='col'>
               <iframe
-                // width='121'
-                // height='65'
                 className='embed-responsive-item'
                 title='Castellano'
                 src='https://www.youtube.com/embed/4jnCVogNCtc'></iframe>
@@ -44,14 +35,9 @@ const Tutorial = ({ idioma }) => (
               <span className=''>Dax Castellano</span>
             </div>
           </div>
-          {/* </div> */}
-
-          {/* <div className='container'> */}
           <div className='row'>
             <div className='col'>
               <iframe
-                // width='121'
-                // height='65'
                 className='embed-responsive-item'
                 title='EnglishDax'
                 src='https://www.youtube.com/embed/L22Gk3eXE7I'></iframe>
@@ -60,14 +46,9 @@ const Tutorial = ({ idioma }) => (
               <span className='tutorial-video-texto'>Dax English</span>
             </div>
           </div>
-          {/* </div> */}
-
-          {/* <div className='container'> */}
           <div className='row'>
             <div className='col'>
               <iframe
-                // width='121'
-                // height='65'
                 className='embed-responsive-item'
                 title='Demo'
                 src='https://www.youtube.com/embed/j42UyjVCDuo'></iframe>
@@ -76,9 +57,7 @@ const Tutorial = ({ idioma }) => (
               <span className='tutorial-video-texto'>Demo</span>
             </div>
           </div>
-          {/* </div> */}
         </div>
-
         <div className='col-sm'>
           <div className='container'>
             <div className='row'>
@@ -87,12 +66,9 @@ const Tutorial = ({ idioma }) => (
               </p>
             </div>
           </div>
-          {/* <div className='container'> */}
           <div className='row'>
             <div className='col'>
               <iframe
-                // width='121'
-                // height='65'
                 className='embed-responsive-item'
                 title='John Deere'
                 src='https://www.youtube.com/embed/FkRyowhMekU'></iframe>
@@ -101,14 +77,9 @@ const Tutorial = ({ idioma }) => (
               <span className='tutorial-video-texto'>John Deere</span>
             </div>
           </div>
-          {/* </div> */}
-
-          {/* <div className='container'> */}
           <div className='row'>
             <div className='col'>
               <iframe
-                // width='121'
-                // height='65'
                 className='embed-responsive-item'
                 title='Catarpillar'
                 src='https://www.youtube.com/embed/MaOpwIWJa0o'></iframe>
@@ -117,14 +88,9 @@ const Tutorial = ({ idioma }) => (
               <span className='tutorial-video-texto'>Caterpillar</span>
             </div>
           </div>
-          {/* </div> */}
-
-          {/* <div className='container'> */}
           <div className='row'>
             <div className='col'>
               <iframe
-                // width='121'
-                // height='65'
                 className='embed-responsive-item'
                 title='CASE'
                 src='https://www.youtube.com/embed/nApCi2Y8w7Y'></iframe>
@@ -133,7 +99,6 @@ const Tutorial = ({ idioma }) => (
               <span className='tutorial-video-texto'>CASE</span>
             </div>
           </div>
-          {/* </div> */}
         </div>
       </div>
     </div>
@@ -141,11 +106,3 @@ const Tutorial = ({ idioma }) => (
 );
 
 export default Tutorial;
-
-// function mapStateToProps(state) {
-//   return {
-//     idioma: state.idioma,
-//   };
-// }
-
-// export default connect(mapStateToProps, null)(Tutorial);

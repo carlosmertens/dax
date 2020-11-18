@@ -1,17 +1,13 @@
 import React from 'react';
-
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-
 import openModal from '../actions/openModal';
-
 import navLogoWhite from '../img/logoNavWhite.png';
-
 import Ingresar from './Login';
 import Crear from './SignUp';
 
-const Navbar = (props) => (
+const Navbar = ({ idioma }) => (
   <nav className='navbar navbar-expand-lg navbar-dark bg-dark'>
     <div className='navbar-brand'>
       <Link to='/'>
@@ -34,23 +30,23 @@ const Navbar = (props) => (
       <ul className='navbar-nav mx-auto'>
         <li className='nav-item'>
           <Link to='/empresa' className='nav-link text-white'>
-            {props.idioma.navbar.enlace1}
+            {idioma.navbar.enlace1}
           </Link>
         </li>
 
         <li className='nav-item'>
           <Link to='industrias' className='nav-link text-white'>
-            {props.idioma.navbar.enlace2}
+            {idioma.navbar.enlace2}
           </Link>
         </li>
         <li className='nav-item'>
           <Link to='/tutorial' className='nav-link text-white'>
-            {props.idioma.navbar.enlace3}
+            {idioma.navbar.enlace3}
           </Link>
         </li>
         <li className='nav-item'>
-          <Link to='contacto' className='nav-link text-white'>
-            {props.idioma.navbar.enlace4}
+          <Link to='contactos' className='nav-link text-white'>
+            {idioma.navbar.enlace4}
           </Link>
         </li>
       </ul>
@@ -60,28 +56,22 @@ const Navbar = (props) => (
           type='button'
           className='btn'
           onClick={() => {
-            props.openModal('open', <Ingresar idioma={props.idioma} />);
+            openModal('open', <Ingresar idioma={idioma} />);
           }}>
-          {props.idioma.navbar.botonTexto1}
+          {idioma.navbar.boton1}
         </button>
         <button
           type='button'
           className='btn'
           onClick={() => {
-            props.openModal('open', <Crear idioma={props.idioma} />);
+            openModal('open', <Crear idioma={idioma} />);
           }}>
-          {props.idioma.navbar.botonTexto2}
+          {idioma.navbar.boton2}
         </button>
       </div>
     </div>
   </nav>
 );
-
-// function mapStateToProps(state) {
-//   return {
-//     idioma: state.idioma,
-//   };
-// }
 
 function mapDispatchToProps(dispacher) {
   return bindActionCreators(

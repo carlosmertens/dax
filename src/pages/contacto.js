@@ -1,6 +1,5 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
-// import { connect } from 'react-redux';
 import usa from '../img/usa.png';
 import bolivia from '../img/bolivia.png';
 import peru from '../img/peru.png';
@@ -17,7 +16,6 @@ const Contacto = ({ idioma }) => (
         <strong>{idioma.contacto.titulo}</strong>
       </h1>
     </div>
-
     <div className='container contacto-contenido'>
       <div className='row align-items-center'>
         <div className='col-md'>
@@ -49,7 +47,6 @@ const Contacto = ({ idioma }) => (
               </a>
             </div>
           </div>
-
           <div className='contacto-grupo row'>
             <div className='contacto-grupo col-md'>
               <img src={peru} alt='Bandera Peru' />
@@ -75,7 +72,6 @@ const Contacto = ({ idioma }) => (
             </div> */}
           </div>
         </div>
-
         <div className='col-md'>
           <div className='contacto-mapa'>
             <img src={mapa} className='img-fluid' alt='Mapa' />
@@ -87,11 +83,3 @@ const Contacto = ({ idioma }) => (
 );
 
 export default Contacto;
-
-// function mapStateToProps(state) {
-//   return {
-//     idioma: state.idioma,
-//   };
-// }
-
-// export default connect(mapStateToProps, null)(Contacto);
