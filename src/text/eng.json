@@ -31,7 +31,9 @@
     "olvide": "Forgot your password?",
     "botonIngresar": "Login",
     "cambiarModal": "Create new account,",
-    "cambiarEnlace": "click here!"
+    "cambiarEnlace": "click here!",
+    "swalTitle": "INCORRECT LOGIN!",
+    "swalText": "Email or password wrong or not yet registered."
   },
 
   "crear": {

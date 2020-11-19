@@ -41,12 +41,11 @@ const LoginInfo = (props) => {
       }
     } else {
       swal({
-        title: 'LOGIN INCORRECTO!',
-        text: 'Email/Password equivocado o no registrado',
+        title: `${props.idioma.ingresar.swalTitle}`,
+        text: `${props.idioma.ingresar.swalText}`,
         icon: 'error',
       });
     }
-    // closeModal();
   };
 
   return (

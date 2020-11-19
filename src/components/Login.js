@@ -1,24 +1,20 @@
 import React, { useState } from 'react';
-
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-
 import openModal from '../actions/openModal';
-
 import axios from 'axios';
 import swal from 'sweetalert';
-
 import navLogo from '../img/logoNav.png';
 import SignUp from './SignUp';
 
-const Login = (props) => {
+const Login = ({ idioma, openModal }) => {
   const [logusuario, setLogusuario] = useState('');
   const [clausuario, setClausuario] = useState('');
   const [logged, setLogged] = useState(false);
   const [codcliente, setCodcliente] = useState('');
 
   const closeModal = () => {
-    props.openModal('closed', '');
+    openModal('closed', '');
   };
 
   const handleSubmit = async (e) => {
@@ -37,8 +33,8 @@ const Login = (props) => {
       setLogged(true);
     } else {
       swal({
-        title: 'LOGIN INCORRECTO!',
-        text: 'Email/Password equivocado o no registrado',
+        title: `${idioma.ingresar.swalTitle}`,
+        text: `${idioma.ingresar.swalText}`,
         icon: 'error',
       });
     }
@@ -63,7 +59,7 @@ const Login = (props) => {
                 <input
                   type='text'
                   className='form-control mr-sm-2'
-                  placeholder={props.idioma.ingresar.nombre}
+                  placeholder={idioma.ingresar.nombre}
                   onChange={(e) => setLogusuario(e.target.value)}
                   value={logusuario}
                 />
@@ -73,7 +69,7 @@ const Login = (props) => {
                 <input
                   type='password'
                   className='form-control mr-sm-2'
-                  placeholder={props.idioma.ingresar.password}
+                  placeholder={idioma.ingresar.password}
                   onChange={(e) => setClausuario(e.target.value)}
                   value={clausuario}
                 />
@@ -81,7 +77,7 @@ const Login = (props) => {
 
               <div className='boton-form'>
                 <button type='submit' className='btn'>
-                  {props.idioma.ingresar.botonIngresar}
+                  {idioma.ingresar.botonIngresar}
                 </button>
               </div>
             </form>
@@ -89,14 +85,14 @@ const Login = (props) => {
 
           <div className='modal-footer d-flex justify-content-center'>
             <div>
-              {props.idioma.ingresar.cambiarModal}{' '}
+              {idioma.ingresar.cambiarModal}{' '}
               <span
                 className='pointer'
                 onClick={() => {
-                  props.openModal('open', <SignUp idioma={props.idioma} />);
+                  openModal('open', <SignUp idioma={idioma} />);
                 }}
                 style={{ color: '#fca728' }}>
-                {props.idioma.ingresar.cambiarEnlace}
+                {idioma.ingresar.cambiarEnlace}
               </span>
             </div>
           </div>

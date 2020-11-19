@@ -32,7 +32,9 @@
     "botonIngresar": "Ingresar",
     "botonCotizar": "Cotizar",
     "cambiarModal": "No tienes una cuenta?",
-    "cambiarEnlace": "Click aquí!"
+    "cambiarEnlace": "Click aquí!",
+    "swalTitle": "INGRESO INCORRECTO!",
+    "swalText": "Email/Contraseña equivocado o no registrado."
   },
 
   "crear": {
