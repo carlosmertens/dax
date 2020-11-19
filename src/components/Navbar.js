@@ -7,7 +7,7 @@ import navLogoWhite from '../img/logoNavWhite.png';
 import Ingresar from './Login';
 import Crear from './SignUp';
 
-const Navbar = ({ idioma }) => (
+const Navbar = ({ idioma, openModal }) => (
   <nav className='navbar navbar-expand-lg navbar-dark bg-dark'>
     <div className='navbar-brand'>
       <Link to='/'>
