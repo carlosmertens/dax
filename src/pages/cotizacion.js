@@ -13,6 +13,7 @@ import InfoParte from '../components/InfoParte';
 const Cotizacion = ({ idioma, openModal, country, parte }) => {
   const [busqueda, setBusqueda] = useState([]);
   const [showNew, setShowNew] = useState(false);
+  const [showButton, setShowButton] = useState(true);
 
   let codpais = '';
   let monpais = '';
@@ -41,6 +42,7 @@ const Cotizacion = ({ idioma, openModal, country, parte }) => {
       console.log(resp);
       if (resp.data.estado === 'NC') {
         setBusqueda(['']);
+        setShowButton(false);
         openModal('open', <InfoParte idioma={idioma} />);
       } else {
         setBusqueda(resp.data.dato);
@@ -65,17 +67,23 @@ const Cotizacion = ({ idioma, openModal, country, parte }) => {
         <td>{item.Precio}</td>
         <td>{item.TiEntrega}</td>
         <td>
-          <button
-            type='button'
-            className='btn'
-            onClick={() => {
-              openModal(
-                'open',
-                <LoginBuy idioma={idioma} intCodRepuesto={item.CodRepuesto} />
-              );
-            }}>
-            {idioma.cotizacion.botonComprar}
-          </button>
+          {showButton ? (
+            <button
+              type='button'
+              className='btn'
+              onClick={() => {
+                openModal(
+                  'open',
+                  <LoginBuy idioma={idioma} intCodRepuesto={item.CodRepuesto} />
+                );
+              }}>
+              {idioma.cotizacion.botonComprar}
+            </button>
+          ) : (
+            <button className='btn disabled'>
+              {idioma.cotizacion.botonComprar}
+            </button>
+          )}
         </td>
       </tr>
     );
