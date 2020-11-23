@@ -1,13 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import openModal from '../actions/openModal';
 import navLogoWhite from '../img/logoNavWhite.png';
 import Ingresar from './Login';
 import Crear from './SignUp';
 
-const Navbar = ({ idioma }) => {
+const Navbar = () => {
   const dispatch = useDispatch();
+  const idioma = useSelector((state) => state.idioma);
   return (
     <nav className='navbar navbar-expand-lg navbar-dark bg-dark'>
       <div className='navbar-brand'>

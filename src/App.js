@@ -6,6 +6,7 @@ import axios from 'axios';
 import countryAction from './actions/countryAction';
 import paisesAction from './actions/paisesAction';
 import marcasAction from './actions/marcasAction';
+import idiomaAction from './actions/idiomaAction';
 import Homepage from './pages/homepage';
 import Empresa from './pages/empresa';
 import Industrias from './pages/industrias';
@@ -19,12 +20,14 @@ import english from './text/eng.json';
 
 function App() {
   const country = useSelector((state) => state.country);
+  const idioma = useSelector((state) => state.idioma);
   const dispatch = useDispatch();
   const [language, setLanguage] = useState('Español');
 
-  let idioma = spanish;
   if (language !== 'Español') {
-    idioma = english;
+    dispatch(idiomaAction(english));
+  } else {
+    dispatch(idiomaAction(spanish));
   }
 
   const onChangeLanguage = (e) => {
@@ -67,11 +70,7 @@ function App() {
       </Route>
 
       <Route exact path='/'>
-        <Homepage
-          idioma={idioma}
-          language={language}
-          onChangeLanguage={onChangeLanguage}
-        />
+        <Homepage language={language} onChangeLanguage={onChangeLanguage} />
       </Route>
 
       <Route exact path='/empresa'>
@@ -91,7 +90,7 @@ function App() {
       </Route>
 
       <Route exact path='/cotizacion'>
-        <Cotizacion idioma={idioma} />
+        <Cotizacion />
       </Route>
     </Router>
   );

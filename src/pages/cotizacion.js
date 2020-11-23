@@ -8,10 +8,11 @@ import Spinner from '../components/Spinner';
 import LoginBuy from '../components/LoginBuy';
 import InfoParte from '../components/InfoParte';
 
-const Cotizacion = ({ idioma }) => {
+const Cotizacion = () => {
   const dispatch = useDispatch();
   const country = useSelector((state) => state.country);
   const parte = useSelector((state) => state.parte);
+  const idioma = useSelector((state) => state.idioma);
   const [busqueda, setBusqueda] = useState([]);
   const [showNew, setShowNew] = useState(false);
   const [showButton, setShowButton] = useState(true);
@@ -40,7 +41,6 @@ const Cotizacion = ({ idioma }) => {
     };
     const fetchData = async () => {
       const resp = await axios.post(url, data);
-      console.log(resp);
       if (resp.data.estado === 'NC') {
         setBusqueda(['']);
         setShowButton(false);

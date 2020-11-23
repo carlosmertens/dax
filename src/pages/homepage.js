@@ -10,9 +10,10 @@ import Idioma from '../components/Idioma';
 import Pais from '../components/Pais';
 import Noparte from '../components/NoParte';
 
-const Homepage = ({ idioma, language, onChangeLanguage }) => {
-  const country = useSelector((state) => state.country);
+const Homepage = ({ language, onChangeLanguage }) => {
   const dispatch = useDispatch();
+  const idioma = useSelector((state) => state.idioma);
+  const country = useSelector((state) => state.country);
   const [cotizar, setCotizar] = useState(false);
 
   const onSubmitSearch = (e) => {
