@@ -10,7 +10,7 @@ import idiomaAction from './actions/idiomaAction';
 import Homepage from './pages/homepage';
 import Empresa from './pages/empresa';
 import Industrias from './pages/industrias';
-import Contacto from './pages/contacto';
+import Contactos from './pages/contactos';
 import Tutorial from './pages/tutorial';
 import Cotizacion from './pages/cotizacion';
 import Navbar from './components/Navbar';
@@ -82,7 +82,7 @@ function App() {
       </Route>
 
       <Route exact path='/contactos'>
-        <Contacto idioma={idioma} />
+        <Contactos idioma={idioma} />
       </Route>
 
       <Route exact path='/tutorial'>
