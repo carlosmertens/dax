@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
-// import axios from 'axios';
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
+import { useSelector, useDispatch } from 'react-redux';
 import openModal from '../actions/openModal';
 import navLogo from '../img/logoNav.png';
 import Buscamos2 from './Buscamos2';
 
 const Buscamos = (props) => {
+  const dispatch = useDispatch();
+  const marcas = useSelector((state) => state.marcas);
   const [marcaEquipo, setMarcaEquipo] = useState('');
   const [modeloEquipo, setModeloEquipo] = useState('');
   const [serieEquipo, setSerieEquipo] = useState('');
@@ -34,7 +34,7 @@ const Buscamos = (props) => {
             <select
               className='custom-select'
               onChange={(e) => setMarcaEquipo(e.target.value)}>
-              {props.marcas.map((option) => (
+              {marcas.map((option) => (
                 <option value={option.NomMarca} key={option.CodMarca}>
                   {option.NomMarca}
                 </option>
@@ -65,7 +65,7 @@ const Buscamos = (props) => {
             <select
               className='custom-select'
               onChange={(e) => setMarcaMotor(e.target.value)}>
-              {props.marcas.map((option) => (
+              {marcas.map((option) => (
                 <option value={option.NomMarca} key={option.CodMarca}>
                   {option.NomMarca}
                 </option>
@@ -95,17 +95,19 @@ const Buscamos = (props) => {
               type='button'
               className='btn'
               onClick={() => {
-                props.openModal(
-                  'open',
-                  <Buscamos2
-                    idioma={props.idioma}
-                    marcaEquipo={marcaEquipo}
-                    modeloEquipo={modeloEquipo}
-                    serieEquipo={serieEquipo}
-                    marcaMotor={marcaMotor}
-                    modeloMotor={modeloMotor}
-                    serieMotor={serieMotor}
-                  />
+                dispatch(
+                  openModal(
+                    'open',
+                    <Buscamos2
+                      idioma={props.idioma}
+                      marcaEquipo={marcaEquipo}
+                      modeloEquipo={modeloEquipo}
+                      serieEquipo={serieEquipo}
+                      marcaMotor={marcaMotor}
+                      modeloMotor={modeloMotor}
+                      serieMotor={serieMotor}
+                    />
+                  )
                 );
               }}>
               {props.idioma.buscamos.botonContinuar}
@@ -117,20 +119,4 @@ const Buscamos = (props) => {
   );
 };
 
-function mapStateToProps(state) {
-  return {
-    siteModal: state.siteModal,
-    marcas: state.marcas,
-  };
-}
-
-function mapDispatchToProps(dispacher) {
-  return bindActionCreators(
-    {
-      openModal: openModal,
-    },
-    dispacher
-  );
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(Buscamos);
+export default Buscamos;

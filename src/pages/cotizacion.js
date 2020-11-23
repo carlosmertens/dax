@@ -2,15 +2,16 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import { Helmet } from 'react-helmet';
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
+import { useSelector, useDispatch } from 'react-redux';
 import openModal from '../actions/openModal';
-import parteAction from '../actions/parteAction';
 import Spinner from '../components/Spinner';
 import LoginBuy from '../components/LoginBuy';
 import InfoParte from '../components/InfoParte';
 
-const Cotizacion = ({ idioma, openModal, country, parte }) => {
+const Cotizacion = ({ idioma }) => {
+  const dispatch = useDispatch();
+  const country = useSelector((state) => state.country);
+  const parte = useSelector((state) => state.parte);
   const [busqueda, setBusqueda] = useState([]);
   const [showNew, setShowNew] = useState(false);
   const [showButton, setShowButton] = useState(true);
@@ -43,7 +44,7 @@ const Cotizacion = ({ idioma, openModal, country, parte }) => {
       if (resp.data.estado === 'NC') {
         setBusqueda(['']);
         setShowButton(false);
-        openModal('open', <InfoParte idioma={idioma} />);
+        dispatch(openModal('open', <InfoParte idioma={idioma} />));
       } else {
         setBusqueda(resp.data.dato);
         if (resp.data.dato[0].NroParte !== parte) {
@@ -52,7 +53,7 @@ const Cotizacion = ({ idioma, openModal, country, parte }) => {
       }
     };
     fetchData();
-  }, [idioma, openModal, codpais, parte]);
+  }, [idioma, dispatch, codpais, parte]);
 
   if (busqueda.length === 0) {
     return <Spinner idioma={idioma} />;
@@ -72,9 +73,11 @@ const Cotizacion = ({ idioma, openModal, country, parte }) => {
               type='button'
               className='btn'
               onClick={() => {
-                openModal(
-                  'open',
-                  <LoginBuy idioma={idioma} intCodRepuesto={item.CodRepuesto} />
+                dispatch(
+                  openModal(
+                    'open',
+                    <LoginBuy idioma={idioma} intCodRepuesto={item.CodRepuesto} />
+                  )
                 );
               }}>
               {idioma.cotizacion.botonComprar}
@@ -165,21 +168,4 @@ const Cotizacion = ({ idioma, openModal, country, parte }) => {
   );
 };
 
-function mapStateToProps(state) {
-  return {
-    parte: state.parte,
-    country: state.country,
-  };
-}
-
-function mapDispatchToProps(dispacher) {
-  return bindActionCreators(
-    {
-      openModal: openModal,
-      parteAction: parteAction,
-    },
-    dispacher
-  );
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(Cotizacion);
+export default Cotizacion;

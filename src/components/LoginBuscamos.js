@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
+import { useDispatch } from 'react-redux';
 import openModal from '../actions/openModal';
 import axios from 'axios';
 import swal from 'sweetalert';
@@ -8,6 +7,7 @@ import navLogo from '../img/logoNav.png';
 import SignUpBuscamos from './SignUpBuscamos';
 
 const LoginBuscamos = (props) => {
+  const dispatch = useDispatch();
   const [logusuario, setLogusuario] = useState('');
   const [clausuario, setClausuario] = useState('');
   const [logged, setLogged] = useState(false);
@@ -15,7 +15,7 @@ const LoginBuscamos = (props) => {
   const [codcliente, setCodcliente] = useState('');
 
   const closeModal = () => {
-    props.openModal('closed', '');
+    dispatch(openModal('closed', ''));
   };
 
   const handleSubmit = async (e) => {
@@ -105,19 +105,21 @@ const LoginBuscamos = (props) => {
               <span
                 className='pointer'
                 onClick={() => {
-                  props.openModal(
-                    'open',
-                    <SignUpBuscamos
-                      idioma={props.idioma}
-                      marcaEquipo={props.marcaEquipo}
-                      modeloEquipo={props.modeloEquipo}
-                      serieEquipo={props.serieEquipo}
-                      marcaMotor={props.marcaMotor}
-                      modeloMotor={props.modeloMotor}
-                      serieMotor={props.serieMotor}
-                      descripcion={props.descripcion}
-                      cantidad={props.cantidad}
-                    />
+                  dispatch(
+                    openModal(
+                      'open',
+                      <SignUpBuscamos
+                        idioma={props.idioma}
+                        marcaEquipo={props.marcaEquipo}
+                        modeloEquipo={props.modeloEquipo}
+                        serieEquipo={props.serieEquipo}
+                        marcaMotor={props.marcaMotor}
+                        modeloMotor={props.modeloMotor}
+                        serieMotor={props.serieMotor}
+                        descripcion={props.descripcion}
+                        cantidad={props.cantidad}
+                      />
+                    )
                   );
                 }}
                 style={{ color: '#fca728' }}>
@@ -131,19 +133,4 @@ const LoginBuscamos = (props) => {
   );
 };
 
-function mapStateToProps(state) {
-  return {
-    siteModal: state.siteModal,
-  };
-}
-
-function mapDispatchToProps(dispacher) {
-  return bindActionCreators(
-    {
-      openModal: openModal,
-    },
-    dispacher
-  );
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(LoginBuscamos);
+export default LoginBuscamos;

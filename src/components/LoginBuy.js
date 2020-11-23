@@ -1,17 +1,13 @@
 import React, { useState } from 'react';
-
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
-
+import { useDispatch } from 'react-redux';
 import openModal from '../actions/openModal';
-
 import axios from 'axios';
 import swal from 'sweetalert';
-
 import navLogo from '../img/logoNav.png';
 import SignUpBuy from './SignUpBuy';
 
 const LoginBuy = (props) => {
+  const dispatch = useDispatch();
   const [logusuario, setLogusuario] = useState('');
   const [clausuario, setClausuario] = useState('');
   const [logged, setLogged] = useState(false);
@@ -19,7 +15,7 @@ const LoginBuy = (props) => {
   const [codcliente, setCodcliente] = useState('');
 
   const closeModal = () => {
-    props.openModal('closed', '');
+    dispatch(openModal('closed', ''));
   };
 
   const handleSubmit = async (e) => {
@@ -105,12 +101,14 @@ const LoginBuy = (props) => {
               <span
                 className='pointer'
                 onClick={() => {
-                  props.openModal(
-                    'open',
-                    <SignUpBuy
-                      idioma={props.idioma}
-                      intCodRepuesto={props.intCodRepuesto}
-                    />
+                  dispatch(
+                    openModal(
+                      'open',
+                      <SignUpBuy
+                        idioma={props.idioma}
+                        intCodRepuesto={props.intCodRepuesto}
+                      />
+                    )
                   );
                 }}
                 style={{ color: '#fca728' }}>
@@ -124,19 +122,4 @@ const LoginBuy = (props) => {
   );
 };
 
-function mapStateToProps(state) {
-  return {
-    siteModal: state.siteModal,
-  };
-}
-
-function mapDispatchToProps(dispacher) {
-  return bindActionCreators(
-    {
-      openModal: openModal,
-    },
-    dispacher
-  );
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(LoginBuy);
+export default LoginBuy;

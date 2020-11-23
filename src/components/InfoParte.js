@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
+import { useSelector, useDispatch } from 'react-redux';
 import openModal from '../actions/openModal';
 import navLogo from '../img/logoNav.png';
 import SignUpInfo from './SignUpInfo';
 
 const InfoParte = (props) => {
-  const [marcas, setMarcas] = useState(['']);
+  const dispatch = useDispatch();
+  const parte = useSelector((state) => state.parte);
+  const [infoMarcas, setInfoMarcas] = useState(['']);
   const [marca, setMarca] = useState('');
   const [selectMarca, setSelectMarca] = useState('');
   const [otherMarca, setOtherMarca] = useState('');
@@ -17,7 +18,7 @@ const InfoParte = (props) => {
     const fetchData = async () => {
       const url = 'http://www.wp.daxparts.com/api/marca/listado2';
       const resp = await axios.get(url);
-      setMarcas(resp.data.dato);
+      setInfoMarcas(resp.data.dato);
     };
     fetchData();
   }, []);
@@ -32,7 +33,7 @@ const InfoParte = (props) => {
     }
   }, [selectMarca, otherMarca]);
 
-  const optionsMarca = marcas.map((item, index) => {
+  const optionsMarca = infoMarcas.map((item, index) => {
     return (
       <option key={index} value={item.NomMarca} required>
         {item.NomMarca}
@@ -75,14 +76,16 @@ const InfoParte = (props) => {
               type='button'
               className='btn'
               onClick={() => {
-                props.openModal(
-                  'open',
-                  <SignUpInfo
-                    idioma={props.idioma}
-                    itemMarca={marca}
-                    intCodRepuesto={0}
-                    parte={props.parte}
-                  />
+                dispatch(
+                  openModal(
+                    'open',
+                    <SignUpInfo
+                      idioma={props.idioma}
+                      itemMarca={marca}
+                      intCodRepuesto={0}
+                      parte={parte}
+                    />
+                  )
                 );
               }}>
               {props.idioma.infoParte.botonSiguiente}
@@ -94,20 +97,4 @@ const InfoParte = (props) => {
   );
 };
 
-function mapStateToProps(state) {
-  return {
-    siteModal: state.siteModal,
-    parte: state.parte,
-  };
-}
-
-function mapDispatchToProps(dispacher) {
-  return bindActionCreators(
-    {
-      openModal: openModal,
-    },
-    dispacher
-  );
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(InfoParte);
+export default InfoParte;

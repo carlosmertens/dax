@@ -1,20 +1,20 @@
 import React, { useState } from 'react';
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
+import { useDispatch } from 'react-redux';
 import openModal from '../actions/openModal';
 import axios from 'axios';
 import swal from 'sweetalert';
 import navLogo from '../img/logoNav.png';
 import SignUp from './SignUp';
 
-const Login = ({ idioma, openModal }) => {
+const Login = ({ idioma }) => {
+  const dispatch = useDispatch();
   const [logusuario, setLogusuario] = useState('');
   const [clausuario, setClausuario] = useState('');
   const [logged, setLogged] = useState(false);
   const [codcliente, setCodcliente] = useState('');
 
   const closeModal = () => {
-    openModal('closed', '');
+    dispatch(openModal('closed', ''));
   };
 
   const handleSubmit = async (e) => {
@@ -89,7 +89,7 @@ const Login = ({ idioma, openModal }) => {
               <span
                 className='pointer'
                 onClick={() => {
-                  openModal('open', <SignUp idioma={idioma} />);
+                  dispatch(openModal('open', <SignUp idioma={idioma} />));
                 }}
                 style={{ color: '#fca728' }}>
                 {idioma.ingresar.cambiarEnlace}
@@ -102,19 +102,4 @@ const Login = ({ idioma, openModal }) => {
   );
 };
 
-function mapStateToProps(state) {
-  return {
-    siteModal: state.siteModal,
-  };
-}
-
-function mapDispatchToProps(dispacher) {
-  return bindActionCreators(
-    {
-      openModal: openModal,
-    },
-    dispacher
-  );
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(Login);
+export default Login;

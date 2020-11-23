@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
+import { useSelector, useDispatch } from 'react-redux';
 import openModal from '../actions/openModal';
 import axios from 'axios';
 import swal from 'sweetalert';
@@ -8,6 +7,8 @@ import navLogo from '../img/logoNav.png';
 import SignUpInfo from './SignUpInfo';
 
 const LoginInfo = (props) => {
+  const dispatch = useDispatch();
+  const parte = useSelector((state) => state.parte);
   const [logusuario, setLogusuario] = useState('');
   const [clausuario, setClausuario] = useState('');
   const [logged, setLogged] = useState(false);
@@ -15,7 +16,7 @@ const LoginInfo = (props) => {
   const [codcliente, setCodcliente] = useState('');
 
   const closeModal = () => {
-    props.openModal('closed', '');
+    dispatch(openModal('closed', ''));
   };
 
   const handleSubmit = async (e) => {
@@ -25,7 +26,7 @@ const LoginInfo = (props) => {
     const resp = await axios.post(url, data);
     if (resp.data.estado === 'OK') {
       setCodcliente(resp.data.dato[0].logusuario);
-      const url2 = `http://www.wp.daxparts.com/api/cotizacion/CotSinCosto/${resp.data.dato[0].logusuario}/${props.parte}/${props.itemMarca}`;
+      const url2 = `http://www.wp.daxparts.com/api/cotizacion/CotSinCosto/${resp.data.dato[0].logusuario}/${parte}/${props.itemMarca}`;
       const resp2 = await axios.get(url2);
       if (resp2.data.estado === 'OK') {
         setNroCotizacion(resp2.data.dato[0].NroCotizacion);
@@ -49,7 +50,7 @@ const LoginInfo = (props) => {
   };
 
   return (
-    <>
+    <React.Fragment>
       {logged ? (
         window.location.replace(
           `http://www.demo.daxparts.com/Clientes/frmCliCotDet.aspx?numcot=${NroCotizacion}&blnnu=False&codcliente=${codcliente}`
@@ -92,13 +93,15 @@ const LoginInfo = (props) => {
               <span
                 className='pointer'
                 onClick={() => {
-                  props.openModal(
-                    'open',
-                    <SignUpInfo
-                      idioma={props.idioma}
-                      itemMarca={props.itemMarca}
-                      parte={props.parte}
-                    />
+                  dispatch(
+                    openModal(
+                      'open',
+                      <SignUpInfo
+                        idioma={props.idioma}
+                        itemMarca={props.itemMarca}
+                        parte={parte}
+                      />
+                    )
                   );
                 }}
                 style={{ color: '#fca728' }}>
@@ -108,24 +111,8 @@ const LoginInfo = (props) => {
           </div>
         </>
       )}
-    </>
+    </React.Fragment>
   );
 };
 
-function mapStateToProps(state) {
-  return {
-    siteModal: state.siteModal,
-    parte: state.parte,
-  };
-}
-
-function mapDispatchToProps(dispacher) {
-  return bindActionCreators(
-    {
-      openModal: openModal,
-    },
-    dispacher
-  );
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(LoginInfo);
+export default LoginInfo;

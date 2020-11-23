@@ -1,5 +1,4 @@
 import React from 'react';
-
 import flagBolivia from '../img/bolivia.png';
 import flagPeru from '../img/peru.png';
 import flagParaguay from '../img/paraguay.png';

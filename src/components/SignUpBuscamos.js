@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
+import { useDispatch, useSelector } from 'react-redux';
 import axios from 'axios';
 import swal from 'sweetalert';
 import openModal from '../actions/openModal';
@@ -8,15 +7,18 @@ import navLogo from '../img/logoNav.png';
 import LoginBuscamos from './LoginBuscamos';
 
 const SignUpBuscamos = (props) => {
+  const dispatch = useDispatch();
+  const country = useSelector((state) => state.country);
+  const paises = useSelector((state) => state.paises);
   const [NomCliente, setNomCliente] = useState('');
   const [NomContacto, setNomContacto] = useState('');
-  const [CodPais, setCodPais] = useState(props.country);
+  const [CodPais, setCodPais] = useState(country);
   const [CodCiudad, setCodCiudad] = useState('');
   const [NumTel1, setNumTel1] = useState('');
   const [Mail, setMail] = useState('');
 
   const closeModal = () => {
-    props.openModal('closed', '');
+    dispatch(openModal('closed', ''));
   };
 
   const handleSubmit = async (e) => {
@@ -113,7 +115,7 @@ const SignUpBuscamos = (props) => {
               className='custom-select'
               value={CodPais}
               onChange={(e) => setCodPais(e.target.value)}>
-              {props.paises.map((option) => (
+              {paises.map((option) => (
                 <option value={option.NomPais} key={option.CodPais}>
                   {option.NomPais}
                 </option>
@@ -163,19 +165,21 @@ const SignUpBuscamos = (props) => {
           <span
             className='pointer'
             onClick={() => {
-              props.openModal(
-                'open',
-                <LoginBuscamos
-                  idioma={props.idioma}
-                  marcaEquipo={props.marcaEquipo}
-                  modeloEquipo={props.modeloEquipo}
-                  serieEquipo={props.serieEquipo}
-                  marcaMotor={props.marcaMotor}
-                  modeloMotor={props.modeloMotor}
-                  serieMotor={props.serieMotor}
-                  descripcion={props.descripcion}
-                  cantidad={props.cantidad}
-                />
+              dispatch(
+                openModal(
+                  'open',
+                  <LoginBuscamos
+                    idioma={props.idioma}
+                    marcaEquipo={props.marcaEquipo}
+                    modeloEquipo={props.modeloEquipo}
+                    serieEquipo={props.serieEquipo}
+                    marcaMotor={props.marcaMotor}
+                    modeloMotor={props.modeloMotor}
+                    serieMotor={props.serieMotor}
+                    descripcion={props.descripcion}
+                    cantidad={props.cantidad}
+                  />
+                )
               );
             }}
             style={{ color: '#fca728' }}>
@@ -187,21 +191,4 @@ const SignUpBuscamos = (props) => {
   );
 };
 
-function mapStateToProps(state) {
-  return {
-    siteModal: state.siteModal,
-    country: state.country,
-    paises: state.paises,
-  };
-}
-
-function mapDispatchToProps(dispacher) {
-  return bindActionCreators(
-    {
-      openModal: openModal,
-    },
-    dispacher
-  );
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(SignUpBuscamos);
+export default SignUpBuscamos;

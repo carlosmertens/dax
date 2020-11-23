@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
+import { useDispatch, useSelector } from 'react-redux';
 import axios from 'axios';
 import swal from 'sweetalert';
 import openModal from '../actions/openModal';
@@ -8,10 +7,12 @@ import navLogo from '../img/logoNav.png';
 import Login from './Login';
 
 const SignUp = (props) => {
+  const dispatch = useDispatch();
+  const country = useSelector((state) => state.country);
+  const paises = useSelector((state) => state.paises);
   const [NomCliente, setNomCliente] = useState('');
   const [NomContacto, setNomContacto] = useState('');
-  // const [NumNit, setNumNit] = useState('');
-  const [CodPais, setCodPais] = useState(props.country);
+  const [CodPais, setCodPais] = useState(country);
   const [CodCiudad, setCodCiudad] = useState('');
   const [Direccion, setDireccion] = useState('');
   const [NumTel1, setNumTel1] = useState('');
@@ -24,7 +25,7 @@ const SignUp = (props) => {
   const [codcliente, setCodcliente] = useState('');
 
   const closeModal = () => {
-    props.openModal('closed', '');
+    dispatch(openModal('closed', ''));
   };
 
   const handleSubmit = async (e) => {
@@ -100,38 +101,16 @@ const SignUp = (props) => {
                   required
                 />
               </div>
-              {/* <div className='form-group d-flex justify-content-center'>
-                <input
-                  type='text'
-                  className='form-control mr-sm-2'
-                  placeholder={props.idioma.crear.numero}
-                  onChange={(e) => setNumNit(e.target.value)}
-                  value={NumNit}
-                />
-              </div> */}
               <div className='form-group d-flex justify-content-center'>
                 <select
                   className='custom-select'
                   value={CodPais}
                   onChange={handleChange}>
-                  {props.paises.map((option) => (
+                  {paises.map((option) => (
                     <option value={option.NomPais} key={option.CodPais}>
                       {option.NomPais}
                     </option>
                   ))}
-
-                  {/* {Array.from(props.paises).map((item, index) => (
-                    <option key={index} value={item.NomPais}>
-                      {item.NomPais}
-                    </option>
-                  ))} */}
-
-                  {/* {optionsPaises} */}
-
-                  {/* <option selected>Bolivia</option>
-                  <option value='1'>Chile</option>
-                  <option value='2'>Perú</option>
-                  <option value='3'>United Sates</option> */}
                 </select>
               </div>
               <div className='form-group d-flex justify-content-center'>
@@ -224,7 +203,7 @@ const SignUp = (props) => {
               <span
                 className='pointer'
                 onClick={() => {
-                  props.openModal('open', <Login idioma={props.idioma} />);
+                  dispatch(openModal('open', <Login idioma={props.idioma} />));
                 }}
                 style={{ color: '#fca728' }}>
                 {props.idioma.crear.cambiarEnlace}
@@ -237,21 +216,4 @@ const SignUp = (props) => {
   );
 };
 
-function mapStateToProps(state) {
-  return {
-    siteModal: state.siteModal,
-    country: state.country,
-    paises: state.paises,
-  };
-}
-
-function mapDispatchToProps(dispacher) {
-  return bindActionCreators(
-    {
-      openModal: openModal,
-    },
-    dispacher
-  );
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(SignUp);
+export default SignUp;

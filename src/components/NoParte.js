@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
+import { useDispatch } from 'react-redux';
 import openModal from '../actions/openModal';
 import navLogo from '../img/logoNav.png';
 import Login from './Login';
@@ -13,12 +12,14 @@ library.add(faSearch);
 library.add(faPlayCircle);
 
 const Noparte = (props) => {
+  const dispatch = useDispatch();
+
   const closeModal = () => {
-    props.openModal('closed', '');
+    dispatch(openModal('closed', ''));
   };
 
   return (
-    <>
+    <React.Fragment>
       <div className='modal-logo d-flex justify-content-center'>
         <img src={navLogo} alt='Dax Logo' />
       </div>
@@ -33,7 +34,7 @@ const Noparte = (props) => {
               <button
                 className='que-hacer-button'
                 onClick={() => {
-                  props.openModal('open', <Buscamos idioma={props.idioma} />);
+                  dispatch(openModal('open', <Buscamos idioma={props.idioma} />));
                 }}>
                 {props.idioma.home.modal.enlaceBuscamos}
                 <br />
@@ -63,30 +64,15 @@ const Noparte = (props) => {
           <span
             className='pointer'
             onClick={() => {
-              props.openModal('open', <Login idioma={props.idioma} />);
+              dispatch(openModal('open', <Login idioma={props.idioma} />));
             }}
             style={{ color: '#fca728' }}>
             {props.idioma.home.modal.click}
           </span>
         </div>
       </div>
-    </>
+    </React.Fragment>
   );
 };
 
-function mapStateToProps(state) {
-  return {
-    siteModal: state.siteModal,
-  };
-}
-
-function mapDispatchToProps(dispacher) {
-  return bindActionCreators(
-    {
-      openModal: openModal,
-    },
-    dispacher
-  );
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(Noparte);
+export default Noparte;

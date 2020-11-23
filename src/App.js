@@ -1,8 +1,7 @@
 import './styles/App.css';
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
+import { useSelector, useDispatch } from 'react-redux';
 import axios from 'axios';
 import countryAction from './actions/countryAction';
 import paisesAction from './actions/paisesAction';
@@ -18,7 +17,9 @@ import Modal from './components/Modal';
 import spanish from './text/esp.json';
 import english from './text/eng.json';
 
-function App({ country, countryAction, paisesAction, marcasAction }) {
+function App() {
+  const country = useSelector((state) => state.country);
+  const dispatch = useDispatch();
   const [language, setLanguage] = useState('Español');
 
   let idioma = spanish;
@@ -32,24 +33,30 @@ function App({ country, countryAction, paisesAction, marcasAction }) {
 
   useEffect(() => {
     const locationUrl = 'https://extreme-ip-lookup.com/json/';
-    axios.get(locationUrl).then((response) => {
-      countryAction(response.data.country);
-    });
-  }, [countryAction]);
+    const fetchData = async () => {
+      const response = await axios.get(locationUrl);
+      dispatch(countryAction(response.data.country));
+    };
+    fetchData();
+  }, [dispatch]);
 
   useEffect(() => {
-    const url = `http://www.wp.daxparts.com/api/pais/listado3/${country}`;
-    axios.get(url).then((response) => {
-      paisesAction(response.data.dato);
-    });
-  }, [paisesAction, country]);
+    const countriesUrl = `http://www.wp.daxparts.com/api/pais/listado3/${country}`;
+    const fetchData = async () => {
+      const response = await axios.get(countriesUrl);
+      dispatch(paisesAction(response.data.dato));
+    };
+    fetchData();
+  }, [country, dispatch]);
 
   useEffect(() => {
-    const url = 'http://www.wp.daxparts.com/api/marca/listado3';
-    axios.get(url).then((response) => {
-      marcasAction(response.data.dato);
-    });
-  }, [marcasAction]);
+    const brandsUrl = 'http://www.wp.daxparts.com/api/marca/listado3';
+    const fetchData = async () => {
+      const response = await axios.get(brandsUrl);
+      dispatch(marcasAction(response.data.dato));
+    };
+    fetchData();
+  }, [dispatch]);
 
   return (
     <Router>
@@ -90,23 +97,4 @@ function App({ country, countryAction, paisesAction, marcasAction }) {
   );
 }
 
-function mapStateToProps(state) {
-  return {
-    country: state.country,
-    paises: state.paises,
-    marcas: state.marcas,
-  };
-}
-
-function mapDispatchToProps(dispacher) {
-  return bindActionCreators(
-    {
-      countryAction: countryAction,
-      paisesAction: paisesAction,
-      marcasAction: marcasAction,
-    },
-    dispacher
-  );
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default App;

@@ -1,13 +1,12 @@
 import React, { useState } from 'react';
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
+import { useDispatch } from 'react-redux';
 import openModal from '../actions/openModal';
 import navLogo from '../img/logoNav.png';
 import SignUpBuscamos from './SignUpBuscamos';
 
 const Buscamos2 = (props) => {
+  const dispatch = useDispatch();
   const idioma = props.idioma;
-
   const [cantidad, setCantidad] = useState('');
   const [descripcion, setDescripcion] = useState('');
 
@@ -21,19 +20,21 @@ const Buscamos2 = (props) => {
         <form
           onSubmit={(e) => {
             e.preventDefault();
-            props.openModal(
-              'open',
-              <SignUpBuscamos
-                idioma={props.idioma}
-                marcaEquipo={props.marcaEquipo}
-                modeloEquipo={props.modeloEquipo}
-                serieEquipo={props.serieEquipo}
-                marcaMotor={props.marcaMotor}
-                modeloMotor={props.modeloMotor}
-                serieMotor={props.serieMotor}
-                descripcion={descripcion}
-                cantidad={cantidad}
-              />
+            dispatch(
+              openModal(
+                'open',
+                <SignUpBuscamos
+                  idioma={props.idioma}
+                  marcaEquipo={props.marcaEquipo}
+                  modeloEquipo={props.modeloEquipo}
+                  serieEquipo={props.serieEquipo}
+                  marcaMotor={props.marcaMotor}
+                  modeloMotor={props.modeloMotor}
+                  serieMotor={props.serieMotor}
+                  descripcion={descripcion}
+                  cantidad={cantidad}
+                />
+              )
             );
           }}>
           <h4>{idioma.buscamos.titulo3}</h4>
@@ -57,26 +58,7 @@ const Buscamos2 = (props) => {
             />
           </div>
           <div className='form-group d-flex justify-content-center'>
-            <button
-              type='submit'
-              className='btn'
-              // onClick={() => {
-              //   props.openModal(
-              //     'open',
-              //     <SignUpBuscamos
-              //       idioma={props.idioma}
-              //       marcaEquipo={props.marcaEquipo}
-              //       modeloEquipo={props.modeloEquipo}
-              //       serieEquipo={props.serieEquipo}
-              //       marcaMotor={props.marcaMotor}
-              //       modeloMotor={props.modeloMotor}
-              //       serieMotor={props.serieMotor}
-              //       descripcion={descripcion}
-              //       cantidad={cantidad}
-              //     />
-              //   );
-              // }}
-            >
+            <button type='submit' className='btn'>
               {idioma.buscamos.botonContinuar}
             </button>
           </div>
@@ -86,19 +68,4 @@ const Buscamos2 = (props) => {
   );
 };
 
-function mapStateToProps(state) {
-  return {
-    siteModal: state.siteModal,
-  };
-}
-
-function mapDispatchToProps(dispacher) {
-  return bindActionCreators(
-    {
-      openModal: openModal,
-    },
-    dispacher
-  );
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(Buscamos2);
+export default Buscamos2;

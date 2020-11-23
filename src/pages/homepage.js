@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import { Helmet } from 'react-helmet';
 import { Redirect, Link } from 'react-router-dom';
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
+import { useSelector, useDispatch } from 'react-redux';
 import logoCentro from '../img/logoCentro.png';
 import iconVideos from '../img/IconVideos.png';
 import openModal from '../actions/openModal';
@@ -11,14 +10,9 @@ import Idioma from '../components/Idioma';
 import Pais from '../components/Pais';
 import Noparte from '../components/NoParte';
 
-const Homepage = ({
-  idioma,
-  language,
-  onChangeLanguage,
-  country,
-  openModal,
-  parteAction,
-}) => {
+const Homepage = ({ idioma, language, onChangeLanguage }) => {
+  const country = useSelector((state) => state.country);
+  const dispatch = useDispatch();
   const [cotizar, setCotizar] = useState(false);
 
   const onSubmitSearch = (e) => {
@@ -54,7 +48,7 @@ const Homepage = ({
                   id='buscar-numero'
                   type='text'
                   placeholder={idioma.home.campoBuscar}
-                  onChange={(e) => parteAction(e.target.value)}
+                  onChange={(e) => dispatch(parteAction(e.target.value))}
                 />
                 <button type='submit' className='btn btn-buscar'>
                   {idioma.home.botonBuscar}
@@ -66,7 +60,7 @@ const Homepage = ({
                 type='button'
                 className='button-link'
                 onClick={() => {
-                  openModal('open', <Noparte idioma={idioma} />);
+                  dispatch(openModal('open', <Noparte idioma={idioma} />));
                 }}>
                 <p className=''>{idioma.home.enlaceClick}</p>
               </button>
@@ -88,20 +82,4 @@ const Homepage = ({
   );
 };
 
-function mapStateToProps(state) {
-  return {
-    country: state.country,
-  };
-}
-
-function mapDispatchToProps(dispacher) {
-  return bindActionCreators(
-    {
-      openModal: openModal,
-      parteAction: parteAction,
-    },
-    dispacher
-  );
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(Homepage);
+export default Homepage;

@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
+import { useDispatch, useSelector } from 'react-redux';
 import axios from 'axios';
 import swal from 'sweetalert';
 import openModal from '../actions/openModal';
@@ -8,16 +7,20 @@ import navLogo from '../img/logoNav.png';
 import LoginInfo from './LoginInfo';
 
 const SignUpInfo = (props) => {
+  const dispatch = useDispatch();
+  const country = useSelector((state) => state.country);
+  const paises = useSelector((state) => state.paises);
+  const parte = useSelector((state) => state.parte);
   const idioma = props.idioma;
   const [NomCliente, setNomCliente] = useState('');
   const [NomContacto, setNomContacto] = useState('');
-  const [CodPais, setCodPais] = useState(props.country);
+  const [CodPais, setCodPais] = useState(country);
   const [CodCiudad, setCodCiudad] = useState('');
   const [NumTel1, setNumTel1] = useState('');
   const [Mail, setMail] = useState('');
 
   const closeModal = () => {
-    props.openModal('closed', '');
+    dispatch(openModal('closed', ''));
   };
 
   const handleSubmit = async (e) => {
@@ -40,11 +43,9 @@ const SignUpInfo = (props) => {
       Contrasena: '',
     };
     const resp = await axios.post(url, data);
-    // console.log(resp);
     if (resp.data.estado === 'OK') {
-      const url2 = `http://www.wp.daxparts.com/api/cotizacion/CotSinCosto/${resp.data.dato[0].IdCliente}/${props.parte}/${props.itemMarca}`;
+      const url2 = `http://www.wp.daxparts.com/api/cotizacion/CotSinCosto/${resp.data.dato[0].IdCliente}/${parte}/${props.itemMarca}`;
       const resp2 = await axios.get(url2);
-      // console.log(resp2);
       if (resp2.data.estado === 'OK') {
         const coti = resp2.data.dato[0].NroCotizacion;
         swal({
@@ -105,7 +106,7 @@ const SignUpInfo = (props) => {
               className='custom-select'
               value={CodPais}
               onChange={(e) => setCodPais(e.target.value)}>
-              {props.paises.map((option) => (
+              {paises.map((option) => (
                 <option value={option.NomPais} key={option.CodPais}>
                   {option.NomPais}
                 </option>
@@ -155,13 +156,15 @@ const SignUpInfo = (props) => {
           <span
             className='pointer'
             onClick={() => {
-              props.openModal(
-                'open',
-                <LoginInfo
-                  idioma={props.idioma}
-                  itemMarca={props.itemMarca}
-                  parte={props.parte}
-                />
+              dispatch(
+                openModal(
+                  'open',
+                  <LoginInfo
+                    idioma={props.idioma}
+                    itemMarca={props.itemMarca}
+                    parte={parte}
+                  />
+                )
               );
             }}
             style={{ color: '#fca728' }}>
@@ -173,22 +176,4 @@ const SignUpInfo = (props) => {
   );
 };
 
-function mapStateToProps(state) {
-  return {
-    siteModal: state.siteModal,
-    country: state.country,
-    parte: state.parte,
-    paises: state.paises,
-  };
-}
-
-function mapDispatchToProps(dispacher) {
-  return bindActionCreators(
-    {
-      openModal: openModal,
-    },
-    dispacher
-  );
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(SignUpInfo);
+export default SignUpInfo;
