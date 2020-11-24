@@ -10,6 +10,7 @@ const SignUpBuy = (props) => {
   const dispatch = useDispatch();
   const country = useSelector((state) => state.country);
   const paises = useSelector((state) => state.paises);
+  const parte = useSelector((state) => state.parte);
   const idioma = props.idioma;
   const [NomCliente, setNomCliente] = useState('');
   const [NomContacto, setNomContacto] = useState('');
@@ -49,12 +50,17 @@ const SignUpBuy = (props) => {
       LogUsuario: LogUsuario,
       Contrasena: Contrasena,
     };
-
     const resp = await axios.post(url, data);
     if (resp.data.estado === 'OK') {
       setCodcliente(resp.data.dato[0].IdCliente);
-      const url2 = `http://www.wp.daxparts.com/api/cotizacion/CrearCot/${resp.data.dato[0].IdCliente}/${props.intCodRepuesto}`;
-      const resp2 = await axios.get(url2);
+      // const url2 = `http://www.wp.daxparts.com/api/cotizacion/CrearCot/${resp.data.dato[0].IdCliente}/${props.intCodRepuesto}`;
+      const url2 = 'http://www.wp.daxparts.com/api/cotizacion/CrearCot2';
+      const data2 = {
+        codcliente: resp.data.dato[0].IdCliente,
+        codrepuesto: props.intCodRepuesto,
+        nroparte: `${parte}`,
+      };
+      const resp2 = await axios.post(url2, data2);
       if (resp2.data.estado === 'OK') {
         setNroCotizacion(resp2.data.dato[0].NroCotizacion);
         setLogged(true);

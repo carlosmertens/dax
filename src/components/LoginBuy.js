@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import openModal from '../actions/openModal';
 import axios from 'axios';
 import swal from 'sweetalert';
@@ -8,6 +8,7 @@ import SignUpBuy from './SignUpBuy';
 
 const LoginBuy = (props) => {
   const dispatch = useDispatch();
+  const parte = useSelector((state) => state.parte);
   const [logusuario, setLogusuario] = useState('');
   const [clausuario, setClausuario] = useState('');
   const [logged, setLogged] = useState(false);
@@ -20,17 +21,19 @@ const LoginBuy = (props) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
     const url = 'http://www.wp.daxparts.com/api/sesion/validar';
     const data = { logusuario, clausuario };
     const resp = await axios.post(url, data);
-
     if (resp.data.estado === 'OK') {
       setCodcliente(resp.data.dato[0].logusuario);
-
-      const url2 = `http://www.wp.daxparts.com/api/cotizacion/CrearCot/${resp.data.dato[0].logusuario}/${props.intCodRepuesto}`;
-      const resp2 = await axios.get(url2);
-
+      // const url2 = `http://www.wp.daxparts.com/api/cotizacion/CrearCot/${resp.data.dato[0].logusuario}/${props.intCodRepuesto}`;
+      const url2 = 'http://www.wp.daxparts.com/api/cotizacion/CrearCot2';
+      const data2 = {
+        codcliente: resp.data.dato[0].logusuario,
+        codrepuesto: props.intCodRepuesto,
+        nroparte: `${parte}`,
+      };
+      const resp2 = await axios.post(url2, data2);
       if (resp2.data.estado === 'OK') {
         setNroCotizacion(resp2.data.dato[0].NroCotizacion);
         setLogged(true);
