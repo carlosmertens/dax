@@ -48,7 +48,6 @@ function App() {
     const fetchData = async () => {
       const response = await axios.get(countriesUrl);
       dispatch(paisesAction(response.data.dato));
-      console.log(response.data.dato);
     };
     fetchData();
   }, [country, dispatch]);
@@ -58,7 +57,6 @@ function App() {
     const fetchData = async () => {
       const response = await axios.get(brandsUrl);
       dispatch(marcasAction(response.data.dato));
-      console.log(response.data.dato);
     };
     fetchData();
   }, [dispatch]);
