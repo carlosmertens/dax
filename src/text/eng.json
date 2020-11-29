@@ -25,7 +25,7 @@
   },
 
   "ingresar": {
-    "titulo": "We will search your part, please give us your contact info.",
+    "titulo": "Thanks, please leave us your contact information.",
     "nombre": "Username",
     "password": "Password",
     "olvide": "Forgot your password?",
@@ -182,7 +182,7 @@
   "spinner": "SEARCHING THE PART NUMBER...",
 
   "infoParte": {
-    "titulo": "We don't have that part number. Help us to find it selecting the brand.",
+    "titulo": "We don't have that part registered. Please select the part brand and we will soon get back to you.",
     "holder": "Brand",
     "botonSiguiente": "Next",
     "botonCotizar": "Quote",
