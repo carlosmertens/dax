@@ -13,16 +13,23 @@ const Empresa = ({ idioma }) => (
     </div>
 
     <div className='container somos-texto'>
+      {/* <p>
+        {idioma.empresa.contenido} <br />
+        {idioma.empresa.contenido2} <br />
+        {idioma.empresa.contenido3} <br />
+        {idioma.empresa.contenido4} <br />
+        {idioma.empresa.contenido5}
+      </p> */}
+
       <p>{idioma.empresa.contenido}</p>
-      <br />
+      {/* <br /> */}
       <p>{idioma.empresa.contenido2}</p>
-      <br />
+      {/* <br /> */}
       <p>{idioma.empresa.contenido3}</p>
-      <br />
+      {/* <br /> */}
       <p>{idioma.empresa.contenido4}</p>
-      <br />
+      {/* <br /> */}
       <p>{idioma.empresa.contenido5}</p>
-      <br />
     </div>
   </div>
 );

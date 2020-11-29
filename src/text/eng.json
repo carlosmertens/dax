@@ -127,7 +127,7 @@
   },
 
   "buscamos": {
-    "mensaje": "Introduce the details of your Equipment or Engine.",
+    "mensaje": "Enter machine and/or engine information:",
     "titulo1": "Equipment:",
     "marca": "Equipment",
     "modelo": "Model",
