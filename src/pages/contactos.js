@@ -20,11 +20,15 @@ const Contacto = ({ idioma }) => (
       <div className='row align-items-center'>
         <div className='col-md'>
           <div className='contacto-texto'>
-            <p className='contacto-texto'>{idioma.contacto.contenido}</p>
-            <p className='contacto-texto1'>{idioma.contacto.contenido2}</p>
+            <p className='contacto-texto text-justify'>
+              {idioma.contacto.contenido}
+            </p>
+            <p className='contacto-texto1 text-justify pb-4'>
+              {idioma.contacto.contenido2}
+            </p>
           </div>
           <div className='contacto-country row'>
-            <div className='contacto-grupo col-md'>
+            <div className='contacto-grupo mb-4 col-md'>
               <img src={usa} alt='Bandera Usa' />
               <h4>{idioma.contacto.usa.nombre}</h4>
               <a className='contacto-email' href='mailto:dax@daxparts.com'>
@@ -35,7 +39,7 @@ const Contacto = ({ idioma }) => (
                 {idioma.contacto.usa.telefono}
               </a>
             </div>
-            <div className='contacto-grupo col-md'>
+            <div className='contacto-grupo mb-4 col-md'>
               <img src={bolivia} alt='Bandera Bolivia' />
               <h4>{idioma.contacto.bolivia.nombre}</h4>
               <a className='contacto-email' href='mailto:fabiola@daxparts.com'>
@@ -47,7 +51,7 @@ const Contacto = ({ idioma }) => (
               </a>
             </div>
           </div>
-          <div className='contacto-grupo row'>
+          <div className='contacto-grupo mb-4 row'>
             <div className='contacto-grupo col-md'>
               <img src={peru} alt='Bandera Peru' />
               <h4>{idioma.contacto.peru.nombre}</h4>
@@ -59,7 +63,7 @@ const Contacto = ({ idioma }) => (
                 {idioma.contacto.peru.telefono}
               </a>
             </div>
-            {/* <div className='contacto-grupo col-md'>
+            {/* <div className='contacto-grupo mb-4 col-md'>
               <img src={paraguay} alt='Bandera Paraguay' />
               <h4>{idioma.contacto.paraguay.nombre}</h4>
               <a className='contacto-email' href='mailto:ventaspy@daxparts.com'>

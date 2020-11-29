@@ -25,15 +25,10 @@ body {
   display: inline-block;
   text-rendering: optimizeSpeed;
 }
-/* ===== texto ===== */
 h1 {
   color: #fca728;
   font-weight: bolder;
   text-align: center;
-}
-/* ===== navbar ===== */
-.nav-link:hover {
-  color: #fca728 !important;
 }
 /* ===== button ===== */
 .btn {
@@ -141,13 +136,9 @@ header input {
   outline: none;
 }
 /* ===== link modal ===== */
-.button-link {
-  color: #fca728;
-  border: none;
-  background-color: transparent;
-  outline: none;
-}
+.button-link,
 .button-link:focus {
+  color: #fca728;
   border: none;
   background-color: transparent;
   outline: none;
@@ -162,17 +153,6 @@ header input {
 /* ===== CONTACTO ===== */
 .contacto-contenido .row {
   text-align: center;
-}
-.contacto-texto {
-  text-align: justify;
-  /* padding-bottom: 40px; */
-}
-.contacto-texto1 {
-  text-align: justify;
-  padding-bottom: 40px;
-}
-.contacto-grupo {
-  margin-bottom: 40px !important;
 }
 .contacto-grupo img {
   box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16) !important;
@@ -378,30 +358,6 @@ header input {
 /* SMALL devices (old iPhones, 480px and up) */
 @media only screen and (min-width: 480px) {
   .contacto-title h1 {
-    font-size: 50px;
-    padding-top: 20px;
-    margin-bottom: 50px;
-  }
-}
-/* MEDIUM devices (landscape tablets, 768px and up) */
-@media only screen and (min-width: 768px) {
-  .contacto-title h1 {
-    font-size: 60px;
-    padding-top: 20px;
-    margin-bottom: 50px;
-  }
-}
-/* LARGE devices (laptops/desktops, 992px and up) */
-@media only screen and (min-width: 992px) {
-  .contacto-title h1 {
-    font-size: 60px;
-    padding-top: 20px;
-    margin-bottom: 50px;
-  }
-}
-/* EXTRA LARGE devices (large laptops and desktops, 1200px and up) */
-@media only screen and (min-width: 1200px) {
-  .contacto-title h1 {
     font-size: 60px;
     padding-top: 20px;
     margin-bottom: 50px;
@@ -420,71 +376,6 @@ header input {
   .btn-comprar {
     font-size: 18px !important;
     width: 100px;
-  }
-}
-/* ==================== RESPONSIVE HACEMOS CSS ==================== */
-/* EXTRA SMALL devices (less than 480px) */
-@media only screen and (max-width: 480px) {
-  .hacemos-titulo h1 {
-    font-size: 40px;
-    padding-top: 20px;
-    padding-bottom: 30px;
-  }
-  .hacemos-texto {
-    font-size: 12px;
-  }
-  .dax-video {
-    margin-bottom: 40px;
-  }
-}
-/* SMALL devices (old iPhones, 480px and up) */
-@media only screen and (min-width: 480px) {
-  .hacemos-titulo h1 {
-    font-size: 50px;
-    padding-top: 20px;
-    padding-bottom: 40px;
-  }
-  .hacemos-texto {
-    font-size: 16px;
-  }
-  .dax-video {
-    margin-top: 40px;
-  }
-}
-/* MEDIUM devices (landscape tablets, 768px and up) */
-@media only screen and (min-width: 768px) {
-  .hacemos-titulo h1 {
-    font-size: 60px;
-    padding-top: 20px;
-    padding-bottom: 40px;
-  }
-  .hacemos-texto {
-    font-size: 18px;
-  }
-}
-/* LARGE devices (laptops/desktops, 992px and up) */
-@media only screen and (min-width: 992px) {
-  .hacemos-titulo h1 {
-    font-size: 60px;
-    padding-top: 20px;
-    padding-bottom: 100px;
-  }
-  .hacemos-texto {
-    font-size: 20px;
-    padding-right: 20px;
-    margin-right: 20px;
-  }
-}
-/* EXTRA LARGE devices (large laptops and desktops, 1200px and up) */
-@media only screen and (min-width: 1200px) {
-  .hacemos-titulo h1 {
-    font-size: 60px;
-    padding-top: 20px;
-    padding-bottom: 100px;
-  }
-  .hacemos-texto {
-    font-size: 20px;
-    padding: 40px;
   }
 }
 /* ==================== RESPONSIVE HOME =================== */
@@ -544,101 +435,23 @@ header input {
 @media only screen and (min-width: 480px) {
   .logo-centro {
     height: auto;
-    width: 250px;
-    margin-top: 70px;
+    width: 329px;
+    margin-top: 100px;
     margin-bottom: 40px;
   }
   header label {
-    font-size: 16px;
-    padding-bottom: 0px;
+    font-size: 24px;
+    padding-bottom: 2px;
     margin-right: 10px;
   }
   header input {
-    width: 230px;
-    height: 35px;
-    font-size: 14px;
+    width: 350px;
+    height: 40px;
+    font-size: 20px;
     margin-right: 5px;
     padding-left: 10px;
   }
   .btn-buscar {
-    font-size: 16px !important;
-    margin-bottom: 10px !important;
-  }
-  .button-link {
-    font-size: 12px;
-    text-decoration: #fca728 underline;
-    margin-left: 20px;
-  }
-  .logo-tutorial {
-    margin-top: 40px;
-    height: 35px;
-    width: auto;
-  }
-  .tutorial-text {
-    font-size: 12px;
-    color: #000000;
-  }
-}
-/* MEDIUM devices (landscape tablets, 768px and up) */
-@media only screen and (min-width: 768px) {
-  .logo-centro {
-    height: auto;
-    width: 300px;
-    margin-top: 80px;
-    margin-bottom: 40px;
-  }
-  header label {
-    font-size: 20px;
-    padding-bottom: 2px;
-    margin-right: 10px;
-  }
-  header input {
-    width: 350px;
-    height: 40px;
-    font-size: 18px;
-    /* color: black; */
-    margin-right: 5px;
-  }
-  .btn-buscar {
-    font-size: 22px !important;
-    margin-bottom: 10px !important;
-  }
-  .button-link {
-    font-size: 13px;
-    text-decoration: #fca728 underline;
-    margin-left: 20px;
-  }
-  .logo-tutorial {
-    margin-top: 50px;
-    height: 40px;
-    width: auto;
-  }
-  .tutorial-text {
-    font-size: 15px;
-    color: #000000;
-  }
-}
-/* LARGE devices (laptops/desktops, 992px and up) */
-@media only screen and (min-width: 992px) {
-  .logo-centro {
-    height: auto;
-    width: 329px;
-    margin-top: 100px;
-    margin-bottom: 40px;
-  }
-  header label {
-    font-size: 24px;
-    padding-bottom: 2px;
-    margin-right: 10px;
-  }
-  header input {
-    width: 350px;
-    height: 40px;
-    font-size: 20px;
-    /* color: black; */
-    margin-right: 5px;
-  }
-  .btn-buscar {
     font-size: 22px !important;
     margin-bottom: 10px !important;
   }
@@ -657,46 +470,7 @@ header input {
     color: #000000;
   }
 }
-/* EXTRA LARGE devices (large laptops and desktops, 1200px and up) */
-@media only screen and (min-width: 1200px) {
-  .logo-centro {
-    height: auto;
-    width: 329px;
-    margin-top: 100px;
-    margin-bottom: 40px;
-  }
-  header label {
-    font-size: 24px;
-    padding-bottom: 2px;
-    margin-right: 10px;
-  }
-  header input {
-    width: 350px;
-    height: 40px;
-    font-size: 20px;
-    /* color: black; */
-    margin-right: 5px;
-  }
-  .btn-buscar {
-    font-size: 22px !important;
-    margin-bottom: 10px !important;
-  }
-  .button-link {
-    font-size: 15px;
-    text-decoration: #fca728 underline;
-    margin-left: 20px;
-  }
-  .logo-tutorial {
-    margin-top: 60px;
-    height: 45px;
-    width: auto;
-  }
-  .tutorial-text {
-    font-size: 18px;
-    color: #000000;
-  }
-}
-/* ========== RESPONSIVE OFRECEMOS ========== */
+/* =================== RESPONSIVE OFRECEMOS ==================== */
 /* EXTRA SMALL devices (less than 480px) */
 @media only screen and (max-width: 480px) {
   .ofrecemos-titulo h1 {
@@ -721,24 +495,12 @@ header input {
 /* SMALL devices (old iPhones, 480px and up) */
 @media only screen and (min-width: 480px) {
   .ofrecemos-titulo h1 {
-    font-size: 50px;
+    font-size: 60px;
     padding-top: 20px;
-  }
-  .ofrecemos-contenido h4 {
-    margin: 40px 0px 60px 0px;
+    padding-bottom: 20px;
   }
   .ofrecemos-contenido .col {
     padding-bottom: 30px;
-  }
-}
-/* MEDIUM devices (landscape tablets, 768px and up) */
-@media only screen and (min-width: 768px) {
-  .ofrecemos-titulo h1 {
-    font-size: 60px;
-    padding-top: 20px;
-  }
-  .ofrecemos-contenido h4 {
-    margin: 40px 0px 100px 0px;
   }
 }
 /* LARGE devices (laptops/desktops, 992px and up) */
@@ -761,7 +523,7 @@ header input {
     margin: 40px 0px 100px 0px;
   }
 }
-/* ==================== RESPONSIVE SOMOS ==================== */
+/* ==================== RESPONSIVE EMPRESAS ==================== */
 /* EXTRA SMALL devices (less than 480px) */
 @media only screen and (max-width: 480px) {
   .empresa-titulo h1 {
@@ -779,20 +541,6 @@ header input {
 }
 /* SMALL devices (old iPhones, 480px and up) */
 @media only screen and (min-width: 480px) {
-  .empresa-titulo h1 {
-    font-size: 50px;
-    padding-top: 20px;
-  }
-  .empresa-contenido h2 {
-    font-size: 30px;
-  }
-  .empresa-texto {
-    font-size: 18px;
-    padding-top: 80px;
-  }
-}
-/* MEDIUM devices (landscape tablets, 768px and up) */
-@media only screen and (min-width: 768px) {
   .empresa-titulo h1 {
     font-size: 60px;
     padding-top: 20px;
@@ -858,15 +606,6 @@ header input {
 /* SMALL devices (old iPhones, 480px and up) */
 @media only screen and (min-width: 480px) {
   .tutorial-titulo h1 {
-    font-size: 50px;
-    padding-top: 20px;
-    margin-bottom: 40px;
-  }
-}
-
-/* MEDIUM devices (landscape tablets, 768px and up) */
-@media only screen and (min-width: 768px) {
-  .tutorial-titulo h1 {
     font-size: 60px;
     padding-top: 20px;
     margin-bottom: 50px;
@@ -891,7 +630,7 @@ header input {
     margin-bottom: 50px;
   }
 }
-/* ==================== RESPONSIVE NAVBAR CSS ==================== */
+/* ==================== RESPONSIVE NAVBAR ==================== */
 /* Extra small devices (less than 480px) */
 @media only screen and (max-width: 480px) {
   nav img {
@@ -918,34 +657,6 @@ header input {
   }
   .btn {
     font-size: 20px !important;
-  }
-}
-/* Medium devices (landscape tablets, 768px and up) */
-@media only screen and (min-width: 768px) {
-  nav img {
-    height: 50px;
-    width: auto;
-  }
-  .nav-link {
-    font-size: 20px !important;
-    margin-right: 25px !important;
-  }
-  .btn {
-    font-size: 20px !important;
-  }
-}
-/* Large devices (laptops/desktops, 992px and up) */
-@media only screen and (min-width: 992px) {
-  nav img {
-    height: 50px;
-    width: auto;
-  }
-  .nav-link {
-    font-size: 18px !important;
-    margin-right: 20px !important;
-  }
-  .btn {
-    font-size: 18px !important;
   }
 }
 /* Extra large devices (large laptops and desktops, 1200px and up) */

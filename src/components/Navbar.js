@@ -72,6 +72,13 @@ const Navbar = () => {
           </button>
         </div>
       </div>
+      <style jsx='true'>
+        {`
+          .nav-link:hover {
+            color: #fca728 !important;
+          }
+        `}
+      </style>
     </nav>
   );
 };
