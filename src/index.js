@@ -1,4 +1,4 @@
-import './styles/responsive.css';
+import './styles/App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle';
 import React from 'react';

@@ -1,6 +1,5 @@
 @import-normalize;
 
-/* *************************************** */
 /* ===== GLOBAL CSS ===== */
 * {
   padding: 0;
@@ -22,23 +21,20 @@ body {
   height: 100vh;
   width: 100%;
   font-size: 20px;
-  font-family: 'Ubuntu', 'Roboto' sans-serif;
+  font-family: 'Ubuntu', 'Roboto', sans-serif;
   display: inline-block;
   text-rendering: optimizeSpeed;
 }
-
 /* ===== texto ===== */
 h1 {
   color: #fca728;
   font-weight: bolder;
   text-align: center;
 }
-
 /* ===== navbar ===== */
 .nav-link:hover {
   color: #fca728 !important;
 }
-
 /* ===== button ===== */
 .btn {
   border-radius: 20px !important;
@@ -52,36 +48,12 @@ h1 {
 .btn:hover {
   background-color: #c9c5c0 !important;
 }
-
-.btn-idioma:link {
-  background-color: #fca728 !important;
-}
-.btn-idioma:visited {
-  background-color: #fca728 !important;
-}
-.btn-idioma:hover {
-  background-color: #fca728ab !important;
-}
+.btn-idioma:link,
+.btn-idioma:visited,
+.btn-idioma:hover,
 .btn-idioma:active {
   background-color: #fca728 !important;
 }
-
-/* *************************************** */
-/* ===== SPINNER ===== */
-.spinner-title h2 {
-  text-transform: uppercase;
-  font-size: 18px;
-  text-align: center;
-  margin-top: 60px;
-}
-.spinner-wrapper {
-  color: #fca728;
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  top: 40%;
-}
-
 /* *************************************** */
 /* ===== MODAL CONTENT ===== */
 /* ===== modal login/signup ===== */
@@ -109,15 +81,11 @@ h1 {
   width: 250px;
   height: 38px;
   font-size: 17px;
-  /* background: #d1c5c540 0% 0% no-repeat padding-box; */
   background-color: #d1c5c540;
   box-shadow: 0px 3px 6px #00000029;
   border-radius: 50px;
   opacity: 1;
   border: 0;
-  /* padding: 10px; */
-  /* margin: 5px; */
-  /* outline: none; */
 }
 .modal-body h4 {
   color: #fca728;
@@ -130,14 +98,9 @@ h1 {
   text-align: center;
   margin-top: 10px;
 }
-.me-olvide {
-  color: #fca728;
-  text-decoration: underline;
-}
 .pointer {
   cursor: pointer;
 }
-
 /* ===== modal noparte ===== */
 .modal-title {
   margin-bottom: 20px;
@@ -156,7 +119,6 @@ h1 {
 .icon-video {
   margin-top: 10px;
 }
-
 /* *************************************** */
 /* ===== HOME ===== */
 /* ===== header ===== */
@@ -166,11 +128,9 @@ header {
 .header-contenido {
   text-align: center;
 }
-
 .click-link {
   padding-top: 20px;
 }
-
 /* ===== form ===== */
 header input {
   background: #a79f9f40 0% 0% no-repeat padding-box;
@@ -180,7 +140,6 @@ header input {
   border: 0;
   outline: none;
 }
-
 /* ===== link modal ===== */
 .button-link {
   color: #fca728;
@@ -199,7 +158,6 @@ header input {
 .tutorial-text:hover {
   text-decoration: #000000 underline;
 }
-
 /* *************************************** */
 /* ===== CONTACTO ===== */
 .contacto-contenido .row {
@@ -209,12 +167,10 @@ header input {
   text-align: justify;
   /* padding-bottom: 40px; */
 }
-
 .contacto-texto1 {
   text-align: justify;
   padding-bottom: 40px;
 }
-
 .contacto-grupo {
   margin-bottom: 40px !important;
 }
@@ -233,7 +189,6 @@ header input {
   color: black;
   font-size: 18px;
 }
-
 /* *************************************** */
 /* ===== COTIZACION ===== */
 .cotizacion-title h1 {
@@ -258,7 +213,6 @@ header input {
 }
 .beneficios {
   border-radius: 15px;
-  /* width: 600px; */
   text-align: center;
   margin-top: 30px;
   margin-bottom: 30px;
@@ -283,33 +237,13 @@ header input {
   font-size: 25px !important;
   width: 159px;
 }
-
 .table-responsive {
   border-radius: 15px !important;
   text-align: center !important;
 }
-
 .title-cells {
   vertical-align: middle !important;
 }
-
-/* *************************************** */
-/* ===== HACEMOS ===== */
-.hacemos-texto {
-  text-align: justify;
-}
-
-/* *************************************** */
-/* ===== SOMOS ===== */
-.somos-contenido h2 {
-  text-align: center;
-  margin-bottom: 40px;
-}
-.somos-texto {
-  text-align: justify;
-  margin-bottom: 40px;
-}
-
 /* *************************************** */
 /* ===== OFRECEMOS ===== */
 .ofrecemos-contenido h4 {
@@ -335,7 +269,6 @@ header input {
 .ofrecemos-texto {
   text-align: left;
 }
-
 /* *************************************** */
 /* ===== TUTORIAL ===== */
 .tutorial .row {
@@ -371,9 +304,7 @@ header input {
 }
 .tutorial-video-texto span {
   font-size: 120px;
-  /* color: #fca728; */
 }
-
 /* *************************************** */
 /* ===== BUSCAMOS ===== */
 .description {
@@ -384,18 +315,6 @@ header input {
   opacity: 1;
   border: 0;
 }
-
-/* ===== IDIOMA ===== */
-.pais-idioma {
-  margin-top: 15px;
-}
-.btn-idioma {
-  font-size: 15px !important;
-  height: 30px !important;
-  border-radius: 15px !important;
-  margin-top: 0px !important;
-}
-
 /* *************************************** */
 /* ===== MODAL ===== */
 .site-modal {
@@ -409,7 +328,6 @@ header input {
   background-color: rgb(0, 0, 0); /* Fallback color */
   background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
 }
-
 .modal-content {
   background-color: #fefefe;
   margin: 15% auto;
@@ -418,7 +336,6 @@ header input {
   width: 90%;
   border-radius: 20px;
 }
-
 .site-modal .close {
   color: #fca728;
   float: right;
@@ -427,14 +344,12 @@ header input {
   width: 23px;
   padding: 4px;
 }
-
 .close:hover,
 .close:focus {
   color: black;
   text-decoration: none;
   cursor: pointer;
 }
-
 /* ===== PAIS ===== */
 .pais-idioma {
   margin-top: 15px;
@@ -447,4 +362,603 @@ header input {
 }
 .pais-texto {
   font-size: 20px;
+}
+/* ==================== RESPONSIVE CONTACTO ==================== */
+/* EXTRA SMALL devices (less than 480px) */
+@media only screen and (max-width: 480px) {
+  .contacto-title h1 {
+    font-size: 40px;
+    padding-top: 20px;
+    padding-bottom: 30px;
+  }
+  .contacto-contenido .col-md {
+    padding-bottom: 30px;
+  }
+}
+/* SMALL devices (old iPhones, 480px and up) */
+@media only screen and (min-width: 480px) {
+  .contacto-title h1 {
+    font-size: 50px;
+    padding-top: 20px;
+    margin-bottom: 50px;
+  }
+}
+/* MEDIUM devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+  .contacto-title h1 {
+    font-size: 60px;
+    padding-top: 20px;
+    margin-bottom: 50px;
+  }
+}
+/* LARGE devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+  .contacto-title h1 {
+    font-size: 60px;
+    padding-top: 20px;
+    margin-bottom: 50px;
+  }
+}
+/* EXTRA LARGE devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+  .contacto-title h1 {
+    font-size: 60px;
+    padding-top: 20px;
+    margin-bottom: 50px;
+  }
+}
+/* ==================== RESPONSIVE COTIZACION ==================== */
+/* EXTRA SMALL devices (less than 480px) */
+@media only screen and (max-width: 480px) {
+  .btn-comprar {
+    font-size: 15px !important;
+    width: 80px;
+  }
+}
+/* SMALL devices (old iPhones, 480px and up) */
+@media only screen and (min-width: 480px) {
+  .btn-comprar {
+    font-size: 18px !important;
+    width: 100px;
+  }
+}
+/* ==================== RESPONSIVE HACEMOS CSS ==================== */
+/* EXTRA SMALL devices (less than 480px) */
+@media only screen and (max-width: 480px) {
+  .hacemos-titulo h1 {
+    font-size: 40px;
+    padding-top: 20px;
+    padding-bottom: 30px;
+  }
+  .hacemos-texto {
+    font-size: 12px;
+  }
+  .dax-video {
+    margin-bottom: 40px;
+  }
+}
+/* SMALL devices (old iPhones, 480px and up) */
+@media only screen and (min-width: 480px) {
+  .hacemos-titulo h1 {
+    font-size: 50px;
+    padding-top: 20px;
+    padding-bottom: 40px;
+  }
+  .hacemos-texto {
+    font-size: 16px;
+  }
+  .dax-video {
+    margin-top: 40px;
+  }
+}
+/* MEDIUM devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+  .hacemos-titulo h1 {
+    font-size: 60px;
+    padding-top: 20px;
+    padding-bottom: 40px;
+  }
+  .hacemos-texto {
+    font-size: 18px;
+  }
+}
+/* LARGE devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+  .hacemos-titulo h1 {
+    font-size: 60px;
+    padding-top: 20px;
+    padding-bottom: 100px;
+  }
+  .hacemos-texto {
+    font-size: 20px;
+    padding-right: 20px;
+    margin-right: 20px;
+  }
+}
+/* EXTRA LARGE devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+  .hacemos-titulo h1 {
+    font-size: 60px;
+    padding-top: 20px;
+    padding-bottom: 100px;
+  }
+  .hacemos-texto {
+    font-size: 20px;
+    padding: 40px;
+  }
+}
+/* ==================== RESPONSIVE HOME =================== */
+/* EXTRA SMALL devices (less than 480px) */
+@media only screen and (max-width: 480px) {
+  .pais-bandera {
+    height: 20px;
+    width: auto;
+    margin-right: 3px;
+  }
+  .pais-texto {
+    font-size: 15px;
+  }
+  .btn-idioma {
+    font-size: 13px !important;
+    height: 32px !important;
+  }
+  .logo-centro {
+    height: auto;
+    width: 250px;
+    margin-top: 40px;
+    margin-bottom: 30px;
+  }
+  header label {
+    font-size: 18px;
+    padding-bottom: 0px;
+    margin-right: 10px;
+  }
+  header input {
+    width: 230px;
+    height: 35px;
+    font-size: 14px;
+    margin-right: 5px;
+    margin-bottom: 10px;
+    padding-left: 10px;
+  }
+  .btn-buscar {
+    font-size: 16px !important;
+    margin-bottom: 15px !important;
+  }
+  .button-link {
+    font-size: 12px;
+    text-decoration: #fca728 underline;
+    margin-top: 20px;
+  }
+  .logo-tutorial {
+    margin-top: 30px;
+    height: 35px;
+    width: auto;
+  }
+  .tutorial-text {
+    font-size: 12px;
+    color: #000000;
+  }
+}
+/* SMALL devices (old iPhones, 480px AND UP) */
+@media only screen and (min-width: 480px) {
+  .logo-centro {
+    height: auto;
+    width: 250px;
+    margin-top: 70px;
+    margin-bottom: 40px;
+  }
+  header label {
+    font-size: 16px;
+    padding-bottom: 0px;
+    margin-right: 10px;
+  }
+  header input {
+    width: 230px;
+    height: 35px;
+    font-size: 14px;
+    margin-right: 5px;
+    padding-left: 10px;
+  }
+  .btn-buscar {
+    font-size: 16px !important;
+    margin-bottom: 10px !important;
+  }
+  .button-link {
+    font-size: 12px;
+    text-decoration: #fca728 underline;
+    margin-left: 20px;
+  }
+  .logo-tutorial {
+    margin-top: 40px;
+    height: 35px;
+    width: auto;
+  }
+  .tutorial-text {
+    font-size: 12px;
+    color: #000000;
+  }
+}
+/* MEDIUM devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+  .logo-centro {
+    height: auto;
+    width: 300px;
+    margin-top: 80px;
+    margin-bottom: 40px;
+  }
+  header label {
+    font-size: 20px;
+    padding-bottom: 2px;
+    margin-right: 10px;
+  }
+  header input {
+    width: 350px;
+    height: 40px;
+    font-size: 18px;
+    /* color: black; */
+    margin-right: 5px;
+  }
+  .btn-buscar {
+    font-size: 22px !important;
+    margin-bottom: 10px !important;
+  }
+  .button-link {
+    font-size: 13px;
+    text-decoration: #fca728 underline;
+    margin-left: 20px;
+  }
+  .logo-tutorial {
+    margin-top: 50px;
+    height: 40px;
+    width: auto;
+  }
+  .tutorial-text {
+    font-size: 15px;
+    color: #000000;
+  }
+}
+/* LARGE devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+  .logo-centro {
+    height: auto;
+    width: 329px;
+    margin-top: 100px;
+    margin-bottom: 40px;
+  }
+  header label {
+    font-size: 24px;
+    padding-bottom: 2px;
+    margin-right: 10px;
+  }
+  header input {
+    width: 350px;
+    height: 40px;
+    font-size: 20px;
+    /* color: black; */
+    margin-right: 5px;
+  }
+  .btn-buscar {
+    font-size: 22px !important;
+    margin-bottom: 10px !important;
+  }
+  .button-link {
+    font-size: 15px;
+    text-decoration: #fca728 underline;
+    margin-left: 20px;
+  }
+  .logo-tutorial {
+    margin-top: 60px;
+    height: 45px;
+    width: auto;
+  }
+  .tutorial-text {
+    font-size: 18px;
+    color: #000000;
+  }
+}
+/* EXTRA LARGE devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+  .logo-centro {
+    height: auto;
+    width: 329px;
+    margin-top: 100px;
+    margin-bottom: 40px;
+  }
+  header label {
+    font-size: 24px;
+    padding-bottom: 2px;
+    margin-right: 10px;
+  }
+  header input {
+    width: 350px;
+    height: 40px;
+    font-size: 20px;
+    /* color: black; */
+    margin-right: 5px;
+  }
+  .btn-buscar {
+    font-size: 22px !important;
+    margin-bottom: 10px !important;
+  }
+  .button-link {
+    font-size: 15px;
+    text-decoration: #fca728 underline;
+    margin-left: 20px;
+  }
+  .logo-tutorial {
+    margin-top: 60px;
+    height: 45px;
+    width: auto;
+  }
+  .tutorial-text {
+    font-size: 18px;
+    color: #000000;
+  }
+}
+/* ========== RESPONSIVE OFRECEMOS ========== */
+/* EXTRA SMALL devices (less than 480px) */
+@media only screen and (max-width: 480px) {
+  .ofrecemos-titulo h1 {
+    font-size: 40px;
+    padding-top: 20px;
+  }
+  .ofrecemos-contenido h4 {
+    font-size: 22px;
+    padding-top: 30px;
+    padding-bottom: 20px;
+  }
+  .ofrecemos-contenido .col-sm {
+    padding-bottom: 30px;
+  }
+  .ofrecemos-opciones {
+    margin-bottom: 0px !important;
+  }
+  .ofrecemos-contenido .col {
+    padding-bottom: 30px;
+  }
+}
+/* SMALL devices (old iPhones, 480px and up) */
+@media only screen and (min-width: 480px) {
+  .ofrecemos-titulo h1 {
+    font-size: 50px;
+    padding-top: 20px;
+  }
+  .ofrecemos-contenido h4 {
+    margin: 40px 0px 60px 0px;
+  }
+  .ofrecemos-contenido .col {
+    padding-bottom: 30px;
+  }
+}
+/* MEDIUM devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+  .ofrecemos-titulo h1 {
+    font-size: 60px;
+    padding-top: 20px;
+  }
+  .ofrecemos-contenido h4 {
+    margin: 40px 0px 100px 0px;
+  }
+}
+/* LARGE devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+  .ofrecemos-titulo h1 {
+    font-size: 60px;
+    padding-top: 20px;
+  }
+  .ofrecemos-contenido h4 {
+    margin: 40px 0px 100px 0px;
+  }
+}
+/* EXTRA LARGE devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+  .ofrecemos-titulo h1 {
+    font-size: 60px;
+    padding-top: 20px;
+  }
+  .ofrecemos-contenido h4 {
+    margin: 40px 0px 100px 0px;
+  }
+}
+/* ==================== RESPONSIVE SOMOS ==================== */
+/* EXTRA SMALL devices (less than 480px) */
+@media only screen and (max-width: 480px) {
+  .empresa-titulo h1 {
+    font-size: 40px;
+    padding-top: 20px;
+  }
+  .empresa-contenido h2 {
+    font-size: 30px;
+    margin-bottom: 20px;
+  }
+  .empresa-texto {
+    font-size: 13px;
+    padding-top: 20px;
+  }
+}
+/* SMALL devices (old iPhones, 480px and up) */
+@media only screen and (min-width: 480px) {
+  .empresa-titulo h1 {
+    font-size: 50px;
+    padding-top: 20px;
+  }
+  .empresa-contenido h2 {
+    font-size: 30px;
+  }
+  .empresa-texto {
+    font-size: 18px;
+    padding-top: 80px;
+  }
+}
+/* MEDIUM devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+  .empresa-titulo h1 {
+    font-size: 60px;
+    padding-top: 20px;
+  }
+  .empresa-contenido h2 {
+    font-size: 35px;
+  }
+  .empresa-texto {
+    font-size: 20px;
+    padding-top: 80px;
+  }
+}
+/* LARGE devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+  .empresa-titulo h1 {
+    font-size: 60px;
+    padding-top: 20px;
+  }
+  .empresa-contenido h2 {
+    font-size: 40px;
+  }
+  .empresa-texto {
+    font-size: 20px;
+    padding-top: 80px;
+  }
+}
+/* EXTRA LARGE devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+  .empresa-titulo h1 {
+    font-size: 60px;
+    padding-top: 20px;
+  }
+  .empresa-texto h2 {
+    font-size: 50px;
+    color: #5f5959;
+    margin-top: 60px;
+    margin-bottom: 60px;
+  }
+  .empresa-texto {
+    font-size: 20px;
+    padding-top: 80px;
+  }
+}
+/* ==================== RESPONSIVE TUTORIAL ==================== */
+/* EXTRA SMALL devices (less than 480px) */
+@media only screen and (max-width: 480px) {
+  .tutorial-titulo h1 {
+    font-size: 40px;
+    padding-top: 20px;
+    padding-bottom: 30px;
+  }
+  .tutorial-subtitle {
+    padding-bottom: 20px;
+  }
+  .tutorial-contenido .col-sm {
+    padding-bottom: 40px;
+  }
+  .logo-video {
+    height: 35px;
+    width: auto;
+  }
+}
+/* SMALL devices (old iPhones, 480px and up) */
+@media only screen and (min-width: 480px) {
+  .tutorial-titulo h1 {
+    font-size: 50px;
+    padding-top: 20px;
+    margin-bottom: 40px;
+  }
+}
+
+/* MEDIUM devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+  .tutorial-titulo h1 {
+    font-size: 60px;
+    padding-top: 20px;
+    margin-bottom: 50px;
+  }
+}
+/* LARGE devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+  .tutorial-titulo h1 {
+    font-size: 60px;
+    padding-top: 20px;
+    margin-bottom: 60px;
+  }
+}
+/* EXTRA LARGE devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+  .tutorial-titulo h1 {
+    font-size: 60px;
+    padding-top: 20px;
+    margin-bottom: 60px;
+  }
+  .tutorial-subtitulo {
+    margin-bottom: 50px;
+  }
+}
+/* ==================== RESPONSIVE NAVBAR CSS ==================== */
+/* Extra small devices (less than 480px) */
+@media only screen and (max-width: 480px) {
+  nav img {
+    height: 50px;
+    width: auto;
+  }
+  .nav-link {
+    font-size: 20px !important;
+    margin-right: 25px !important;
+  }
+  .btn {
+    font-size: 20px !important;
+  }
+}
+/* Small devices (old iPhones, 480px and up) */
+@media only screen and (min-width: 480px) {
+  nav img {
+    height: 50px;
+    width: auto;
+  }
+  .nav-link {
+    font-size: 20px !important;
+    margin-right: 25px !important;
+  }
+  .btn {
+    font-size: 20px !important;
+  }
+}
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+  nav img {
+    height: 50px;
+    width: auto;
+  }
+  .nav-link {
+    font-size: 20px !important;
+    margin-right: 25px !important;
+  }
+  .btn {
+    font-size: 20px !important;
+  }
+}
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+  nav img {
+    height: 50px;
+    width: auto;
+  }
+  .nav-link {
+    font-size: 18px !important;
+    margin-right: 20px !important;
+  }
+  .btn {
+    font-size: 18px !important;
+  }
+}
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+  nav img {
+    height: 50px;
+    width: auto;
+  }
+  .nav-link {
+    font-size: 20px !important;
+    margin-right: 25px !important;
+  }
+  .btn {
+    font-size: 20px !important;
+  }
 }

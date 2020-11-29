@@ -12,6 +12,23 @@ const Spinner = ({ idioma }) => (
     {/* <div className='spinner-title'>
       <h2>{idioma.spinner}</h2>
     </div> */}
+    <style jsx='true'>
+      {`
+        .spinner-title h2 {
+          text-transform: uppercase;
+          font-size: 18px;
+          text-align: center;
+          margin-top: 60px;
+        }
+        .spinner-wrapper {
+          color: #fca728;
+          position: absolute;
+          left: 50%;
+          transform: translateX(-50%);
+          top: 40%;
+        }
+      `}
+    </style>
   </React.Fragment>
 );
 
