@@ -16,6 +16,7 @@ import Navbar from './components/Navbar';
 import Modal from './components/Modal';
 import spanish from './text/esp.json';
 import english from './text/eng.json';
+import sesionAction from './actions/sesionAction';
 
 function App() {
   const country = useSelector((state) => state.country);
@@ -38,6 +39,15 @@ function App() {
     const fetchData = async () => {
       const response = await axios.get(locationUrl);
       dispatch(countryAction(response.data.country));
+    };
+    fetchData();
+  }, [dispatch]);
+
+  useEffect(() => {
+    const sesionUrl = 'http://www.wp.daxparts.com/api/cotizacion/BitVisita';
+    const fetchData = async () => {
+      const response = await axios.get(sesionUrl);
+      dispatch(sesionAction(response.data.dato[0].CodRegistro));
     };
     fetchData();
   }, [dispatch]);

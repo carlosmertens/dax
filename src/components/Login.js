@@ -30,6 +30,7 @@ const Login = ({ idioma }) => {
     if (resp.data.estado === 'OK') {
       const cod = resp.data.dato[0].logusuario;
       setCodcliente(cod);
+      //
       setLogged(true);
     } else {
       swal({

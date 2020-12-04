@@ -5,6 +5,7 @@ import countryReducer from './countryReducer';
 import paisesReducer from './paisesReducer';
 import idiomaReducer from './idiomaReducer';
 import marcasReducer from './marcasReducer';
+import sesionReducer from './sesionReducer';
 
 const rootReducer = combineReducers({
   siteModal: siteModal,
@@ -13,6 +14,7 @@ const rootReducer = combineReducers({
   paises: paisesReducer,
   idioma: idiomaReducer,
   marcas: marcasReducer,
+  sesion: sesionReducer,
 });
 
 export default rootReducer;
