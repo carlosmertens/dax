@@ -10,6 +10,7 @@ const SignUpBuscamos = (props) => {
   const dispatch = useDispatch();
   const country = useSelector((state) => state.country);
   const paises = useSelector((state) => state.paises);
+  const sesion = useSelector((state) => state.sesion);
   const [NomCliente, setNomCliente] = useState('');
   const [NomContacto, setNomContacto] = useState('');
   const [CodPais, setCodPais] = useState(country);
@@ -40,7 +41,6 @@ const SignUpBuscamos = (props) => {
       Contrasena: '',
     };
     const resp = await axios.post(url, data);
-    console.log(resp);
     if (resp.data.estado === 'OK') {
       const url2 = 'http://www.wp.daxparts.com/api/cotizacion/CrearCotSc';
       const data2 = {
@@ -55,9 +55,11 @@ const SignUpBuscamos = (props) => {
         CodCliente: resp.data.dato[0].logusuario,
       };
       const resp2 = await axios.post(url2, data2);
-      console.log(resp2);
       if (resp2.data.estado === 'OK') {
         const coti = resp2.data.dato[0].NroCotizacion;
+        const url3 = `http://www.wp.daxparts.com/api/cotizacion/BitModVisita/${sesion}/${coti}`;
+        await axios.get(url3);
+        // console.log(await axios.get(url3));
         swal({
           title: `${props.idioma.buscamos.swalTitle} ${coti}`,
           text: `${props.idioma.buscamos.swalText}`,

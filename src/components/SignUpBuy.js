@@ -11,6 +11,7 @@ const SignUpBuy = (props) => {
   const country = useSelector((state) => state.country);
   const paises = useSelector((state) => state.paises);
   const parte = useSelector((state) => state.parte);
+  const sesion = useSelector((state) => state.sesion);
   const idioma = props.idioma;
   const [NomCliente, setNomCliente] = useState('');
   const [NomContacto, setNomContacto] = useState('');
@@ -53,7 +54,6 @@ const SignUpBuy = (props) => {
     const resp = await axios.post(url, data);
     if (resp.data.estado === 'OK') {
       setCodcliente(resp.data.dato[0].IdCliente);
-      // const url2 = `http://www.wp.daxparts.com/api/cotizacion/CrearCot/${resp.data.dato[0].IdCliente}/${props.intCodRepuesto}`;
       const url2 = 'http://www.wp.daxparts.com/api/cotizacion/CrearCot2';
       const data2 = {
         codcliente: resp.data.dato[0].IdCliente,
@@ -63,6 +63,9 @@ const SignUpBuy = (props) => {
       const resp2 = await axios.post(url2, data2);
       if (resp2.data.estado === 'OK') {
         setNroCotizacion(resp2.data.dato[0].NroCotizacion);
+        const url3 = `http://www.wp.daxparts.com/api/cotizacion/BitModVisita/${sesion}/${resp.data.dato[0].IdCliente}`;
+        await axios.get(url3);
+        // console.log(await axios.get(url3));
         setLogged(true);
       } else {
         swal({

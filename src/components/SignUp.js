@@ -10,6 +10,7 @@ const SignUp = (props) => {
   const dispatch = useDispatch();
   const country = useSelector((state) => state.country);
   const paises = useSelector((state) => state.paises);
+  const sesion = useSelector((state) => state.sesion);
   const [NomCliente, setNomCliente] = useState('');
   const [NomContacto, setNomContacto] = useState('');
   const [CodPais, setCodPais] = useState(country);
@@ -52,6 +53,9 @@ const SignUp = (props) => {
     if (resp.data.estado === 'OK') {
       const cod = resp.data.dato[0].IdCliente;
       setCodcliente(cod);
+      const url2 = `http://www.wp.daxparts.com/api/cotizacion/BitModVisita/${sesion}/${resp.data.dato[0].IdCliente}`;
+      await axios.get(url2);
+      // console.log(await axios.get(urlSesion));
       setLogged(true);
     } else {
       swal({

@@ -11,6 +11,7 @@ const SignUpInfo = (props) => {
   const country = useSelector((state) => state.country);
   const paises = useSelector((state) => state.paises);
   const parte = useSelector((state) => state.parte);
+  const sesion = useSelector((state) => state.sesion);
   const idioma = props.idioma;
   const [NomCliente, setNomCliente] = useState('');
   const [NomContacto, setNomContacto] = useState('');
@@ -42,17 +43,20 @@ const SignUpInfo = (props) => {
       LogUsuario: '',
       Contrasena: '',
     };
-    const response = await axios.post(url, data);
-    if (response.data.estado === 'OK') {
+    const resp = await axios.post(url, data);
+    if (resp.data.estado === 'OK') {
       const url2 = 'http://www.wp.daxparts.com/api/cotizacion/CotSinCosto2';
       const data2 = {
-        codcliente: response.data.dato[0].IdCliente,
+        codcliente: resp.data.dato[0].IdCliente,
         nroparte: `${parte}`,
         marca: props.itemMarca,
       };
-      const response2 = await axios.post(url2, data2);
-      if (response2.data.estado === 'OK') {
-        const coti = response2.data.dato[0].NroCotizacion;
+      const resp2 = await axios.post(url2, data2);
+      if (resp2.data.estado === 'OK') {
+        const coti = resp2.data.dato[0].NroCotizacion;
+        const url3 = `http://www.wp.daxparts.com/api/cotizacion/BitModVisita/${sesion}/${resp.data.dato[0].IdCliente}`;
+        await axios.get(url3);
+        // console.log(await axios.get(url3));
         swal({
           title: `${props.idioma.buscamos.swalTitle} ${coti}`,
           text: `${props.idioma.buscamos.swalText}`,
