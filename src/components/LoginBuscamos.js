@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import openModal from '../actions/openModal';
 import axios from 'axios';
 import swal from 'sweetalert';
@@ -8,6 +8,7 @@ import SignUpBuscamos from './SignUpBuscamos';
 
 const LoginBuscamos = (props) => {
   const dispatch = useDispatch();
+  const sesion = useSelector((state) => state.sesion);
   const [logusuario, setLogusuario] = useState('');
   const [clausuario, setClausuario] = useState('');
   const [logged, setLogged] = useState(false);
@@ -24,7 +25,6 @@ const LoginBuscamos = (props) => {
     const data = { logusuario, clausuario };
     const resp = await axios.post(url, data);
     if (resp.data.estado === 'OK') {
-      console.log(resp);
       setCodcliente(resp.data.dato[0].logusuario);
       const url2 = 'http://www.wp.daxparts.com/api/cotizacion/CrearCotSc';
       const data2 = {
@@ -40,8 +40,10 @@ const LoginBuscamos = (props) => {
       };
       const resp2 = await axios.post(url2, data2);
       if (resp2.data.estado === 'OK') {
-        console.log(resp2);
         setNroCotizacion(resp2.data.dato[0].NroCotizacion);
+        const url3 = `http://www.wp.daxparts.com/api/cotizacion/BitModVisita/${sesion}/${resp.data.dato[0].logusuario}`;
+        await axios.get(url3);
+        // console.log(await axios.get(url3));
         setLogged(true);
         closeModal();
       } else {

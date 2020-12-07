@@ -14,7 +14,6 @@ const Homepage = ({ language, onChangeLanguage }) => {
   const dispatch = useDispatch();
   const idioma = useSelector((state) => state.idioma);
   const country = useSelector((state) => state.country);
-  const sesion = useSelector((state) => state.sesion);
   const [cotizar, setCotizar] = useState(false);
 
   const onSubmitSearch = (e) => {
@@ -23,8 +22,6 @@ const Homepage = ({ language, onChangeLanguage }) => {
       setCotizar(true);
     }
   };
-
-  console.log('sesion: ', sesion);
 
   return (
     <React.Fragment>

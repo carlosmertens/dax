@@ -9,6 +9,7 @@ import SignUpInfo from './SignUpInfo';
 const LoginInfo = (props) => {
   const dispatch = useDispatch();
   const parte = useSelector((state) => state.parte);
+  const sesion = useSelector((state) => state.sesion);
   const [logusuario, setLogusuario] = useState('');
   const [clausuario, setClausuario] = useState('');
   const [logged, setLogged] = useState(false);
@@ -35,6 +36,9 @@ const LoginInfo = (props) => {
       const resp2 = await axios.post(url2, data2);
       if (resp2.data.estado === 'OK') {
         setNroCotizacion(resp2.data.dato[0].NroCotizacion);
+        const url3 = `http://www.wp.daxparts.com/api/cotizacion/BitModVisita/${sesion}/${resp.data.dato[0].logusuario}`;
+        await axios.get(url3);
+        // console.log(await axios.get(url3));
         setLogged(true);
         closeModal();
       } else {

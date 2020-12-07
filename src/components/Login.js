@@ -1,13 +1,15 @@
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import openModal from '../actions/openModal';
 import axios from 'axios';
 import swal from 'sweetalert';
 import navLogo from '../img/logoNav.png';
 import SignUp from './SignUp';
 
-const Login = ({ idioma }) => {
+const Login = () => {
   const dispatch = useDispatch();
+  const idioma = useSelector((state) => state.idioma);
+  const sesion = useSelector((state) => state.sesion);
   const [logusuario, setLogusuario] = useState('');
   const [clausuario, setClausuario] = useState('');
   const [logged, setLogged] = useState(false);
@@ -25,12 +27,15 @@ const Login = ({ idioma }) => {
       logusuario,
       clausuario,
     };
-
     const resp = await axios.post(url, data);
+    // console.log(resp.data);
+
     if (resp.data.estado === 'OK') {
       const cod = resp.data.dato[0].logusuario;
       setCodcliente(cod);
-      //
+      const url2 = `http://www.wp.daxparts.com/api/cotizacion/BitModVisita/${sesion}/${resp.data.dato[0].logusuario}`;
+      await axios.get(url2);
+      // console.log(await axios.get(urlSesion));
       setLogged(true);
     } else {
       swal({
@@ -42,6 +47,7 @@ const Login = ({ idioma }) => {
     closeModal();
   };
 
+  // console.log(codcliente);
   return (
     <>
       {logged ? (
