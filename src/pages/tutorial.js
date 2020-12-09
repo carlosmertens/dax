@@ -35,7 +35,7 @@ const Tutorial = ({ idioma }) => (
               <span className=''>Dax Castellano</span>
             </div>
           </div>
-          <div className='row'>
+          {/* <div className='row'>
             <div className='col'>
               <iframe
                 className='embed-responsive-item'
@@ -45,8 +45,8 @@ const Tutorial = ({ idioma }) => (
             <div className='col'>
               <span className='tutorial-video-texto'>Dax English</span>
             </div>
-          </div>
-          <div className='row'>
+          </div> */}
+          {/* <div className='row'>
             <div className='col'>
               <iframe
                 className='embed-responsive-item'
@@ -56,7 +56,7 @@ const Tutorial = ({ idioma }) => (
             <div className='col'>
               <span className='tutorial-video-texto'>Demo</span>
             </div>
-          </div>
+          </div> */}
         </div>
         <div className='col-sm'>
           <div className='container'>
