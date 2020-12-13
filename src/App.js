@@ -3,8 +3,8 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import axios from 'axios';
 import countryAction from './actions/countryAction';
-import paisesAction from './actions/paisesAction';
-import marcasAction from './actions/marcasAction';
+// import paisesAction from './actions/paisesAction';
+// import marcasAction from './actions/marcasAction';
 import idiomaAction from './actions/idiomaAction';
 import Homepage from './pages/homepage';
 import Empresa from './pages/empresa';
@@ -16,10 +16,10 @@ import Navbar from './components/Navbar';
 import Modal from './components/Modal';
 import spanish from './text/esp.json';
 import english from './text/eng.json';
-import sesionAction from './actions/sesionAction';
+// import sesionAction from './actions/sesionAction';
 
 function App() {
-  const country = useSelector((state) => state.country);
+  // const country = useSelector((state) => state.country);
   const idioma = useSelector((state) => state.idioma);
   const dispatch = useDispatch();
   const [language, setLanguage] = useState('Español');
@@ -43,32 +43,32 @@ function App() {
     fetchData();
   }, [dispatch]);
 
-  useEffect(() => {
-    const sesionUrl = 'http://www.wp.daxparts.com/api/cotizacion/BitVisita';
-    const fetchData = async () => {
-      const response = await axios.get(sesionUrl);
-      dispatch(sesionAction(response.data.dato[0].CodRegistro));
-    };
-    fetchData();
-  }, [dispatch]);
+  // useEffect(() => {
+  //   const sesionUrl = 'http://www.wp.daxparts.com/api/cotizacion/BitVisita';
+  //   const fetchData = async () => {
+  //     const response = await axios.get(sesionUrl);
+  //     dispatch(sesionAction(response.data.dato[0].CodRegistro));
+  //   };
+  //   fetchData();
+  // }, [dispatch]);
 
-  useEffect(() => {
-    const countriesUrl = `http://www.wp.daxparts.com/api/pais/listado3/${country}`;
-    const fetchData = async () => {
-      const response = await axios.get(countriesUrl);
-      dispatch(paisesAction(response.data.dato));
-    };
-    fetchData();
-  }, [country, dispatch]);
+  // useEffect(() => {
+  //   const countriesUrl = `http://www.wp.daxparts.com/api/pais/listado3/${country}`;
+  //   const fetchData = async () => {
+  //     const response = await axios.get(countriesUrl);
+  //     dispatch(paisesAction(response.data.dato));
+  //   };
+  //   fetchData();
+  // }, [country, dispatch]);
 
-  useEffect(() => {
-    const brandsUrl = 'http://www.wp.daxparts.com/api/marca/listado3';
-    const fetchData = async () => {
-      const response = await axios.get(brandsUrl);
-      dispatch(marcasAction(response.data.dato));
-    };
-    fetchData();
-  }, [dispatch]);
+  // useEffect(() => {
+  //   const brandsUrl = 'http://www.wp.daxparts.com/api/marca/listado3';
+  //   const fetchData = async () => {
+  //     const response = await axios.get(brandsUrl);
+  //     dispatch(marcasAction(response.data.dato));
+  //   };
+  //   fetchData();
+  // }, [dispatch]);
 
   return (
     <Router>
