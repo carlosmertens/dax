@@ -60,7 +60,7 @@ const Login = () => {
             <img src={navLogo} alt='Dax Logo' />
           </div>
 
-          <div className='modal-body'>
+          <div id='modal-ingresar' className='modal-body'>
             <form onSubmit={handleSubmit}>
               <div className='form-group d-flex justify-content-center'>
                 <input

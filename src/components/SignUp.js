@@ -83,7 +83,7 @@ const SignUp = (props) => {
           <div className='modal-logo d-flex justify-content-center'>
             <img src={navLogo} alt='Dax Logo' />
           </div>
-          <div className='modal-body'>
+          <div id='modal-crear-cuenta' className='modal-body'>
             <form onSubmit={handleSubmit}>
               <h4>{props.idioma.crear.titulo1}</h4>
               <div className='form-group d-flex justify-content-center'>
