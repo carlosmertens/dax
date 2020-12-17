@@ -14,9 +14,7 @@ const Homepage = ({ language, onChangeLanguage }) => {
   const dispatch = useDispatch();
   const idioma = useSelector((state) => state.idioma);
   const country = useSelector((state) => state.country);
-  const marcas = useSelector((state) => state.marcas);
   const [cotizar, setCotizar] = useState(false);
-  console.log(marcas);
 
   const onSubmitSearch = (e) => {
     e.preventDefault();
