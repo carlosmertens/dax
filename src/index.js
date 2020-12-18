@@ -17,7 +17,7 @@ const persistConfig = {
   key: 'root',
   storage,
   stateReconciler: autoMergeLevel2,
-  blacklist: ['siteModal'],
+  blacklist: ['siteModal', 'marcas'],
 };
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);

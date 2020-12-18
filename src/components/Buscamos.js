@@ -14,6 +14,10 @@ const Buscamos = (props) => {
   const [modeloMotor, setModeloMotor] = useState('');
   const [serieMotor, setSerieMotor] = useState('');
 
+  const filteredMarcas = marcas.filter(
+    (i) => i.CodMarca !== '0' && i.CodMarca !== '1000'
+  );
+
   return (
     <React.Fragment>
       <div className='modal-logo d-flex justify-content-center'>
@@ -34,7 +38,7 @@ const Buscamos = (props) => {
             <select
               className='custom-select'
               onChange={(e) => setMarcaEquipo(e.target.value)}>
-              {marcas.map((option) => (
+              {filteredMarcas.map((option) => (
                 <option value={option.NomMarca} key={option.CodMarca}>
                   {option.NomMarca}
                 </option>
@@ -65,7 +69,7 @@ const Buscamos = (props) => {
             <select
               className='custom-select'
               onChange={(e) => setMarcaMotor(e.target.value)}>
-              {marcas.map((option) => (
+              {filteredMarcas.map((option) => (
                 <option value={option.NomMarca} key={option.CodMarca}>
                   {option.NomMarca}
                 </option>
