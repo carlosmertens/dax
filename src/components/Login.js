@@ -83,7 +83,7 @@ const Login = () => {
               </div>
 
               <div className='boton-form'>
-                <button type='submit' className='btn'>
+                <button type='submit' className='boton-ingresar btn'>
                   {idioma.ingresar.botonIngresar}
                 </button>
               </div>

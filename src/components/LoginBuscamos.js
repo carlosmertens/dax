@@ -95,7 +95,9 @@ const LoginBuscamos = (props) => {
                 />
               </div>
               <div className='boton-form'>
-                <button type='submit' className='btn'>
+                <button
+                  type='submit'
+                  className='boton-ingresar-te-lo-buscamos-cotizar btn'>
                   {props.idioma.buscamos.botonCotizar}
                 </button>
               </div>

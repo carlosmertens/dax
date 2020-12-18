@@ -155,7 +155,7 @@ const SignUpBuscamos = (props) => {
             />
           </div>
           <div className='boton-form'>
-            <button type='submit' className='btn'>
+            <button type='submit' className='boton-te-lo-buscamos-cotizar btn'>
               {props.idioma.buscamos.botonCotizar}
             </button>
           </div>

@@ -65,7 +65,7 @@ const Homepage = ({ language, onChangeLanguage }) => {
                   onChange={(e) => dispatch(parteAction(e.target.value))}
                   required
                 />
-                <button type='submit' className='btn btn-buscar'>
+                <button type='submit' className='btn-buscar btn'>
                   {idioma.home.botonBuscar}
                 </button>
               </form>
@@ -77,7 +77,7 @@ const Homepage = ({ language, onChangeLanguage }) => {
                 onClick={() => {
                   dispatch(openModal('open', <Noparte idioma={idioma} />));
                 }}>
-                <p className=''>{idioma.home.enlaceClick}</p>
+                <p>{idioma.home.enlaceClick}</p>
               </button>
             </div>
             <div className='container'>

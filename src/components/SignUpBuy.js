@@ -223,7 +223,7 @@ const SignUpBuy = (props) => {
               </div>
 
               <div className='boton-form'>
-                <button type='submit' className='btn'>
+                <button type='submit' className='crear-cuenta-comprar btn'>
                   {idioma.crear.botonCrear}
                 </button>
               </div>

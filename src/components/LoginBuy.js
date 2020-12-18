@@ -94,7 +94,7 @@ const LoginBuy = (props) => {
               </div>
 
               <div className='boton-form'>
-                <button type='submit' className='btn'>
+                <button type='submit' className='boton-ingresar-comprar btn'>
                   {props.idioma.ingresar.botonIngresar}
                 </button>
               </div>

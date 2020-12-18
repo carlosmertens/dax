@@ -195,7 +195,7 @@ const SignUp = (props) => {
                 />
               </div>
               <div className='boton-form'>
-                <button type='submit' className='btn'>
+                <button type='submit' className='boton-crear-cuenta btn'>
                   {props.idioma.crear.botonCrear}
                 </button>
               </div>

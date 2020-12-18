@@ -153,7 +153,7 @@ const SignUpInfo = (props) => {
             />
           </div>
           <div className='boton-form'>
-            <button type='submit' className='btn'>
+            <button type='submit' className='boton-no-tenemos-enviar btn'>
               {idioma.infoParte.botonEnviar}
             </button>
           </div>

@@ -90,7 +90,9 @@ const LoginInfo = (props) => {
                 />
               </div>
               <div className='boton-form'>
-                <button type='submit' className='btn'>
+                <button
+                  type='submit'
+                  className='boton-ingresar-no-tenemos-enviar btn'>
                   {props.idioma.infoParte.botonEnviar}
                 </button>
               </div>
