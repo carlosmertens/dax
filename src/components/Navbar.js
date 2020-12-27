@@ -11,7 +11,7 @@ const Navbar = () => {
   const idioma = useSelector((state) => state.idioma);
   return (
     <nav className='navbar navbar-expand-lg navbar-dark bg-dark'>
-      <div className='navbar-brand'>
+      <div className='btn-home navbar-brand'>
         <Link to='/'>
           <img src={navLogoWhite} alt='Dax Logo' />
         </Link>
@@ -56,7 +56,7 @@ const Navbar = () => {
         <div className='form-inline my-2 my-lg-0'>
           <button
             type='button'
-            className='btn'
+            className='btn-ingresar-home btn'
             onClick={() => {
               dispatch(openModal('open', <Ingresar idioma={idioma} />));
             }}>
@@ -64,7 +64,7 @@ const Navbar = () => {
           </button>
           <button
             type='button'
-            className='btn'
+            className='btn-crear-cuenta-home btn'
             onClick={() => {
               dispatch(openModal('open', <Crear idioma={idioma} />));
             }}>

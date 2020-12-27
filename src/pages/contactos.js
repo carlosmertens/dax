@@ -34,11 +34,15 @@ const Contacto = () => {
                 <div className='contacto-grupo mb-4 col-md'>
                   <img src={usa} alt='Bandera Usa' />
                   <h4>{idioma.contacto.usa.nombre}</h4>
-                  <a className='contacto-email' href='mailto:dax@daxparts.com'>
+                  <a
+                    className='email-usa contacto-email'
+                    href='mailto:dax@daxparts.com'>
                     {idioma.contacto.usa.email}
                   </a>
                   <br />
-                  <a className='contacto-telefono' href='tel:+59167898045'>
+                  <a
+                    className='phone-usa contacto-telefono'
+                    href='tel:+59167898045'>
                     {idioma.contacto.usa.telefono}
                   </a>
                 </div>
@@ -46,12 +50,14 @@ const Contacto = () => {
                   <img src={bolivia} alt='Bandera Bolivia' />
                   <h4>{idioma.contacto.bolivia.nombre}</h4>
                   <a
-                    className='contacto-email'
+                    className='email-bolivia contacto-email'
                     href='mailto:fabiola@daxparts.com'>
                     {idioma.contacto.bolivia.email}
                   </a>
                   <br />
-                  <a className='contacto-telefono' href='tel:+59167898045'>
+                  <a
+                    className='phone-bolivia contacto-telefono'
+                    href='tel:+59167898045'>
                     {idioma.contacto.bolivia.telefono}
                   </a>
                 </div>
@@ -60,11 +66,15 @@ const Contacto = () => {
                 <div className='contacto-grupo col-md'>
                   <img src={peru} alt='Bandera Peru' />
                   <h4>{idioma.contacto.peru.nombre}</h4>
-                  <a className='contacto-email' href='mailto:em@daxparts.com'>
+                  <a
+                    className='email-peru contacto-email'
+                    href='mailto:em@daxparts.com'>
                     {idioma.contacto.peru.email}
                   </a>
                   <br />
-                  <a className='contacto-telefono' href='tel:+59167898045'>
+                  <a
+                    className='phone-peru contacto-telefono'
+                    href='tel:+59167898045'>
                     {idioma.contacto.peru.telefono}
                   </a>
                 </div>

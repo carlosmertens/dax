@@ -60,14 +60,14 @@ const Homepage = ({ language, onChangeLanguage }) => {
             <div className='container click-link'>
               <button
                 type='button'
-                className='button-link'
+                className='btn-click-sino-sabes-el-nro-parte button-link'
                 onClick={() => {
                   dispatch(openModal('open', <Noparte idioma={idioma} />));
                 }}>
                 <p>{idioma.home.enlaceClick}</p>
               </button>
             </div>
-            <div className='container'>
+            <div className='btn-video-tutorial-home container'>
               <Link to='/tutorial'>
                 <img
                   className='logo-tutorial'

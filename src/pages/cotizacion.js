@@ -71,7 +71,7 @@ const Cotizacion = () => {
           {showButton ? (
             <button
               type='button'
-              className='btn'
+              className='btn-comprar btn'
               onClick={() => {
                 dispatch(
                   openModal(
@@ -105,7 +105,7 @@ const Cotizacion = () => {
               {showNew ? `⟹ ${busqueda[0].NroParte}` : ''}
             </strong>
           </p>
-          <p>
+          <p className='btn-nueva-busqueda'>
             <Link to='/' className='btn'>
               {idioma.cotizacion.botonNuevo}
             </Link>

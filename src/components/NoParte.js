@@ -60,14 +60,14 @@ const Noparte = ({ idioma }) => {
 
       <div className='modal-footer d-flex justify-content-center'>
         <div>
-          {props.idioma.home.modal.tienesCuenta}{' '}
+          {idioma.home.modal.tienesCuenta}{' '}
           <span
             className='pointer'
             onClick={() => {
-              dispatch(openModal('open', <Login idioma={props.idioma} />));
+              dispatch(openModal('open', <Login idioma={idioma} />));
             }}
             style={{ color: '#fca728' }}>
-            {props.idioma.home.modal.click}
+            {idioma.home.modal.click}
           </span>
         </div>
       </div>
