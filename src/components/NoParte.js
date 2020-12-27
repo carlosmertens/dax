@@ -11,7 +11,7 @@ import { library } from '@fortawesome/fontawesome-svg-core';
 library.add(faSearch);
 library.add(faPlayCircle);
 
-const Noparte = (props) => {
+const Noparte = ({ idioma }) => {
   const dispatch = useDispatch();
 
   const closeModal = () => {
@@ -26,7 +26,7 @@ const Noparte = (props) => {
 
       <div className='modal-body'>
         <div className='modal-header'>
-          <h4 className='modal-title'>{props.idioma.home.modal.titulo}</h4>
+          <h4 className='modal-title'>{idioma.home.modal.titulo}</h4>
         </div>
         <div className='modal-body d-flex justify-content-center'>
           <div className='row botones'>
@@ -34,9 +34,9 @@ const Noparte = (props) => {
               <button
                 className='que-hacer-button'
                 onClick={() => {
-                  dispatch(openModal('open', <Buscamos idioma={props.idioma} />));
+                  dispatch(openModal('open', <Buscamos idioma={idioma} />));
                 }}>
-                {props.idioma.home.modal.enlaceBuscamos}
+                {idioma.home.modal.enlaceBuscamos}
                 <br />
                 <FontAwesomeIcon icon='search' size='2x' className='icon-video' />
               </button>
@@ -44,7 +44,7 @@ const Noparte = (props) => {
             <div className='col-sm'>
               <Link to='/tutorial'>
                 <button className='que-hacer-button' onClick={closeModal}>
-                  {props.idioma.home.modal.enlaceTutorial}
+                  {idioma.home.modal.enlaceTutorial}
                   <br />
                   <FontAwesomeIcon
                     icon='play-circle'

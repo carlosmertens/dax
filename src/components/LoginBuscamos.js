@@ -21,12 +21,12 @@ const LoginBuscamos = (props) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const url = 'http://www.wp.daxparts.com/api/sesion/validar';
+    const url = 'https://www.wp.daxparts.com/api/sesion/validar';
     const data = { logusuario, clausuario };
     const resp = await axios.post(url, data);
     if (resp.data.estado === 'OK') {
       setCodcliente(resp.data.dato[0].logusuario);
-      const url2 = 'http://www.wp.daxparts.com/api/cotizacion/CrearCotSc';
+      const url2 = 'https://www.wp.daxparts.com/api/cotizacion/CrearCotSc';
       const data2 = {
         MarcaEquipo: props.marcaEquipo,
         ModeloEquipo: props.modeloEquipo,
@@ -41,9 +41,8 @@ const LoginBuscamos = (props) => {
       const resp2 = await axios.post(url2, data2);
       if (resp2.data.estado === 'OK') {
         setNroCotizacion(resp2.data.dato[0].NroCotizacion);
-        const url3 = `http://www.wp.daxparts.com/api/cotizacion/BitModVisita/${sesion}/${resp.data.dato[0].logusuario}`;
+        const url3 = `https://www.wp.daxparts.com/api/cotizacion/BitModVisita/${sesion}/${resp.data.dato[0].logusuario}`;
         await axios.get(url3);
-        // console.log(await axios.get(url3));
         setLogged(true);
         closeModal();
       } else {
@@ -67,7 +66,7 @@ const LoginBuscamos = (props) => {
     <>
       {logged ? (
         window.location.replace(
-          `http://www.demo.daxparts.com/CliCotDetSinCod?numcot=${NroCotizacion}&blnnu=False&codcliente=${codcliente}`
+          `https://www.dxc.daxparts.com/CliCotDetSinCod?numcot=${NroCotizacion}&blnnu=False&codcliente=${codcliente}`
         )
       ) : (
         <>

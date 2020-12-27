@@ -35,7 +35,7 @@ const SignUpBuy = (props) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const url = 'http://www.wp.daxparts.com/api/cliente/guardarCliente';
+    const url = 'https://www.wp.daxparts.com/api/cliente/guardarCliente';
     const data = {
       IdCliente: '0',
       NomCliente: NomCliente,
@@ -54,7 +54,7 @@ const SignUpBuy = (props) => {
     const resp = await axios.post(url, data);
     if (resp.data.estado === 'OK') {
       setCodcliente(resp.data.dato[0].IdCliente);
-      const url2 = 'http://www.wp.daxparts.com/api/cotizacion/CrearCot2';
+      const url2 = 'https://www.wp.daxparts.com/api/cotizacion/CrearCot2';
       const data2 = {
         codcliente: resp.data.dato[0].IdCliente,
         codrepuesto: props.intCodRepuesto,
@@ -63,9 +63,8 @@ const SignUpBuy = (props) => {
       const resp2 = await axios.post(url2, data2);
       if (resp2.data.estado === 'OK') {
         setNroCotizacion(resp2.data.dato[0].NroCotizacion);
-        const url3 = `http://www.wp.daxparts.com/api/cotizacion/BitModVisita/${sesion}/${resp.data.dato[0].IdCliente}`;
+        const url3 = `https://www.wp.daxparts.com/api/cotizacion/BitModVisita/${sesion}/${resp.data.dato[0].IdCliente}`;
         await axios.get(url3);
-        // console.log(await axios.get(url3));
         setLogged(true);
       } else {
         swal({
@@ -90,7 +89,7 @@ const SignUpBuy = (props) => {
     <React.Fragment>
       {logged ? (
         window.location.replace(
-          `http://www.demo.daxparts.com/Clientes/frmCliCotDet.aspx?numcot=${NroCotizacion}&blnnu=False&codcliente=${codcliente}`
+          `https://www.dxc.daxparts.com/Clientes/frmCliCotDet.aspx?numcot=${NroCotizacion}&blnnu=False&codcliente=${codcliente}`
         )
       ) : (
         <>

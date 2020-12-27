@@ -39,28 +39,6 @@ const Tutorial = () => {
                   <span className=''>Dax Castellano</span>
                 </div>
               </div>
-              {/* <div className='row'>
-            <div className='col'>
-              <iframe
-                className='embed-responsive-item'
-                title='EnglishDax'
-                src='https://www.youtube.com/embed/L22Gk3eXE7I'></iframe>
-            </div>
-            <div className='col'>
-              <span className='tutorial-video-texto'>Dax English</span>
-            </div>
-          </div> */}
-              {/* <div className='row'>
-            <div className='col'>
-              <iframe
-                className='embed-responsive-item'
-                title='Demo'
-                src='https://www.youtube.com/embed/j42UyjVCDuo'></iframe>
-            </div>
-            <div className='col'>
-              <span className='tutorial-video-texto'>Demo</span>
-            </div>
-          </div> */}
             </div>
             <div className='col-sm'>
               <div className='container'>

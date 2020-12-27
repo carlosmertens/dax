@@ -34,7 +34,7 @@ const Cotizacion = () => {
   }
 
   useEffect(() => {
-    const url = 'http://www.wp.daxparts.com/api/cotizacion/BuscarCodigo3';
+    const url = 'https://www.wp.daxparts.com/api/cotizacion/BuscarCodigo3';
     const data = {
       codpais: codpais,
       nroparte: `${parte}`,

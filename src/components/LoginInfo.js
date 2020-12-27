@@ -22,12 +22,12 @@ const LoginInfo = (props) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const url = 'http://www.wp.daxparts.com/api/sesion/validar';
+    const url = 'https://www.wp.daxparts.com/api/sesion/validar';
     const data = { logusuario, clausuario };
     const resp = await axios.post(url, data);
     if (resp.data.estado === 'OK') {
       setCodcliente(resp.data.dato[0].logusuario);
-      const url2 = 'http://www.wp.daxparts.com/api/cotizacion/CotSinCosto2';
+      const url2 = 'https://www.wp.daxparts.com/api/cotizacion/CotSinCosto2';
       const data2 = {
         codcliente: resp.data.dato[0].logusuario,
         nroparte: `${parte}`,
@@ -36,7 +36,7 @@ const LoginInfo = (props) => {
       const resp2 = await axios.post(url2, data2);
       if (resp2.data.estado === 'OK') {
         setNroCotizacion(resp2.data.dato[0].NroCotizacion);
-        const url3 = `http://www.wp.daxparts.com/api/cotizacion/BitModVisita/${sesion}/${resp.data.dato[0].logusuario}`;
+        const url3 = `https://www.wp.daxparts.com/api/cotizacion/BitModVisita/${sesion}/${resp.data.dato[0].logusuario}`;
         await axios.get(url3);
         // console.log(await axios.get(url3));
         setLogged(true);
@@ -62,7 +62,7 @@ const LoginInfo = (props) => {
     <React.Fragment>
       {logged ? (
         window.location.replace(
-          `http://www.demo.daxparts.com/Clientes/frmCliCotDet.aspx?numcot=${NroCotizacion}&blnnu=False&codcliente=${codcliente}`
+          `https://www.dxc.daxparts.com/Clientes/frmCliCotDet.aspx?numcot=${NroCotizacion}&blnnu=False&codcliente=${codcliente}`
         )
       ) : (
         <>

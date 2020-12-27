@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-// import axios from 'axios';
 import { useSelector, useDispatch } from 'react-redux';
 import openModal from '../actions/openModal';
 import navLogo from '../img/logoNav.png';
@@ -9,20 +8,10 @@ const InfoParte = (props) => {
   const dispatch = useDispatch();
   const parte = useSelector((state) => state.parte);
   const marcas = useSelector((state) => state.marcas);
-  // const [infoMarcas, setInfoMarcas] = useState(['']);
   const [marca, setMarca] = useState('');
   const [selectMarca, setSelectMarca] = useState('');
   const [otherMarca, setOtherMarca] = useState('');
   const [otros, setOtros] = useState(false);
-
-  // useEffect(() => {
-  //   const fetchData = async () => {
-  //     const url = 'http://www.wp.daxparts.com/api/marca/listado2';
-  //     const resp = await axios.get(url);
-  //     setInfoMarcas(resp.data.dato);
-  //   };
-  //   fetchData();
-  // }, []);
 
   useEffect(() => {
     if (selectMarca === '<<OTROS>>') {

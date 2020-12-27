@@ -4,7 +4,6 @@ import { Helmet } from 'react-helmet';
 import usa from '../img/usa.png';
 import bolivia from '../img/bolivia.png';
 import peru from '../img/peru.png';
-// import paraguay from '../img/paraguay.png';
 import mapa from '../img/mapaDAX.png';
 
 const Contacto = () => {
@@ -69,17 +68,6 @@ const Contacto = () => {
                     {idioma.contacto.peru.telefono}
                   </a>
                 </div>
-                {/* <div className='contacto-grupo mb-4 col-md'>
-              <img src={paraguay} alt='Bandera Paraguay' />
-              <h4>{idioma.contacto.paraguay.nombre}</h4>
-              <a className='contacto-email' href='mailto:ventaspy@daxparts.com'>
-                {idioma.contacto.paraguay.email}
-              </a>
-              <br />
-              <a className='contacto-telefono' href='tel:+59167898045'>
-                {idioma.contacto.paraguay.telefono}
-              </a>
-            </div> */}
               </div>
             </div>
             <div className='col-md'>

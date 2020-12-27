@@ -2,7 +2,7 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import openModal from '../actions/openModal';
 
-const Modal = (props) => {
+const Modal = () => {
   const dispatch = useDispatch();
   const siteModal = useSelector((state) => state.siteModal);
 

@@ -24,7 +24,7 @@ const SignUpBuscamos = (props) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const url = 'http://www.wp.daxparts.com/api/cliente/guardarCliente';
+    const url = 'https://www.wp.daxparts.com/api/cliente/guardarCliente';
     const data = {
       IdCliente: '0',
       NomCliente: NomCliente,
@@ -42,7 +42,7 @@ const SignUpBuscamos = (props) => {
     };
     const resp = await axios.post(url, data);
     if (resp.data.estado === 'OK') {
-      const url2 = 'http://www.wp.daxparts.com/api/cotizacion/CrearCotSc';
+      const url2 = 'https://www.wp.daxparts.com/api/cotizacion/CrearCotSc';
       const data2 = {
         MarcaEquipo: props.marcaEquipo,
         ModeloEquipo: props.modeloEquipo,
@@ -57,9 +57,8 @@ const SignUpBuscamos = (props) => {
       const resp2 = await axios.post(url2, data2);
       if (resp2.data.estado === 'OK') {
         const coti = resp2.data.dato[0].NroCotizacion;
-        const url3 = `http://www.wp.daxparts.com/api/cotizacion/BitModVisita/${sesion}/${coti}`;
+        const url3 = `https://www.wp.daxparts.com/api/cotizacion/BitModVisita/${sesion}/${coti}`;
         await axios.get(url3);
-        // console.log(await axios.get(url3));
         swal({
           title: `${props.idioma.buscamos.swalTitle} ${coti}`,
           text: `${props.idioma.buscamos.swalText}`,

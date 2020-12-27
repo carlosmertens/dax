@@ -22,20 +22,18 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const url = 'http://www.wp.daxparts.com/api/sesion/validar';
+    const url = 'https://www.wp.daxparts.com/api/sesion/validar';
     const data = {
       logusuario,
       clausuario,
     };
     const resp = await axios.post(url, data);
-    // console.log(resp.data);
 
     if (resp.data.estado === 'OK') {
       const cod = resp.data.dato[0].logusuario;
       setCodcliente(cod);
-      const url2 = `http://www.wp.daxparts.com/api/cotizacion/BitModVisita/${sesion}/${resp.data.dato[0].logusuario}`;
+      const url2 = `https://www.wp.daxparts.com/api/cotizacion/BitModVisita/${sesion}/${resp.data.dato[0].logusuario}`;
       await axios.get(url2);
-      // console.log(await axios.get(urlSesion));
       setLogged(true);
     } else {
       swal({
@@ -47,12 +45,11 @@ const Login = () => {
     closeModal();
   };
 
-  // console.log(codcliente);
   return (
     <>
       {logged ? (
         window.location.replace(
-          `http://www.demo.daxparts.com/Clientes/frmCliCotPrin.aspx?codcliente=${codcliente}`
+          `https://www.dxc.daxparts.com/Clientes/frmCliCotPrin.aspx?codcliente=${codcliente}`
         )
       ) : (
         <>

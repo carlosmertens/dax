@@ -6,7 +6,7 @@ import openModal from '../actions/openModal';
 import navLogo from '../img/logoNav.png';
 import Login from './Login';
 
-const SignUp = (props) => {
+const SignUp = ({ idioma }) => {
   const dispatch = useDispatch();
   const country = useSelector((state) => state.country);
   const paises = useSelector((state) => state.paises);
@@ -32,7 +32,7 @@ const SignUp = (props) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const url = 'http://www.wp.daxparts.com/api/cliente/guardarCliente';
+    const url = 'https://www.wp.daxparts.com/api/cliente/guardarCliente';
     const data = {
       IdCliente: '0',
       NomCliente: NomCliente,
@@ -53,9 +53,8 @@ const SignUp = (props) => {
     if (resp.data.estado === 'OK') {
       const cod = resp.data.dato[0].IdCliente;
       setCodcliente(cod);
-      const url2 = `http://www.wp.daxparts.com/api/cotizacion/BitModVisita/${sesion}/${resp.data.dato[0].IdCliente}`;
+      const url2 = `https://www.wp.daxparts.com/api/cotizacion/BitModVisita/${sesion}/${resp.data.dato[0].IdCliente}`;
       await axios.get(url2);
-      // console.log(await axios.get(urlSesion));
       setLogged(true);
     } else {
       swal({
@@ -76,7 +75,7 @@ const SignUp = (props) => {
     <React.Fragment>
       {logged ? (
         window.location.replace(
-          `http://www.demo.daxparts.com/Clientes/frmCliCotPrin.aspx?codcliente=${codcliente}`
+          `https://www.dxc.daxparts.com/Clientes/frmCliCotPrin.aspx?codcliente=${codcliente}`
         )
       ) : (
         <>
@@ -85,12 +84,12 @@ const SignUp = (props) => {
           </div>
           <div id='modal-crear-cuenta' className='modal-body'>
             <form onSubmit={handleSubmit}>
-              <h4>{props.idioma.crear.titulo1}</h4>
+              <h4>{idioma.crear.titulo1}</h4>
               <div className='form-group d-flex justify-content-center'>
                 <input
                   type='text'
                   className='form-control mr-sm-2'
-                  placeholder={props.idioma.crear.empresa}
+                  placeholder={idioma.crear.empresa}
                   onChange={(e) => setNomCliente(e.target.value)}
                   value={NomCliente}
                 />
@@ -99,7 +98,7 @@ const SignUp = (props) => {
                 <input
                   type='text'
                   className='form-control mr-sm-2'
-                  placeholder={props.idioma.crear.nombre}
+                  placeholder={idioma.crear.nombre}
                   onChange={(e) => setNomContacto(e.target.value)}
                   value={NomContacto}
                   required
@@ -121,7 +120,7 @@ const SignUp = (props) => {
                 <input
                   type='text'
                   className='form-control mr-sm-2'
-                  placeholder={props.idioma.crear.ciudad}
+                  placeholder={idioma.crear.ciudad}
                   onChange={(e) => setCodCiudad(e.target.value)}
                   value={CodCiudad}
                 />
@@ -130,7 +129,7 @@ const SignUp = (props) => {
                 <input
                   type='text'
                   className='form-control mr-sm-2'
-                  placeholder={props.idioma.crear.direccion}
+                  placeholder={idioma.crear.direccion}
                   onChange={(e) => setDireccion(e.target.value)}
                   value={Direccion}
                 />
@@ -139,7 +138,7 @@ const SignUp = (props) => {
                 <input
                   type='text'
                   className='form-control mr-sm-2'
-                  placeholder={props.idioma.crear.telefono1}
+                  placeholder={idioma.crear.telefono1}
                   onChange={(e) => setNumTel1(e.target.value)}
                   value={NumTel1}
                   required
@@ -149,7 +148,7 @@ const SignUp = (props) => {
                 <input
                   type='text'
                   className='form-control mr-sm-2'
-                  placeholder={props.idioma.crear.telefono2}
+                  placeholder={idioma.crear.telefono2}
                   onChange={(e) => setNumTel2(e.target.value)}
                   value={NumTel2}
                 />
@@ -158,18 +157,18 @@ const SignUp = (props) => {
                 <input
                   type='email'
                   className='form-control mr-sm-2'
-                  placeholder={props.idioma.crear.email}
+                  placeholder={idioma.crear.email}
                   onChange={(e) => setMail(e.target.value)}
                   value={Mail}
                   required
                 />
               </div>
-              <h4>{props.idioma.crear.titulo2}</h4>
+              <h4>{idioma.crear.titulo2}</h4>
               <div className='form-group d-flex justify-content-center'>
                 <input
                   type='text'
                   className='form-control mr-sm-2'
-                  placeholder={props.idioma.crear.nomUsuario}
+                  placeholder={idioma.crear.nomUsuario}
                   onChange={(e) => setNomUsuario(e.target.value)}
                   value={NomUsuario}
                 />
@@ -178,7 +177,7 @@ const SignUp = (props) => {
                 <input
                   type='text'
                   className='form-control mr-sm-2'
-                  placeholder={props.idioma.crear.usuario}
+                  placeholder={idioma.crear.usuario}
                   onChange={(e) => setLogUsuario(e.target.value)}
                   value={LogUsuario}
                   required
@@ -188,7 +187,7 @@ const SignUp = (props) => {
                 <input
                   type='password'
                   className='form-control mr-sm-2'
-                  placeholder={props.idioma.crear.password1}
+                  placeholder={idioma.crear.password1}
                   onChange={(e) => setContrasena(e.target.value)}
                   value={Contrasena}
                   required
@@ -196,21 +195,21 @@ const SignUp = (props) => {
               </div>
               <div className='boton-form'>
                 <button type='submit' className='boton-crear-cuenta btn'>
-                  {props.idioma.crear.botonCrear}
+                  {idioma.crear.botonCrear}
                 </button>
               </div>
             </form>
           </div>
           <div className='modal-footer d-flex justify-content-center'>
             <div>
-              {props.idioma.crear.cambiarModal}{' '}
+              {idioma.crear.cambiarModal}{' '}
               <span
                 className='pointer'
                 onClick={() => {
-                  dispatch(openModal('open', <Login idioma={props.idioma} />));
+                  dispatch(openModal('open', <Login idioma={idioma} />));
                 }}
                 style={{ color: '#fca728' }}>
-                {props.idioma.crear.cambiarEnlace}
+                {idioma.crear.cambiarEnlace}
               </span>
             </div>
           </div>
