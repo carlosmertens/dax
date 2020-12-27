@@ -1,7 +1,9 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import { Helmet } from 'react-helmet';
 
-const Empresa = ({ idioma }) => {
+const Empresa = () => {
+  const idioma = useSelector((state) => state.idioma);
   return (
     <React.Fragment>
       <div className='empresa-contenido'>

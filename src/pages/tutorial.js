@@ -1,7 +1,9 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import { Helmet } from 'react-helmet';
 
-const Tutorial = ({ idioma }) => {
+const Tutorial = () => {
+  const idioma = useSelector((state) => state.idioma);
   return (
     <React.Fragment>
       <div className='container-fluid tutorial'>

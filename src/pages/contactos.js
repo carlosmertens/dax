@@ -1,4 +1,5 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import { Helmet } from 'react-helmet';
 import usa from '../img/usa.png';
 import bolivia from '../img/bolivia.png';
@@ -6,7 +7,8 @@ import peru from '../img/peru.png';
 // import paraguay from '../img/paraguay.png';
 import mapa from '../img/mapaDAX.png';
 
-const Contacto = ({ idioma }) => {
+const Contacto = () => {
+  const idioma = useSelector((state) => state.idioma);
   return (
     <React.Fragment>
       <div className='container-fluid contacto-contenido'>

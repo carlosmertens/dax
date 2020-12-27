@@ -1,4 +1,5 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import { Helmet } from 'react-helmet';
 import { ReactComponent as Bulldozer } from '../img/bulldozer.svg';
 import { ReactComponent as Crane } from '../img/crane.svg';
@@ -7,7 +8,8 @@ import { ReactComponent as Page } from '../img/Page-1.svg';
 import { ReactComponent as Harvester } from '../img/harvester.svg';
 import { ReactComponent as Truck } from '../img/truck.svg';
 
-const Industrias = ({ idioma }) => {
+const Industrias = () => {
+  const idioma = useSelector((state) => state.idioma);
   return (
     <React.Fragment>
       <div className='container-fluid ofrecemos-contenido'>
