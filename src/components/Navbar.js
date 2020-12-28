@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import openModal from '../actions/openModal';
 import navLogoWhite from '../img/logoNavWhite.png';
@@ -12,9 +12,9 @@ const Navbar = () => {
   return (
     <nav className='navbar navbar-expand-lg navbar-dark bg-dark'>
       <div className='btn-home navbar-brand'>
-        <Link to='/'>
+        <NavLink to='/'>
           <img src={navLogoWhite} alt='Dax Logo' />
-        </Link>
+        </NavLink>
       </div>
 
       <button
@@ -31,25 +31,37 @@ const Navbar = () => {
       <div className='collapse navbar-collapse' id='navbarSupportedContent'>
         <ul className='navbar-nav mx-auto'>
           <li className='nav-item'>
-            <Link to='/empresa' className='nav-link text-white'>
+            <NavLink
+              to='/empresa'
+              className='nav-link text-white'
+              activeClassName='Link-active-style'>
               {idioma.navbar.enlace1}
-            </Link>
+            </NavLink>
           </li>
 
           <li className='nav-item'>
-            <Link to='industrias' className='nav-link text-white'>
+            <NavLink
+              to='industrias'
+              className='nav-link text-white'
+              activeClassName='Link-active-style'>
               {idioma.navbar.enlace2}
-            </Link>
+            </NavLink>
           </li>
           <li className='nav-item'>
-            <Link to='/tutorial' className='nav-link text-white'>
+            <NavLink
+              to='/tutorial'
+              className='nav-link text-white'
+              activeClassName='Link-active-style'>
               {idioma.navbar.enlace3}
-            </Link>
+            </NavLink>
           </li>
           <li className='nav-item'>
-            <Link to='contactos' className='nav-link text-white'>
+            <NavLink
+              to='contactos'
+              className='nav-link text-white'
+              activeClassName='Link-active-style'>
               {idioma.navbar.enlace4}
-            </Link>
+            </NavLink>
           </li>
         </ul>
 
@@ -74,6 +86,9 @@ const Navbar = () => {
       </div>
       <style jsx='true'>
         {`
+          .Link-active-style {
+            color: #fca728 !important;
+          }
           .nav-link:hover {
             color: #fca728 !important;
           }

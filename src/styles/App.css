@@ -218,11 +218,6 @@ header input {
 .beneficios-jumbo:last-child {
   margin-bottom: 30px !important;
 }
-.btn-comprar {
-  color: whitesmoke !important;
-  font-size: 25px !important;
-  width: 159px;
-}
 .table-responsive {
   border-radius: 15px !important;
   text-align: center !important;
@@ -372,17 +367,9 @@ header input {
 /* ==================== RESPONSIVE COTIZACION ==================== */
 /* EXTRA SMALL devices (less than 480px) */
 @media only screen and (max-width: 480px) {
-  .btn-comprar {
-    font-size: 15px !important;
-    width: 80px;
-  }
 }
 /* SMALL devices (old iPhones, 480px and up) */
 @media only screen and (min-width: 480px) {
-  .btn-comprar {
-    font-size: 18px !important;
-    width: 100px;
-  }
 }
 /* ==================== RESPONSIVE HOME =================== */
 /* EXTRA SMALL devices (less than 480px) */

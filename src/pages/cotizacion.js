@@ -71,7 +71,7 @@ const Cotizacion = () => {
           {showButton ? (
             <button
               type='button'
-              className='btn-comprar btn'
+              className='btn btn-comprar'
               onClick={() => {
                 dispatch(
                   openModal(
