@@ -67,8 +67,8 @@ const Homepage = ({ language, onChangeLanguage }) => {
                 <p>{idioma.home.enlaceClick}</p>
               </button>
             </div>
-            <div className='btn-video-tutorial-home container'>
-              <Link to='/tutorial'>
+            <div>
+              <Link to='/tutorial' className='btn-video-tutorial-home container'>
                 <img
                   className='logo-tutorial'
                   src={iconVideos}

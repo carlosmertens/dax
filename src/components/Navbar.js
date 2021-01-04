@@ -41,7 +41,7 @@ const Navbar = () => {
 
           <li className='nav-item'>
             <NavLink
-              to='industrias'
+              to='/industrias'
               className='nav-link text-white'
               activeClassName='Link-active-style'>
               {idioma.navbar.enlace2}
@@ -57,7 +57,7 @@ const Navbar = () => {
           </li>
           <li className='nav-item'>
             <NavLink
-              to='contactos'
+              to='/contactos'
               className='nav-link text-white'
               activeClassName='Link-active-style'>
               {idioma.navbar.enlace4}

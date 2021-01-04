@@ -105,11 +105,11 @@ const Cotizacion = () => {
               {showNew ? `⟹ ${busqueda[0].NroParte}` : ''}
             </strong>
           </p>
-          <p className='btn-nueva-busqueda'>
-            <Link to='/' className='btn'>
+          <div style={{ paddingBottom: '10px' }}>
+            <Link to='/' className='btn btn-nueva-busqueda'>
               {idioma.cotizacion.botonNuevo}
             </Link>
-          </p>
+          </div>
         </div>
 
         <div className='container cotizacion-table'>
