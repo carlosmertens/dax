@@ -66,7 +66,7 @@ const LoginBuscamos = (props) => {
     <>
       {logged ? (
         window.location.replace(
-          `https://www.dxc.daxparts.com/CliCotDetSinCod?numcot=${NroCotizacion}&blnnu=False&codcliente=${codcliente}`
+          `https://www.dxc.daxparts.com/Clientes/CliCotDetSinCod.aspx?numcot=${NroCotizacion}&blnnu=False&codcliente=${codcliente}`
         )
       ) : (
         <>
