@@ -48,6 +48,7 @@ const Homepage = ({ language, onChangeLanguage }) => {
                 <input
                   id='buscar-numero'
                   type='text'
+                  maxLength='25'
                   placeholder={idioma.home.campoBuscar}
                   onChange={(e) => dispatch(parteAction(e.target.value))}
                   required

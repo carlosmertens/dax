@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import axios from 'axios';
 import countryAction from './actions/countryAction';
@@ -39,37 +39,39 @@ function App() {
   }, [dispatch]);
 
   return (
-    <Router>
+    <BrowserRouter>
       <Route path='/' component={Modal} />
 
       <Route path='/'>
         <Navbar />
       </Route>
 
-      <Route exact path='/'>
-        <Homepage language={language} onChangeLanguage={onChangeLanguage} />
-      </Route>
+      <Switch>
+        <Route exact path='/'>
+          <Homepage language={language} onChangeLanguage={onChangeLanguage} />
+        </Route>
 
-      <Route exact path='/empresa'>
-        <Empresa />
-      </Route>
+        <Route exact path='/empresa'>
+          <Empresa />
+        </Route>
 
-      <Route exact path='/industrias'>
-        <Industrias />
-      </Route>
+        <Route exact path='/industrias'>
+          <Industrias />
+        </Route>
 
-      <Route exact path='/contactos'>
-        <Contactos />
-      </Route>
+        <Route exact path='/contactos'>
+          <Contactos />
+        </Route>
 
-      <Route exact path='/tutorial'>
-        <Tutorial />
-      </Route>
+        <Route exact path='/tutorial'>
+          <Tutorial />
+        </Route>
 
-      <Route exact path='/cotizacion'>
-        <Cotizacion />
-      </Route>
-    </Router>
+        <Route exact path='/cotizacion'>
+          <Cotizacion />
+        </Route>
+      </Switch>
+    </BrowserRouter>
   );
 }
 
