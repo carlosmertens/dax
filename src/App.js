@@ -1,19 +1,21 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, lazy, Suspense } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import axios from 'axios';
 import countryAction from './actions/countryAction';
 import idiomaAction from './actions/idiomaAction';
-import Homepage from './pages/homepage';
-import Empresa from './pages/empresa';
-import Industrias from './pages/industrias';
-import Contactos from './pages/contactos';
-import Tutorial from './pages/tutorial';
-import Cotizacion from './pages/cotizacion';
 import Navbar from './components/Navbar';
 import Modal from './components/Modal';
+import Spinner from './components/Spinner';
 import spanish from './text/esp.json';
 import english from './text/eng.json';
+
+const Homepage = lazy(() => import('./pages/homepage'));
+const Empresa = lazy(() => import('./pages/empresa'));
+const Industrias = lazy(() => import('./pages/industrias'));
+const Contactos = lazy(() => import('./pages/contactos'));
+const Tutorial = lazy(() => import('./pages/tutorial'));
+const Cotizacion = lazy(() => import('./pages/cotizacion'));
 
 function App() {
   const dispatch = useDispatch();
@@ -40,37 +42,39 @@ function App() {
 
   return (
     <BrowserRouter>
-      <Route path='/' component={Modal} />
+      <Suspense fallback={<Spinner />}>
+        <Route path='/' component={Modal} />
 
-      <Route path='/'>
-        <Navbar />
-      </Route>
-
-      <Switch>
-        <Route exact path='/'>
-          <Homepage language={language} onChangeLanguage={onChangeLanguage} />
+        <Route path='/'>
+          <Navbar />
         </Route>
 
-        <Route exact path='/empresa'>
-          <Empresa />
-        </Route>
+        <Switch>
+          <Route exact path='/'>
+            <Homepage language={language} onChangeLanguage={onChangeLanguage} />
+          </Route>
 
-        <Route exact path='/industrias'>
-          <Industrias />
-        </Route>
+          <Route exact path='/empresa'>
+            <Empresa />
+          </Route>
 
-        <Route exact path='/contactos'>
-          <Contactos />
-        </Route>
+          <Route exact path='/industrias'>
+            <Industrias />
+          </Route>
 
-        <Route exact path='/tutorial'>
-          <Tutorial />
-        </Route>
+          <Route exact path='/contactos'>
+            <Contactos />
+          </Route>
 
-        <Route exact path='/cotizacion'>
-          <Cotizacion />
-        </Route>
-      </Switch>
+          <Route exact path='/tutorial'>
+            <Tutorial />
+          </Route>
+
+          <Route exact path='/cotizacion'>
+            <Cotizacion />
+          </Route>
+        </Switch>
+      </Suspense>
     </BrowserRouter>
   );
 }
