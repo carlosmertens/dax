@@ -38,7 +38,6 @@ const LoginBuy = (props) => {
         setNroCotizacion(resp2.data.dato[0].NroCotizacion);
         const url3 = `https://www.wp.daxparts.com/api/cotizacion/BitModVisita/${sesion}/${resp.data.dato[0].logusuario}`;
         await axios.get(url3);
-        // console.log(await axios.get(url3));
         setLogged(true);
       } else {
         swal({

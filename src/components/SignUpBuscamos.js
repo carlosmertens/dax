@@ -41,7 +41,6 @@ const SignUpBuscamos = (props) => {
       Contrasena: '',
     };
     const resp = await axios.post(url, data);
-    console.log(resp.data);
     if (resp.data.estado === 'OK') {
       const url2 = 'https://www.wp.daxparts.com/api/cotizacion/CrearCotSc';
       const data2 = {
