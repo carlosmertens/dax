@@ -4,6 +4,7 @@ import { Redirect, Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import logoCentro from '../img/logoCentro.png';
 import iconVideos from '../img/IconVideos.png';
+import whatsappLogo from '../img/WhatsApp_Logo.png';
 import openModal from '../actions/openModal';
 import parteAction from '../actions/parteAction';
 import Idioma from '../components/Idioma';
@@ -77,6 +78,15 @@ const Homepage = ({ language, onChangeLanguage }) => {
                 />
                 <p className='tutorial-text'>{idioma.home.leyendaTutorial}</p>
               </Link>
+            </div>
+            <div>
+              <a href='https://api.whatsapp.com/send?phone=4917677200357&text=Hola!'>
+                <img
+                  className='logo-whatsapp'
+                  src={whatsappLogo}
+                  alt='WhatsApp Logo'
+                />
+              </a>
             </div>
           </div>
         </header>

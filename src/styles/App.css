@@ -141,6 +141,10 @@ header input {
   border: 0;
   outline: none;
 }
+.logo-whatsapp {
+  height: 150px;
+  width: auto;
+}
 /* ===== link modal ===== */
 .button-link,
 .button-link:focus {
