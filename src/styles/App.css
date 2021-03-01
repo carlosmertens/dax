@@ -144,6 +144,7 @@ header input {
 .logo-whatsapp {
   height: 150px;
   width: auto;
+  background-color: transparent;
 }
 /* ===== link modal ===== */
 .button-link,

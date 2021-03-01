@@ -2,14 +2,19 @@ import React, { useState } from 'react';
 import { Helmet } from 'react-helmet';
 import { Redirect, Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+// import { faWhatsApp } from '@fortawesome/free-solid-svg-icons';
+// import { library } from '@fortawesome/fontawesome-svg-core';
+import { FaWhatsappSquare } from 'react-icons/fa';
 import logoCentro from '../img/logoCentro.png';
 import iconVideos from '../img/IconVideos.png';
-import whatsappLogo from '../img/WhatsApp_Logo.png';
+// import whatsappLogo from '../img/WhatsApp_Logo.png';
 import openModal from '../actions/openModal';
 import parteAction from '../actions/parteAction';
 import Idioma from '../components/Idioma';
 import Pais from '../components/Pais';
 import Noparte from '../components/NoParte';
+// library.add(faWhatsApp);
 
 const Homepage = ({ language, onChangeLanguage }) => {
   const dispatch = useDispatch();
@@ -81,11 +86,8 @@ const Homepage = ({ language, onChangeLanguage }) => {
             </div>
             <div>
               <a href='https://api.whatsapp.com/send?phone=4917677200357&text=Hola!'>
-                <img
-                  className='logo-whatsapp'
-                  src={whatsappLogo}
-                  alt='WhatsApp Logo'
-                />
+                {/* <FontAwesomeIcon icon='faWhatsapp' size='10x' /> */}
+                <FaWhatsappSquare size='60' color='#25D366' />
               </a>
             </div>
           </div>
