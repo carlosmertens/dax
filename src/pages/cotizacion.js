@@ -7,6 +7,7 @@ import openModal from '../actions/openModal';
 import Spinner from '../components/Spinner';
 import LoginBuy from '../components/LoginBuy';
 import InfoParte from '../components/InfoParte';
+import WhatsApp from '../components/WhatsApp';
 
 const Cotizacion = () => {
   const dispatch = useDispatch();
@@ -163,6 +164,7 @@ const Cotizacion = () => {
             </div>
           </div>
         </div>
+        <WhatsApp />
       </div>
     </React.Fragment>
   );

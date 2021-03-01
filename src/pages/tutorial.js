@@ -1,6 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { Helmet } from 'react-helmet';
+import WhatsApp from '../components/WhatsApp';
 
 const Tutorial = () => {
   const idioma = useSelector((state) => state.idioma);
@@ -84,6 +85,7 @@ const Tutorial = () => {
             </div>
           </div>
         </div>
+        <WhatsApp />
       </div>
     </React.Fragment>
   );
