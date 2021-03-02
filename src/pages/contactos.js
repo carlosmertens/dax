@@ -5,6 +5,7 @@ import WhatsApp from '../components/WhatsApp';
 import usa from '../img/usa.png';
 import bolivia from '../img/bolivia.png';
 import peru from '../img/peru.png';
+import paraguay from '../img/paraguay.png';
 import mapa from '../img/mapaDAX.png';
 
 const Contacto = () => {
@@ -64,7 +65,7 @@ const Contacto = () => {
                 </div>
               </div>
               <div className='contacto-grupo mb-4 row'>
-                <div className='contacto-grupo col-md'>
+                <div className='contacto-grupo mb-4 col-md'>
                   <img src={peru} alt='Bandera Peru' />
                   <h4>{idioma.contacto.peru.nombre}</h4>
                   <a
@@ -77,6 +78,21 @@ const Contacto = () => {
                     className='phone-peru contacto-telefono'
                     href='tel:+59167898045'>
                     {idioma.contacto.peru.telefono}
+                  </a>
+                </div>
+                <div className='contacto-grupo col-md'>
+                  <img src={paraguay} alt='Bandera Paraguay' />
+                  <h4>{idioma.contacto.paraguay.nombre}</h4>
+                  <a
+                    className='email-paraguay contacto-email'
+                    href='mailto:ventaspy@daxparts.com'>
+                    {idioma.contacto.paraguay.email}
+                  </a>
+                  <br />
+                  <a
+                    className='phone-paraguay contacto-telefono'
+                    href='tel:+595985686232'>
+                    {idioma.contacto.paraguay.telefono}
                   </a>
                 </div>
               </div>
