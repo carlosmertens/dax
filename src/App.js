@@ -36,7 +36,6 @@ function App() {
     const fetchData = async () => {
       const response = await axios.get(locationUrl);
       dispatch(countryAction(response.data.country));
-      // dispatch(countryAction('Bolivia'));
     };
     fetchData();
   }, [dispatch]);
