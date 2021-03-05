@@ -1,6 +1,5 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-
 import { ReactComponent as WhatsAppLogo } from '../img/whatsapp-icon.svg';
 
 const WhatsApp = () => {
@@ -20,6 +19,7 @@ const WhatsApp = () => {
   return (
     <div className={`fixed-bottom d-flex justify-content-end `}>
       <a
+        id='whatsapp'
         className={`p-3 ${showIcon}`}
         href={`https://api.whatsapp.com/send?phone=${phoneNumber}&text=Hola!`}>
         <WhatsAppLogo />
