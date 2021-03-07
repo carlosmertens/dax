@@ -21,7 +21,9 @@ const WhatsApp = () => {
       <a
         id='whatsapp'
         className={`p-3 ${showIcon}`}
-        href={`https://api.whatsapp.com/send?phone=${phoneNumber}&text=Hola!`}>
+        href={`https://api.whatsapp.com/send?phone=${phoneNumber}&text=Hola!`}
+        rel='noreferrer noopener'
+        target='_blank'>
         <WhatsAppLogo />
       </a>
     </div>
