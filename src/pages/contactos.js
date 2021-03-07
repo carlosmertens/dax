@@ -1,7 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { Helmet } from 'react-helmet';
-import WhatsApp from '../components/WhatsApp';
 import usa from '../img/usa.png';
 import bolivia from '../img/bolivia.png';
 import peru from '../img/peru.png';
@@ -104,7 +103,6 @@ const Contacto = () => {
             </div>
           </div>
         </div>
-        <WhatsApp />
       </div>
     </React.Fragment>
   );

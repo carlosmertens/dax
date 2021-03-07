@@ -1,7 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { Helmet } from 'react-helmet';
-import WhatsApp from '../components/WhatsApp';
 
 const Empresa = () => {
   const idioma = useSelector((state) => state.idioma);
@@ -24,7 +23,6 @@ const Empresa = () => {
           <p>{idioma.empresa.contenido4}</p>
           <p>{idioma.empresa.contenido5}</p>
         </div>
-        <WhatsApp />
       </div>
     </React.Fragment>
   );

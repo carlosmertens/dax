@@ -8,7 +8,6 @@ import openModal from '../actions/openModal';
 import parteAction from '../actions/parteAction';
 import Idioma from '../components/Idioma';
 import Pais from '../components/Pais';
-import WhatsApp from '../components/WhatsApp';
 import Noparte from '../components/NoParte';
 
 const Homepage = ({ language, onChangeLanguage }) => {
@@ -79,7 +78,6 @@ const Homepage = ({ language, onChangeLanguage }) => {
                 <p className='tutorial-text'>{idioma.home.leyendaTutorial}</p>
               </Link>
             </div>
-            <WhatsApp />
           </div>
         </header>
       )}

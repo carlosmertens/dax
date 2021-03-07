@@ -7,7 +7,6 @@ import { ReactComponent as Machine } from '../img/machine.svg';
 import { ReactComponent as Page } from '../img/Page-1.svg';
 import { ReactComponent as Harvester } from '../img/harvester.svg';
 import { ReactComponent as Truck } from '../img/truck.svg';
-import WhatsApp from '../components/WhatsApp';
 
 const Industrias = () => {
   const idioma = useSelector((state) => state.idioma);
@@ -135,7 +134,6 @@ const Industrias = () => {
             </div>
           </div>
         </div>
-        <WhatsApp />
       </div>
     </React.Fragment>
   );
