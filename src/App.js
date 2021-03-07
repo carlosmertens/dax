@@ -1,7 +1,7 @@
 import React, { useState, useEffect, lazy, Suspense } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-// import axios from 'axios';
+import axios from 'axios';
 import countryAction from './actions/countryAction';
 import idiomaAction from './actions/idiomaAction';
 import Navbar from './components/Navbar';
@@ -33,11 +33,10 @@ function App() {
   };
 
   useEffect(() => {
-    // const locationUrl = 'https://extreme-ip-lookup.com/json/';
+    const locationUrl = 'https://extreme-ip-lookup.com/json/';
     const fetchData = async () => {
-      // const response = await axios.get(locationUrl);
-      // dispatch(countryAction(response.data.country));
-      dispatch(countryAction('Bolivia'));
+      const response = await axios.get(locationUrl);
+      dispatch(countryAction(response.data.country));
     };
     fetchData();
   }, [dispatch]);
