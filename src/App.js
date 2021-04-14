@@ -11,7 +11,8 @@ import Spinner from './components/Spinner';
 import spanish from './text/esp.json';
 import english from './text/eng.json';
 
-const Homepage = lazy(() => import('./pages/homepage'));
+import Homepage from './pages/homepage';
+// const Homepage = lazy(() => import('./pages/homepage'));
 const Empresa = lazy(() => import('./pages/empresa'));
 const Industrias = lazy(() => import('./pages/industrias'));
 const Contactos = lazy(() => import('./pages/contactos'));
@@ -44,33 +45,33 @@ function App() {
   return (
     <BrowserRouter>
       <Suspense fallback={<Spinner />}>
-        <Route path='/' component={Modal} />
-        <Route path='' component={WhatsApp} />
-        <Route path='/'>
+        <Route path="/" component={Modal} />
+        <Route path="" component={WhatsApp} />
+        <Route path="/">
           <Navbar />
         </Route>
         <Switch>
-          <Route exact path='/'>
+          <Route exact path="/">
             <Homepage language={language} onChangeLanguage={onChangeLanguage} />
           </Route>
 
-          <Route exact path='/empresa'>
+          <Route exact path="/empresa">
             <Empresa />
           </Route>
 
-          <Route exact path='/industrias'>
+          <Route exact path="/industrias">
             <Industrias />
           </Route>
 
-          <Route exact path='/contactos'>
+          <Route exact path="/contactos">
             <Contactos />
           </Route>
 
-          <Route exact path='/tutorial'>
+          <Route exact path="/tutorial">
             <Tutorial />
           </Route>
 
-          <Route exact path='/cotizacion'>
+          <Route exact path="/cotizacion">
             <Cotizacion />
           </Route>
         </Switch>
