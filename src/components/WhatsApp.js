@@ -19,11 +19,12 @@ const WhatsApp = () => {
   return (
     <div className={`fixed-bottom d-flex justify-content-end `}>
       <a
-        id='whatsapp'
+        id="whatsapp"
         className={`p-3 ${showIcon}`}
-        href={`https://api.whatsapp.com/send?phone=${phoneNumber}&text=Hola!`}
-        rel='noreferrer noopener'
-        target='_blank'>
+        href={`https://api.whatsapp.com/send?phone=${phoneNumber}&text=Hola DaxParts, estoy buscando los siguientes repuestos:`}
+        rel="noreferrer noopener"
+        target="_blank"
+      >
         <WhatsAppLogo />
       </a>
     </div>
