@@ -43,8 +43,11 @@ const Homepage = ({ language, onChangeLanguage }) => {
             <div className='container d-flex justify-content-center'>
               <form
                 onSubmit={onSubmitSearch}
-                className='form-inline d-flex justify-content-center'>
-                <label htmlFor='buscar-numero'>{idioma.home.leyendaBuscar}</label>
+                className='form-inline d-flex justify-content-center'
+              >
+                <label htmlFor='buscar-numero'>
+                  {idioma.home.leyendaBuscar}
+                </label>
                 <input
                   id='buscar-numero'
                   type='text'
@@ -64,12 +67,16 @@ const Homepage = ({ language, onChangeLanguage }) => {
                 className='btn-click-sino-sabes-el-nro-parte button-link'
                 onClick={() => {
                   dispatch(openModal('open', <Noparte idioma={idioma} />));
-                }}>
+                }}
+              >
                 <p>{idioma.home.enlaceClick}</p>
               </button>
             </div>
             <div>
-              <Link to='/tutorial' className='btn-video-tutorial-home container'>
+              <Link
+                to='/tutorial'
+                className='btn-video-tutorial-home container'
+              >
                 <img
                   className='logo-tutorial'
                   src={iconVideos}
