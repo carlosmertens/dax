@@ -2,7 +2,7 @@
   "navbar": {
     "enlace1": "Empresa",
     "enlace2": "Industrias",
-    "enlace3": "Tutoriales",
+    "enlace3": "Manuales",
     "enlace4": "Contactos",
     "boton1": "Ingresar",
     "boton2": "Crear cuenta"
@@ -109,7 +109,7 @@
       "telefono": "+591 678 98045"
     },
     "peru": {
-      "nombre": "Dax Parts Peru",
+      "nombre": "Dax Parts Perú",
       "email": "em@daxparts.com",
       "telefono": "+51 989 003 538"
     },
@@ -153,7 +153,7 @@
     "botonCotizar": "Cotizar",
     "cambiarModal": "No tienes una cuenta?",
     "cambiarModal1": "Ya tienes una cuenta?",
-    "cambiarEnlace": "Click aqui!",
+    "cambiarEnlace": "Click aquí!",
 
     "swalTitle": "Número de cotización:",
     "swalText": "Gracias por elegir DaxParts. Pronto te contáctaremos!"
@@ -164,7 +164,7 @@
     "tabla": {
       "col1": "Descripción",
       "col2": "Aplicación",
-      "col3": "Tipo",
+      "col3": "Marca",
       "col4": "Precio USD",
       "col5": "Tiempo de Entrega"
     },
