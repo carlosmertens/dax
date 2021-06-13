@@ -11,7 +11,11 @@ const WhatsApp = () => {
     phoneNumber = '59167898045';
   } else if (country === 'Peru') {
     phoneNumber = '51989003538';
-  } else if (country === 'Paraguay') {
+  } else if (
+    country === 'Paraguay' ||
+    country === 'Argentina' ||
+    country === 'Brazil'
+  ) {
     phoneNumber = '595985686232';
   } else {
     showIcon = 'd-none';
@@ -19,11 +23,11 @@ const WhatsApp = () => {
   return (
     <div className={`fixed-bottom d-flex justify-content-end `}>
       <a
-        id="whatsapp"
+        id='whatsapp'
         className={`p-3 ${showIcon}`}
         href={`https://api.whatsapp.com/send?phone=${phoneNumber}&text=Hola DaxParts, estoy buscando los siguientes repuestos:`}
-        rel="noreferrer noopener"
-        target="_blank"
+        rel='noreferrer noopener'
+        target='_blank'
       >
         <WhatsAppLogo />
       </a>

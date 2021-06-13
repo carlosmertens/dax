@@ -9,7 +9,11 @@ const Pais = ({ country }) => {
     return (
       <div>
         <div className='d-flex flex-row'>
-          <img src={flagBolivia} alt='Bandera Bolivia' className='pais-bandera' />
+          <img
+            src={flagBolivia}
+            alt='Bandera Bolivia'
+            className='pais-bandera'
+          />
           <p className='pais-texto'>
             <strong>Bolivia</strong>
           </p>
@@ -27,7 +31,11 @@ const Pais = ({ country }) => {
         </div>
       </div>
     );
-  } else if (country === 'Paraguay') {
+  } else if (
+    country === 'Paraguay' ||
+    country === 'Argentina' ||
+    country === 'Brazil'
+  ) {
     return (
       <div>
         <div className='d-flex flex-row'>
