@@ -24,7 +24,7 @@ const Homepage = ({ language, onChangeLanguage }) => {
   };
 
   //TODO: Delete console log after test
-  console.log(country);
+  // console.log(country);
 
   return (
     <React.Fragment>
